@@ -5,7 +5,7 @@ function [ fileData ] = loadData(  )
 
 [filename,pathname] = uigetfile('*.csv;');
 filepath=fullfile(pathname,filename);
-
+% This is my changes
 s = struct;
 a = readtable(filepath,'ReadVariableNames',true);
 
