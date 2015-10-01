@@ -12,19 +12,25 @@
 \contentsline {section}{\numberline {3.3}Funktionelle krav}{5}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Use Case 1}{5}{subsection.3.3.1}
 \contentsline {chapter}{\chapternumberline {4}Accepttest}{9}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Klimaaftaler}{11}{chapter.5}
-\contentsline {section}{\numberline {5.1}Kyoto-aftalen}{11}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Kvoter}{12}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Kritik af aftalen}{12}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Ny global aftale}{12}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Forpligtelser}{13}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Forhandlingerne efter COP19}{13}{subsection.5.2.2}
-\contentsline {chapter}{\chapternumberline {6}Screening af virkemidler}{15}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Energiberegning}{17}{chapter.7}
-\contentsline {section}{\numberline {7.1}Gradd\IeC {\o }gnsmetoden}{17}{section.7.1}
-\contentsline {chapter}{\chapternumberline {8}St\IeC {\r a}lmateriale}{19}{chapter.8}
-\contentsline {section}{\numberline {8.1}Fremstilling}{19}{section.8.1}
-\contentsline {section}{\numberline {8.2}Egenskaber}{19}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Arbejdskurve}{19}{subsection.8.2.1}
-\contentsline {chapter}{\chapternumberline {9}Konklusion}{21}{chapter.9}
-\contentsline {appendix}{\chapternumberline {A}Casehus}{23}{appendix.A}
+\contentsline {section}{\numberline {4.1}Versionshistorik}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Indledning}{10}{section.4.2}
+\contentsline {section}{\numberline {4.3}Accepttest af funktionelle krav}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Test setup use case 1: P\IeC {\r a}fyldning af celler}{10}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Test setup use case 2: Sortering af langerhanske \IeC {\o }er}{12}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Test setup use case 3: Stop sorteringscyklus}{13}{subsection.4.3.3}
+\contentsline {chapter}{\chapternumberline {5}Klimaaftaler}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Kyoto-aftalen}{15}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Kvoter}{16}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Kritik af aftalen}{16}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Ny global aftale}{16}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Forpligtelser}{17}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Forhandlingerne efter COP19}{17}{subsection.5.2.2}
+\contentsline {chapter}{\chapternumberline {6}Screening af virkemidler}{19}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Energiberegning}{21}{chapter.7}
+\contentsline {section}{\numberline {7.1}Gradd\IeC {\o }gnsmetoden}{21}{section.7.1}
+\contentsline {chapter}{\chapternumberline {8}St\IeC {\r a}lmateriale}{23}{chapter.8}
+\contentsline {section}{\numberline {8.1}Fremstilling}{23}{section.8.1}
+\contentsline {section}{\numberline {8.2}Egenskaber}{23}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Arbejdskurve}{23}{subsection.8.2.1}
+\contentsline {chapter}{\chapternumberline {9}Konklusion}{25}{chapter.9}
+\contentsline {appendix}{\chapternumberline {A}Casehus}{27}{appendix.A}
