@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.21)  1 OCT 2015 22:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.21)  1 OCT 2015 23:06
 entering extended mode
 **Rapport.tex
 
@@ -1714,7 +1714,7 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 6.
 \c__siunitx_mathtt_int=\count326
 
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\formalia/f
-orside.tex" <billeder/forside.jpg, id=151, 2280.52pt x 1710.39pt>
+orside.tex" <billeder/forside.jpg, id=163, 2280.52pt x 1710.39pt>
 File: billeder/forside.jpg Graphic file (type jpg)
 
 <use billeder/forside.jpg>
@@ -1730,7 +1730,7 @@ ments/GitHub/Islets-of-Langerhans/Rapport/billeder/forside.jpg>] [2
 
 ]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\formalia/t
-itelblad.tex" <billeder/AU-logo-DK.pdf, id=163, 318.67056pt x 48.37021pt>
+itelblad.tex" <billeder/AU-logo-DK.pdf, id=175, 318.67056pt x 48.37021pt>
 File: billeder/AU-logo-DK.pdf Graphic file (type pdf)
 
 <use billeder/AU-logo-DK.pdf>
@@ -1760,7 +1760,7 @@ orord.tex" ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1pbk.fd"))
 
 ]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\Rapport.to
-c") [7] [8]
+c" [7]) [8]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\intro/indl
 edning.tex"
 
@@ -3164,9 +3164,889 @@ Overfull \hbox (16.71783pt too wide) in alignment at lines 3--40
 Underfull \vbox (badness 10000) detected at line 40
  []
 
-[13]) [14]))
+[13]) [14]
+("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\accepttest
+/accepttest-uc4.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]| \T1/cmr/bx/n/10.95 Hand-
+ []
+
+
+Overfull \hbox (1.43507pt too wide) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Forventet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Test-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]|\T1/cmr/bx/n/10.95 Initialer
+ []
+
+
+Overfull \hbox (3.34888pt too wide) in paragraph at lines 8--8
+[]|\T1/cmr/m/n/10.95 Operatøren
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 [Indstil-lig-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|\T1/cmr/m/n/10.95 Et nyt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 vin-due
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 sy-ste-mets
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 indstil-lin-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|\T1/cmr/m/n/10.95 Knappen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 [Indstil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 lin-ger]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+[]|\T1/cmr/m/n/10.95 Arduino
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/10.95 sen-der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/10.95 sig-nal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/10.95 til ven-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/10.95 ti-len om
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+[]|\T1/cmr/m/n/10.95 Pin D7
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
+\T1/cmr/m/n/10.95 mul-ti-me-
+ []
+
+
+Overfull \hbox (1.59297pt too wide) in paragraph at lines 15--15
+[]|\T1/cmr/m/n/10.95 Undtagelse
+ []
+
+
+Overfull \hbox (3.34888pt too wide) in paragraph at lines 15--15
+[]|\T1/cmr/m/n/10.95 Operatøren
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 klik-ker
+ []
+
+
+Overfull \hbox (5.29146pt too wide) in paragraph at lines 15--15
+[]|\T1/cmr/m/n/10.95 Indstillings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 vinduet
+ []
+
+
+Underfull \hbox (badness 5431) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 luk-kes og
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 sy-ste-mets
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 indstil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 lin-ger er
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+[]|\T1/cmr/m/n/10.95 Knappen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 [An-nul-ler]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 tryk-kes.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 Det ve-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 ri-fi-ce-res
+ []
+
+
+Underfull \hbox (badness 1189) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 at indstil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 lin-ger-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 er uæn-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 dret ved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 at åb-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 Indstil-lin-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/cmr/m/n/10.95 ger igen.
+ []
+
+
+Overfull \hbox (16.71783pt too wide) in alignment at lines 3--21
+ [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 21
+ []
+
+) [15]
+("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\accepttest
+/accepttest-uc5.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]| \T1/cmr/bx/n/10.95 Hand-
+ []
+
+
+Overfull \hbox (1.43507pt too wide) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Forventet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Test-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]|\T1/cmr/bx/n/10.95 Initialer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+[]|\T1/cmr/m/n/10.95 Systemet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 gem-mer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 en fil i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 for-ma-tet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 .csv med
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 føl-gen-de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 vær-di-er:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 1.Tid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 og Da-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 2.Indstil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 lings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 vær-di-er
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 3.An-tal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 sor-te-re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 de cel-ler
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 4.Stør-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
+\T1/cmr/m/n/10.95 rel-ser for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+[]|\T1/cmr/m/n/10.95 Filen er
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+\T1/cmr/m/n/10.95 gemt i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+\T1/cmr/m/n/10.95 da-ta-ba-sen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+\T1/cmr/m/n/10.95 med de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+\T1/cmr/m/n/10.95 spe-ci-fi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+\T1/cmr/m/n/10.95 ce-re-de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+[]|\T1/cmr/m/n/10.95 En ny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 cy-klus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 star-tes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 (UC 1),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 hvor-ef-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 cy-klus-sen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 stop-pes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 (UC 3),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 ved tryk
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 gem-te fil
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 in-spi-ce-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 res ved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 hjælp af
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 te-xte-di-tor
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 (No-te-pad,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 te-xtE-dit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 el-ler lig-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/cmr/m/n/10.95 nen-de).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+[]|\T1/cmr/m/n/10.95 Systemet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 in-for-me-rer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 ope-ra-tø-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 ren om
+ []
+
+
+Underfull \hbox (badness 7256) in paragraph at lines 18--18
+[]|\T1/cmr/m/n/10.95 Der vi-ses
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 be-sked til
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 ope-ra-tø-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+[]|\T1/cmr/m/n/10.95 En ny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 cy-klus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 star-tes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 (UC 1),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 hvor-ef-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 cy-klus-sen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 stop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 pes (UC
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 3), ved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 tryk på
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 [Start/-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 Stop].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 Ob-ser-ver
+ []
+
+
+Overfull \hbox (16.71783pt too wide) in alignment at lines 3--21
+ [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 21
+ []
+
+[16]) [17])
+("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\accepttest
+/accepttest-ikke-funktionellekrav.tex"
+("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\accepttest
+/ikke-funk-krav-1-5.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]| \T1/cmr/bx/n/10.95 Kva-li-
+ []
+
+
+Overfull \hbox (1.43507pt too wide) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Forventet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]|\T1/cmr/bx/n/10.95 Test-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]|\T1/cmr/bx/n/10.95 Initialer
+ []
+
+
+Overfull \hbox (7.64136pt too wide) in paragraph at lines 8--8
+[]|\T1/cmr/m/n/10.95 Hastigheden
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 på sy-ste-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 met skal
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 væ-re Hø-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 je-re end
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 30 øer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 sor-te-ret
+ []
+
+
+Overfull \hbox (21.4949pt too wide) in paragraph at lines 8--8
+[]|\T1/cmr/m/n/10.95 Normalforløbet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 ved en
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 cy-klus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 føl-ges[][][][][][],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 hvor ved
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 der må-les
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 med et
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 sto-pur.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 Sto-pu-ret
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 stop-pes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 ef-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 pro-ces-sen
+ []
+
+
+Underfull \hbox (badness 2237) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 er fær-dig,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 der-ef-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 reg-nes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+\T1/cmr/m/n/10.95 ha-stig-hed
+ []
+
+
+LaTeX Warning: Command \o invalid in math mode on input line 10.
+
+Missing character: There is no ø in font cmr10!
+
+LaTeX Warning: Command \o invalid in math mode on input line 10.
+
+Missing character: There is no ø in font cmr10!
+
+Overfull \hbox (70.98598pt too wide) in paragraph at lines 10--10
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+[]|\T1/cmr/m/n/10.95 Når sor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+\T1/cmr/m/n/10.95 te-ring-cy-
+ []
+
+
+LaTeX Warning: Command \o invalid in math mode on input line 13.
+
+Missing character: There is no ø in font cmr10!
+
+LaTeX Warning: Command \o invalid in math mode on input line 13.
+
+Missing character: There is no ø in font cmr10!
+
+Overfull \hbox (96.5359pt too wide) in paragraph at lines 13--13
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+[]|\T1/cmr/m/n/10.95 Systemet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 in-for-me-rer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 ope-ra-tø-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 ren om
+ []
+
+
+Underfull \hbox (badness 7256) in paragraph at lines 17--17
+[]|\T1/cmr/m/n/10.95 Der vi-ses
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 be-sked til
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 ope-ra-tø-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+[]|\T1/cmr/m/n/10.95 En ny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 cy-klus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 star-tes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 (UC 1),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 hvor-ef-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 sor-te-rings-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 cy-klus-sen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 stop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 pes (UC
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 3), ved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 tryk på
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 [Start/-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 Stop].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+\T1/cmr/m/n/10.95 Ob-ser-ver
+ []
+
+
+Overfull \hbox (16.71783pt too wide) in alignment at lines 3--20
+ [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 20
+ []
+
+[18]) [19]))
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\kontekst/k
-limaaftaler.tex"
+limaaftaler.tex" [20
+
+
+
+]
 LaTeX Info: Redefining \bond on input line 3.
 LaTeX Info: Redefining \dbond on input line 3.
 LaTeX Info: Redefining \tbond on input line 3.
@@ -3176,11 +4056,7 @@ Underfull \hbox (badness 1354) in paragraph at lines 16--17
 Forenede Nationers
  []
 
-[15
-
-
-
-]
+[21]
 Underfull \hbox (badness 1024) in paragraph at lines 38--39
 \T1/cmr/m/n/10.95 Et af de store spørgsmål ved udformningen af en global klimaa
 ftale, er hvordan
@@ -3198,67 +4074,67 @@ Underfull \hbox (badness 1521) in paragraph at lines 38--39
 ige om, hvordan
  []
 
-[16]
+[22]
 Underfull \hbox (badness 1158) in paragraph at lines 44--45
 []\T1/cmr/m/n/10.95 Alle parter skal dog som udgangspunkt forpligte sig i et gi
 vet omfang, også de
  []
 
-) [17] [18]
+) [23] [24]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\kontekst/v
 irkemidler.tex"
 
-Package natbib Warning: Citation `maalere' on page 19 undefined on input line 1
+Package natbib Warning: Citation `maalere' on page 25 undefined on input line 1
 2.
 
-) [19
+) [25
 
 
 
 ]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\teknisk/en
-ergi.tex" [20
+ergi.tex" [26
 
 
 
-] <billeder/graddage.png, id=357, 344.03531pt x 453.94594pt>
+] <billeder/graddage.png, id=414, 344.03531pt x 453.94594pt>
 File: billeder/graddage.png Graphic file (type png)
 
 <use billeder/graddage.png>
 Package pdftex.def Info: billeder/graddage.png used on input line 11.
 (pdftex.def)             Requested size: 234.3013pt x 309.15709pt.
- [21 <C:/Users/Anders Toft/Documents/GitHub/Islets-of-Langerhans/Rapport/billed
+ [27 <C:/Users/Anders Toft/Documents/GitHub/Islets-of-Langerhans/Rapport/billed
 er/graddage.png>]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 35.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)) [22]
+)) [28]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\teknisk/st
 aal.tex"
 
-Package natbib Warning: Citation `fysikbog' on page 23 undefined on input line 
+Package natbib Warning: Citation `fysikbog' on page 29 undefined on input line 
 13.
 
-) [23
+) [29
 
 
 
 ]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\formalia/k
-onklusion.tex" [24
+onklusion.tex" [30
 
 
 
-]) [25]
+]) [31]
 No file Rapport.bbl.
 
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\Rapport.lo
-x") [26
+x") [32
 
 ]
 ("C:\Users\Anders Toft\Documents\GitHub\Islets-of-Langerhans\Rapport\appendiks/
-appendiks1.tex") [27
+appendiks1.tex") [33
 
 
 
@@ -3302,7 +4178,7 @@ appendiks1.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 047B63500EA48B4318065063EC0CAC53;2327.
+(rerunfilecheck)             Checksum: B674970A14AF40817D88B8FB927DA611;2592.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -3310,13 +4186,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 24285 strings out of 493921
- 434720 string characters out of 3144858
- 654499 words of memory out of 3000000
- 26953 multiletter control sequences out of 15000+200000
+ 24330 strings out of 493921
+ 436164 string characters out of 3144858
+ 653499 words of memory out of 3000000
+ 26967 multiletter control sequences out of 15000+200000
  31490 words of font info for 80 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,13n,78p,947b,918s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,15n,78p,947b,918s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
 C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:
 /Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fil
@@ -3342,9 +4218,9 @@ r/sfss0900.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/s
 fti0900.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfti
 1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkd8a.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on Rapport.pdf (35 pages, 695907 bytes).
+Output written on Rapport.pdf (41 pages, 732808 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 312 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 122 named destinations out of 1000 (max. 500000)
+ 336 words of extra memory for PDF output out of 10000 (max. 10000000)
 

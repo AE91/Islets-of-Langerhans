@@ -1,0 +1,23 @@
+  % \section{Accepttest af ikke funktionelle krav}
+\begin{center}
+		\begin{longtable}{ | m{1.785cm} | m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}|m{1.785cm}| } 
+			\hline
+			\textbf{Krav nr.} &\textbf{ Kvalitetskrav} & \textbf{Forventet resultat} & \textbf{Test-metode} &\textbf{Resultat} & \textbf{ \checkmark \textbackslash -} & \textbf{Initialer og dato} \\ 
+			
+			\hline
+			1 &  Hastigheden på systemet skal være Højere end 30 øer sorteret pr. minut & Normalforløbet ved en sorteringscyklus følges\fxnote{indsæt ref til UC}, hvor ved der måles med et stopur. Stopuret stoppes efter sorteringsprocessen er færdig, derefter regnes hastighed ud ved \begin{align}
+			(antal øer)/minutter
+			\end{align} \fxnote{hmm} & Når sorteringcyklussen er færdig er
+			\begin{align}
+			(antal øer)/minutter>30
+			\end{align}
+ &  & & \\
+			\hline
+			
+			5.2 &  Systemet informerer operatøren om at filen er gemt. & Der vises besked til operatøren. & En ny sorteringscyklus startes (UC 1), hvorefter sorteringscyklussen stoppes (UC 3), ved tryk på [Start/Stop]. Observer GUI.   &  & & \\
+			\hline
+			
+		\end{longtable}
+		
+	\end{center}
+	\pagebreak
