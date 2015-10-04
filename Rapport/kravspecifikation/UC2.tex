@@ -1,0 +1,31 @@
+\subsection{Use Case 2 - Sortering af Langerhanske Øer}
+\begin{center}
+		\begin{longtable}{ | m{4cm} | m{8cm}| } 
+			\hline
+			Mål & Sortere Langerhanske Øer \\ 
+			\hline
+			Initiering &  Use casen initieres af [UC 1: Startsorteringscyklus]\\
+			\hline
+			Aktør & N/A \\ 
+			\hline
+			Startbetingelser & Systemet er startet og sorteringscyklussen er i gang\\ 
+			\hline	
+			Slutbetingelser ved succes & Systemet har isoleret en Langerhansk ø og ventilen er lukket \\
+			\hline
+			Slutbetingelser ved undtagelse & \\
+			\hline
+			Normalforløb & \begin{enumerate}
+				\setlength\itemsep{0cm} % Decrease line distance
+				\item Kameraet detekterer en Langerhansk ø
+				\item Arduino sender signal til ventilen om åbning
+				\item Ventilen åbner
+				\item Arduino sender signal til ventilen om lukning
+				\item Ventilen lukker
+			\end{enumerate} \\ 
+			\hline
+			Undtagelser & \\
+			\hline
+		\end{longtable}
+		
+	\end{center}
+	\pagebreak

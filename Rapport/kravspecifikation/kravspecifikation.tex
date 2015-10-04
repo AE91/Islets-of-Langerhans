@@ -1,9 +1,35 @@
 \chapter{Kravspecifikation}
 
 \section{Indledning}
-Formålet med dette dokument er ...
+Dette dokument indeholder kravspecifikationen for The Cell Collector(omtales herefter som systemet). Dokumentet er udarbejdet i samarbejde med kunden(Søren Gregersen) og specificerer kundens kvalitetskrav, samt funktionelle og ikke funktionelle krav. Der er sammen med kunden udarbejdet en accepttest, som har til formål at teste de specificerede krav i kravspecifikation.
 \section{Versionshistorik}
 Tabel...
 
+\section{Systembeskrivelse}
+Formålet med projektet er at udvikle et system til isolation af insulin producerende celler (Langerhanske Øer). Mange farmaceutiske virksomheder og forskningsafdelinger udfører forsøg på disse øer fra bl.a. rotter. Processen med isolering af Langerhanske øer startes ved operativt at fjerne pancreas, hvorefter vævet opløses vha. enzymet kollagenase. Når vævet er opløst fortyndes det yderligere inden det hældes i petriskåle. Øerne bliver herefter manuelt isoleret vha. mikroskop og diverse præcisions redskaber. Denne proces er både besværlig og tidskrævende. Formålet med projektet er derfor, at udvikle en ny metode til isolation af cellerne. Systemet skal indeholder en beholder til opløsningen med langerhanske øer. Denne opløsning skal føres ud gennem en tynd slange(<0,5mm)  forbi et kamera, hvor der ved hjælp af Matlab skal udføres billedprocessering. Billedebehandlingen skal genkende, hvornår der er en langerhanske ø. Derefter skal systemet frasortere denne, ved et ventil system der åbner på det rigtige tidspunkt. Til at skabe flowet i slangerne anvendes en pumpe.  Et krav til pumpen er at den skal være nænsom ved celleopløsningen, da de langerhanske øer er meget skrøbelige.
+En automatiseret løsning af sorteringsprocessen kan bidrage med reducering af omkostningerne, give en mere ensartet sortering samt sikre dokumentation af de sorterede øer. Systemet kan fra et kommercielt synspunkt bidrage til basal forskning og til screening af nye medicinske præparater.
+
+Indsæt figur!!
 \section{Funktionelle krav}
-\input{kravspecifikation/UC1}
+\subsection{Aktør beskrivelse}
+Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er PC’ens filsystem, hvor der løbende gemmes en log over sorteringsprocessen.
+\subsection{Use Case Diagram}
+Indsæt figur!!
+%\input{kravspecifikation/UC1}
+\input{kravspecifikation/UC2}
+\input{kravspecifikation/UC3}
+\input{kravspecifikation/UC4}
+
+
+\section{Ikke funktionelle krav}
+Todo: kvalitetskrav fra kunde
+\input{kravspecifikation/hardware}
+
+\section{Projektafgrænsning}
+Til at afgrænse kravene i projektet er der anvendt MoSCoW metoden. Denne metode er brugt for at give en struktureret oversigt over hvilke krav der er vigtigst at få opfyldt inden for tidsrammen og hvilke der evt. kan implementeres senere hvis tiden er til det.
+
+INDSÆT FIGUR!!
+\section{Samarbejdspartner}
+Gruppens kunde er Søren Gregersen, overlæge på Medicinsk Endokrinologisk Afdeling, Aarhus Universitetshospital. Det er i samarbejde med ham at projektet er blevet specificeret, samt hvilke krav der er til den endelige prototype.
+Samuel Alberg Thrysøe er gruppens projektvejleder. Der afholdes ugentligt et vejledermøde, hvor gruppen giver status på projektet og hvor der diskuteres forskellige problemstillinger. 
+Simon Vammen Grønbæk og Karl Johan Schmidt fungerer som projektets review gruppe. Der holdes møde hver anden uge omhandlende aftalt dagsorden. Formålet med review gruppen er at få konstruktiv feedback på evt. rettelser, opbygning af rapport og generel forståelse.
