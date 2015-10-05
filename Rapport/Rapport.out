@@ -1,39 +1,23 @@
 \BOOKMARK [0][-]{titelblad.0}{Titelblad}{}% 1
 \BOOKMARK [0][-]{indhold.0}{Indholdsfortegnelse}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Indledning}{}% 3
-\BOOKMARK [0][-]{chapter.2}{Projektbeskrivelse}{}% 4
-\BOOKMARK [1][-]{section.2.1}{Problemanalyse}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{Problemformulering}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.3}{Projektafgr\346nsning}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.4}{Metode}{chapter.2}% 8
-\BOOKMARK [0][-]{chapter.3}{Kravspecifikation}{}% 9
-\BOOKMARK [1][-]{section.3.1}{Indledning}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Versionshistorik}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.3}{Systembeskrivelse}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.4}{Funktionelle krav}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.4.1}{Akt\370r beskrivelse}{section.3.4}% 14
-\BOOKMARK [2][-]{subsection.3.4.2}{Use Case Diagram}{section.3.4}% 15
-\BOOKMARK [2][-]{subsection.3.4.3}{Use Case 2 - Sortering af Langerhanske \330er}{section.3.4}% 16
-\BOOKMARK [2][-]{subsection.3.4.4}{Use Case 3 - Stop sorteringscyklus}{section.3.4}% 17
-\BOOKMARK [2][-]{subsection.3.4.5}{Use Case 4 - Indstillinger}{section.3.4}% 18
-\BOOKMARK [1][-]{section.3.5}{Ikke funktionelle krav}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.5.1}{Hardware}{section.3.5}% 20
-\BOOKMARK [1][-]{section.3.6}{Projektafgr\346nsning}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.7}{Samarbejdspartner}{chapter.3}% 22
-\BOOKMARK [0][-]{chapter.4}{Klimaaftaler}{}% 23
-\BOOKMARK [1][-]{section.4.1}{Kyoto-aftalen}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.1.1}{Kvoter}{section.4.1}% 25
-\BOOKMARK [2][-]{subsection.4.1.2}{Kritik af aftalen}{section.4.1}% 26
-\BOOKMARK [1][-]{section.4.2}{Ny global aftale}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.2.1}{Forpligtelser}{section.4.2}% 28
-\BOOKMARK [2][-]{subsection.4.2.2}{Forhandlingerne efter COP19}{section.4.2}% 29
-\BOOKMARK [0][-]{chapter.5}{Screening af virkemidler}{}% 30
-\BOOKMARK [0][-]{chapter.6}{Energiberegning}{}% 31
-\BOOKMARK [1][-]{section.6.1}{Gradd\370gnsmetoden}{chapter.6}% 32
-\BOOKMARK [0][-]{chapter.7}{St\345lmateriale}{}% 33
-\BOOKMARK [1][-]{section.7.1}{Fremstilling}{chapter.7}% 34
-\BOOKMARK [1][-]{section.7.2}{Egenskaber}{chapter.7}% 35
-\BOOKMARK [2][-]{subsection.7.2.1}{Arbejdskurve}{section.7.2}% 36
-\BOOKMARK [0][-]{chapter.8}{Konklusion}{}% 37
-\BOOKMARK [0][-]{appendiks.0}{Appendiks}{}% 38
-\BOOKMARK [0][-]{appendix.A}{Casehus}{}% 39
+\BOOKMARK [0][-]{chapter.1}{Kravspecifikation}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Indledning}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Versionshistorik}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Systembeskrivelse}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{Akt\370r beskrivelse}{section.1.3}% 7
+\BOOKMARK [1][-]{section.1.4}{Funktionelle krav}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.4.1}{Use Case Diagram}{section.1.4}% 9
+\BOOKMARK [2][-]{subsection.1.4.2}{Use Case 1 - Start sorteringscyklus}{section.1.4}% 10
+\BOOKMARK [2][-]{subsection.1.4.3}{Use Case 2 - Sortering af Langerhanske \330er}{section.1.4}% 11
+\BOOKMARK [2][-]{subsection.1.4.4}{Use Case 3 - Stop sorteringscyklus}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.5}{Use Case 4 - Indstillinger}{section.1.4}% 13
+\BOOKMARK [2][-]{subsection.1.4.6}{Use Case 5 - Data logning}{section.1.4}% 14
+\BOOKMARK [1][-]{section.1.5}{Ikke funktionelle krav}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.5.1}{Kvalitetskrav}{section.1.5}% 16
+\BOOKMARK [2][-]{subsection.1.5.2}{Hardware}{section.1.5}% 17
+\BOOKMARK [2][-]{subsection.1.5.3}{Software}{section.1.5}% 18
+\BOOKMARK [2][-]{subsection.1.5.4}{GUI - Mockup}{section.1.5}% 19
+\BOOKMARK [1][-]{section.1.6}{Projektafgr\346nsning}{chapter.1}% 20
+\BOOKMARK [1][-]{section.1.7}{Samarbejdspartner}{chapter.1}% 21
+\BOOKMARK [0][-]{appendiks.0}{Appendiks}{}% 22
+\BOOKMARK [0][-]{appendix.A}{Casehus}{}% 23

@@ -1,104 +1,57 @@
-\subsection{Use Case 1}
-Dette er Use Case 1
-
-
-\begin{table}[]
-\centering
-\label{my-label}
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Use Case 1  }           & \textbf{Påfyldning af celler} \\ \hline
-Mål:                            &         \\ \hline
-Initiering:                     &                            \\ \hline
-Aktør:                          &                            \\ \hline
-Startbetingelser:               &                            \\ \hline
-Slutbetingelser ved succes:     &                            \\ \hline
-Slutbetingelser ved undtagelse: &                            \\ \hline
-Normalforløb:                   &                            \\ \hline
-Undtagelser:                    &                            \\ \hline
-\end{tabular}
-\caption{Use Case 1}
-\label{tab:uc1}
-\end{table}
-
-\begin{table}[]
-\centering
-
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Use Case 1  }           & \textbf{Påfyldning af celler }\\ \hline
-Mål:                            &               \\ \hline
-Initiering:                     & test	\\ \hline
-Aktør:                          &   Operatør                       \\ \hline
-Startbetingelser:               &    Opløsningsbeholderen er tom        \\ \hline
-Slutbetingelser ved succes:     &     Opløsningsbeholderen er fyldt      \\ \hline
-Slutbetingelser ved undtagelse: &                            \\ \hline
-Normalforløb:                   & Punktopstilling
-\\ \hline
-Undtagelser:                    &                            \\ \hline
-\end{tabular}
-
-\caption{My caption}
-\label{my-label}
-\end{table}
-
+\subsection{Use Case 1 - Start sorteringscyklus}
 \begin{center}
 		\begin{longtable}{ | m{4cm} | m{8cm}| } 
 			\hline
-			Use Case 1 & Påfyldning af celler \\
+			Mål & Start sorteringscyklus \\ 
 			\hline
-			Mål & Påfyldning af celler  \\ 
+			Initiering &  Use casen initieres af operatøren\\
 			\hline
-			Initiation &  Medicinsk personale\\
+			Aktør & Operatør \\ 
 			\hline
-			Actors and stakeholders & 
-			\begin{itemize}
-				\item Medicinsk personale(primær)
-				\item Patient (sekundær)
-			\end{itemize} \\ 
-			\hline
-			References & Use case 3 \\ 
-			\hline
-			Number of concurrent occurrences & En til mange\\ 
+			Startbetingelser & The Cell Collector programmet er startet på computeren \\ 
 			\hline	
-			Precondition & 
-			\begin{itemize}
-				\item Mode switch er sat til “\textit{Konditionering}”
-			\end{itemize} \\ 
+			Slutbetingelser ved succes & Systemet starter med sorteringen af Langerhanske øer \\
 			\hline
-			Postcondition & 
-			\begin{itemize}
-				\item 5 hele cyklus er gennemført og gemt på hukommelsen
-			\end{itemize} \\ 
+			Slutbetingelser ved undtagelse & N/A \\
 			\hline
-			Main scenario & \begin{enumerate}
+			Normalforløb & \begin{enumerate}
 				\setlength\itemsep{0cm} % Decrease line distance
-				\item \textit{Medicinsk personale} placerer manchetten på patienten
-				\item Knappen [Start/Stop] trykkes
-				\item Et nyt patient ID genereres
-				\subitem[Extension \#1] 
-				\item Patient ID’et vises på skærmen
-				\item Blodtrykket måles via \textit{use case 3}
-				\subitem[Extension \#2]
-				\item Blodtrykket vises på displayet og værdien gemmes i hukommelse
-				\item Cuffen fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg)
+				\item Operatør fylder celleopløsningsbeholderen
+				\item Celleopløsningsbeholderen er fyldt
+				\item Operatør starter sorteringscyklus ved at klikke på [Start]
+				\subitem [Undtagelse 1: Wastebeholder er fyldt] 
+				\item Systemet initialiserer Arduinoen
+				\subitem [Undtagelse 2: Ingen forbindelse til Arduino]
+				\item Systemet kontrollerer celleopløsningsbeholderen
+				\item Systemet initialiserer kameraet
+				\subitem [Undtagelse 3: Kameraet initialiserer ikke]
+				\item Systemet tænder for kamera lyset
+				\item Systemet tænder for pumpen
+				
 			\end{enumerate} \\ 
 			\hline
-			Main scenario & \begin{enumerate}
-				\setlength\itemsep{0cm} % Decrease line distance
-				\setcounter{enumi}{7}				
-				\item Tidsstempel gemmes når trykket er opnået
-				\item Trykket opretholdes i 5 minutter(Okklusion) og resterende tid vises på displayet
-				\item Blodtrykket måles via \textit{use case 3}
-				fra punkt 2.
-				\item Deflaterer cuffen helt og forbliver i dette stadie i 5 min(Reperfusion) Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet
-				\item Gentag punkt 7-11 (en cyklus) fire gange. Det nuværende cyklus nummer vises i displayet
-			\end{enumerate} \\ 
-			\hline
-			Extensions & [Extension \#1] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID.
+			Undtagelser & [Undtagelse 1: Wastebeholder er fyldt] 
 			
-			[Extension \#2] Blodtrykket kunne ikke måles. Gentag use case 3 hvis extension 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper.  \\
+			\begin{enumerate}
+			\item Systembesked: Tøm venligst Wastebeholder før start
+			\item Operatøren trykker “OK”
+			\item Systemet fortsætter opstartprocessen
+			\end{enumerate} 
+			
+			[Undtagelse 2: Ingen forbindelse til Arduino]
+			
+			\begin{enumerate}
+			\item 1.	Systembesked: Ingen forbindelse til Arduino, Tjek forbindelser.
+			\end{enumerate} 
+	
+			[Undtagelse 3: Kameraet initialiseres ikke]
+			
+			\begin{enumerate}
+			\item System fejlmeddelse: Kameraet er ikke initialiseret:
+			\item Genstart initialisering af Kameraet
+			\end{enumerate} \\
 			\hline
 		\end{longtable}
 		
 	\end{center}
+	\pagebreak
