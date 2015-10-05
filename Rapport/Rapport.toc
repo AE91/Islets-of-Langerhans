@@ -14,17 +14,17 @@
 \contentsline {subsection}{\numberline {3.4.1}Akt\IeC {\o }r beskrivelse}{6}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Use Case Diagram}{6}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}Use Case 2 - Sortering af Langerhanske \IeC {\O }er}{6}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Use Case 3 - Stop sorteringscyklus}{7}{subsection.3.4.4}
-\contentsline {subsection}{\numberline {3.4.5}Use Case 4 - Indstillinger}{8}{subsection.3.4.5}
-\contentsline {section}{\numberline {3.5}Ikke funktionelle krav}{9}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Hardware}{9}{subsection.3.5.1}
-\contentsline {subsubsection}{Microcontroller}{9}{section*.4}
-\contentsline {subsubsection}{Pumpe}{9}{section*.5}
-\contentsline {subsubsection}{Slanger}{9}{section*.6}
-\contentsline {subsubsection}{Beholdere}{9}{section*.7}
-\contentsline {subsubsection}{Ventil}{9}{section*.8}
-\contentsline {section}{\numberline {3.6}Projektafgr\IeC {\ae }nsning}{9}{section.3.6}
-\contentsline {section}{\numberline {3.7}Samarbejdspartner}{9}{section.3.7}
+\contentsline {subsection}{\numberline {3.4.4}Use Case 3 - Stop sorteringscyklus}{8}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Use Case 4 - Indstillinger}{9}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Ikke funktionelle krav}{10}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Hardware}{10}{subsection.3.5.1}
+\contentsline {subsubsection}{Microcontroller}{10}{section*.4}
+\contentsline {subsubsection}{Pumpe}{10}{section*.5}
+\contentsline {subsubsection}{Slanger}{10}{section*.6}
+\contentsline {subsubsection}{Beholdere}{10}{section*.7}
+\contentsline {subsubsection}{Ventil}{10}{section*.8}
+\contentsline {section}{\numberline {3.6}Projektafgr\IeC {\ae }nsning}{10}{section.3.6}
+\contentsline {section}{\numberline {3.7}Samarbejdspartner}{10}{section.3.7}
 \contentsline {chapter}{\chapternumberline {4}Klimaaftaler}{11}{chapter.4}
 \contentsline {section}{\numberline {4.1}Kyoto-aftalen}{11}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Kvoter}{12}{subsection.4.1.1}
