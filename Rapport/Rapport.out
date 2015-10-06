@@ -23,11 +23,11 @@
 \BOOKMARK [1][-]{section.2.1}{Versionshistorik}{chapter.2}% 23
 \BOOKMARK [1][-]{section.2.2}{Indledning}{chapter.2}% 24
 \BOOKMARK [1][-]{section.2.3}{Accepttest af funktionelle krav}{chapter.2}% 25
-\BOOKMARK [2][-]{subsection.2.3.1}{Test setup use case 1: P\345fyldning af celler}{section.2.3}% 26
-\BOOKMARK [2][-]{subsection.2.3.2}{Test setup use case 2: Sortering af langerhanske \370er}{section.2.3}% 27
-\BOOKMARK [2][-]{subsection.2.3.3}{Test setup use case 3: Stop sorteringscyklus}{section.2.3}% 28
-\BOOKMARK [2][-]{subsection.2.3.4}{Test setup use case 4: Indstillinger}{section.2.3}% 29
-\BOOKMARK [2][-]{subsection.2.3.5}{Test setup use case 5: Data logning}{section.2.3}% 30
+\BOOKMARK [2][-]{subsection.2.3.1}{Use Case 1: P\345fyldning af celler}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.2}{Use Case 2: Sortering af langerhanske \370er}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.3}{Use Case 3: Stop sorteringscyklus}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.4}{Use Case 4: Indstillinger}{section.2.3}% 29
+\BOOKMARK [2][-]{subsection.2.3.5}{Use Case 5: Data logning}{section.2.3}% 30
 \BOOKMARK [1][-]{section.2.4}{Accepttest af ikke funktionelle krav}{chapter.2}% 31
 \BOOKMARK [2][-]{subsection.2.4.1}{Hardware}{section.2.4}% 32
 \BOOKMARK [0][-]{appendiks.0}{Appendiks}{}% 33
