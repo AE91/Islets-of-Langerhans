@@ -3,10 +3,19 @@
 \section{Indledning}
 Dette dokument indeholder kravspecifikationen for The Cell Collector(omtales herefter som systemet). Dokumentet er udarbejdet i samarbejde med kunden(Søren Gregersen) og specificerer kundens kvalitetskrav, samt funktionelle og ikke funktionelle krav. Der er sammen med kunden udarbejdet en accepttest, som har til formål at teste de specificerede krav i kravspecifikation.
 \section{Versionshistorik}
+\begin{center}
+		\begin{longtable}{ | m{2.5cm} | m{2.5cm}| m{2.5cm}| m{2.5cm}| m{2.5cm}| } 
+			\hline
+			\textbf{Dato} & \textbf{Version} & \textbf{Punktnr} & \textbf{Beskrivelse} & \textbf{Initialer}  \\ 
+			\hline
+			19/09 2015 &  0.1 & & Dokument sendt til review & AE og AT \\
+			\hline
+		19/09 2015 &  0.2 & & Rettelser fra reviewmøde og Latex layout & AE og AT \\
+			\hline
+		\end{longtable}
+		
+	\end{center}
 
-
-
-Tabel...
 \newpage
 \section{Systembeskrivelse}
 Formålet med projektet er at udvikle et system til isolation af insulin producerende celler (Langerhanske Øer). Mange farmaceutiske virksomheder og forskningsafdelinger udfører forsøg på disse øer fra bl.a. rotter. Processen med isolering af Langerhanske øer startes ved operativt at fjerne pancreas, hvorefter vævet opløses vha. enzymet kollagenase. Når vævet er opløst fortyndes det yderligere inden det hældes i petriskåle. Øerne bliver herefter manuelt isoleret vha. mikroskop og diverse præcisions redskaber. Denne proces er både besværlig og tidskrævende. Formålet med projektet er derfor, at udvikle en ny metode til isolation af cellerne. Systemet skal indeholder en beholder til opløsningen med langerhanske øer. Denne opløsning skal føres ud gennem en tynd slange(<0,5mm)  forbi et kamera, hvor der ved hjælp af Matlab skal udføres billedprocessering. Billedebehandlingen skal genkende, hvornår der er en langerhanske ø. Derefter skal systemet frasortere denne, ved et ventil system der åbner på det rigtige tidspunkt. Til at skabe flowet i slangerne anvendes en pumpe.  Et krav til pumpen er at den skal være nænsom ved celleopløsningen, da de langerhanske øer er meget skrøbelige.
