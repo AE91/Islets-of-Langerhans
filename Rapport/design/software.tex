@@ -1,6 +1,15 @@
 \section{Software}
-Softwaren til The Cell Collector udvikles i Matlab. Programmet udvikles af modulær kode, som afgrænser de enkelte funktionaliteter. Blokdiagrammet (figur \ref{fig:bdd_software}) viser hvordan programmet er opdelt i blokke, som afgrænser de enkelte funktionaliteter. 
-\subsection{Softwarebeskrivelse}
+Softwaren til The Cell Collector udvikles i Matlab. Programmet udvikles af modulær kode, som afgrænser de enkelte funktionaliteter. Blokdiagrammet (figur \ref{fig:bdd_software}) viser hvordan programmet er opdelt i blokke, som afgrænser de enkelte funktionaliteter. Blokkene i det nederste lag skal ses som ækvivalente til funktioner i Matlab.  
+De overordnede blokke i programmet er:
+
+Arduino
+
+Kamera
+
+User Interface
+
+Disse blokke er nærmere beskrevet under hver deres afsnit.
+%\subsection{Softwarebeskrivelse}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/BDD_Software-crop.pdf}
@@ -8,23 +17,30 @@ Softwaren til The Cell Collector udvikles i Matlab. Programmet udvikles af modul
 	\label{fig:bdd_software}
 \end{figure}
 
+%\subsection{Blokbeskrivelser}
+\subsection{Arduino}
+Denne bloks formål er, at håndtere al funktionalitet til styring af Arduinoen. Til styring af Arduinoen anvendes Arduino Support Package, som frit kan hentes hos Mathworks. Den indeholder basale funktioner til bl.a. opsamling af analoge signaler, understøttelse af digitalt og PWM output og styring af DC motorer. Support biblotektet indeholder de funktioner der skal til for at styre systemets hardware.
+For at initialisere Arduinoen og hardwaren implementeres en funktion, som opsætter Arduinoen med de inputs og outputs som er specificeret under hardware afsnittet. \fxnote{Indsæt reference til IBD for Hardware}. Denne funktion er kaldt initArduino. Når brugeren klikker "Stop" skal systemet lukke ned som specificeret i Use Case 3. \fxnote{Reference til Use case 3} Til dette implementeres en funktion kaldet stopArduino. 
 
-\subsection{Blokbeskrivelser}
-\subsubsection{Arduino}
+\newpage
+
+Arduino blokken er yderligere opdelt i 3 underkategorier, som vist i figur \ref{fig:bdd_software}. I det interne blok diagram (figur: \ref{fig:ibd_software_arduino}) ses underblokkenes relationer med hinanden. Disse blokke er nærmere beskrevet herunder.  
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/IBD_Software_Arduino-crop.pdf}
 	\caption{IBD - Arduino [Software]}
 	\label{fig:ibd_software_arduino}
 \end{figure}
-Beskrivelse om Arduino her
 \subsubsection{LoadCell}
-LoadCell beskrivelse her
-\subsubsection{Pumpe}
-\subsubsection{Ventil}
+Denne funktion anvendes til, at få feedback fra loadcellen. Den læser det analoge input fra Arduinoen og sammenligner den med grænseværdien for hvornår celleopløsningsbeholderen er tom. Funktionens output er en boolean, som enten er true eller false alt efter om celleopløsningsbeholderen er tom.
+\subsubsection{Pump Control}
+I denne funktion implementeres alt funktionalitet til styring af pumpen. Funktionen har en integer værdi som input, som specificerer flow hastigheden. Som output bruger funktionen et PWM moduleret signal til, at justere hastigheden på pumpen. Til dette anvendes funktionen writePWMVoltage fra Arduino Support pakken.
+\subsubsection{Valve Control}
+Funktionen til styring af ventilen har en boolean som input. Denne værdi indikerer om en Langerhansk Ø er detekteret af kameraet. Alt efter værdien af denne sættes forbindelsen til ventilen høj eller lav med funktionen writeDigitalPin. 
 
-
-\subsubsection{Kamera}
+\newpage
+\subsection{Kamera}
+Denne bloks formål er, at modtage et feed fra kameraet samt at detektere om en Langerhansk Ø har passeret kameraet. Som det ses på det overordnede blok diagram for softwaren (figur: \ref{fig:bdd_software}) består kamera blokken af 2 underblokke. Nedenstående interne blok diagram (figur: \ref{fig:ibd_software_camera}) viser, hvordan disse blokke er forbundet internt. De enkelte blokkes funktion er yderligere beskrevet herunder.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/IBD_Software_Kamera-crop.pdf}
@@ -32,13 +48,33 @@ LoadCell beskrivelse her
 	\label{fig:ibd_software_camera}
 \end{figure}
 
+\subsubsection{CameraFeed}
+Denne bloks funktion er at modtage feedet fra kameraet og gemme billedet i handles. Til dette anvendes funktionen snapshot, som gemmer det nuværende billede som en variabel.  
+\subsubsection{DetectIslets}
+I denne funktion foregår alt billedbehandlingen på det omsamlede billede. Billedet segmenteres for at fjerne støj og andet væv. Alt efter om en Langerhansk Ø er detekteret eller ej returneres true eller false. 
 
+\newpage
 \subsection{Funktioner}
-\subsection{User Interface}
-\subsubsection{Indstillinger}
-Mockup
-\subsubsection{Callbacks}
-Start
-Stop
-Indstillinger
-Indsæt callbacks i form af flowcharts
+I nedenstående liste er systemets funktioner opsummeret. 
+\begin{itemize}
+\item initArduino
+\item pumpControl 
+\item valveControl 
+\item loadCell 
+\item cameraFeed 
+\item detectIslets 
+\end{itemize}
+Herudover skal systemets indstillinger kunne ændres, samt data om sorteringscyklussen skal logges. Til dette implementeres funktionerne settings og exportData 
+\begin{itemize}
+\item settings 
+\item exportData 
+\end{itemize}
+
+\newpage
+\input{design/ui}
+
+
+
+
+
+
