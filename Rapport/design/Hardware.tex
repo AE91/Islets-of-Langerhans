@@ -1,8 +1,27 @@
  \section{Hardware}
  \fxnote{der skal laves referecener og generelt skrives mere dybdegående spec beskrivelse}
 %metatekst til hardware
- Dette afsnit indeholder alt omkring hardware delene, fra hvilke krav der er gået ud fra til hvad der er fundet frem til. Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”proof of concept” projekt.
+ Dette afsnit indeholder alt omkring hardware delene, fra hvilke krav der er gået ud fra til hvad der er fundet frem til. Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
  
+\subsection{Block Definition Diagram} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{pdf/BDD_Hardware_cropped.pdf}
+	\caption{BDD - Cell Collector [Hardware]}
+	\label{fig:bdd_Hardware}
+\end{figure}
+
+\subsection{internal block Diagram} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{pdf/IBD_Hardware(Arduino)_cropped.pdf}
+	\caption{IBD - Cell Collector [Hardware]}
+	\label{fig:ibd_Hardware}
+\end{figure}
+
+
+
 \subsection{Kamera}
 Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud på den måde at de er mere lyse end resten af vævet, er det underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er et standard frame rate valgt, 30f/s. Kameraet opløsning er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
  
@@ -48,7 +67,3 @@ Loadcellen eller vægtcellen som det kan kaldes på dansk, skal bruges det er ko
 \url{http://www.ebay.com/itm/281311660424}
 
 
-\subsection{BDD}
-Anden overskrift måske
-\subsection{IBD}
-Evt anden overskrift
