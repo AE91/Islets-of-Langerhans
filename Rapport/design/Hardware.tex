@@ -138,7 +138,7 @@ Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal s
 			\hline
 			\textbf{Type:} & Arduino UNO (ATmega328P) \\ 
 			\hline
-			\textbf{Forsyning:} & 5v (USB)  \\ 
+			\textbf{Forsyning:} & 5VDC (USB)  \\ 
 			\hline
 			\textbf{Clock speed:} & 16 MHz  \\ 
 			\hline		
@@ -166,9 +166,9 @@ Motor shieldet skal hjælpe microcontrolleren med, at styre pumpen til systemet.
 			\hline
 			\textbf{Type:} & Velleman L298P \\ 
 			\hline
-			\textbf{Forsyning:} & 5v (USB)  \\ 
+			\textbf{Forsyning:} & ???)  \\ 
 			\hline
-			\textbf{Output spænding} & 50 V (max)  \\ 
+			\textbf{Output spænding} & 50V (max)  \\ 
 			\hline		
 			\textbf{Output strøm} & 2.5A  \\ 
 			\hline	
@@ -189,27 +189,45 @@ Ventilens funktion er at sorterer de langerhanske øer, fra resten af opløsning
 			\hline
 			\textbf{Specifikation} &\textbf{værdi} \\ 
 			\hline
-			\textbf{Type:} & Velleman L298P \\ 
+			\textbf{Type:} & Solenoid Electromagnet Valve \\ 
 			\hline
-			\textbf{Forsyning:} & v (USB)  \\ 
+			\textbf{Forsyning:} & 6VDC, 0.3A  \\ 
 			\hline
-			\textbf{Output spænding} & 50 V (max)  \\ 
+			\textbf{Porte} & 3 stk \\ 
 			\hline		
-			\textbf{Output strøm} & 2.5A  \\ 
+			\textbf{studser} & 4mm  \\ 
 			\hline	
-			\textbf{Kanaler} & 2 stk  \\ 
-			\hline	
-			\textbf{Interface} & Forsynes i gennem arduino  \\ 
+			\textbf{Interface} & open/closed  \\ 
 			\hline	
 		\end{longtable}
 \end{center}
 
 
-Der findes utrolig mange typer af ventiler, med ret store prisforskelle. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med 500um studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, bliver svært hvis kammeret pludseligt bliver stort. Dette er et stykke hardware, hvor der kan bruges meget tid og mange penge.
+Der er utrolig stor variantion i kvalitet og pris på magnetventiler. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med 500um studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Dette er et stykke hardware, hvor der kan bruges meget tid og mange penge.
 Kravene til ventilen er, at den skal være 3 vejs 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50ms.
 
 \subsection{Pumpe}
-Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til at kameraet kan nå at detekterer en ø. Herfor er det et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige typer pumper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det er dog uvist hvordan de langerhanske øer vil opfører sig ved sådan en pumpe. Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
+Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til at kameraet kan nå at detekterer en ø.
+
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Type:} & Peristaltisk pumpe \\ 
+			\hline
+			\textbf{Forsyning:} & 6VDC, ?A  \\ 
+			\hline
+			\textbf{Hastighed} & 0.1-60 omdr./.(0-60ml./min.) \\ 
+			\hline		
+			\textbf{studser} & varianble slange størrelse  \\ 
+			\hline	
+		\end{longtable}
+\end{center}
+
+
+
+ Herfor er det et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige typer pumper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det er dog uvist hvordan de langerhanske øer vil opfører sig ved sådan en pumpe. Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
 
 \subsubsection{Vakuumpumper}
 \url{ http://www.ebay.com/itm/281571300037}
