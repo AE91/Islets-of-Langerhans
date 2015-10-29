@@ -4,17 +4,19 @@ Dette afsnit skal være med til at dokumentere hardwaren i systemet \textit{the 
 
 \subsection{Læsevejledning til hardware}
 %læsevejledning
-Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, ligger det sig tæt op af kravspecifikationen. Da det er kravene i kravspecfikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse af hvad det beskriver. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent og begrundelser og argumentationer hvorfor det er valgt i den skrevne rækkefølge. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
+Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, ligger det sig tæt op af kravspecifikationen. Da det er kravene i kravspecfikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse af hvad det beskriver. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent og begrundelser og argumentationer hvorfor det er valgt, i den skrevne rækkefølge. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
 
 %Det gamle afsnit, måske skal det være i et leverandør afsnit 
 % Dette afsnit indeholder den nødvendige viden hardware delene i systemet Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
- 
- 
- 
+\subsection{Leverandør af produkter}
+Når der skal vælges leverandør til et produkt er det vigtigt, at de er pålidelige. Da delene skal kunne leveres i hele produktets levetid. Specielt hvis produktet kræver en stor dokumentation og godkendelse, som for eksempel medicinsk udstyr. Når produktet skal sættes i produktion bør der være flere leverandører, som kan leverer det samme produkt. Det er vigtigt for, at dokumentationen ikke skal ændrings, fordi at en lille del af produktet er udgået af underleverandørens portefølje.
+Til Systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(reference) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved Mikrolab(reference), som slanger og beholdere. 
 
- Dette afsnit indeholder alt omkring hardware delene, fra hvilke krav der er gået ud fra til hvad der er fundet frem til.  Afsnittet beskriver hvordan information søgning, og viden er fundet omkring komponenterne. Primært er hardware delene  fundet på Ebay.com (kilder til de konkrete sider?(måske under hvert produkt?)), for at holde budgettet nede. De manglende datablade og tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
 
-Nedenstående blokdiagrammer (figur: \ref{fig:bdd_Hardware} og figur: \ref{fig:ibd_Hardware}) beskriver hvilke hardware blokke systemet består af, samt forbindelserne mellem disse. Diagrammerne er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. 
+%gamle afsnit:
+% Dette afsnit indeholder alt omkring hardware delene, fra hvilke krav der er gået ud fra til hvad der er fundet frem til.  Afsnittet beskriver hvordan information søgning, og viden er fundet omkring komponenterne. Primært er hardware delene  fundet på Ebay.com (kilder til de konkrete sider?(måske under hvert produkt?)), for at holde budgettet nede. De manglende datablade og tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
+
+%Nedenstående blokdiagrammer (figur: \ref{fig:bdd_Hardware} og figur: \ref{fig:ibd_Hardware}) beskriver hvilke hardware blokke systemet består af, samt forbindelserne mellem disse. Diagrammerne er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. 
 
  
  
@@ -32,7 +34,7 @@ Et bdd diagram giver indblik i hardwarens overordnede struktur af systemet. Hver
 	\label{fig:bdd_Hardware}
 \end{figure}
 
-
+\newpage
 \subsection{Internal block Diagram} 
 Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter med hinanden på. Det betyder at der er specialiseret indgangs- og udgangsporte, med de forskellige typer. Digrammet beskriver blandt andet, hvilken spænding delene arbejder under og hvilket signal der er brug for.
 
@@ -44,24 +46,87 @@ Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter med h
 	\label{fig:ibd_Hardware}
 \end{figure}
 
-\subsection{leverandører af produkter}
-
+\newpage
 \subsection{Kamera}
-Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud ved at være mere lyse end resten af vævet, vil det være underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er en standard frame rate valgt på 30 f/s. Kameraet opløsningen er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
- \fixme{Mangler formel}
-For at kameraet har mulighed for, at se lidt flere detaljer og forhåbning om at det kan være tættere på end 10 cm, er det besluttet er et 2 megapixels kamera burde være passende.
+Kameraet skal detektere de langerhanske øer i systemet, hvilket gør at det er en elementær del af projektet.
+
+\textbf{Specifikationer for kameraet:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Billede opløsning:} & 2M Pixel \\ 
+			\hline
+			\textbf{Fokus område:} & 0-40mm  \\ 
+			\hline
+			\textbf{forstørrelse:} & 25X-400X (Manuelt)  \\ 
+			\hline
+			\textbf{Frame rate:} & 30f/s  \\ 
+			\hline
+			\textbf{Interface:} & USB 2.0  \\ 
+			\hline
+			\textbf{Forsyning:} & DC 5V (\textit{fra USB port})  \\ 
+			\hline
+			\textbf{Dimension:} & L:\SI{112}{\milli\metre} x B:\SI{33}{\milli\metre}  \\ 
+			\hline			
+		\end{longtable}
+		
+	\end{center}
+Da langerhanske øer har en størrelse på \SI{100}{\micro\metre} til \SI{300}{\micro\metre}, samt at de er lyserer end resten af vævet. Opløsningen på kameraet er valg ud fra:
+\begin{align}
+Opløsning = \frac{afstand}{objektstørrelse} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}}
+\end{align} (reference til baslerwebs dokument)
+afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolutte maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de langerhanske øer fra skiller ved at de har et højere flourescens niveau, end resten af vævet i opløsningen. Ville et kamera uden farver også have været anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Ydermere har prisen på kameraet også været vigtig.
+
+%Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud ved at være mere lyse end resten af vævet, vil det være underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er en standard frame rate valgt på 30 f/s. Kameraet opløsningen er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
+ %\fixme{Mangler formel}
+%For at kameraet har mulighed for, at se lidt flere detaljer og forhåbning om at det kan være tættere på end 10 cm, er det besluttet er et 2 megapixels kamera burde være passende.
+
+skal sættes ned i en kilde liste:
 
 \url{http://www.baslerweb.com/media/documents/BAS1408_White_paper_Camera_Selection_EN.pdf}
 
-
-Da kameraet er en elementær del af systemet opsætning, blev det prioriteret, at købe det ved en mere pålidelig forhandler for at sikre en relativ god kvalitet, hvor prisen stadig lå inden for budgettet.  
-
-Farnell
 \url{http://dk.farnell.com/duratool/bw788/microscope-digital-usb-25x-200x/dp/2319420}
  
 \subsection{Slanger}
-Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet og bl.a. forbi kameraet. Da de største langerhanske øer, som systemet skal håndtere er 300um i diameter, er det valgt at slangerne skal have en indre diameter på 500um. Yderligere har et krav været at kameraet skal kunne se igennem slangerne, derfor er der tilkøbt et glasrør som kameraet kan se i gennem. 
-%Grundet besvær med at finde en forhandler til de små mængder der skal anvendes til projektet, er der skabt kontakt til Mikrolab. Som har været en stor hjælp med at finde dele til slanger mm.
+Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet bl.a. forbi kameraet.
+
+\textbf{Specifikationer for Slangerne:(flere)} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Materiale:} & Teflon og Silikone \\ 
+			\hline
+			\textbf{Ydre diameter:} & ?mm  \\ 
+			\hline
+			\textbf{Indre diameter:} & \SI{500-700}{\micro\metre}  \\ 
+			\hline			
+		\end{longtable}
+\end{center}
+
+Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro\metre} i diameter, derfor er det valgt at slangerne skal have en indre diameter på \SI{500}{\micro\metre}. Da det er optimalt at kameraet kan se direkte igennem slangen, er der valgt et gennemsigtigt materiale. Yderdiameteren er valgt for at, pumpen ikke skal ødelægge celler og slange, hvilket også har været med til at bestemme materialet af slangerne. 
+
+\subsection{Glasrør}
+For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valgt et glasrør.
+
+\textbf{Specifikationer for Glasrøret:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Materiale:} & glas \\ 
+			\hline
+			\textbf{Ydre diameter:} & ?mm  \\ 
+			\hline
+			\textbf{Indre diameter:} & \SI{500-700}{\micro\metre}  \\ 
+			\hline			
+		\end{longtable}
+\end{center}
+Glasrøret er til tænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret er valgt rundt, som muligvis kan ændre indgangsvinklen på kameraet. Et rektagnel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden her inde i er for stor. Derfor er et rundt glasrør valgt.
 
 \subsection{Arduino}
 Arduino er en open source platform til fremstilling af prototype print, som kan bruge til at styre forskellige systemer som dette. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det som sagt er en open source platform, kan der købes forskellige versioner. 
