@@ -102,7 +102,7 @@ Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem 
 			\hline
 			\textbf{Ydre diameter:} & ?mm  \\ 
 			\hline
-			\textbf{Indre diameter:} & \SI{500-700}{\micro\metre}  \\ 
+			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
 			\hline			
 		\end{longtable}
 \end{center}
@@ -122,21 +122,90 @@ For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valg
 			\hline
 			\textbf{Ydre diameter:} & ?mm  \\ 
 			\hline
-			\textbf{Indre diameter:} & \SI{500-700}{\micro\metre}  \\ 
+			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
 			\hline			
 		\end{longtable}
 \end{center}
-Glasrøret er til tænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret er valgt rundt, som muligvis kan ændre indgangsvinklen på kameraet. Et rektagnel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden her inde i er for stor. Derfor er et rundt glasrør valgt.
+Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret er valgt rundt, som muligvis kan ændre indgangsvinklen på kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i er for stor. Derfor er et rundt glasrør valgt.
 
-\subsection{Arduino}
-Arduino er en open source platform til fremstilling af prototype print, som kan bruge til at styre forskellige systemer som dette. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det som sagt er en open source platform, kan der købes forskellige versioner. 
-Arduinoen skal bruges til at styre pumpen ved hjælp af ”mini motor drive shield”. Shielded anvendes for at være sikker på at der leveres effekt nok til pumpen. Yderligere har det den fordel at strømmen til pumpen kan måles og at den er galvanisk adskilt fra forsyningen til arduinoen. Dette er dog ikke arduinoen eneste opgave den skal blandt andet også styre ventilen til sortering og lyset til kameraet.
+\subsection{Microcontroller}
+Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal styre ventil, kameralyset, Pumpe og vægtcelle.  
+\textbf{Specifikationer for Microcontroller:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Type:} & Arduino UNO (ATmega328P) \\ 
+			\hline
+			\textbf{Forsyning:} & 5v (USB)  \\ 
+			\hline
+			\textbf{Clock speed:} & 16 MHz  \\ 
+			\hline		
+			\textbf{Digitale I/O pins} & 14 stk (6 stk med PWM)  \\ 
+			\hline	
+			\textbf{Analoge inputs pins} & 6 stk  \\ 
+			\hline	
+			\textbf{Interface} & USB  \\ 
+			\hline	
+			\textbf{I/O output strøm} & 20 mA  \\ 
+			\hline
+			\textbf{Flash hukommelse} & 32 KB  \\ 
+			\hline	
+		\end{longtable}
+\end{center}
+Arduino er en open source platform til fremstilling af prototype print, med en ATmega328P microcontroller. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det er en open source platform, kan der købes forskellige versioner som ikke er orginaler. Arduino UNO er passende til dette system, da det er en forholdvis simpel opgave microcontrolleren skal håndtere. Da systemet bruger computerens hukommelse og det meste er koden her på. Antallet af digitale og analoge porte er passende med den nuværende mængde af komponenter der skal styres. 
 
-%Det er valgt at bruge en arduino som controller for at spare tid, i forhold til selv at lave et print med en microcontroller.
-%Microcontrolleren der sidder på denne version er et gruppen har brugt, og arbejdet med til et tidligere projekt. Hvilket også betyder at den allerede er i gruppen beholdning af produkter.
+\subsection{Motor shield}
+Motor shieldet skal hjælpe microcontrolleren med, at styre pumpen til systemet. Det skal den Fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsyner i gennem motor shieldet. Motor shieldet skal også forsyne ventilen. 
+ \textbf{Specifikationer for Motor shield:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Type:} & Velleman L298P \\ 
+			\hline
+			\textbf{Forsyning:} & 5v (USB)  \\ 
+			\hline
+			\textbf{Output spænding} & 50 V (max)  \\ 
+			\hline		
+			\textbf{Output strøm} & 2.5A  \\ 
+			\hline	
+			\textbf{Kanaler} & 2 stk  \\ 
+			\hline	
+			\textbf{Interface} & Forsynes i gennem arduino  \\ 
+			\hline	
+		\end{longtable}
+\end{center}
+Motor shieldet kan levere 2.5A pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motor shieldet har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere har giver den også mulighed for at overvåge strømforbruger på den kanaler. Det kan være med til at beskytte pumpens motor.
+
 
 \subsection{Ventil}
-Ventilens funktion er at sorterer de langerhanske øer fra resten af opløsningen. Der findes utrolig mange typer af ventiler, med ret store prisforskelle. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med 500um studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, bliver svært hvis kammeret pludseligt bliver stort. Dette er et stykke hardware, hvor der kan bruges meget tid og mange penge.
+Ventilens funktion er at sorterer de langerhanske øer, fra resten af opløsningen. Det gør den ved at Arduinoen giver den besked om, at åbne og lukke for ventilen.
+\textbf{Specifikationer for Ventil:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\hline
+			\textbf{Type:} & Velleman L298P \\ 
+			\hline
+			\textbf{Forsyning:} & v (USB)  \\ 
+			\hline
+			\textbf{Output spænding} & 50 V (max)  \\ 
+			\hline		
+			\textbf{Output strøm} & 2.5A  \\ 
+			\hline	
+			\textbf{Kanaler} & 2 stk  \\ 
+			\hline	
+			\textbf{Interface} & Forsynes i gennem arduino  \\ 
+			\hline	
+		\end{longtable}
+\end{center}
+
+
+Der findes utrolig mange typer af ventiler, med ret store prisforskelle. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med 500um studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, bliver svært hvis kammeret pludseligt bliver stort. Dette er et stykke hardware, hvor der kan bruges meget tid og mange penge.
 Kravene til ventilen er, at den skal være 3 vejs 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50ms.
 
 \subsection{Pumpe}
