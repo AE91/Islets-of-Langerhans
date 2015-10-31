@@ -1,18 +1,18 @@
  \section{Hardware}
 %metatekst til hardware
-Dette afsnit skal være med til at dokumentere hardwaren i systemet \textit{the cell collector}, derfor indeholder afsnittet fysiske dele og deres funktionalitet. De fysiske deles specifikationer er udybes og beskrevet i dette dokument. Der er begrundelser og argumenter for hvorfor de brugte komponenter er valgt.
+Dette afsnit skal være med til at dokumentere hardwaren i systemet \textit{the cell collector}, derfor indeholder afsnittet fysiske dele og deres funktionalitet. De fysiske deles specifikationer er uddybes og beskrevet i dette dokument. Der er begrundelser og argumenter for hvorfor de brugte komponenter er valgt.
 
 \subsection{Læsevejledning til hardware}
 %læsevejledning
-Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, ligger det sig tæt op af kravspecifikationen. Da det er kravene i kravspecfikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse af hvad det beskriver. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent og begrundelser og argumentationer hvorfor det er valgt, i den skrevne rækkefølge. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
+Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, ligger det sig tæt op af kravspecifikationen. Da det er kravene i kravspecifikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse af hvad det beskriver. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent og begrundelser og argumentationer hvorfor det er valgt, i den skrevne rækkefølge. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
 
 %Det gamle afsnit, måske skal det være i et leverandør afsnit 
 % Dette afsnit indeholder den nødvendige viden hardware delene i systemet Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
 \subsection{Leverandør af produkter}
 Når der skal vælges leverandør til et produkt er det vigtigt, at de er pålidelige. Da delene skal kunne leveres i hele produktets levetid. Specielt hvis produktet kræver en stor dokumentation og godkendelse, som for eksempel medicinsk udstyr. Når produktet skal sættes i produktion bør der være flere leverandører, som kan leverer det samme produkt. Det er vigtigt for, at dokumentationen ikke skal ændrings, fordi at en lille del af produktet er udgået af underleverandørens portefølje.
-Til Systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(reference) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved Mikrolab(reference), som slanger og beholdere. 
+Til Systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(\ref{subsec:Kamera}) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved Mikrolab(reference), som slanger og beholdere. 
 
-
+     
 %gamle afsnit:
 % Dette afsnit indeholder alt omkring hardware delene, fra hvilke krav der er gået ud fra til hvad der er fundet frem til.  Afsnittet beskriver hvordan information søgning, og viden er fundet omkring komponenterne. Primært er hardware delene  fundet på Ebay.com (kilder til de konkrete sider?(måske under hvert produkt?)), for at holde budgettet nede. De manglende datablade og tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
 
@@ -24,7 +24,7 @@ Til Systemet \textit{The cell collector}, har budgettet gjort stort præg af hvi
  
  \newpage
 \subsection{Block Definition Diagram} 
-Et bdd diagram giver indblik i hardwarens overordnede struktur af systemet. Hver block er en del der indgår i systemet. Diagrammet er bygget hierarkisk system, hvor en blok kan indeholde flere blokke. blokkene består af en system blok \textit{the cell collector}, der indeholder tre elementære blokke, \textit{Arduino}, \textit{non electronic} og \textit{Camera}. Hvor \textit{Arduino} er den eneste der indeholder flere blokke, det beskriver hvilken hardware de overstående blokke kommuniker med.
+Et bdd diagram giver indblik i hardwarens overordnede struktur af systemet. Hver block er en del der indgår i systemet. Diagrammet(\ref{fig:bdd_Hardware}) er bygget hierarkisk system, hvor en blok kan indeholde flere blokke. blokkene består af en system blok \textit{the cell collector}, der indeholder tre elementære blokke, \textit{Arduino}, \textit{non electronic} og \textit{Camera}. Hvor \textit{Arduino} er den eneste der indeholder flere blokke, det beskriver hvilken hardware de overstående blokke kommuniker med.
 
 
 \begin{figure}[H]
@@ -36,7 +36,7 @@ Et bdd diagram giver indblik i hardwarens overordnede struktur af systemet. Hver
 
 \newpage
 \subsection{Internal block Diagram} 
-Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter med hinanden på. Det betyder at der er specialiseret indgangs- og udgangsporte, med de forskellige typer. Digrammet beskriver blandt andet, hvilken spænding delene arbejder under og hvilket signal der er brug for.
+Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter med hinanden på. Det betyder at der er specialiseret indgangs- og udgangsporte, med de forskellige typer. Digrammet(\ref{fig:ibd_Hardware}) beskriver blandt andet, hvilken spænding delene arbejder under og hvilket signal der er brug for.
 
 
 \begin{figure}[H]
@@ -48,13 +48,14 @@ Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter med h
 
 \newpage
 \subsection{Kamera}
-Kameraet skal detektere de langerhanske øer i systemet, hvilket gør at det er en elementær del af projektet.
+\label{subsec:Kamera}
+Kameraet[\citet{DH2}] skal detektere de langerhanske øer i systemet, hvilket gør at det er en elementær del af projektet.
 
 \textbf{Specifikationer for kameraet:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
 			\textbf{Billede opløsning:} & 2M Pixel \\ 
 			\hline
@@ -75,66 +76,24 @@ Kameraet skal detektere de langerhanske øer i systemet, hvilket gør at det er 
 	\end{center}
 Da langerhanske øer har en størrelse på \SI{100}{\micro\metre} til \SI{300}{\micro\metre}, samt at de er lyserer end resten af vævet. Opløsningen på kameraet er valg ud fra:
 \begin{align}
-Opløsning = \frac{afstand}{objektstørrelse} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}}
-\end{align} (reference til baslerwebs dokument)
-afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolutte maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de langerhanske øer fra skiller ved at de har et højere flourescens niveau, end resten af vævet i opløsningen. Ville et kamera uden farver også have været anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Ydermere har prisen på kameraet også været vigtig.
+Opløsning = \frac{afstand}{objektstørrelse} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} 
+\end{align} \citep[s.5]{DH1}
+afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de langerhanske øer fra skiller sig ved at have et højere fluorescens niveau, end resten af vævet i opløsningen. et kamera uden farver ville også have været anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Ydermere har prisen på kameraet også været vigtigt for budgettet.
 
 %Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud ved at være mere lyse end resten af vævet, vil det være underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er en standard frame rate valgt på 30 f/s. Kameraet opløsningen er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
  %\fixme{Mangler formel}
 %For at kameraet har mulighed for, at se lidt flere detaljer og forhåbning om at det kan være tættere på end 10 cm, er det besluttet er et 2 megapixels kamera burde være passende.
 
-skal sættes ned i en kilde liste:
 
-\url{http://www.baslerweb.com/media/documents/BAS1408_White_paper_Camera_Selection_EN.pdf}
-
-\url{http://dk.farnell.com/duratool/bw788/microscope-digital-usb-25x-200x/dp/2319420}
  
-\subsection{Slanger}
-Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet bl.a. forbi kameraet.
-
-\textbf{Specifikationer for Slangerne:(flere)} 
-\begin{center}
-		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
-			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
-			\hline
-			\textbf{Materiale:} & Teflon og Silikone \\ 
-			\hline
-			\textbf{Ydre diameter:} & ?mm  \\ 
-			\hline
-			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
-			\hline			
-		\end{longtable}
-\end{center}
-
-Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro\metre} i diameter, derfor er det valgt at slangerne skal have en indre diameter på \SI{500}{\micro\metre}. Da det er optimalt at kameraet kan se direkte igennem slangen, er der valgt et gennemsigtigt materiale. Yderdiameteren er valgt for at, pumpen ikke skal ødelægge celler og slange, hvilket også har været med til at bestemme materialet af slangerne. 
-
-\subsection{Glasrør}
-For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valgt et glasrør.
-
-\textbf{Specifikationer for Glasrøret:} 
-\begin{center}
-		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
-			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
-			\hline
-			\textbf{Materiale:} & glas \\ 
-			\hline
-			\textbf{Ydre diameter:} & ?mm  \\ 
-			\hline
-			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
-			\hline			
-		\end{longtable}
-\end{center}
-Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret er valgt rundt, som muligvis kan ændre indgangsvinklen på kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i er for stor. Derfor er et rundt glasrør valgt.
-
 \subsection{Microcontroller}
 Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal styre ventil, kameralyset, Pumpe og vægtcelle.  
-\textbf{Specifikationer for Microcontroller:} 
+
+\textbf{Specifikationer for Microcontroller[\citet{DH3}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
 			\textbf{Type:} & Arduino UNO (ATmega328P) \\ 
 			\hline
@@ -154,15 +113,16 @@ Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal s
 			\hline	
 		\end{longtable}
 \end{center}
-Arduino er en open source platform til fremstilling af prototype print, med en ATmega328P microcontroller. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det er en open source platform, kan der købes forskellige versioner som ikke er orginaler. Arduino UNO er passende til dette system, da det er en forholdvis simpel opgave microcontrolleren skal håndtere. Da systemet bruger computerens hukommelse og det meste er koden her på. Antallet af digitale og analoge porte er passende med den nuværende mængde af komponenter der skal styres. 
+Arduino er en open source platform til fremstilling af prototype print, med en ATmega328P microcontroller. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det er en open source platform, kan der købes forskellige versioner som ikke er originaler. Arduino UNO er passende til dette system, da det er en forholdsvis simpel opgave microcontrolleren skal håndtere. Da systemet bruger computerens hukommelse og det meste er koden her på. Antallet af digitale og analoge porte er passende med den nuværende mængde af komponenter der skal styres. 
 
 \subsection{Motor shield}
 Motor shieldet skal hjælpe microcontrolleren med, at styre pumpen til systemet. Det skal den Fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsyner i gennem motor shieldet. Motor shieldet skal også forsyne ventilen. 
- \textbf{Specifikationer for Motor shield:} 
+
+ \textbf{Specifikationer for Motor shield[\citet{DH4}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
 			\textbf{Type:} & Velleman L298P \\ 
 			\hline
@@ -183,11 +143,12 @@ Motor shieldet kan levere 2.5A pr. kanal hvilket er nok til at forsyne pumpe og 
 
 \subsection{Ventil}
 Ventilens funktion er at sorterer de langerhanske øer, fra resten af opløsningen. Det gør den ved at Arduinoen giver den besked om, at åbne og lukke for ventilen.
-\textbf{Specifikationer for Ventil:} 
+
+\textbf{Specifikationer for Ventil[\citet{DH5}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
 			\textbf{Type:} & Solenoid Electromagnet Valve \\ 
 			\hline
@@ -201,18 +162,17 @@ Ventilens funktion er at sorterer de langerhanske øer, fra resten af opløsning
 			\hline	
 		\end{longtable}
 \end{center}
-
-
-Der er utrolig stor variantion i kvalitet og pris på magnetventiler. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med 500um studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Dette er et stykke hardware, hvor der kan bruges meget tid og mange penge.
+Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
 Kravene til ventilen er, at den skal være 3 vejs 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50ms.
 
 \subsection{Pumpe}
 Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til at kameraet kan nå at detekterer en ø.
 
+\textbf{Specifikationer for Pumpe[\citet{DH6}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
-			\textbf{Specifikation} &\textbf{værdi} \\ 
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
 			\textbf{Type:} & Peristaltisk pumpe \\ 
 			\hline
@@ -220,32 +180,94 @@ Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet
 			\hline
 			\textbf{Hastighed} & 0.1-60 omdr./.(0-60ml./min.) \\ 
 			\hline		
-			\textbf{studser} & varianble slange størrelse  \\ 
+			\textbf{studser} & variable slange størrelse  \\ 
 			\hline	
 		\end{longtable}
 \end{center}
 
+Det er et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige pumpetyper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det skal dog undersøges hvordan de langerhanske øer vil opfører sig ved sådan en pumpe.
+% Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
+
+\subsection{Vægtcelle}
+Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen.
+
+\textbf{Specifikationer for Vægtcelle[\citet{DH7}]:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
+			\hline
+			\textbf{Max belastning:} & 1 kg \\ 
+			\hline
+			\textbf{Anbefalet arbejdsspænding} & 3-12V \\ 
+			\hline
+			\textbf{Output} & 1.0mV/V+10.15mV/V \\ 
+			\hline
+		\end{longtable}
+\end{center}
+
+Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
 
 
- Herfor er det et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige typer pumper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det er dog uvist hvordan de langerhanske øer vil opfører sig ved sådan en pumpe. Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
-
-\subsubsection{Vakuumpumper}
-\url{ http://www.ebay.com/itm/281571300037}
-
-\url{http://www.ebay.com/itm/161665897119?_trksid=p2054502.m570.l4467&_trkparms=gh1g%3DI161665897119.N19.S2.M-4218.R1.TR2}
-
-\subsubsection{Peristaltiskepumper}
-
-\url{http://www.ebay.com/itm/6V-Peristaltic-Pump-Dosing-Water-Pump-DC-Motor-Tube-For-Aquarium-Lab-Analytical-/131367703927?hash=item1e96201577}
-
-%Ligesom ved ventilen er det også et produkt der kan få budgettet til at skride, derfor er der igen gået på kompromis og brug ebay forhandlere som leverandører.
-
-\subsection{Beholdere}
-Systemet består af tre beholdere der hver i især har sin egen funktion. Den første kaldes celleopløsningbeholderen, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes isolerede langerhanske øer beholderen, som er den beholder hvor de isolerede øer samles i. Den tredje beholder er waste beholderen, den skal have resten af opløsningen som ikke består af langerhanske øer. Størrelses kravene til beholderne er at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt. Wastebeholderen skal således være dobbelt så stor, så der kan køres to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal blot kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt, uden at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt.
-
-\subsection{Loadcell}
-Loadcellen eller vægtcellen som det kan kaldes på dansk, skal bruges til at kontrollere om der er væske i celleopløsningsbeholderen. Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for celleopløsningsbeholderen.
 
 \url{http://www.ebay.com/itm/281311660424}
-
 %Det vil sige hvs operatøren ikke har fyldt noget i beholderen, kan der gives en systembesked omkring dette. Det mest optimale er at der hele tiden er væske i slangerne i systemet, det er det vægtcellen skal hjælpe med.
+
+\subsection{Beholdere}
+Systemet består af tre beholdere der hver i især har sin egen funktion. Den første kaldes \textit{celleopløsningbeholderen}, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes \textit{isolerede beholderen}, som er den beholder hvor de isolerede langerhanske øer samles i. Den tredje beholder er \textit{waste beholderen}, den skal have resten af opløsningen som ikke består af langerhanske øer.
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
+			\hline
+			\textbf{Type:} & Opløsningsbeholder(Mikrolab 33184) \\ 
+			\hline
+			\textbf{Størrelse:} & 250 ml \\ 
+			\hline
+		\end{longtable}
+\end{center}
+ Størrelses kravene til beholderne er at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt. Wastebeholderen skal således være dobbelt så stor, så der kan gennemløbes to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt, uden at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt. ML 33184 fås med et skruelåg med forskruninger, der kan tilpasses de indkøbte slanger. Yderligere fås den et luftfilter, så der ikke dannes vakuum i beholderen.
+
+\subsection{Slanger}
+Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet bl.a. forbi kameraet.
+
+\textbf{Specifikationer for Slangerne:(flere)} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
+			\hline
+			\textbf{Materiale:} & Teflon, silikone og PVC \\ 
+			\hline
+			\textbf{Ydre diameter:} & ?mm  \\ 
+			\hline
+			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
+			\hline			
+		\end{longtable}
+\end{center}
+
+Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro\metre} i diameter, derfor er det valgt at slangerne skal have en indre diameter på \SI{500}{\micro\metre}. Da det er optimalt at kameraet kan se direkte igennem slangen, er der valgt et gennemsigtigt materiale. Yderdiameteren er valgt for at, pumpen ikke skal ødelægge celler og slange, hvilket også har været med til at bestemme materialet af slangerne. 
+
+\subsection{Glasrør}
+For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valgt et glasrør.
+
+\textbf{Specifikationer for Glasrøret:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
+			\hline
+			\textbf{Materiale:} & glas \\ 
+			\hline
+			\textbf{Ydre diameter:} & ?mm  \\ 
+			\hline
+			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
+			\hline			
+		\end{longtable}
+\end{center}
+Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret er valgt rundt, som muligvis kan ændre indgangsvinklen på kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i er for stor. Derfor er et rundt glasrør valgt.
+
+
+
+
+
