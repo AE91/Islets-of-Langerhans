@@ -1,6 +1,4 @@
 \section{Software}
-Læsevejledning
-
 Softwaren til \textit{The Cell Collector} udvikles i Matlab. Programmet udvikles af modulær kode, der afgrænser de enkelte funktionaliteter. Ved objektorienteret programmering beskrives koden typisk vha. klassediagrammer og 3-lags modellen, hvor de enkelte klassers ansvar og grænseflader tydeligt er defineret. Da Matlab kode er opdelt i funktioner fremfor for klasser er modellen ikke velegnet. I stedet beskrives softwaren vha. blokdiagrammer, hvor funktionernes opbygning og relationer med hinanden er vist. 
 
 Blokdiagrammet (figur: \ref{fig:bdd_software}) viser hvordan programmet er opdelt i blokke, som afgrænser de enkelte funktionaliteter. Blokkene i det nederste lag skal ses som ækvivalente til funktioner i Matlab.  
@@ -23,7 +21,7 @@ Disse blokke er nærmere beskrevet under hver deres afsnit.
 
 \subsection{Arduino}
 Denne bloks formål er, at håndtere al funktionalitet til styring af Arduinoen. Til styring af Arduinoen anvendes Arduino Support Package, som frit kan hentes hos Mathworks. Den indeholder basale funktioner til bl.a. opsamling af analoge signaler, understøttelse af digitalt og PWM output og styring af DC motorer. Support biblotektet indeholder de funktioner der skal til for at styre systemets hardware.
-For at initialisere Arduinoen og hardwaren implementeres en funktion, som opsætter Arduinoen med de inputs og outputs der er specificeret under hardware afsnittet. \fxnote{Indsæt reference til IBD for Hardware}. Denne funktion er kaldt initArduino. Når brugeren klikker "Stop" skal systemet lukke ned som specificeret i Use Case 3. \fxnote{Reference til Use case 3} Til dette implementeres en funktion kaldet stopArduino. 
+For at initialisere Arduinoen og hardwaren implementeres en funktion, som opsætter Arduinoen med de inputs og outputs der er specificeret under hardware afsnittet (figur: \ref{ibd_Hardware}, s. \pageref{fig:ibd_Hardware}). Denne funktion er kaldt initArduino. Når brugeren klikker "Stop" skal systemet lukke ned som specificeret i Use Case 3: Stop sorteringscyklus (s. \pageref{uc:3}). Til dette implementeres en funktion kaldet stopArduino. 
 
 \newpage
 
