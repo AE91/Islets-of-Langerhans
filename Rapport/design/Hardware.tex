@@ -86,6 +86,7 @@ afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut 
 
 
  
+\newpage
 \subsection{Microcontroller}
 Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal styre ventil, kameralyset, pumpe og vægtcelle.  
 
@@ -101,15 +102,15 @@ Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal s
 			\hline
 			\textbf{Clock speed:} & 16 MHz  \\ 
 			\hline		
-			\textbf{Digitale I/O pins} & 14 stk (6 stk med PWM)  \\ 
+			\textbf{Digitale I/O pins:} & 14 stk (6 stk med PWM)  \\ 
 			\hline	
-			\textbf{Analoge inputs pins} & 6 stk  \\ 
+			\textbf{Analoge inputs pins:} & 6 stk  \\ 
 			\hline	
-			\textbf{Interface} & USB  \\ 
+			\textbf{Interface:} & USB  \\ 
 			\hline	
-			\textbf{I/O output strøm} & 20 mA  \\ 
+			\textbf{I/O output strøm:} & 20 mA  \\ 
 			\hline
-			\textbf{Flash hukommelse} & 32 KB  \\ 
+			\textbf{Flash hukommelse:} & 32 KB  \\ 
 			\hline	
 		\end{longtable}
 \end{center}
@@ -165,10 +166,11 @@ Ventilens funktion er at sortere de langerhanske øer, fra resten af opløsninge
 Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
 Kravene til ventilen er, at den skal være 3 vejs med 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50 ms.
 
+\newpage
 \subsection{Pumpe}
 Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til at kameraet kan nå at detekterer en ø.
 
-\textbf{Specifikationer for Pumpe[\citet{DH6}]:} 
+\textbf{Specifikationer for Pumpe[\citet{DH8}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -211,6 +213,7 @@ Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for
 
 %Det vil sige hvs operatøren ikke har fyldt noget i beholderen, kan der gives en systembesked omkring dette. Det mest optimale er at der hele tiden er væske i slangerne i systemet, det er det vægtcellen skal hjælpe med.
 
+\newpage
 \subsection{Beholdere}
 Systemet består af tre beholdere der hver i især har sin egen funktion. Den første kaldes \textit{celleopløsningbeholderen}, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes \textit{isolerede beholderen}, som er den beholder hvor de isolerede langerhanske øer samles i. Den tredje beholder er \textit{waste beholderen}, den skal have resten af opløsningen som ikke består af langerhanske øer.
 \begin{center}
