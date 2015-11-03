@@ -6,49 +6,49 @@
 			\textbf{Krav nr.} &\textbf{ Handling} & \textbf{Forventet resultat} & \textbf{Test-metode} &\textbf{Resultat} & \textbf{ \checkmark \textbackslash -} & \textbf{Initialer og dato} \\ 
 			\hline
 			
- 7.2.1 &  Micro-controller type: Atmega328p
+ \ref{subsub:mcu} &  Micro-controller type: Atmega328p
    & Atmega328p
     & Visuel inspektion af microcontrolleren.
     &  & & \\
 			\hline
-			
-			7.2.2.1 &  Pumpe flow
+			 
+			\ref{subsub:pump}.1 &  Pumpe flow
    & < 50ml /min
     & Observeres ved at måle antal mL / min
     &  & & \\
 			\hline
 			
-			7.2.2.2 &  Studse størrelse
+			\ref{subsub:pump}.2 &  Studse størrelse
    & Indre diameter > \SI{300}{\micro\metre}
     & \fxnote{mangler}
     &  & & \\
 			\hline
 			
-			7.2.3.1 &  Slange
+			\ref{subsub:tubes}.1 &  Slange
    & Indre diameter > \SI{300}{\micro\metre}
     & Dimen-sionerne på slangen kontrolleres via datablad
     &  & & \\
 			\hline
 			
-			7.2.3.2 &  Kamera detektion igennem slange
+			\ref{subsub:tubes}.2 &  Kamera detektion igennem slange
    & Kameraet kan detekterer langerhansk ø gennem slangen
     & ?? \fxnote{testes med vores simuleringsvæske?}
     &  & & \\
 			\hline
 			
-			7.2.4.1 &  Celle-opløsnings-beholder har størrelse > 250 mL
+			\ref{subsub:container}.1 &  Celle-opløsnings-beholder har størrelse > 250 mL
    & Celle-opløsnings-beholderen er > 250 mL
     & Testes ved at fylde 250 mL væske i celle-opløsnings-beholderen
     &  & & \\
 			\hline
 		
-		7.2.4.2 &  Waste-beholder er dobbelt så stor som celle-opløsnings-beholder: > 500 mL
+		\ref{subsub:container}.2 &  Waste-beholder er dobbelt så stor som celle-opløsnings-beholder: > 500 mL
    & Waste-beholder er > 500 mL
     & Testes ved at fylde 500 mL væske i waste-beholderen.
     &  & & \\
 			\hline	
 			
-7.2.5.1 
+\ref{subsub:valve}.1 
 			& 
 3 vejs ventil
    & 
@@ -58,7 +58,7 @@ Ventilen har 1 tilgang og 2 udgange
     &  & & \\
 			\hline
 			
-			7.2.5.2 
+			\ref{subsub:valve}.2 
 			& 
 Studse størrelse
    & 
@@ -68,7 +68,7 @@ Matcher slangens størrelse
     &  & & \\
 			\hline
 		
-				7.2.5.3
+				\ref{subsub:valve}.3
 			& 
 Ventilen er til væske
    & 
@@ -78,7 +78,7 @@ Ventilen er bygget til væske
     &  & & \\
 			\hline	
 			
-						7.2.5.4
+						\ref{subsub:valve}.4
 			& 
 Åben/Lukke-tid
    & 
@@ -87,6 +87,106 @@ Ventilen er bygget til væske
      Datablad
     &  & & \\
 			\hline	
+			
+			\hline	
+			
+						\ref{subsub:camera}.1
+			& 
+Detektere Langerhanske øer mellem 100 og  \SI{300}{\micro\metre}  \
+   & 
+Kameraet kan se øer på de specificerede størrelser
+    &
+     Testes ved at tage et billede af øerne. 
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:camera}.2
+			& 
+Kameraet har zoom funktion \
+   & 
+Kameraet har zoom funktion
+    &
+     Datablad 
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:camera}.3
+			& 
+Kameraet har USB interface \
+   & 
+Kameraet har USB interface
+    &
+     Visuel inspektion af interface 
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:software}.1
+			& 
+Dataformat \
+   & 
+.csv format med kommaseprareret delimiter
+    &
+     En gemt fil åbnes og kontrolleres
+    &  & & \\
+			\hline
+			
+			\hline	
+			
+						\ref{subsub:software}.2
+			& 
+Filnavn \
+   & 
+Dato og starttidspunkt for sorteringscyklus
+    &
+     En sorteringscyklus startes og afsluttes, hvorefter den gemte fils filnavn kontrolleres om den matcher starttidspunktet. Starttidsdpunktet noteres inden en sorteringscyklus startes
+    &  & & \\
+			\hline	
+				
+				\hline	
+			
+						\ref{subsub:software}.3
+			& 
+Header \
+   & 
+Header i fil indeholder opsætningsindstillinger
+    &
+     En sorteringscyklus startes og afsluttes, hvorefter den gemte fils header kontrolleres om den matcher programmets indstillinger. Programmets indstillinger noteres inden sorteringscyklus startes
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:software}.4.a
+			& 
+Kolonne 1 \
+   & 
+Tidsstempel i formatet DD-MM-YYYY-hh:mm:ss 
+    &
+     En gemt fils tidsstempel kolonne kontrolleres
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:software}.4.b
+			& 
+Kolonne 2 \
+   & 
+Ø størrelse
+    &
+     En gemt fils ø størrelse kolonne kontrolleres
+    &  & & \\
+			\hline	
+				
+			
+			
+			
 			
 \end{longtable}
 		

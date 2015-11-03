@@ -5,7 +5,7 @@
 			\textbf{Krav nr.} &\textbf{ Kvalitetskrav} & \textbf{Forventet resultat} & \textbf{Test-metode} &\textbf{Resultat} & \textbf{ \checkmark \textbackslash -} & \textbf{Initialer og dato} \\ 
 			
 			\hline
-			1 &  Hastigheden på systemet skal være Højere end 30 øer sorteret pr. minut & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}), hvor der måles med et stopur. Stopuret stoppes efter sorteringsprocessen er færdig, derefter regnes hastighed ud ved 
+			1 &  Hastigheden på systemet skal være Højere end 30 øer sorteret pr. minut & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}), hvor der måles med et stopur. Stopuret stoppes efter sorteringsprocessen er færdig, derefter regnes hastighed ud ved 
 $\frac{Antal øer}{minutter}$			
 			
 			 & Når sorteringcyklussen er færdig er
@@ -15,7 +15,7 @@ $\frac{Antal øer}{minutter}$
 			
 			2 &  1 Mere end 90\% af de isolerede øer skal være faktiske øer 
 (Sandt pos: > 90\%)
- & Normalforløbet ved en sorteringscyklus følges. Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer. & Når sorteringcyklussen er færdig er
+ & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer. & Når sorteringcyklussen er færdig er
 
  $\frac{antal talte øer}{antal isoleret}*100=>90$
 
@@ -25,7 +25,7 @@ $\frac{Antal øer}{minutter}$
 			
 			2 &  2 Der skal være mindre end 5\% af de isolerede øer, der ikke er øer
 (Falsk pos: < 5\%)
- & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}). Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer.  & Når sortering-cyklussen er færdig er
+ & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s.  \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer.  & Når sortering-cyklussen er færdig er
 
 $\frac{antal talte øer}{antal isoleret}*100=>95$
 
@@ -36,7 +36,7 @@ $\frac{antal talte øer}{antal isoleret}*100=>95$
 2 &  3 Der skal være mindre end 5\% af øerne i opløsningen der ikke er blevet isoleret
 (Falsk neg: < 5\%)
 
- & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret og antallet af øer i waste beholderen.  & Når sortering-cyklussen er færdig er
+ & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s.  \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret og antallet af øer i waste beholderen.  & Når sortering-cyklussen er færdig er
 
  $\frac{antal talte øer i waste}{antal talte isoleret øer}*100= >95$
 
@@ -45,7 +45,7 @@ $\frac{antal talte øer}{antal isoleret}*100=>95$
 			
 			3 &  over 90\% af det oprindelige antal, skal være isoleret.
 
-   & En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret. Dette antal holdes op i mod antallet af øer i opløsningen fra start. & Når sortering-cyklussen er færdig er
+   & En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret. Dette antal holdes op i mod antallet af øer i opløsningen fra start. & Når sortering-cyklussen er færdig er
  %\begin{align}
  $\frac{antal talte øer i opløsningen fra start}{antal talte isoleret øer}*100= >90$
  %\end{align}
@@ -53,7 +53,7 @@ $\frac{antal talte øer}{antal isoleret}*100=>95$
 			\hline		
 			
 4 &  over 90\% af det oprindelige antal, skal være genkendt
-   & En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}). Efter færdig endt cyklus, holdes antal af detekteres op i mod det oprindelige antal af øer fra starten.
+   & En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter færdig endt cyklus, holdes antal af detekteres op i mod det oprindelige antal af øer fra starten.
     & Når sortering-cyklussen er færdig er
 
  $$\frac{antal detekteret øer}{antal oprindelige øer}*100= >90$$
@@ -62,7 +62,7 @@ $\frac{antal talte øer}{antal isoleret}*100=>95$
 			\hline		
 			
 			5 &  Systemet skal kunne sortere øer, der har en størrelse mellem  \SI{100}{\micro\metre}  og  \SI{300}{\micro\metre} 
-   & En opløsning med en østørrelse på \SI{100}{\micro\metre}  og \SI{300}{\micro\metre} benyttes  Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Stop sorteringscyklus, s.  \pageref{uc2}). Efter endt cyklus observeres det om systemet har sorteret de specificerede størrelser.
+   & En opløsning med en østørrelse på \SI{100}{\micro\metre}  og \SI{300}{\micro\metre} benyttes  Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus observeres det om systemet har sorteret de specificerede størrelser.
     & Begge ø størrelser er isoleret
     &  & & \\
 			\hline			
