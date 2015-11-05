@@ -1,0 +1,157 @@
+  \section{Hardware}
+  Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestende er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, formler og beskrivelser. Hvilket er udarbejdet sideløbende med udviklingen af produktet. 
+ 
+ \subsection{Vægtcelle}
+ For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for, vægcellen som den type der er brugt i dette projekt består af strain gages koblet i en wheatstone bro. En strain gages bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/straingages1.JPG}
+	\caption{illustration af strain gages}
+	\label{fig:Strain gages}
+\end{figure}
+En strain gages modstand stiger ved stræk og falder ved kompression, dette kan beskrives ud fra formlen \ref{eq:modstandsformel}\citep{Websterbog}{s.47}
+ \begin{align}
+ R=\frac{P*L}{A}
+ \label{eq:modstandsformel}
+ \end{align}
+ Hvor R=modstand, p=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiale egenskaber, temperatur og selvfølgelig den strakte længde. På vægtcellen er der en strain gages fire strain gages, som er Placeret på vægtcellen på denne måde \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
+ 
+ Måden de er forbundet er vist på \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en weststone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist på \ref{eq:fullbformel}
+\begin{align}
+ Vout=GF*Vin*E
+ \label{eq:fullbformel}
+ \end{align}
+ Hvor Vout=spændingen ud, Vin=spændingen in, GF= gages factor som er egenskabet for materialet og E=strukket der er tilført til vægtcellen.
+
+\begin{figure}[htbp] \centering
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/loadcell1.PNG} % Left picture
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/straingages2.PNG} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[t]{0.48\textwidth}
+\caption{illustration af strain gages i loadcell på virkning} % Left caption and label
+\label{fig:Loadcell1}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.48\textwidth}
+\caption{illustration af koblingen strain gages i loadcell} % Right caption and label
+\label{fig:loadcell2}
+\end{minipage}
+\end{figure}
+Ud fra databladet \ref{subsec:loadcell} ses det, at output spændingen er 1.0mV pr volt på indgangsspændingen. Dette er pga. det meget lille strain der tilføres til emnet, hvilket også er med til at strain gagesene ikke går i stykker. Da Arduinoens analog til digital konverter bestående af 10bit, hvilket vil sige 2\^10=1024 det betyder at konverteren har 1024 trin fra 0 til 1023. Konverterens arbejdsspænding går fra 0 V til 5 V. 
+\begin{align}
+ spænding per trin=\frac{Maskimalspænding}{antal trin}=\frac{5 V}{1024 trin}=0,0049V=4,9mV
+ \label{eq:volt-step}
+ \end{align}
+I \ref{eq:volt-step} viser det sig at den mindste værdi ADC kan måle er 4,9mV, dette medfører at arduinoen maksimal vil måle et step ved 1kg på vægtcellen, Da 1mV*5V=5mV. Dette giver to valgmuligheder
+\begin{enumerate}
+\item Anskaffe en bedre ADC, bestående af flere bits
+\item Hæve udgangsspændingen fra vægtcellen 
+\end{enumerate}
+I dette tilfælde vælges punkt 2, at hæve udgangsspændingen fra vægtcellen. Til dette formål bruges en operationsforstærker, mere specifikt en differens operationsforstærker. En operationsforstærker består i sin mest simple funktion at forstærke et signal, men da udgangsspændingen fra vægtcellen er lav ønskes der følgende egenskaber:
+\begin{enumerate}
+\item En høj indgangsimpedans 
+\item Differentielt input med et single ended output
+\item En høj undertrykkelse af støj
+\item En simple forstærkning
+\end{enumerate}
+Punkt 1, en høj indgangsimpedans ( > 10 - 100Mohm) sikre at forstærkeren ikke belaster måle objektet. Det ønskes for at få adgang til hele signalet, og at det ikke bliver undertrykt grundet at forstærkeren forbruger strømmen fra signalet.
+
+Punkt 2, Differentielt input med et single ended output. Det er et ønske som skyldes at vægtcellen leverer et differentielt output. Hvor ved at et single ended output er lettere at arbejde med, især når der skal bruges en ADC. Indgangsmodstanden er bestemt ved modstanden mellem de to indgangsterminaler, som kan beskrives ved \ref{eq:differensmodstand} og beregnes ved \ref{fig:differensmodstand}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/differensmodstand.JPG}
+	\caption{illustration af differensforstærkerens indgangsmodstand}
+	\label{fig:differensmodstand}
+\end{figure}
+\begin{align}
+ Rin=Vin/Iin
+ \label{eq:differensmodstand}
+ \end{align}
+I den ideelle verden antages det, at spændingsforskellen i mellem indgangsterminalerne er nul kab der skrives vha. Kirchoffs spændingslov skrives i \ref{eq:differensmodstand2}
+\begin{align}
+ VR3-Vin+VR1=0=>Vin=VR3+VR3=Iin(R1+R3)=>Rin=\frac{Vin}{Iin=R1+R2}
+ \label{eq:differensmodstand2}
+ \end{align}
+ I \ref{eq:differensmodstand2} viser det sig at indgangsmodstanden er beskrevet ved modstandene i det omkring liggende kredsløb. Hvilket giver anledning til at vælge så høje modstande som mulige, men store modstande øger risikoen for støj i kredsløbet. Det betyder at ønsket ikke kan opfyldes, med blot en differensforstærker
+
+
+Punkt 3, en høj undertrykkelse af støj. Støj kan skyldes rigtig mange ting, en typiske støjkomponent er 50 Hz brum. 50 Hz brum fremkommer ofte, da støjen skyldes de omkring liggende EL installationer, hvor der foregår en elektromagnetisk kobling. men når der benyttes en differensforstærker, kan common mode støjen undertrykkes. Common mode støj er indstrålet støj der kommer på begge ledninger til differensforstærkeren. Det er differensforstærkeren god til at fra sorterer, fordi den trækker de to input fra hinanden. Det vil sige at hvis støjen er enes på de to ledninger, vil den differentiere den samme værdi fra hinanden hvilket vil give 0. en illustration af dette kan ses på \ref{fig:differensNoise} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/differensnoise.jpg}
+	\caption{illustration af differensforstærkerens common mode støj undertrykkelse}
+	\label{fig:differensNoise}
+\end{figure}
+
+Punkt 4, en simpel forstærkning. Med det over stående kredsløb, kan en simpel forstærkning ikke opnås. Det kan det ikke da det kræver at R2 divideret med R1 er lig med R4 divideret med R3. Hvilket vil være umuligt da modstande har en tolerancer for, hvor præcise de er.
+
+For at opfylde de ønskede egenskaber skal differensforstærkeren modificeres. For at sikres en høj indgangsmodstand kan en spændingsføger benyttes, som har til formål at forstærke en til en. Det vil sige at den i teorien har samme udgangsspænding som indgangsspændingen. se \ref{fig:bufferamp} for en illustration, denne sættes på begge outputs fra vægtcellen.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/bufferamp.png}
+	\caption{illustration af spændingsfølger}
+	\label{fig:bufferamp}
+\end{figure}
+Med en spændingsfølger opnås der en høj indgangsmodstand, men signalet er stadig differentielt og uden forstærkning. Derfor indsættes der 3 modstande som vist i \ref{fig:bufferampmedgain}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/bufferampgain.JPG}
+	\caption{illustration af spændingsfølger med gain}
+	\label{fig:bufferampmedgain}
+\end{figure}
+Ved brug af KVL og KCL kan forstærkningen skrives som i \ref{eq:gain}, hvor Ad er forstærkningen og Ra er modstanden i midten. Dette gør forstærkningen simpel fordi der kun skal ændres en modstand. 
+\begin{align}
+ Ad=1+\frac{2}{Ra}
+ \label{eq:gain}
+ \end{align}
+ Til at opfylde ønskerne om undertrykkelse af støj og et single ended output kan differensforstærkeren sættes efter spændingsfølgerne med forstærker trinet. Hvilket får kredsløbet til at se ud som vist i \ref{fig:bufferampmedgaindifferens}
+ 
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/bufferampgaindifferens.JPG}
+	\caption{illustration af spændingsfølger med gain og differensforstærker}
+	\label{fig:bufferampmedgaindifferens}
+\end{figure}
+
+ligning \ref{eq:instru} viser overføringsfunktionen for diagrammet i \ref{fig:bufferampmedgaindifferens}.
+
+\begin{align}
+ Vout=(V2-V1)*(1+\frac{2}{Ra})
+ \label{eq:instru}
+ \end{align} 
+ 
+ Kredsløbet på \ref{fig:bufferampmedgaindifferens} kaldes en instrumentationsforstærker, hvilket der i projeket er indkøbt for at spare tid. Den indkøbte instrumentationsforstærker hedder INA114, som har kredsløbet og pin konfiguration vist på \ref{fig:INA114diagram} og \ref{fig:INA114Pin}\footnote{hentet fra databladet fra INA114}
+ 
+ \begin{figure}[htbp] \centering
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/INA114diagram.JPG} % Left picture
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/pinkonfig.JPG} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[t]{0.48\textwidth}
+\caption{INA114 diagram} % Left caption and label
+\label{fig:INA114diagram}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.48\textwidth}
+\caption{pin konfiguration af INA114 8pin } % Right caption and label
+\label{fig:INA114Pin}
+\end{minipage}
+\end{figure}
+\fxnote{reference til datablad i billag}
+Fra databladet til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10Gohm. forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina}
+\begin{align}
+ G=(1+\frac{50Kohm}{RG})
+ \label{eq:gainina}
+ \end{align} 
+ I tilfældet i dette projekt skal der bruges et gain på 4,9V/5mV=980 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan komme op på.
+ \begin{align}
+ RG=\frac{50Kohm}({980-1})=51ohm
+ \label{eq:gainina}
+ \end{align}
+ kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur...
+ 
+ 
+ 
