@@ -24,8 +24,7 @@ Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvi
  
  \newpage
 \subsection{Block Definition Diagram}  \label{sub:bdd_hardware}
-Et BDD diagram giver indblik i hardwarens overordnede struktur af systemet. Hver block er en del der indgår i systemet. Diagrammet(\ref{fig:bdd_Hardware}) er bygget hierarkisk system, hvor en blok kan indeholde flere blokke. blokkene består af en system blok \textit{the cell collector}, der indeholder tre elementære blokke, \textit{Arduino}, \textit{non electronic} og \textit{Camera}. Hvor \textit{Arduino} er den eneste der indeholder flere blokke, det beskriver hvilken hardware de overstående blokke kommuniker med.
-
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et over ordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, den indeholder de elementer arduinoen styrer bla motor shieldet. Motor shieldet indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motor shieldet. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
 
 \begin{figure}[H]
 	\centering
@@ -36,7 +35,7 @@ Et BDD diagram giver indblik i hardwarens overordnede struktur af systemet. Hver
 
 \newpage
 \subsection{Internal block Diagram} 
-Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden på. Det betyder at der er specificeret indgangs- og udgangsporte, med de forskellige typer. Digrammet(\ref{fig:ibd_Hardware}) beskriver blandt andet, hvilken spænding delene arbejder under og hvilket signal der er brug for.
+Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden på. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
 
 
 \begin{figure}[H]
@@ -45,6 +44,64 @@ Et IBD diagram beskriver mere præcist, hvordan de forskellige komponenter inter
 	\caption{IBD - Cell Collector [Hardware]}
 	\label{fig:ibd_Hardware}
 \end{figure}
+
+Tabellen nedenfor er brugt til at skabe en oversigt, over hvilke signaler og funktioner den enkle blok indeholder.
+
+\begin{center}
+		\begin{longtable}{ | m{2cm} | m{6cm}| m{2cm}| m{4.5cm}| } 
+			\hline
+			\textbf{Blok navn} &\textbf{Funktionsbeskrivelse} &\textbf{Signaler} &\textbf{kommentar}\\ 
+			\hline
+			\multirow{2}{*}{Pump} & \multirow{2}{*}{Skabe flow i opløsningen} & 0V & Reference \\ 
+& & 6V & Strømforsyning \\	
+			\hline	
+			\multirow{2}{*}{Valve} & \multirow{2}{*}{Åbne og lukke for førringsveje} & 0V & Reference \\ 
+& & 6V & Strømforsyning \\	
+			\hline	
+		\multirow{6}{*}{Motor shield} & \multirow{6}{*}{Forsyne ventil og pumpe} & 0V & Reference \\ 
+& & 6V & Strømforsyning \\	
+& & Brake & Motorbremse \\	
+& & PWM & Hastighedsregulering \\
+& & Direction & Motor retning \\
+& & Analog& udgangssignal \\
+			\hline	
+			\multirow{5}{*}{Arduino} & \multirow{5}{*}{Styreenhed for hardware} & 0V & Reference \\ 
+& & 5V & Strømforsyning \\	
+& & USB & Seriel kommunikation \\
+& & Analog & indgangssignaler \\
+& & Digital & udgangssignaler \\
+			\hline
+			\multirow{3}{*}{Loadcell} & \multirow{3}{*}{Kontroller opløsningsbeholder} & 0V & Reference \\ 
+& & 5V & Strømforsyning \\	
+& & Signal & Udgangssignal \\	
+			\hline
+			\multirow{2}{*}{Cameralight} & \multirow{2}{*}{Lys til kameraet} & 0V & Reference \\ 
+& & PWM & Lysstyrke \\	
+			\hline
+		\end{longtable}
+	\end{center}
+	
+Tabellen nedenfor beskriver signalerne der findes i systemet, denne tabel anvendes når grænsefladerne skal designes og testes.
+
+\begin{center}
+		\begin{longtable}{ | m{2cm} | m{6cm}| m{2cm}| m{4.5cm}| } 
+			\hline
+			\textbf{Signal navn} &\textbf{Funktionsbeskrivelse} &\textbf{Område} &\textbf{kommentar}\\ 
+			\hline
+			\multirow{2}{*}{0V} & \multirow{2}{*}{Reference til analoge spændinger} &  & Stel \\ 
+& & indsæt porte& porte \\	
+			\hline	
+			5V & Forsyningsspænding & 4.9-5.1V &  \\ 
+			\hline
+			6V & Forsyningsspænding & 5.9-6.1V &  \\ 
+			\hline
+			PWM & Forsyningsspænding & 0V eller 5V & Digital \\ 
+			\hline	
+			Signal & Registrering af fysiske værdier & 0-5V & Analog \\ 
+			\hline	
+		\end{longtable}
+	\end{center}
+\fxnote{der skal tilføjes porte og ibdet skal lavet om med porte på, afventes L293 ledningsdiagram motordriveren }
 
 \newpage
 \subsection{Kamera}
@@ -76,7 +133,7 @@ Kameraet[\citet{DH2}] skal detektere de langerhanske øer i systemet, hvilket g�
 	\end{center}
 Da Langerhanske øer har en størrelse på \SI{100}{\micro\metre} til \SI{300}{\micro\metre}, skal kameraet have en opløsning så øerne kan detekteres. Opløsningen på kameraet er valg ud fra:
 \begin{align}
-Opløsning = \frac{afstand}{objektstørrelse} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} 
+\text{Opløsning} = \frac{\text{Afstand}}{\text{Objektstørrelse}} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} 
 \end{align} \citep[s.5]{DH1}
 afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de Langerhanske øer er lysere og har et andet fluorescens niveau end resten af vævet vil et kamera uden farver også være anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Ydermere har prisen på kameraet også været vigtigt for budgettet.
 
@@ -87,7 +144,7 @@ afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut 
 
  
 \newpage
-\subsection{Microcontroller}
+\subsection{Styreenheden}
 Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal styre ventil, kameralyset, pumpe og vægtcelle.  
 
 \textbf{Specifikationer for Microcontroller[\citet{DH3}]:} 
@@ -139,7 +196,7 @@ Motor shieldet skal hjælpe microcontrolleren med, at styre pumpen og ventilen t
 			\hline	
 		\end{longtable}
 \end{center}
-Motor shieldet kan levere 2.5A pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motor shieldet har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere giver den også mulighed for at overvåge strømforbrugey på dens kanaler. Det kan være med til at beskytte pumpens motor.
+Motor shieldet kan levere 2.5A pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motor shieldet har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere giver den også mulighed for at overvåge strømforbruget på dens kanaler. Det kan være med til at beskytte pumpens motor.
 
 
 \subsection{Ventil}
@@ -228,7 +285,7 @@ Systemet består af tre beholdere der hver i især har sin egen funktion. Den f�
 			\hline
 		\end{longtable}
 \end{center}
-Størrelses kravene til beholderne er at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt. Wastebeholderen skal således være dobbelt så stor, så der kan gennemløbes to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt, uden at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt. ML 33184 fås med et skruelåg med forskruninger, der kan tilpasses de indkøbte slanger. Yderligere fås den et luftfilter, så der ikke dannes vakuum i beholderen.
+Størrelses kravene til beholderne er at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt(\textit{jf. Søren Gregersen}). Wastebeholderen skal således være dobbelt så stor, så der kan gennemløbes to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt, uden at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt. ML 33184 fås med et skruelåg med forskruninger, der kan tilpasses de indkøbte slanger. Yderligere fås den et luftfilter, så der ikke dannes vakuum i beholderen.
 
 \subsection{Slanger}
 Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet bl.a. forbi kameraet.
