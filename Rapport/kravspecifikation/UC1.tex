@@ -7,7 +7,10 @@
 			\hline
 			Initiering &  Use casen initieres af operatøren\\
 			\hline
-			Aktør & Operatør \\ 
+			Aktør & 
+			Primær: Operatør
+			
+			 Sekundær: Kamera			  \\ 
 			\hline
 			Startbetingelser & The Cell Collector programmet er startet på computeren \\ 
 			\hline	
@@ -16,14 +19,14 @@
 			Slutbetingelser ved undtagelse & N/A \\
 			\hline
 			Normalforløb & \begin{enumerate}
-				\setlength\itemsep{0cm} % Decrease line distance
+				%\setlength\itemsep{0cm} % Decrease line distance
 				\item Operatør fylder celleopløsningsbeholderen
 				\item Celleopløsningsbeholderen er fyldt
 				\item Operatør starter sorteringscyklus ved at klikke på [Start]
 				\subitem [Undtagelse 1: Wastebeholder er fyldt] 
 				\item Systemet initialiserer Arduinoen
 				\subitem [Undtagelse 2: Ingen forbindelse til Arduino]
-				\item Systemet kontrollerer celleopløsningsbeholderen
+				\item Systemet kontrollerer celleopløsningsbeholderen ved at konvertere spændingen (\SI{}{\volt})  til \SI{}{\milli\litre}, og vise beholderens indhold (\SI{}{\milli\litre}) på GUI
 				\item Systemet initialiserer kameraet
 				\subitem [Undtagelse 3: Kameraet initialiserer ikke]
 				\item Systemet tænder for kamera lyset

@@ -5,24 +5,26 @@
 \input{kravspecifikation/versionshistorik}
 \newpage
 \section{Systembeskrivelse}
-Formålet med projektet er at udvikle et system til isolation af insulin producerende celler (Langerhanske Øer). Mange farmaceutiske virksomheder og forskningsafdelinger udfører forsøg på disse øer fra bl.a. rotter. Processen med isolering af Langerhanske øer startes ved operativt at fjerne pancreas, hvorefter vævet opløses vha. enzymet kollagenase. Når vævet er opløst fortyndes det yderligere inden det hældes i petriskåle. Øerne bliver herefter manuelt isoleret vha. mikroskop og diverse præcisions redskaber. Denne proces er både besværlig og tidskrævende. Formålet med projektet er derfor, at udvikle en ny metode til isolation af cellerne. Systemet skal indeholder en beholder til opløsningen med langerhanske øer. Denne opløsning skal føres ud gennem en tynd slange(<0,5mm)  forbi et kamera, hvor der ved hjælp af Matlab skal udføres billedprocessering. Billedebehandlingen skal genkende, hvornår der er en langerhanske ø. Derefter skal systemet frasortere denne, ved et ventil system der åbner på det rigtige tidspunkt. Til at skabe flowet i slangerne anvendes en pumpe.  Et krav til pumpen er at den skal være nænsom ved celleopløsningen, da de langerhanske øer er meget skrøbelige.
+Formålet med projektet er at udvikle et system til isolation af insulin producerende celler (Langerhanske Øer). Mange farmaceutiske virksomheder og forskningsafdelinger udfører forsøg på disse øer fra bl.a. rotter. Processen med isolering af Langerhanske øer startes ved operativt at fjerne pancreas, hvorefter vævet opløses vha. enzymet kollagenase. Når vævet er opløst fortyndes det yderligere inden det hældes i petriskåle. Øerne bliver herefter manuelt isoleret vha. mikroskop og diverse præcisions redskaber. Denne proces er både besværlig og tidskrævende. Formålet med projektet er derfor, at udvikle en ny metode til isolation af cellerne. Systemet skal indeholder en beholder til opløsningen med langerhanske øer. Denne opløsning skal føres ud gennem en tynd slange(Ø<0.5 mm)  forbi et kamera, hvor der ved hjælp af Matlab skal udføres billedprocessering. Billedebehandlingen skal genkende, hvornår der er en langerhansk ø. Derefter skal systemet frasortere denne, ved et ventil system der åbner på det rigtige tidspunkt. Til at skabe flowet i slangerne anvendes en pumpe.  Et krav til pumpen er at den skal være nænsom ved celleopløsningen, da de langerhanske øer er meget skrøbelige.
 En automatiseret løsning af sorteringsprocessen kan bidrage med reducering af omkostningerne, give en mere ensartet sortering samt sikre dokumentation af de sorterede øer. Systemet kan fra et kommercielt synspunkt bidrage til basal forskning og til screening af nye medicinske præparater.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{billeder/Overview.png}
+	\includegraphics[width=1\textwidth]{billeder/DMTS.pdf}
 	\caption{Figuren viser den overordnede opbygning af systemet, som beskrevet under systembeskrivelsen}
 	\label{fig:usecase}
 \end{figure}
 
 \subsection{Aktør beskrivelse}
-Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er PC’ens filsystem, hvor der løbende gemmes en log over sorteringsprocessen.
+Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er kameraet og PC’ens filsystem. Kameraet er systemets interface til detektion af de Langerhanske øer. Filsystemet er hvor der løbende gemmes en log over sorteringsprocessen.
 \section{Funktionelle krav}
 
 \subsection{Use Case Diagram}
+I Use Case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases systemet \textit{The Cell Collector} består af. Yderligere er det vist, hvilke aktører der initiere de enkelte use cases. På venstre side er systemets primære aktør \textit{operatøren} vist, mens systemets sekundære aktører \textit{kamera} og \textit{database} er placeret i højre side. 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{billeder/UC_CellCollector.png}
+	\includegraphics[width=1\textwidth]{billeder/UC_CellCollector.pdf}
 	\caption{Use Case diagram for The Cell Collector}
 	\label{fig:usecase}
 \end{figure}
@@ -40,16 +42,16 @@ Systemets primære aktør er operatøren, som står for påfyldning af celler, s
 \input{kravspecifikation/gui}
 \newpage
 \section{Projektafgrænsning}
-Til at afgrænse kravene i projektet er der anvendt MoSCoW metoden. Denne metode er brugt for at give en struktureret oversigt over hvilke krav der er vigtigst at få opfyldt inden for tidsrammen og hvilke der evt. kan implementeres senere hvis tiden er til det.
+Til at afgrænse kravene i projektet er der anvendt MoSCoW metoden (figur: \ref{fig:moscow}, som beskriver hvilke krav projektet skal (must), bør (should), kan (could) og ikke (wont) opfylde. Denne metode er brugt for at give en struktureret oversigt over hvilke krav der er vigtigst at få opfyldt inden for tidsrammen og hvilke der evt. kan implementeres senere hvis tiden er til det.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{billeder/MoSCoW.png}
+	\includegraphics[width=1\textwidth]{billeder/MoSCoW-crop.pdf}
 	\caption{MoSCoW}
 	\label{fig:moscow}
 \end{figure}
 
-\section{Samarbejdspartner}
+\section{Samarbejdspartnere}
 Gruppens kunde er Søren Gregersen, overlæge på Medicinsk Endokrinologisk Afdeling, Aarhus Universitetshospital. Det er i samarbejde med ham at projektet er blevet specificeret, samt hvilke krav der er til den endelige prototype.
 Samuel Alberg Thrysøe er gruppens projektvejleder. Der afholdes ugentligt et vejledermøde, hvor gruppen giver status på projektet og hvor der diskuteres forskellige problemstillinger. 
 Simon Vammen Grønbæk og Karl Johan Schmidt fungerer som projektets review gruppe. Der holdes møde hver anden uge omhandlende aftalt dagsorden. Formålet med review gruppen er at få konstruktiv feedback på evt. rettelser, opbygning af rapport og generel forståelse.
