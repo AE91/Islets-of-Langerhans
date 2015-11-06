@@ -1,44 +1,222 @@
 \subsection{Use Case 1: Påfyldning af celler}
-\begin{center}
-		\begin{longtable}{ | m{1.785cm} | m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}|m{1.785cm}| } 
-			\hline
-			\textbf{Krav nr.} &\textbf{ Handling} & \textbf{Forventet resultat} & \textbf{Test-metode} &\textbf{Resultat} & \textbf{ \checkmark \textbackslash -} & \textbf{Initialer og dato} \\ 
-			
-			\hline
-			1.1 \& 1.2 &  Operatør fylder celle-opløsnings-beholderen & Celle-opløsnings-beholderen er fyldt  & Celle-opløsnings-beholderen fyldes med væske  &  & & \\
-			
 
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
 			\hline
-			
-			1.3 &  Operatør starter sorteringscyklus ved at klikke på [Start]  & Opstarts processen i gang sættes, observeres & Knappen [Start] trykkes.  &  & & \\
+			\textbf{Krav nr.} & 1.1 \& 1.2    \\ 
 			\hline
-			
-			1.4 &  Systemet initialiserer Arduinoen  & Arduino initialiseret signal modtages og gives til UI & Det observeres på GUI’en at Arduinoen er initialiseret.  &  & & \\
+			\textbf{Handling} &  Operatør fylder celle-opløsnings-beholderen   \\
 			\hline
-			
-			1.5 &  Systemet kontrollerer celle-opløsnings-beholderen & Kontrol vægten returnerer en høj spænding for fyldt celle-opløsnings-beholder. & Spændingen måles med multimeter.  &  & & \\
+			\textbf{Forventet resultat} &  Celle-opløsnings-beholderen er fyldt  \\
 			\hline
-			\fxnote{ Tabeloverskrifter skal fortsætte på næste side}
-			1.6  &  Systemet initialiserer kameraet & Kamera Initialiseret signal modtages og gives til UI & Det observeres på GUI’en at kameraet er initialiseret.  &  & & \\
+			\textbf{Testmetode}  &    \\
 			\hline
-			
-			Undtagelse 1 & 1. Waste-beholderen er fyldt & System-besked: Tøm waste-beholderen & Der startes 2 sorteringscyklusser. Resultatet observeres på GUI.  &  & & \\
+			\textbf{Resultat}  &    \\
 			\hline
-			
-			Undtagelse 1 & 2 \& 3 Operatør trykker [OK] & Systemet fortsætter opstartprocessen & Knappen [OK] trykkes  &  & & \\
+			\textbf{Angiv godkendelse} &     \\
 			\hline
-	
-			
-			Undtagelse 2 & For-bindelsen til Arduino frakobles  & System-besked:  Ingen forbindelse til Arduino, kontroller forbindelser & USB kablet til Arduinoen frakobles. Resultatet observeres på GUI.  &  & & \\
+			\textbf{Initialer} &     \\
 			\hline
-
-		Undtagelse 3 & 1. Kameraet initialiseres ikke & System-besked: Kameraet er ikke initialiseret. & Kameraets forbindelse frakobles. Resultatet observeres på GUI.  &  & & \\
+			\textbf{Dato} &    \\
 			\hline
-		
-		Undtagelse 3 & 2.Genstart initialseringen af Kameraet & Feedback fra kameraet om initialisering start. & Kameraet kobles til PC igen. Resultatet observeres på GUI.  &  & & \\
-			\hline
-			
 		\end{longtable}
-		
 	\end{center}
-	\pagebreak
+	
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1.3    \\ 
+			\hline
+			\textbf{Handling} &  Operatør starter sorteringscyklus ved at klikke på [Start]  \\
+			\hline
+			\textbf{Forventet resultat} &  Opstarts processen i gang sættes.  \\
+			\hline
+			\textbf{Testmetode}  & Knappen [Start] trykkes, observeres ved tekstboks på GUI, med teksten \textit{systemet starter op}.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1.4    \\ 
+			\hline
+			\textbf{Handling} &  Systemet initialisere Arduinoen   \\
+			\hline
+			\textbf{Forventet resultat} &  Arduino initialiseret signal modtages og gives til GUI  \\
+			\hline
+			\textbf{Testmetode}  & Det observeres på GUI at Arduinoen er initialiseret, i en tekstboks med testen \textit{Arduino er initialiseret}.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1.5    \\ 
+			\hline
+			\textbf{Handling} &  Systemet kontrollerer celle-opløsnings-beholderen  \\
+			\hline
+			\textbf{Forventet resultat} &  Antal ml i celleopløsningsbeholderen vises på GUI.  \\
+			\hline
+			\textbf{Testmetode}  & Der hældes 100 ml i celleopløsningsbeholderen, det observeres på om der vises 100 ml $\pm$ 10 ml   \\
+			\hline			
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}	
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1.6    \\ 
+			\hline
+			\textbf{Handling} &  Systemet initialiserer kameraet  \\
+			\hline
+			\textbf{Forventet resultat} &  Kamera Initialiseret signal modtages og gives til UI  \\
+			\hline
+			\textbf{Testmetode}  & Det observeres på GUI’en at kameraet er initialiseret, i en tekstboks med testen \textit{Kameraet er initialiseret}   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+		
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 1.1   \\ 
+			\hline
+			\textbf{Handling} & Waste-beholderen er fyldt  \\
+			\hline
+			\textbf{Forventet resultat} & System-besked: Tøm waste-beholderen  \\
+			\hline
+			\textbf{Testmetode}  & Der startes 2 sorteringscyklusser. Resultatet observeres på GUI ved en messagebox.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 1.2 \& 1.3   \\ 
+			\hline
+			\textbf{Handling} & Operatør trykker [OK]  \\
+			\hline
+			\textbf{Forventet resultat} & Systemet fortsætter opstartprocessen, observeres ved at næste komponent initialiseres, skrives i tekstboks på GUI \\
+			\hline
+			\textbf{Testmetode}  & Knappen [OK] trykkes på messagebox.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}	
+
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 2   \\ 
+			\hline
+			\textbf{Handling} & Forbindelsen til Arduino frakobles  \\
+			\hline
+			\textbf{Forventet resultat} & System besked:  Ingen forbindelse til Arduino, kontroller forbindelser \\
+			\hline
+			\textbf{Testmetode}  & USB kablet til Arduinoen frakobles. Resultatet observeres på GUI ved en messagebox.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 3.1   \\ 
+			\hline
+			\textbf{Handling} & Genstart initialseringen af Kameraet  \\
+			\hline
+			\textbf{Forventet resultat} & Feedback fra kameraet om initialisering starter \\
+			\hline
+			\textbf{Testmetode}  & USB kablet til Kameraet frakobles. Resultatet observeres på GUI ved en messagebox.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 3.2   \\ 
+			\hline
+			\textbf{Handling} & Kameraet initialiseres ikke  \\
+			\hline
+			\textbf{Forventet resultat} & System-besked: Kameraet er ikke initialiseret. \\
+			\hline
+			\textbf{Testmetode}  & USB kablet til Kameraet tilkobles. Resultatet observeres på GUI ved en tekstboks, med teksten \textit{Kameraet er initialiseret}.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
