@@ -114,7 +114,7 @@ Kameraet[\citet{DH2}] skal detektere de langerhanske øer i systemet, hvilket g�
 			\hline
 			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
-			\textbf{Billede opløsning:} & 2M Pixel \\ 
+			\textbf{Billede opløsning:} & 2M pixel \\ 
 			\hline
 			\textbf{Fokus område:} & 0-40mm  \\ 
 			\hline
@@ -135,7 +135,57 @@ Da Langerhanske øer har en størrelse på \SI{100}{\micro\metre} til \SI{300}{\
 \begin{align}
 \text{Opløsning} = \frac{\text{Afstand}}{\text{Objektstørrelse}} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} 
 \end{align} \citep[s.5]{DH1}
-afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de Langerhanske øer er lysere og har et andet fluorescens niveau end resten af vævet vil et kamera uden farver også være anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Ydermere har prisen på kameraet også været vigtigt for budgettet.
+afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de Langerhanske øer er lysere og har et andet fluorescens niveau end resten af vævet vil et kamera uden farver også være anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Til projektet er der taget et valg mellem 3 kamera, det valgte er listet oven over og de 2 fra valgte er i tabellen her under.
+
+\begin{center}
+		\begin{longtable}{ | m{3cm} | m{9.5cm}| } 
+			\hline
+			\textbf{Kamera type} & USB Microscope Digital-Mikroskop Endoskop[\citet{DH9}] \\ 		
+			\hline
+			\textbf{Billede opløsning} & 2M pixel \\ 
+			\hline
+			\textbf{Fokus område:} & n/a  \\ 
+			\hline
+			\textbf{forstørrelse:} & 50X-800X (Manuelt)  \\ 
+			\hline 
+			\textbf{Frame rate:} & n/a  \\ 
+			\hline
+			\textbf{Interface:} & USB (ukendt version)  \\ 
+			\hline
+			\textbf{Forsyning:} & DC 5V (\textit{fra USB port})  \\ 
+			\hline
+			\textbf{Dimension:} & L:\SI{112}{\milli\metre} x B:\SI{33}{\milli\metre}  \\ 
+			\hline	
+			\textbf{Pris:} & 148,33kr.\\ 
+			\hline
+		\end{longtable}
+	\end{center}
+	
+	\begin{center}
+		\begin{longtable}{ | m{3cm} | m{9.5cm}| } 
+			\hline
+			\textbf{Kamera type} & AVEN ZIPSCOPE[\citet{DH10}] \\ 		
+			\hline
+			\textbf{Billede opløsning} & 2M pixel \\ 
+			\hline
+			\textbf{Fokus område:} &  10mm-500mm (Manuelt) \\ 
+			\hline
+			\textbf{forstørrelse:} & 10x-50x (Optisk), 200X (Digital)  \\ 
+			\hline
+			\textbf{Frame rate:} & 30f/s  \\ 
+			\hline
+			\textbf{Interface:} & USB 2  \\ 
+			\hline
+			\textbf{Forsyning:} & DC 5V (\textit{fra USB port})  \\ 
+			\hline
+			\textbf{Dimension:} & n/a \\ 
+			\hline	
+			\textbf{Pris:} & 1734,15kr.\\ 
+			\hline
+		\end{longtable}
+	\end{center}
+	
+Prisen for det indkøbte Kamera var 264,15kr., hvilket har været på et middel prisniveau ud fra de tre kamera. Grunden til valget af det Indkøbte præger af prioritering af et ordenligt datablad og et stramt budget.
 
 %Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud ved at være mere lyse end resten af vævet, vil det være underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er en standard frame rate valgt på 30 f/s. Kameraet opløsningen er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
  %\fixme{Mangler formel}
@@ -244,7 +294,7 @@ Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet
 		\end{longtable}
 \end{center}
 
-Det er et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige pumpetyper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det skal dog undersøges hvordan de langerhanske øer vil opfører sig ved sådan en pumpe.
+Det er et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige pumpetyper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det skal dog undersøges hvordan de langerhanske øer vil opfører sig ved sådan en pumpe. Undersøgelserne bør bestå af om de langerhanske øer tager skade ved, at pumpen klemmer på slangen. \fxnote{bekymringerne kan muligvis uddybes}
 % Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
 
 \subsection{Vægtcelle}
@@ -261,7 +311,7 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 			\hline
 			\textbf{Anbefalet arbejdsspænding} & 3-12V \\ 
 			\hline
-			\textbf{Output} & 1.0mV/V+0.15mV/V \\ 
+			\textbf{Output} & 1.0mV/V$\pm$0.15mV/V \\ 
 			\hline
 		\end{longtable}
 \end{center}
