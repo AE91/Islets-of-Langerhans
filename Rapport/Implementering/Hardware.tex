@@ -14,14 +14,14 @@ En strain gages modstand stiger ved stræk og falder ved kompression, dette kan 
  R=\frac{P*L}{A}
  \label{eq:modstandsformel}
  \end{align}
- Hvor R=modstand, p=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiale egenskaber, temperatur og selvfølgelig den strakte længde. På vægtcellen er der en strain gages fire strain gages, som er Placeret på vægtcellen på denne måde \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
+ Hvor R=modstand, p=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiales egenskaber og temperatur. På vægtcellen er der fire strain gages, som er Placeret på vægtcellen på denne måde \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
  
- Måden de er forbundet er vist på \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en weststone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist på \ref{eq:fullbformel}
+ Måden de er forbundet er vist på \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en wheatstone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist på \ref{eq:fullbformel}
 \begin{align}
  V_{out}=GF*V_{in}*E
  \label{eq:fullbformel}
  \end{align}
- Hvor V$_{out}$=udgangssignalet, V$_{in}$=indgangsspændingen , GF=gages factor som er egenskabet for materialet og E=strukket der er tilført til vægtcellen.
+ Hvor V$_{out}$=udgangssignalet, V$_{in}$=indgangsspændingen , GF=gages factor som er materialets egenskab og E=strukket der er tilført til vægtcellen.
 
 \begin{figure}[htbp] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -71,7 +71,7 @@ Punkt 2, Differentielt input med et single ended output. Det er et ønske som sk
  R_{in} =V_{in}/I_{in}
  \label{eq:differensmodstand}
  \end{align}
-I den ideelle verden antages det, at spændingsforskellen i mellem indgangsterminalerne er nul kab der skrives vha. Kirchoffs spændingslov skrives i \ref{eq:differensmodstand2}
+I den ideelle verden antages det, at spændingsforskellen i mellem indgangsterminalerne er nul derfor kan der skrives vha. Kirchoffs spændingslov skrives i \ref{eq:differensmodstand2}
 \begin{align}
  V_{R3}-V_{in}+V_{R1}=0=>V_{in}=V_{R3}+V_{R3}=I_{in}(R1+R3)=>R_{in}=\frac{V_{in}}{I_{in}=R1+R2}
  \label{eq:differensmodstand2}
@@ -158,8 +158,34 @@ Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, d
  \frac{1000g}{trin}=\frac{1000g}{1024}=0,977g/trin=>0,977*\frac{1024}{5V}=200g/V \pm30g
  \label{eq:gainina}
  \end{align}
+ kredsløbet for INA114 og vægtcellen til arduinoen kan ses på \ref{fig:loadcelldiagram}
  
- kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur...
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/loadcelldiagram.JPG}
+	\caption{Diagram for arduino, INA114 og vægtcelle}
+	\label{fig:loadcelldiagram}
+\end{figure}
+
+Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se \ref{fig:loadcelltest} for test opstilling
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/Drawing1.jpg}
+	\caption{Test opstilling for vægtcelle}
+	\label{fig:loadcelltest}
+\end{figure}
+ Se bilag\fxnote{reference til bilag} for at se testkode brugt i Arduino IDE til testopstilling for vægtcellen. Ved enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på ina114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
  
+ \begin{align}
+ analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
+ \label{eq:trintilvolt}
+ \end{align}
+Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholder. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i \fxnote{reference til SW loadcell}
  
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/loadcell_montering.pdf}
+	\caption{Illustration af opstilling med vægtcelle og celleopløsningsbeholder}
+	\label{fig:loadcell_mont}
+\end{figure}
  
