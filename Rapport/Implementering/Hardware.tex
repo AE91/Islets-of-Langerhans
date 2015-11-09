@@ -188,4 +188,39 @@ Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont}
 	\caption{Illustration af opstilling med vægtcelle og celleopløsningsbeholder}
 	\label{fig:loadcell_mont}
 \end{figure}
+
+ \subsection{Pumpe}
+ Pumpen består af en DC motor og ud fra databladet kan det ses at den skal bruge 6VDC og 0.6A for at blive køre. Da arduinoen langt fra kan leverer den nødvendige strøm, til at drive motoren. skal der bruges en motordriver med en ekstern forstrømning.
+ \subsubsection{Motordriver}
+ Motordriveren består i dette projekt af en L293D, som enten kan drive 4 motorer den ene vej, 2 motorer i begge retninger eller i dette tilfælde en vakuum pumpe og en magnetventil. se for L293D interne kredsløb diagram. 
+   \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/L293intern.JPG}
+	\caption{Intern kredsløbsdiagram for L293D}
+	\label{fig:loadcelltest}
+\end{figure}
+Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyningen til motoren. 
+\subsubsection{Pulse width modulation}
+Pulse width modulation(PWM) er et metode som kan bruges til at styre hastigheden på en motor. Dette gør den ved at tænde og slukke for en digital udgang. Det er duty cyclen der får hastigheden til at varierer, dvs. at det er tiden hvor signalet er "højt" der bestemmer hastigheden. Da strømforsyningen er 12V og motoren kun kan tåle 6V, betyder det at PWM ikke må overstige 50%, fordi at motoren ikke kan tåle det. \fxnote{højere fagligt} sprog og niveau og nogle gode referencer}
+\subsubsection{Enhedstest af motor og motordriver}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/motordiagram.JPG}
+	\caption{Kredsløbsdiagram for motor og motordriver}
+	\label{fig:motordriverdiagram}
+\end{figure}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/Motorbreadboard.JPG}
+	\caption{Illustration af opstilling med vægtcelle og celleopløsningsbeholder}
+	\label{fig:Motorbreadboard}
+\end{figure}
+
+reference til testkode mm. mangler
+
+
+ \subsection{Ventil}
  
+ \subsection{ikke elektroniske dele}
