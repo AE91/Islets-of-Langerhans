@@ -1,8 +1,8 @@
   \section{Hardware}
-  Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestende er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, formler og beskrivelser. Hvilket er udarbejdet sideløbende med udviklingen af produktet. 
- 
+  Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestene er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, formler og beskrivelser, hvilket er udarbejdet sideløbende med udviklingen af produktet. 
+ 	
  \subsection{Vægtcelle}
- For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for, vægcellen som den type der er brugt i dette projekt består af strain gages koblet i en wheatstone bro. En strain gages bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
+ For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for. Vægtcellen der er brugt i projektet, består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
  \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Hardware/straingages1.JPG}
@@ -11,17 +11,17 @@
 \end{figure}
 En strain gages modstand stiger ved stræk og falder ved kompression, dette kan beskrives ud fra formlen \ref{eq:modstandsformel}\citep{Websterbog}{s.47}
  \begin{align}
- R=\frac{P*L}{A}
+ R=\frac{\rho*L}{A}
  \label{eq:modstandsformel}
  \end{align}
- Hvor R=modstand, p=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiales egenskaber og temperatur. På vægtcellen er der fire strain gages, som er Placeret på vægtcellen på denne måde \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
+ Hvor R=modstand, $\rho$=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiales egenskaber og temperatur. På vægtcellen er der fire strain gages, som er placeret på vægtcellen på denne måde som vist på figur \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
  
- Måden de er forbundet er vist på \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en wheatstone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist på \ref{eq:fullbformel}
+ Måden de er forbundet er vist på figur \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en wheatstone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist ved formlen\ref{eq:fullbformel}
 \begin{align}
- V_{out}=GF*V_{in}*E
+ V_{out}=GF*V_{in}*\varepsilon
  \label{eq:fullbformel}
  \end{align}
- Hvor V$_{out}$=udgangssignalet, V$_{in}$=indgangsspændingen , GF=gages factor som er materialets egenskab og E=strukket der er tilført til vægtcellen.
+ Hvor V$_{out}$=udgangssignalet, V$_{in}$=indgangsspændingen , GF=gages factor som er materialets egenskab og $\varepsilon$=strukket der er tilført til vægtcellen.
 
 \begin{figure}[htbp] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -39,12 +39,12 @@ En strain gages modstand stiger ved stræk og falder ved kompression, dette kan 
 \label{fig:loadcell2}
 \end{minipage}
 \end{figure}
-Ud fra databladet \ref{subsec:loadcell} ses det, at output spændingen er 1.0mV pr volt på indgangsspændingen. Dette er pga. det meget lille strain der tilføres til emnet, hvilket også er med til at strain gagesene ikke går i stykker. Da Arduinoens analog til digital konverter bestående af 10bit, hvilket vil sige $2^{10}=1024$ det betyder at konverteren har 1024 trin fra 0 til 1023. Konverterens arbejdsspænding går fra 0 V til 5 V. 
+Ud fra databladet \ref{subsec:loadcell} ses det, at output spændingen er 1.0mV pr volt på indgangsspændingen. Dette er pga. det meget lille strain der tilføres til emnet, hvilket også er med til at strain gagesene ikke går i stykker. Da Arduinoens analog til digital konverter er 10bit, hvilket vil sige $2^{10}=1024$ det betyder at konverteren har 1024 trin fra 0 til 1023. Konverterens arbejdsspænding går fra 0 V til 5 V. 
 \begin{align}
  \text{Spænding per trin}=\frac{\text{Maksimale spænding}}{\text{Antal trin}}=\frac{5 V}{1024\text{ trin}}=0,0049V=4,9mV
  \label{eq:volt-step}
  \end{align}
-I \ref{eq:volt-step} viser det sig at den mindste værdi ADC kan måle er 4,9mV, dette medfører at arduinoen maksimal vil måle et step ved 1kg på vægtcellen, Da $1mV*5V=5mV$. Dette giver to valgmuligheder
+I \ref{eq:volt-step} viser det sig at den mindste værdi ADC kan måle er 4,9mV, dette medfører at arduinoen maksimalt vil måle et step ved 1kg på vægtcellen, da $1mV*5V=5mV$. Dette giver to valgmuligheder
 \begin{enumerate}
 \item Anskaffe en bedre ADC, bestående af flere bits
 \item Hæve udgangsspændingen fra vægtcellen 
@@ -60,7 +60,7 @@ Til dette formål bruges en operationsforstærker, mere specifikt en differens o
 \end{enumerate}
 Punkt 1, en høj indgangsimpedans (R$_{in}$ > 10-100M$\Omega$ ) sikre at forstærkeren ikke belaster måle objektet. Det ønskes for at få adgang til hele signalet, og at det ikke bliver undertrykt grundet at forstærkeren forbruger strømmen fra signalet.
 
-Punkt 2, Differentielt input med et single ended output. Det er et ønske som skyldes at vægtcellen leverer et differentielt output. Hvor ved at et single ended output er lettere at arbejde med, især når der skal bruges en ADC. Indgangsmodstanden er bestemt ved modstanden mellem de to indgangsterminaler, som kan beskrives ved \ref{eq:differensmodstand} og beregnes ved \ref{fig:differensmodstand}
+Punkt 2, Differentielt input med et single ended output. Det er et ønske som skyldes at vægtcellen leverer et differentielt output. Hvor ved at et single ended output er lettere at arbejde med, især når der skal bruges en ADC. Indgangsmodstanden er bestemt ved modstanden mellem de to indgangsterminaler, som kan illustreres ved figur \ref{eq:differensmodstand} og beregnes ved formlen \ref{fig:differensmodstand}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Hardware/differensmodstand.JPG}
@@ -79,11 +79,11 @@ I den ideelle verden antages det, at spændingsforskellen i mellem indgangstermi
  I \ref{eq:differensmodstand2} viser det sig at indgangsmodstanden er beskrevet ved modstandene i det omkring liggende kredsløb. Hvilket giver anledning til at vælge så høje modstande som mulige, men store modstande øger risikoen for støj i kredsløbet. Det betyder at ønsket ikke kan opfyldes, med blot en differensforstærker
 
 
-Punkt 3, en høj undertrykkelse af støj. Støj kan skyldes rigtig mange ting, en typiske støjkomponent er 50 Hz brum. 50 Hz brum fremkommer ofte, da støjen skyldes de omkring liggende EL installationer, hvor der foregår en elektromagnetisk kobling. men når der benyttes en differensforstærker, kan common mode støjen undertrykkes. Common mode støj er indstrålet støj der kommer på begge ledninger til differensforstærkeren. Det er differensforstærkeren god til at fra sorterer, fordi den trækker de to input fra hinanden. Det vil sige at hvis støjen er enes på de to ledninger, vil den differentiere den samme værdi fra hinanden hvilket vil give 0. en illustration af dette kan ses på \ref{fig:differensNoise} 
+Punkt 3, en høj undertrykkelse af støj. Støj kan skyldes rigtig mange ting, en typiske støjkomponent er 50 Hz brum. 50 Hz brum fremkommer ofte, da støjen skyldes de omkring liggende EL installationer, hvor der foregår en elektromagnetisk kobling. men når der benyttes en differensforstærker, kan common mode støjen undertrykkes. Common mode støj er indstrålet støj der kommer på begge ledninger til differensforstærkeren. Det er differensforstærkeren god til at fra sorterer, fordi den trækker de to input fra hinanden. Det vil sige at hvis støjen er ens på de to ledninger, vil den differentiere den samme værdi fra hinanden hvilket vil give 0. en illustration af dette kan ses på figur \ref{fig:differensNoise} 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Hardware/differensnoise.jpg}
-	\caption{illustration af differensforstærkerens common mode støj undertrykkelse}
+	\caption{Illustration af differensforstærkerens common mode støj undertrykkelse}
 	\label{fig:differensNoise}
 \end{figure}
 
@@ -117,14 +117,14 @@ Ved brug af KVL og KCL kan forstærkningen skrives som i \ref{eq:gain}, hvor $A_
 	\label{fig:bufferampmedgaindifferens}
 \end{figure}
 
-ligning \ref{eq:instru} viser overføringsfunktionen for diagrammet i \ref{fig:bufferampmedgaindifferens}.
+Ligning \ref{eq:instru} viser overføringsfunktionen for diagrammet i \ref{fig:bufferampmedgaindifferens}.
 
 \begin{align}
  V_{out}=(V_{2}-V_{1})*(1+\frac{R+R}{R_{a}})
  \label{eq:instru}
  \end{align} 
  
- Kredsløbet på \ref{fig:bufferampmedgaindifferens} kaldes en instrumentationsforstærker, hvilket der i projeket er indkøbt for at spare tid. Den indkøbte instrumentationsforstærker hedder INA114, som har kredsløbet- og pinkonfiguration vist på \ref{fig:INA114diagram} og \ref{fig:INA114Pin}\footnote{hentet fra databladet fra INA114}
+Kredsløbet på figur \ref{fig:bufferampmedgaindifferens} kaldes en instrumentationsforstærker, hvilket der i projeket er indkøbt da den lever op til de ønskede egenskaber og er mere præcis end at lave kredsløbet selv. Den indkøbte instrumentationsforstærker hedder INA114, som har kredsløbet- og pinkonfiguration vist på \ref{fig:INA114diagram} og \ref{fig:INA114Pin}\footnote{hentet fra databladet fra INA114}
  
  \begin{figure}[htbp] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -143,22 +143,23 @@ ligning \ref{eq:instru} viser overføringsfunktionen for diagrammet i \ref{fig:b
 \end{minipage}
 \end{figure}
 \fxnote{reference til datablad i billag}
-Fra databladet til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina}
+Fra databladet til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
  G=(1+\frac{50K\Omega}{R_{G}})
- \label{eq:gainina}
+ \label{eq:gainina1}
  \end{align} 
  I tilfældet i dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
  \begin{align}
  R_{G}=\frac{50K\Omega}{980-1}=51\Omega
- \label{eq:gainina}
+ \label{eq:gainina2}
  \end{align}
 Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs at der nu er en opløsning på
 \begin{align}
  \frac{1000g}{trin}=\frac{1000g}{1024}=0,977g/trin=>0,977*\frac{1024}{5V}=200g/V \pm30g
- \label{eq:gainina}
+ \label{eq:gainina3}
  \end{align}
- kredsløbet for INA114 og vægtcellen til arduinoen kan ses på \ref{fig:loadcelldiagram}
+ 
+ Kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur \ref{fig:loadcelldiagram}
  
   \begin{figure}[H]
 	\centering
@@ -174,7 +175,7 @@ Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebr
 	\caption{Test opstilling for vægtcelle}
 	\label{fig:loadcelltest}
 \end{figure}
- Se bilag\fxnote{reference til bilag} for at se testkode brugt i Arduino IDE til testopstilling for vægtcellen. Ved enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på ina114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
+ Se bilag\fxnote{reference til bilag} for at se testkode brugt i Arduino IDE til testopstilling for vægtcellen. Ved enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
  
  \begin{align}
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
@@ -190,31 +191,31 @@ Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont}
 \end{figure}
 
  \subsection{Pumpe}
- Pumpen består af en DC motor og ud fra databladet kan det ses at den skal bruge 6VDC og 0.6A for at blive køre. Da arduinoen langt fra kan leverer den nødvendige strøm, til at drive motoren. skal der bruges en motordriver med en ekstern forstrømning.
+ Pumpen består af en DC motor og ud fra databladet kan det ses at den skal bruge 6VDC og 0.6A for at køre. Da arduinoen langt fra kan leverer den nødvendige strøm, til at drive motoren. skal der bruges en motordriver med en ekstern strømforsyning.
  \subsubsection{Motordriver}
- Motordriveren består i dette projekt af en L293D, som enten kan drive 4 motorer den ene vej, 2 motorer i begge retninger eller i dette tilfælde en vakuum pumpe og en magnetventil. se for L293D interne kredsløb diagram. 
+ Motordriveren består i dette projekt af en L293D, som enten kan drive 4 motorer den ene vej, 2 motorer i begge retninger eller i dette tilfælde en vakuum pumpe og en magnetventil. se figur \ref{fig:motordriverdiagram} for L293D interne kredsløb diagram. 
    \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/L293intern.JPG}
 	\caption{Intern kredsløbsdiagram for L293D}
-	\label{fig:loadcelltest}
+	\label{fig:motordriverdiagram}
 \end{figure}
-Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyningen til motoren. 
+Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyning til motoren. 
 \subsubsection{Pulse width modulation}
 Pulse width modulation(PWM) er et metode som kan bruges til at styre hastigheden på en motor. Dette gør den ved at tænde og slukke for en digital udgang. Det er duty cyclen der får hastigheden til at varierer, dvs. at det er tiden hvor signalet er "højt" der bestemmer hastigheden. Da strømforsyningen er 12V og motoren kun kan tåle 6V, betyder det at PWM ikke må overstige 50%, fordi at motoren ikke kan tåle det. \fxnote{højere fagligt} sprog og niveau og nogle gode referencer}
 \subsubsection{Enhedstest af motor og motordriver}
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/motordiagram.JPG}
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/motordiagram.JPG}
 	\caption{Kredsløbsdiagram for motor og motordriver}
 	\label{fig:motordriverdiagram}
 \end{figure}
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/Motorbreadboard.JPG}
-	\caption{Illustration af opstilling med vægtcelle og celleopløsningsbeholder}
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/Motorbreadboard.JPG}
+	\caption{Illustration af opstilling med motor(pumpe), motordriver og arduino}
 	\label{fig:Motorbreadboard}
 \end{figure}
 
@@ -223,4 +224,48 @@ reference til testkode mm. mangler
 
  \subsection{Ventil}
  
- \subsection{ikke elektroniske dele}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/ventildiagram.JPG}
+	\caption{Kredsløbsdiagram for ventil}
+	\label{fig:ventildiagram}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/Ventilbreadboard.JPG}
+	\caption{Illustration af testopstilling med ventil og motordriver}
+	\label{fig:ventilbreadboard}
+\end{figure} 
+
+ \subsection{Kameralys}
+ 
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/LEDdiagram.JPG}
+	\caption{Kredsløbsdiagram for kameralys}
+	\label{fig:LEDdiagram}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/LEDbreadboard.JPG}
+	\caption{Illustration af testopstilling med kameralys og motordriver}
+	\label{fig:LEDbreadboard}
+\end{figure}
+ 
+ 
+ 
+ 
+\subsection{ikke elektroniske dele}
+ 
+ 
+\subsection{opsummering for hardware} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/HWdiagram.JPG}
+	\caption{Kredsløbsdiagram for Hardware}
+	\label{fig:HWdiagram}
+\end{figure}
+ 
