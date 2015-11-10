@@ -1,18 +1,47 @@
 \section{Software}
-Software implementering
+Software implementeringen af \textit{The Cell Collector} beskrives det i detaljer, hvordan de enkelte Matlab funktioner er implementeret. Herudover vil der i afsnittet være beskrivelser og resultater af enhedstest. 
  
 \subsection{Kamera}
 \input{implementering/kameratest}
 \input{implementering/kamerasimulering}
 
 \newpage
-\subsection{Matlab}
-I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere beskrevet. Selve implementeringen tager udgangspunkt i beskrivelserne fra design dokumentet. Herudover er der beskrevet test af de enkelte funktioner.  
-
-initArduino
+\subsection{Matlab funktioner}
+I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere beskrevet. Selve implementeringen tager udgangspunkt i beskrivelserne fra design dokumentet. %Herudover er der beskrevet test af de enkelte funktioner.  
 
 
+\input{implementering/initArduino}
 \input{implementering/cameraFeed}
 
+%\subsubsection{detectIslets}
+\input{implementering/detectIslets} 
 
-\subsubsection{detectIslets} 
+\subsubsection{loadCell}
+
+\subsubsection{valveControl}
+
+\subsubsection{pumpControl}
+
+\subsubsection{settings}
+\subsubsection{exportData}
+
+\newpage
+\subsection{GUI}
+\subsubsection{Hovedvindue}
+Screenshot af det færdige program
+
+Beskrivelse
+\subsubsection{Indstillingsvindue}
+Screenshot af Indstillingsvindue
+
+Beskrivelse
+
+\newpage
+\subsection{Matlab callbacks}
+Dette afsnit beskriver callback funktionerne..
+%\subsubsection{•}
+\subsubsection{Start callback}
+
+\subsubsection{Stop callback}
+
+\subsubsection{Settings callback}
