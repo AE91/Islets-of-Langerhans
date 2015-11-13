@@ -308,7 +308,14 @@ pinMode(3, OUTPUT);
 
 Ved overstående kode vil der være en duty cyklus på output A da være $$\frac{180+1}{256}*100=70,7\%$$ og en PWM frekvens på     
   $$\frac{16MHz}{64/256}=976.6Hz$$. Output B vil have en duty cyklus på $$\frac{50+1}{256}*100=19.9 \%$$ og den samme frekvens. Den sidst nævnte metode, er den metode hvor der er mest kontrol over PWM signalet. Derfor bruges denne i dette projekt.
-
+  
+For at lysdiodernen ikke skal brænde af, er det nødvendigt med modstande foran dem. Modstandene kan beregnes på følgende måde
+Formodstandenes værdi er beregnet ved \ref{eq:modstandLEDmotor}. 
+\begin{align}
+R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{6-3.2}{20mA}=140\Omega
+\label{eq:modstandLEDmotor}
+\end{align} 
+Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=2,8*20mA=0,056W)$ hvilket giver grund for at 0.33W modstande er passende.
 
 
 \subsubsection{Enhedstest af motor og motordriver}
@@ -351,6 +358,8 @@ V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*5cm=0,04ml
 
 Yderligere skal ventilen åbne lidt før og lukke lidt efter. Derfor skal der også være en tid for, hvor lang tid ventilen skal være åben, dette bør testes i en enhedstest af ventilen.
 
+Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys} for beregninger for dem. 
+
  På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren og ventilen.
 
 \begin{figure}[H]
@@ -372,13 +381,14 @@ På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling e
 Reference til testkode ved arduino 
  
  \subsection{Kameralys}
+ \label{subsec:kameralys}
  Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, Skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
 
 \begin{align}
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
 \label{eq:modstand}
 \end{align} 
-Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176)$ hvilket giver grund for at 0.33W modstande er passende.
+Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176W)$ hvilket giver grund for at 0.33W modstande er passende.
 
 På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset
  
