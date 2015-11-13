@@ -28,11 +28,11 @@ Nedenstående BDD \ref{fig:bdd_Hardware} giver et over ordnet overblik i, hvad \
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{pdf/BDD_Hardware_4315_cropped.pdf}
+	\includegraphics[width=1\textwidth]{pdf/BDD_Hardware.pdf}
 	\caption{BDD - Cell Collector [Hardware]}
 	\label{fig:bdd_Hardware}
 \end{figure}
-
+	
 \newpage
 \subsection{Internal block Diagram} 
 Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden på. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
@@ -40,68 +40,96 @@ Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de for
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{pdf/IBD_Hardware(Arduino)_cropped.pdf}
+	\includegraphics[width=1\textwidth]{pdf/IBD_Hardware(Arduino).pdf}
 	\caption{IBD - Cell Collector [Hardware]}
 	\label{fig:ibd_Hardware}
 \end{figure}
 
+\newpage
 Tabellen nedenfor er brugt til at skabe en oversigt, over hvilke signaler og funktioner den enkle blok indeholder.
 
 \begin{center}
-		\begin{longtable}{ | m{2cm} | m{6cm}| m{2cm}| m{4.5cm}| } 
+		\begin{longtable}{ | m{1.750cm} | m{4.750cm}| m{3.5cm}| m{4.5cm}| } 
 			\hline
 			\textbf{Blok navn} &\textbf{Funktionsbeskrivelse} &\textbf{Signaler} &\textbf{kommentar}\\ 
 			\hline
 			\multirow{2}{*}{Pump} & \multirow{2}{*}{Skabe flow i opløsningen} & 0V & Reference \\ 
-& & 6V & Strømforsyning \\	
+& & 12VDC PWM & Strømforsyning \\	
 			\hline	
 			\multirow{2}{*}{Valve} & \multirow{2}{*}{Åbne og lukke for førringsveje} & 0V & Reference \\ 
-& & 6V & Strømforsyning \\	
+& & 12VDC & Strømforsyning \\	
 			\hline	
-		\multirow{6}{*}{Motor shield} & \multirow{6}{*}{Forsyne ventil og pumpe} & 0V & Reference \\ 
-& & 6V & Strømforsyning \\	
-& & Brake & Motorbremse \\	
-& & PWM & Hastighedsregulering \\
-& & Direction & Motor retning \\
-& & Analog& udgangssignal \\
+		\multirow{8}{*}{Motor shield} & \multirow{6}{*}{Forsyne ventil og pumpe} & 0V & Reference \\ 
+& & 12V & Strømforsyning \\	
+& & 0V or 5V PWM & Motor retning \\	
+& & 0V or 5V PWM & Hastighedsregulering \\
+& & Signal & Tænd/sluk ventil \\
+& & 12V PWM & lysdiode lysintensitet \\
+& & 0V or 12VDC PWM & Motor retning \\	
+& & 0V or 12VDC PWM & Hastighedsregulering \\
 			\hline	
 			\multirow{5}{*}{Arduino} & \multirow{5}{*}{Styreenhed for hardware} & 0V & Reference \\ 
-& & 5V & Strømforsyning \\	
-& & USB & Seriel kommunikation \\
-& & Analog & indgangssignaler \\
-& & Digital & udgangssignaler \\
+& & 12V & Strømforsyning \\	
+& & USB & Seriel kommunikation og 5V \\
+& & A-Signal & Aanalog indgangssignaler \\
+& & D-Signal & Digital udgangssignaler \\
 			\hline
 			\multirow{3}{*}{Loadcell} & \multirow{3}{*}{Kontroller opløsningsbeholder} & 0V & Reference \\ 
 & & 5V & Strømforsyning \\	
 & & Signal & Udgangssignal \\	
 			\hline
 			\multirow{2}{*}{Cameralight} & \multirow{2}{*}{Lys til kameraet} & 0V & Reference \\ 
-& & PWM & Lysstyrke \\	
+& & 12V PWM & Lysstyrke \\	
 			\hline
 		\end{longtable}
 	\end{center}
+\fxnote{layout tabel}	
 	
+\newpage
 Tabellen nedenfor beskriver signalerne der findes i systemet, denne tabel anvendes når grænsefladerne skal designes og testes.
 
 \begin{center}
-		\begin{longtable}{ | m{2cm} | m{6cm}| m{2cm}| m{4.5cm}| } 
+		\begin{longtable}{ | m{2cm} | m{4.750cm}| m{2cm}| m{1.125cm}| m{1.125cm}| m{3.5cm}| } 
 			\hline
-			\textbf{Signal navn} &\textbf{Funktionsbeskrivelse} &\textbf{Område} &\textbf{kommentar}\\ 
+			\textbf{Signal navn} &\textbf{Funktionsbeskrivelse} &\textbf{Område} & \textbf{Output} & \textbf{Input} &\textbf{kommentar}\\ 
 			\hline
-			\multirow{2}{*}{0V} & \multirow{2}{*}{Reference til analoge spændinger} &  & Stel \\ 
-& & indsæt porte& porte \\	
+			\multirow{2}{*}{0V} & \multirow{4}{*}{Reference til analoge spændinger} & n/a & GND & V-2  & Stel \\ 
+& & & GND & C-2 &   \\
+& & & GND & I-4, I-5 &   \\
+& & & GND & M-4, M-5, M-12, M-13 &   \\
 			\hline	
-			5V & Forsyningsspænding & 4.9-5.1V &  \\ 
-			\hline
-			6V & Forsyningsspænding & 5.9-6.1V &  \\ 
-			\hline
-			PWM & Forsyningsspænding & 0V eller 5V & Digital \\ 
+			USB &  seriel kommunikation & & USB & A-USB &  \\ 
 			\hline	
-			Signal & Registrering af fysiske værdier & 0-5V & Analog \\ 
+			5V & \multirow{2}{*}{forsyningsspænding} & 4.9-5.1V & A-5V & I-7 & 5V fra USB  \\ 
+& & & A-5V & L-1 & \\
+			\hline
+			12V & \multirow{2}{*}{Strømforsyningsspænding} & 11.9-12.1V & 12V PS & A-Vin & \\
+			& & & 12V PS & M-1, M-8, M-9, M16 &   \\ 
+			\hline
+			PWM & Forsyningsspænding & 0V eller 5V & &  & Digital \\ 
 			\hline	
+			A-Signal(mV) &\multirow{2}{*}{Registrering af fysiske værdier}  & 0-5mV & L-3 & I1 & Analog fra vægtcelle \\ 
+			& & & L-4 & I-2 &  Analog fra vægtcelle \\
+			\hline
+			A-Signal(V) & Registrering af fysiske værdier & 0-5mV & I-6 & A-A0 & Analog fra amplifier\\ 
+			\hline
+			D-Signal() & Styring af ventil & 4.9-5.1V & A-D8 &M-10 & \\ 
+			\hline
+			0V or 12V PWM & \multirow{2}{*}{Forsyning til pumpe} & 0 eller 12V & M-3 & P-2 & \\
+			& & & M-7 & P-1 & \\
+			\hline	
+			12VDC & Forsyning til ventil & 11.9-12.1V & M-11 & V-1 &  \\
+			\hline
+			12V PWM & Forsyning til lysdioder & 4.9-5.1V & A-D11 & M-15 &  \\
+			\hline
+			5V PWM & Styring af lysdioder & 4.9-5.1V & A-D11 & M-15 &  \\
+			\hline
+			0V or 5V PWM & \multirow{2}{*}{Styring af pumpe} & 0 eller 12V & A-D9 & M-2 & hastighed og retning\\
+			& & & A-D10 & M-6 & \\
+			\hline
 		\end{longtable}
 	\end{center}
-\fxnote{der skal tilføjes porte og ibdet skal lavet om med porte på, afventes L293 ledningsdiagram motordriveren }
+
 
 \newpage
 \subsection{Kamera}
@@ -223,30 +251,30 @@ Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal s
 \end{center}
 Arduino er en open source platform til fremstilling af prototype print, med en ATmega328P microcontroller. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det er en open source platform, kan der købes forskellige versioner som ikke er originaler. Arduino UNO er passende til dette system, da det er en forholdsvis simpel opgave microcontrolleren skal håndtere. Da systemet bruger computerens hukommelse og det meste er koden her på. Antallet af digitale og analoge porte er passende med den nuværende mængde af komponenter der skal styres. 
 
-\subsection{Motor shield}
-Motor shieldet skal hjælpe microcontrolleren med, at styre pumpen og ventilen til systemet. Det skal den fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsynes i gennem motor shieldet. Motor shieldet skal også forsyne ventilen. 
+\subsection{Motordriver}
+Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen til systemet. Det skal den fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsynes i gennem motor shieldet. Motordriveren skal også forsyne ventilen. 
 
- \textbf{Specifikationer for Motor shield[\citet{DH4}]:} 
+ \textbf{Specifikationer for Motordriver[\citet{DH4}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
 			\textbf{Specifikation} &\textbf{Værdi} \\ 
 			\hline
-			\textbf{Type:} & Velleman L298P \\ 
+			\textbf{Type:} & L293D \\ 
 			\hline
-			\textbf{Forsyning:} &  \fxnote{Ikke vedtaget endnu} ???)  \\ 
+			\textbf{Forsyning:} &  4,5-36V \\ 
 			\hline
-			\textbf{Output spænding} & 50V (max)  \\ 
+			\textbf{Output spænding} & 4,5-36V  \\ 
 			\hline		
-			\textbf{Output strøm} & 2.5A  \\ 
+			\textbf{Output strøm} & 600mA per kanel  \\ 
 			\hline	
-			\textbf{Kanaler} & 2 stk  \\ 
+			\textbf{Kanaler} & 4 stk  \\ 
 			\hline	
 			\textbf{Interface} & Forsynes i gennem arduino  \\ 
 			\hline	
 		\end{longtable}
 \end{center}
-Motor shieldet kan levere 2.5A pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motor shieldet har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere giver den også mulighed for at overvåge strømforbruget på dens kanaler. Det kan være med til at beskytte pumpens motor.
+Motordriveren kan levere 600mA pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motordriveren har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere giver den også mulighed for at overvåge strømforbruget på dens kanaler. Det kan være med til at beskytte pumpens motor.
 
 
 \subsection{Ventil}
@@ -269,7 +297,7 @@ Ventilens funktion er at sortere de langerhanske øer, fra resten af opløsninge
 			\textbf{Interface} & open/closed  \\ 
 			\hline	
 		\end{longtable}
-\end{center}
+\end{center} \fxnote{ændres til den nye magnet ventil fra mikrolab}
 Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
 Kravene til ventilen er, at den skal være 3 vejs med 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50 ms.
 
@@ -321,6 +349,9 @@ Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for
 
 %Det vil sige hvs operatøren ikke har fyldt noget i beholderen, kan der gives en systembesked omkring dette. Det mest optimale er at der hele tiden er væske i slangerne i systemet, det er det vægtcellen skal hjælpe med.
 
+\subsection{Kameralys}
+mangler
+
 \newpage
 \subsection{Beholdere}
 Systemet består af tre beholdere der hver i især har sin egen funktion. Den første kaldes \textit{celleopløsningbeholderen}, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes \textit{isolerede beholderen}, som er den beholder hvor de isolerede langerhanske øer samles i. Den tredje beholder er \textit{waste beholderen}, den skal have resten af opløsningen som ikke består af langerhanske øer.
@@ -361,6 +392,7 @@ Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro
 For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valgt et glasrør.
 
 \textbf{Specifikationer for Glasrøret:} 
+
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -374,6 +406,7 @@ For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valg
 			\hline			
 		\end{longtable}
 \end{center}
+
 Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret der er valgt er rundt. Krumningen i røret kan muligvis ændre billedet fra kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i er for stor. Derfor er et rundt glasrør valgt.
 
 

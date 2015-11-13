@@ -206,6 +206,7 @@ Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage sig
 Da det er svært at finde en pumpe der lige opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
 \begin{align}
 \frac{\text{Opløsningsstørelse}}{\text{Antal øer i opløsning}} = \frac{150}{200}*30 = 22,5ml/min
+\label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
 Der er mange 3 primære metoder til, at styre hastigheden på en DC-motor \citep{ELengbog}s.810.
 
@@ -340,6 +341,16 @@ reference til testkode mm. mangler.
 	\caption{Magnetventil position}
 	\label{fig:ventilpos}
 \end{figure}  
+For at Sorteringen af langerhanske øer sker, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra at beregnes volumenet af slangen, i mellem kameraet og ventil ref(volume).
+\begin{align}
+V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*5cm=0,04ml
+\end{align}
+ Det vil sige at med et volume 22,5ml, som er beregnet ud fra formlen \ref{eg:ohastighed}. Her ud fra kan det beregnes tiden fra kamera til ventil. 
+ \begin{align}
+\frac{22,5}{60}*0,04ml=0.106\text{sekunder}=106ms
+\end{align}
+
+Yderligere skal ventilen åbne lidt før og lukke lidt efter. Derfor skal der også være en tid for, hvor lang tid ventilen skal være åben, dette bør testes i en enhedstest af ventilen.
 
  På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren og ventilen.
 
@@ -368,7 +379,7 @@ Reference til testkode ved arduino
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
 \label{eq:modstand}
 \end{align} 
- 
+
 På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset
  
  \begin{figure}[H]
