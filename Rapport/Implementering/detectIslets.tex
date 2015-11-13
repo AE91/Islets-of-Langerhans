@@ -56,15 +56,30 @@ I næste step sker selve ø detekteringen. Detektionen baseres på, at øerne ha
 
 Udfra arealet og omkredsen af objekterne anvendes de 2 nedenstående formler til bestemmelse af 2 værdier for radiusen af objektet:
 \begin{align}
-R1 = \sqrt{\frac{\text{Areal}}{\pi}}
+Areal = R1^2*\pi => R1 = \sqrt{\frac{\text{Areal}}{\pi}}
 \end{align}
 \begin{align}
-R2 = \frac{\text{Omkreds}}{2*\pi}
+Omkreds = 2*R2*\pi => R2 = \frac{\text{Omkreds}}{2*\pi}
 \end{align}
 
-Udfra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. 
+Udfra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse begge med samme areal. Udfra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved, at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
+  
+\begin{lstlisting} 
+r1 =  100.0017   99.9380
 
-Indekset for det objekt med mindst forskel i radius og indekset for det objekt med den mindste excentricitet gemmes i variabler. I nedenstående kode er det vist, hvordan dette er implemeneteret.
+r2 =  99.7978  105.7890
+
+rDif = 0.2039    5.8510
+\end{lstlisting} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/circleellipse.png}
+	\caption{Cirkel sammenlignet med ellipse}
+	\label{fig:circleelip}
+\end{figure}
+
+Indekset for det objekt med mindst forskel i radius og indekset for det objekt med den mindste excentricitet gemmes i variabler. I nedenstående kode er det vist, hvordan dette er implemeneteret i Matlab.
 
 \begin{lstlisting} 
 stats = regionprops(bw,'Area','Centroid','Perimeter','Eccentricity');
@@ -79,7 +94,7 @@ rDif = abs(r1-r2);
 [~, idx2] = min([stats.Eccentricity]);
 \end{lstlisting} 
 
-I det sidste step i segmenteringen af den langerhanske ø kontrolleres det om radius forskellen og excentricitet ligger under nogle fast definerede grænseværdier. Værdierne er fundet ved, at analysere en række billeder og deres objekters radius og excentricitet. Radius og excentriciteten bliver gemt i logfilen, så de kan analyseres for senere at justere grænseværdierne. Hvis objektets værdier er under disse grænseværdier er en ø detekteret. Når en ø detekteret illustreres de med en grøn ring på GUI. Til dette er funktionen \textit{viscircles} anvendt, hvor center positionen og radius for objektet anvendes. 
+I det sidste step i segmenteringen af den langerhanske ø kontrolleres det om radius forskellen og excentricitet ligger under nogle fast definerede grænseværdier. Værdierne er fundet ved, at analysere en række billeder og deres objekters radius og excentricitet. Radius og excentriciteten bliver gemt i logfilen, så de kan analyseres for senere at justere grænseværdierne. Hvis objektets værdier er under disse grænseværdier er en ø detekteret. Når en ø er detekteret illustreres det med en grøn ring på GUI. Til dette er funktionen \textit{viscircles} anvendt, hvor center positionen og radius for objektet anvendes. 
 
 For at løse udfordringen med, at den samme ø vil optræde på det næste billede, er der implementeret et smalt detekteringsvindue (100 pixels bredt). Når øen er detekteret inden for dette område bliver variablen isletDetected sat til true. Denne variabel anvendes til styring af ventilen. Implementingen af dette er vist i nedenstående kode.
 
