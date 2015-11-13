@@ -194,14 +194,14 @@ Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont}
  \subsection{Pumpe}
  Pumpen består af en DC motor og ud fra databladet kan det ses at den skal bruge 6VDC og 0.6A for at køre. Da arduinoen langt fra kan leverer den nødvendige strøm, til at drive motoren. skal der bruges en motordriver med en ekstern strømforsyning.
  \subsubsection{Motordriver}
- Motordriveren består i dette projekt af en L293D, som enten kan drive 4 motorer den ene vej, 2 motorer i begge retninger eller i dette tilfælde en vakuum pumpe og en magnetventil. se figur \ref{fig:motordriverdiagram} for L293D interne kredsløb diagram. 
+ Motordriveren består i dette projekt af en L293D, som enten kan drive 4 motorer den ene vej, 2 motorer i begge retninger eller i dette tilfælde en vakuum pumpe og en magnetventil. se figur \ref{fig:L293DInterndiagram} for L293D interne kredsløb diagram. 
    \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/L293intern.JPG}
 	\caption{Intern kredsløbsdiagram for L293D}
-	\label{fig:motordriverdiagram}
+	\label{fig:L293DInterndiagram}
 \end{figure}
-Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyning til motoren. ,
+Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyning til motoren.
 \subsubsection{Hastighedscontrol af pumpe}
 Da det er svært at finde en pumpe der lige opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
 \begin{align}
