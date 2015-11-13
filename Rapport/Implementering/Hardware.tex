@@ -201,17 +201,17 @@ Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont}
 	\caption{Intern kredsløbsdiagram for L293D}
 	\label{fig:L293DInterndiagram}
 \end{figure}
-Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen analysere dette og give et tilsvarende signal forsynet fra strømforsyning til motoren.
+Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen, analysere det og give et tilsvarende signal fra strømforsyning til motoren.
 \subsubsection{Hastighedscontrol af pumpe}
 Da det er svært at finde en pumpe der lige opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
 \begin{align}
 \frac{\text{Opløsningsstørelse}}{\text{Antal øer i opløsning}} = \frac{150}{200}*30 = 22,5ml/min
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
-Der er mange 3 primære metoder til, at styre hastigheden på en DC-motor \citep{ELengbog}s.810.
+Der er 3 primært metoder til, at styre hastigheden på en DC-motor \citep{ELengbog}s.810.
 
 1. Indsætte modstand i kredsløbet før motoren er koblet til.
-Denne metode kan bruge på alle typer af motorer. I den simple forstand kan variable modstand sættes i serie med motoren for, at styre hastigheden. Ulemperne ved dette kredsløb er at ,forbruget vil være det ens ved den højeste hastighed og den laveste. Det vil det fordi modstanden vil blot omsætte til varme, hvilket vil være splid af energi. Se figur \ref{fig:motormodstand}, princippet er baseret på KVL
+Denne metode kan bruge på alle typer af motorer. I den simple forstand kan variabel modstand sættes i serie med motoren for, at styre hastigheden. Ulemperne ved dette kredsløb er at ,forbruget vil være ens ved den højeste hastighed og den laveste. Det vil det fordi modstanden vil blot omsætte energien til varme, hvilket vil være splid af energi. Se figur \ref{fig:motormodstand}, princippet er baseret på KVL.
 
 \begin{figure}[H]
 	\centering
@@ -221,7 +221,7 @@ Denne metode kan bruge på alle typer af motorer. I den simple forstand kan vari
 \end{figure}
 
 2. Variere strømmen der tilføres motoren, hvor spændingen holdes konstant.
-Denne metode minder om den overstående, men i stedet for serie kobles den variable modstand parrallet som det kan ses på figur \ref{fig:motorcurrent}. ulempen ved dette kredsløbt er at når motoren skal køre ved lav hastighed, er modstanden lille og derved tæt på en kortslutning derfor er det vigtigt at kredsløbet er designet rigtigt. Princippet er baseret på KCL.
+Denne metode minder om den overstående, men i stedet for serie kobles den variable modstand parrallet, som det kan ses på figur \ref{fig:motorcurrent}. Ulempen ved dette kredsløbt er at når motoren skal køre ved lav hastighed, er modstanden lille og derved tæt på en kortslutning derfor er det vigtigt, at kredsløbet er designet rigtigt. Princippet er baseret på KCL.
 
 \begin{figure}[H]
 	\centering
@@ -233,9 +233,8 @@ Denne metode minder om den overstående, men i stedet for serie kobles den varia
 \fxnote{hvis tiden er til det, kan der uddybes med generel motor teori som opbygning mm. Derud over kunne der sagtens lave nogle formler også til generelle motorer, så som moment mm.}
 
 
-3. Variere Spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
-Konceptet i denne metode er at have en konstant forsyning, som i sin simple for stand slukkes og tændes for. Dvs. at der sidder en kontakt i mellem strømforsyningen og motoren, der tændes og slukkes. Kredsløbet for dette kan stilles op som figur \ref{fig:motorkontakt} og giver et signal som på figur \ref{fig:onoffwave}
-Åben og
+3. Variere spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
+Konceptet i denne metode er at have en konstant forsyning, som i sin simple forstand slukkes og tændes for. Dvs. at der sidder en kontakt i mellem strømforsyningen og motoren, der tændes og slukkes. Kredsløbet for dette kan stilles op som figur \ref{fig:motorkontakt} og giver et signal som på figur \ref{fig:onoffwave}
 
  \begin{figure}[htbp] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -293,8 +292,8 @@ void loop()
 }
 \end{lstlisting}
 
-Her sættes pin 13 til \textit{høj}, hvor efter der ventes 100 mikro sekunder. Derefter sætte pin 13 \textit{lav} og der ventes 900 mikro sekunder. Ved denne metode kan alle digitale udgange bruges og ikke kun dem med pwm. Dog er processensoren brugt hele tiden da den også bruges når der ventes. Det vil sige at den ikke kan bruges til andet samtidigt, hvilket ikke kan bruges i projektet.
-Microcontrolleren der sidder på arduinoen indeholder 3 timere, som kan bruges til PWM generering.  Måden dette virker på er at timeren går fra 0 til 255, hvis $Timer=0$ sættes outputtet højt, hvor den tæller til enten 255 og slukker hvilket vil skabe en duty cyklus på 100\%. derfor kan der defineres en værdi hvor der slukkes mellem 0 og 255. ydermere findes der scalar (1, 8, 64, 256 eller 1024 som divideres med arduinoens clock frekvens. alt dette konfigureres ved bits i registre(TCCRnA og TCCRnB ) på microcontrolleren. et eksempel på dette kunne være: 
+Her sættes pin 13 til \textit{høj}, hvor efter der ventes 100 mikro sekunder. Derefter sættes pin 13 \textit{lav} og der ventes 900 mikro sekunder. Ved denne metode kan alle digitale udgange bruges og ikke kun dem med PWM. Dog er processeren brugt hele tiden da den også bruges når der ventes. Det vil sige at den ikke kan bruges til andet samtidigt, hvilket ikke kan bruges i projektet.
+Microcontrolleren der sidder på arduinoen indeholder 3 timere, som kan bruges til PWM generering.  Måden dette virker på er at timeren går fra 0 til 255, hvis $Timer=0$ sættes outputtet højt, hvor den tæller til enten 255 og slukker hvilket vil skabe en duty cyklus på 100\%. Derfor kan der defineres en værdi hvor der slukkes mellem 0 og 255. Ydermere findes der scalar (1, 8, 64, 256 eller 1024 som divideres med arduinoens clock frekvens. Alt dette konfigureres ved bits i registre (TCCRnA og TCCRnB) på microcontrolleren. Et eksempel på dette kunne være: 
 
 \begin{lstlisting}
 void setup()
@@ -333,7 +332,7 @@ reference til testkode mm. mangler.
 
 
  \subsection{Ventil}
- En magnetventil virker på den måde at den består af en spole, der danner et magnetfelt når der bliver påsat spænding og der trækkes et stempel til sig. Det får ventilen til at åbne ved hjælp af en membran. En trevejs magnetventil, som den brugte i dette projekt virker på samme måde. Men hvor skifter position, hvorved der altid er en åben. Derfor vil opløsningen løbe ud i wastebeholderen når der ikke er en langerhanske ø, men der kommer en vil den skifte position, hvor de bliver sorteret. Se figur \ref{fig:ventilpos} for en illustration af hvordan den 3 vejs magnetventil virker
+ En magnetventil virker på den måde at den består af en spole, der danner et magnetfelt når der bliver påsat spænding og der trækkes et stempel til sig. Det får ventilen til at åbne ved hjælp af en membran. En trevejs magnetventil, som den brugte i dette projekt virker på samme måde. Men hvor skifter position er designet så der altid er en åben. Derfor vil opløsningen løbe ud i wastebeholderen når der ikke er en langerhanske ø, men der kommer en vil den skifte position, hvorved de bliver frasorteret. Se figur \ref{fig:ventilpos} for en illustration af hvordan den 3 vejs magnetventil virker
 
 \begin{figure}[H]
 	\centering
@@ -341,11 +340,11 @@ reference til testkode mm. mangler.
 	\caption{Magnetventil position}
 	\label{fig:ventilpos}
 \end{figure}  
-For at Sorteringen af langerhanske øer sker, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra at beregnes volumenet af slangen, i mellem kameraet og ventil ref(volume).
+For at sorteringen af langerhanske øer sker, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra at beregnes volumenet af slangen, i mellem kameraet og ventil ref(volume).
 \begin{align}
 V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*5cm=0,04ml
 \end{align}
- Det vil sige at med et volume 22,5ml, som er beregnet ud fra formlen \ref{eg:ohastighed}. Her ud fra kan det beregnes tiden fra kamera til ventil. 
+ Det vil sige at med et flow på 22,5ml/min, som er beregnet ud fra formlen \ref{eg:ohastighed}. Her ud fra kan det beregnes tiden fra kamera til ventil. 
  \begin{align}
 \frac{22,5}{60}*0,04ml=0.106\text{sekunder}=106ms
 \end{align}
@@ -373,12 +372,13 @@ På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling e
 Reference til testkode ved arduino 
  
  \subsection{Kameralys}
- Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Det skal gøres for at styre lyset, der påvirker kameraet fuldstændigt. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, Skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}, hvilket giver en effekt afsætning på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176)$ hvilket giver grund for at 0.33W modstande er passende.
+ Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, Skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
 
 \begin{align}
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
 \label{eq:modstand}
 \end{align} 
+Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176)$ hvilket giver grund for at 0.33W modstande er passende.
 
 På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset
  
@@ -402,10 +402,10 @@ På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt
  
  
  
-\subsection{ikke elektroniske dele}
+\subsection{Ikke elektroniske dele}
  
  
-\subsection{opsummering for hardware/integrationstest/PCB design} 
+\subsection{Opsummering for hardware/integrationstest/PCB design} 
 
 \begin{figure}[H]
 	\centering
