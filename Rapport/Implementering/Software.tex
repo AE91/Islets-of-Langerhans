@@ -16,7 +16,7 @@ I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere be
 %\subsubsection{detectIslets}
 \input{implementering/detectIslets} 
 \newpage
-\subsubsection{loadCell}
+\subsubsection{loadCell} \fxnote{Mangler endelig kalibrering}
 Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (v) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en liniær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
@@ -64,24 +64,52 @@ Den endelige funktion er dermed givet ved:
 ml = something*input+something
 \end{align}
 
-For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de sidste 10 målinger. Dette gør konverteringen mere robust overfor støj.  
+For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de sidste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj.  
 
 
 \subsubsection{valveControl}
-I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigital
+I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigitalPin fra Arduino Support pakken, som bruges til at sætte pin'en høj (5V) og lav (0V). Nedenstående kode viser, hvordan denne funktionalitet er implemeneteret i Matlab.  \fxnote{Afsnittet mangler beskrivelse af timere} 
+\begin{lstlisting} 
+% Set the pin HIGH (5V)
+handles.a.writeDigitalPin(handles.constants.valvePin,1);
+
+% Create timer - with startDelay (defined in handles.constants
+t = timer('StartDelay',handles.constants.timerDelay);
+
+% Assign timerfunction - to set pin LOW (0V)
+t.TimerFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,0);
+
+% Start timer
+start(t)
+
+% isletDetected boolean is set to false
+handles.isletDetected=false;
+\end{lstlisting} 
+
 \subsubsection{pumpControl}
-
+To do
 \subsubsection{settings}
+To do
 \subsubsection{exportData}
-
+To do
 \newpage
 \subsection{GUI}
 \subsubsection{Hovedvindue}
-Screenshot af det færdige program
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/software/gui_main.png}
+	\caption{Hovedvinduet på GUI}
+	\label{fig:finishedGUI}
+\end{figure}
 
 Beskrivelse
 \subsubsection{Indstillingsvindue}
-Screenshot af Indstillingsvindue
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{billeder/software/settings.png}
+	\caption{Indstillingsvindue på GUI}
+	\label{fig:finishedSettings}
+\end{figure}
 
 Beskrivelse
 
