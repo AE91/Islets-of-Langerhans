@@ -1,0 +1,29 @@
+\subsection{Use Case 5 - Data logning}
+\begin{center}
+		\begin{longtable}{ | m{4cm} | m{8cm}| } 
+			\hline
+			Mål & Logning af ddata \\ 
+			\hline
+			Initiering &  Use casen initieres af systemet ved [UC 3: Stop sorteringcyklus]\\
+			\hline
+			Aktør & Database \\ 
+			\hline
+			Startbetingelser & [UC 2: Sortering af Langerhanske Øer] er stoppet \\
+			\hline	
+			Slutbetingelser ved succes & Systemet har gemt fil med data for sorteringen \\
+			\hline
+			Slutbetingelser ved undtagelse &  \\
+			\hline
+			Normalforløb & \begin{enumerate}
+				%\setlength\itemsep{0cm} % Decrease line distance
+				\item Systemet gemmer en fil i formatet .csv af data for den afsluttede sorteringscyklus (Struktur og indhold er beskrevet under ikke funktionelle krav: \ref{subsub:software})
+				
+				\item 	Systemet informerer brugeren om at filen er gemt
+			\end{enumerate} \\ 
+			\hline
+			Undtagelser & \\
+			\hline
+		\end{longtable}
+		
+	\end{center}
+	\pagebreak

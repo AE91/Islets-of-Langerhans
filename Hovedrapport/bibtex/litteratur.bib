@@ -1,0 +1,197 @@
+%%%% Guide til bibtex og litteratur.bib %%%%
+
+% Alle kilder angives efter Harvard-metoden og vil i rapporten fremstaa med [FORFATTER, AAR] eller mere praecist [EFTERNAVN, AAR].
+
+% Nederst findes eksempler paa kildeangivelser af typerne book, article, manual techreport og misc.
+	% - Book bruges ved helt almindelige boeger
+	% - Article bruges ved artikler og udgivelser
+	% - Manual bruges ved henvisninger fra internettet, idet \url-funktionen findes her
+	% - Techreport kan bruges ved mindre udgivelser, hvor kun titel, forfatter og aar er noedvendig eller tilgaengelig
+	% - Misc kan bruges ved det, der falder udenfor de andre kategorier - interview, forelaesninger, foredrag osv. 
+
+% Hvis der er flere forfattere paa en kilde, SKAL de listes med 'and' imellem dem - ogsaa ved 3 og derover (f.eks. FORFATTER 1 and FORFATTER 2 and FORFATTER 3). Naar kildelisten bygges i rapporten, vil der ved 2 forfattere komme til at staa [EFTERNAVN 1 og EFTERNAVN 2, AAR] og ved 3 forfattere og derover komme til at staa [EFTERNAVN 1 et. al, AAR]. 
+
+% Ved almindelige forfatternavne skal der vaere ét saet tuborg-parenteser ved Author (f.eks. author = {H. C. Andersen}). Ved andre navne (f.eks. virksomheder, hjemmesider, grupper, raad, naevn osv.) skal der vaere 2 saet tuborg-parenteser ved Author (f.eks. author = {{Dansk Standard}}). Begrundelse: Med 2 saet tuborg-parenteser skrives hele parentesen ud som forfatter, [Dansk Standard, AAR]. Alternativt ville der i eksemplet bare komme til at staa [Standard, AAR].
+
+%-----------------------------------------------------%
+
+%%%% EKSEMPLER (book, article, manual, techreport og misc) %%%%
+
+@book{fysikbog,
+	title = {Physics for Scientists and Engineers, 7th edition},
+	author = {John W. Jewett and Raymond A. Serway},
+	year = {2008},
+	number = {ISBN: 0-495-11240-2},
+	series = {Paperback},
+	publisher = {Thomson Learning}
+}
+
+@article{maalere,
+	author = {Lars Gullev and Michael Poulsen},
+	title = {The installation of meters leads to permanent changes in consumer behaviour},
+	journal = {News from DBDH},
+	volume = {Journal 3/2006},
+	pages = {s. 20-24},
+	year = {2006}
+}
+
+@manual{renostra,
+	author ={{Klima-, Energi- og Bygningsministeriet}},
+	title ={Strategi for energirenovering af bygninger},
+	address={\url{http://www.ens.dk/info/publikationer/strategi-energirenovering-bygninger}},
+	year ={2014},
+	note ={Downloadet: 23-02-2015}
+}
+
+@techreport{rcf,
+	author = {Bent Flyvbjerg},	
+	title = {Reference class forecasting: Ide, metode og anvendelse},
+	year = {2007}
+}
+
+@misc{videnskabsteori,
+	author = {Victor Hansen},
+	howpublished = {Forårssemesteret},
+	title = {Forelæsning i Videnskabsteori},
+	year = {2014}	
+}
+
+@misc{cd,
+	author ={Bilags-CD},
+	title ={CD med bilag tilhørende B131}	
+}
+
+
+%links referencer
+
+%skabelon fra wiki:
+@misc{wiki,
+   author = "Wikipedia",
+   title = "LaTeX --- Wikipedia{,} The Free Encyclopedia",
+   year = "2015",
+   url = "https://en.wikipedia.org/w/index.php?title=LaTeX&oldid=413720397",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Formel og viden fra baslerweb:
+@misc{DH1,
+   author = "baslerweb",
+   title = "White paper --- Camera selection{,} How ca i find the right camera for my image processing system?",
+   url = "http://www.baslerweb.com/media/documents/BAS1408_White_paper_Camera_Selection_EN.pdf",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Farnell Kamera
+@misc{DH2,
+   author = "Farnell",
+   title = "Farnell --- Kamera{,} microscope digital",
+   url = "http://dk.farnell.com/duratool/bw788/microscope-digital-usb-25x-200x/dp/2319420",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Arduino uno specs
+@misc{DH3,
+   author = "Arduino",
+   title = "Microcontrollerboard--- Arduino{,} UNO",
+   url = "https://www.arduino.cc/en/Main/ArduinoBoardUno",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Velleman motor shield specs
+@misc{DH4,
+   author = "Velleman",
+   title = "Motor shield--- Velleman{,} L298p",
+   url = "http://www.velleman.co.uk/contents/en-uk/p624_vma03.html",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Ventil specs
+@misc{DH5,
+   author = "ebay",
+   title = "Ventil--- Ebay{,} magnetventil",
+   url = "http://www.ebay.com/itm/DC-6V-Open-Frame-3-Port-Water-Electromagnet-Solenoid-Valve-w-Cables-/391276460005?hash=item5b19e4f7e5%3Ag%3A~kgAAOSwiLdWCTDE",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Vægtcelle specs
+@misc{DH7,
+   author = "ebay",
+   title = "Vægtcelle-- Ebay{,} ",
+   url = "http://www.ebay.com/itm/281311660424",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Pumpe specs
+@misc{DH8,
+   author = "ebay",
+   title = "Pumpe-- Ebay{,} ",
+   url = "http://www.ebay.com/itm/6V-Peristaltic-Pump-Dosing-Water-Pump-DC-Motor-Tube-For-Aquarium-Lab-Analytical-/131367703927?hash=item1e96201577",
+   note = "[Online; accessed 30-October-2015]"
+ }
+
+%Kamera 2 specs
+@misc{DH9,
+   author = "ebay",
+   title = "Microscrope Kamera-- Ebay{,} ",
+   url = "http://www.ebay.com/itm/2MP-800X-USB-Microscope-Digital-Mikroskop-Endoskop-Lupe-Kamera-CMOS-Kamera-/400736026036?hash=item5d4dba7db4:g:aygAAOSwu4BVwegS",
+   note = "[Online; accessed 07-November-2015]"
+ }
+
+%Kamera 3 specs
+@misc{DH10,
+   author = "Farnell",
+   title = "Microscrope AVEN ZIPCODE kamera-- Farnell{,} ",
+   url = "http://dk.farnell.com/aven/26700-300/zipscope-usb-digital-microscope/dp/2098929",
+   note = "[Online; accessed 07-November-2015]"
+ }
+
+%bøger
+%skabelon
+@book{fysikbog,
+	title = {Physics for Scientists and Engineers, 7th edition},
+	author = {John W. Jewett and Raymond A. Serway},
+	year = {2008},
+	number = {ISBN: 0-495-11240-2},
+	series = {Paperback},
+	publisher = {Thomson Learning}
+}
+
+%Webster bogen
+@book{Websterbog,
+	title = {Medical instrumentation, 4th edition},
+	author = {John G. Webster},
+	year = {2010},
+	number = {ISBN: 978-0471-67600-3},
+	series = {Paperback},
+	publisher = {John Wiley and sons, INC.}
+}
+
+
+%Elecric engineering bogen
+@book{ELengbog,
+	title = {Electrical Engineering, 5th edition},
+	author = {Allan R. Hambley},
+	year = {2011},
+	number = {ISBN: 978-0-13-215516-8},
+	series = {Paperback},
+	publisher = {PEARSON}
+}
+
+@book{AETbog,
+	title = { Advanced Educational Technologies, 5th edition},
+	author = {Leonid Perlovsky},
+	year = {2009},
+	number = {ISBN: 978-960-474-092-5},
+	series = {Paperback},
+	publisher = {WSEAS Press}
+}
+%ASB bog
+@book{ASBbog,
+	title = { AThe analysis and design of linear circuits, 7th edition},
+	author = {Roland E. Thomas,
+	year = {2012},
+	number = {ISBN: 978-1-118-06558-7},
+	series = {Paperback},
+	publisher = {John Wiley and sons, INC.}
+}
+

@@ -1,0 +1,193 @@
+  % \section{Accepttest af ikke funktionelle krav}
+
+ 	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Hastigheden på systemet skal være Højere end 30 øer sorteret pr. minut \\
+			\hline
+			\textbf{Testmetode} & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}), hvor der måles med et stopur. Stopuret stoppes efter sorteringsprocessen er færdig, derefter regnes hastighed ud ved 
+$\frac{\text{Antal øer}}{\text{Minutter}}>30$ \\
+			\hline
+			\textbf{Forventet resultat}  & Når sorteringcyklussen er færdig er
+			$\frac{\text{Antal øer}}{\text{Minutter}}>30$  \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+			
+ 	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 2.1 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Mere end 90\% af de isolerede øer skal være faktiske øer 
+(Sandt pos: > 90\%) \\
+			\hline
+			\textbf{Testmetode} & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer.  \\
+			\hline
+			\textbf{Forventet resultat}  & Når sorteringcyklussen er færdig er
+
+ $\frac{\text{Antal talte øer}}{\text{Antal isoleret}}*100=>90$  \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}		
+
+ 	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 2.2 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Der skal være mindre end 5\% af de isolerede øer, der ikke er øer
+(Falsk pos: < 5\%) \\
+			\hline
+			\textbf{Testmetode} & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s.  \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af faktiske øer. Dette holdes op i mod antallet af isoleret øer.  \\
+			\hline
+			\textbf{Forventet resultat}  & Når sortering-cyklussen er færdig er
+
+$\frac{\text{Antal talte øer}}{\text{Antal isoleret}}*100=>95$  \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}	
+			
+ 	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 2.3 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Der skal være mindre end 5\% af øerne i opløsningen der ikke er blevet isoleret
+(Falsk neg: < 5\%) \\
+			\hline
+			\textbf{Testmetode} & Normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s.  \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret og antallet af øer i waste beholderen.  \\
+			\hline
+			\textbf{Forventet resultat}  & Når sortering-cyklussen er færdig er
+
+$\frac{\text{Antal talte øer i waste}}{\text{Antal talte isoleret øer}}*100= >95$  \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}		
+			
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 3 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & over 90\% af det oprindelige antal, skal være isoleret. \\
+			\hline
+			\textbf{Testmetode} &  En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus, skal en kyndig person tælle antallet af øer der er isoleret. Dette antal holdes op i mod antallet af øer i opløsningen fra start.  \\
+			\hline
+			\textbf{Forventet resultat}  & Når sortering-cyklussen er færdig er
+ %\begin{align}
+ $\frac{\text{Antal talte øer i opløsningen fra start}}{\text{Antal talte isoleret øer}}*100= >90$
+ %\end{align}  
+ \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}		
+			
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 4 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & over 90\% af det oprindelige antal, skal være genkendt \\
+			\hline
+			\textbf{Testmetode} &  En opløsning med et kendt antal øer benyttes. Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter færdig endt cyklus, holdes antal af detekteres op i mod det oprindelige antal af øer fra starten.  \\
+			\hline
+			\textbf{Forventet resultat}  & Når sortering-cyklussen er færdig er
+ $\frac{\text{Antal detekteret øer}}{\text{Antal oprindelige øer}} * 100 = >90$ \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}				
+			
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 5 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Systemet skal minimum kunne sortere øer, der har en størrelse mellem  \SI{100}{\micro\metre}  og  \SI{300}{\micro\metre}  \\
+			\hline
+			\textbf{Testmetode} &   En opløsning med en ø størrelse på \SI{100}{\micro\metre}  og \SI{300}{\micro\metre} benyttes  Hvor efter normalforløbet ved en sorteringscyklus følges (Use Case 2: Sortering af Langerhanske Øer, s. \pageref{uc:2}). Efter endt cyklus observeres det om systemet har sorteret de specificerede størrelser.  \\
+			\hline
+			\textbf{Forventet resultat}  & Begge ø størrelser er isoleret \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+    
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 6 \\ 
+			\hline
+			\textbf{Kvalitetskrav} & Systemet skal kunne give informationer omkring opløsningens øer, både størrelse og form.  \\
+			\hline
+			\textbf{Testmetode} &   Normal-forløbet ved en sorteringscyklus følges.   \\
+			\hline
+			\textbf{Forventet resultat}  & Efter endt cyklus, skal data filen kontrolleres om den har de specificerede værdier. \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}

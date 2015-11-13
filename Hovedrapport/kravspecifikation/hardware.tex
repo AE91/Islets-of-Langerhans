@@ -1,0 +1,58 @@
+\subsection{Hardware}
+
+\subsubsection{Microcontroller} \label{subsub:mcu}
+\begin{enumerate}
+\item Atmega328p (Arduino)
+\end{enumerate}
+
+\subsubsection{Pumpe} \label{subsub:pump}
+\begin{enumerate}
+\item Pumpe flow: <50ml / min 
+\item Størrelse på studserne skal kunne tilpasses slangerne 
+\end{enumerate}
+
+\subsubsection{Slanger} \label{subsub:tubes}
+\begin{enumerate}
+\item Slangerne skal have en indre diameter > 300µm
+\item Kameraet skal kunne detektere langerhanske øer igennem slangen, evt. vha. glasrør
+\end{enumerate}
+
+\subsubsection{Beholdere} \label{subsub:container}
+\begin{enumerate}
+\item Celleopløsningsbeholder skal have størrelse  > 250 mL
+\item Wastebeholder skal have en størrelse dobbelt så stor som celleopløsningsbeholderen: > 500 mL
+\end{enumerate}
+
+\subsubsection{Ventil} \label{subsub:valve}
+\begin{enumerate}
+\item 3-vejs, dvs. 1 tilgang og kobling mellem 2 udgange
+\item Studserne skal kunne tilpasses slangerne
+\item Skal være til væske
+\item Lukke og åbne tid skal være >50ms
+\end{enumerate}
+
+\subsubsection{Kamera} \label{subsub:camera}
+\begin{enumerate}
+\item Kameraet til kunne detektere langerhandske øer mellem 100 og 300um
+\item Kameraet skal have en zoom funktion, som et microskop
+\item Kameraet skal have et USB interface
+\end{enumerate}
+
+
+\subsection{Software} 
+
+\subsubsection{Dataformat og struktur} \label{subsub:software}
+\begin{enumerate}
+\item CSV format med kommasepareret delimiter. 
+\item Filnavn: Dato og starttidspunkt for sorteringscyklus.
+\item Header indeholdende opsætningsindstillinger.
+\item Filen er opbygget med følgende kolonner: 
+\begin{enumerate}
+\item Tidsstempel i formatet DD-MM-YYYY-hh:mm:ss
+\item Ø størrelse
+\item Radius
+\item Omkreds
+\item Middelintensitet
+\end{enumerate}
+\end{enumerate}
+

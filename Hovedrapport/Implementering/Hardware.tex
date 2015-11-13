@@ -1,5 +1,5 @@
   \section{Hardware}
-  Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestene er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, beregninger og beskrivelser, hvilket er udarbejdet sideløbende med udviklingen af produktet. 
+  Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestene er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, formler og beskrivelser, hvilket er udarbejdet sideløbende med udviklingen af produktet. 
  	
  \subsection{Vægtcelle}
  For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for. Vægtcellen der er brugt i projektet, består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
@@ -142,7 +142,6 @@ Kredsløbet på figur \ref{fig:bufferampmedgaindifferens} kaldes en instrumentat
 \label{fig:INA114Pin}
 \end{minipage}
 \end{figure}
-
 \fxnote{reference til datablad i billag}
 Fra databladet til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
@@ -221,99 +220,24 @@ Denne metode kan bruge på alle typer af motorer. I den simple forstand kan vari
 
 2. Variere strømmen der tilføres motoren, hvor spændingen holdes konstant.
 Denne metode minder om den overstående, men i stedet for serie kobles den variable modstand parrallet som det kan ses på figur \ref{fig:motorcurrent}. ulempen ved dette kredsløbt er at når motoren skal køre ved lav hastighed, er modstanden lille og derved tæt på en kortslutning derfor er det vigtigt at kredsløbet er designet rigtigt. Princippet er baseret på KCL.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{billeder/Hardware/motorcurrent.jpg}
 	\caption{Kredsløbsdiagram for Motor med variable strøm}
 	\label{fig:motorcurrent}
 \end{figure}
-
 \fxnote{hvis tiden er til det, kan der uddybes med generel motor teori som opbygning mm. Derud over kunne der sagtens lave nogle formler også til generelle motorer, så som moment mm.}
 
 
-3. Variere Spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
-Konceptet i denne metode er at have en konstant forsyning, som i sin simple for stand slukkes og tændes for. Dvs. at der sidder en kontakt i mellem strømforsyningen og motoren, der tændes og slukkes. Kredsløbet for dette kan stilles op som figur \ref{fig:motorkontakt} og giver et signal som på figur \ref{fig:onoffwave}
-Åben og
-
- \begin{figure}[htbp] \centering
-\begin{minipage}[b]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/Hardware/motorkontakt.jpg} % Left picture
-\end{minipage} \hfill
-\begin{minipage}[b]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/Hardware/onoffwave.jpg} % Right picture
-\end{minipage} \\ % Captions og labels
-\begin{minipage}[t]{0.48\textwidth}
-\caption{Kredsløbsdiagram for Motor med en kontakt} % Left caption and label
-\label{fig:motorkontakt}
-\end{minipage} \hfill
-\begin{minipage}[t]{0.48\textwidth}
-\caption{Motorsignal ved periodevis spænding } % Right caption and label
-\label{fig:onoffwave}
-\end{minipage}
-\end{figure}
-Åbningstiden $T_{on}$ er der hvor kontakten er tændt, $T_{period}$ er perioden som kontakten åbner og lukker. Den gennemsnitlige spænding kan regnes ud ved \ref{eq:VT}
-
-\begin{align}
-V_T=V_S \frac{T_{on}}{T_{period}}
-\label{eq:VT}
-\end{align}
-Ud fra overstående formel (\ref{eq:VT}) ses det, at gennemsnit spændingen og derved også hastigheden på motoren styres ved $T_{on}$ altså hvor langtid kontakten er tændt. Denne form for styring af en motor, kaldes også pulse width modulation.
-
+3. Variere Spændingen der tilføres motoren, hvor strømmen holdes konstant.
 
 
 \paragraph{Pulse width modulation} \phantom{mmmmmmmmmmmmmmmmmkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkmmmmmmmmmmmmmmmmmmmmmm}
 
-Pulse width modulation(PWM) er en meget brugt metode som kan bruges til, at styre hastigheden på en DC motor. Dette gøres ved at tænde og slukke for en digital udgang. Det er duty cyklussen der får hastigheden til at varierer, dvs. at det er tiden hvor det firkantede signal er "højt" der bestemmer hastigheden. Da strømforsyningen er 12V og motoren kun kan tåle 6V, betyder det at duty cyklussen ikke må overstige 50\%, da det vil give en højere gennemsnits spænding end 6V, hvilket er motorens maksimale spænding. Se figur \ref{fig:pwmsignal} for illustration af PWM duty cyklusser og gennemsnit spændinger. PWM styring kan bruges til blandt andet dæmning af dioder, generering af lydsignaler og styring af motorer \fxnote{højere fagligt sprog og niveau og nogle gode referencer}. 
-
- \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{billeder/Hardware/pwm.png}
-	\caption{PWM duty cyklusser med gennemsnits spændinger}
-	\label{fig:pwmsignal}
-\end{figure}
-
-Der er flere metoder, hvor dette kan implementeres vha. arduinoen. Den mest simple metode er $analogWrite(pin, dutyCycle);$ hvor dutycycle er en værdi mellem 0 og 255 og pin er en af de digital udgange med PWM. Dette er simpelt, men der er ingen control over frekvens mm. 
-
-Manuel PWM implementering er en anden metode, der kan implementeres således:
-
-\begin{lstlisting}
-void setup()
-{
-  pinMode(13, OUTPUT);
-}
-
-void loop()
-{
-  digitalWrite(13, HIGH);
-  delayMicroseconds(100); // Approximately 10% duty cycle @ 1KHz
-  digitalWrite(13, LOW);
-  delayMicroseconds(1000 - 100);
-}
-\end{lstlisting}
-
-Her sættes pin 13 til \textit{høj}, hvor efter der ventes 100 mikro sekunder. Derefter sætte pin 13 \textit{lav} og der ventes 900 mikro sekunder. Ved denne metode kan alle digitale udgange bruges og ikke kun dem med pwm. Dog er processensoren brugt hele tiden da den også bruges når der ventes. Det vil sige at den ikke kan bruges til andet samtidigt, hvilket ikke kan bruges i projektet.
-Microcontrolleren der sidder på arduinoen indeholder 3 timere, som kan bruges til PWM generering.  Måden dette virker på er at timeren går fra 0 til 255, hvis $Timer=0$ sættes outputtet højt, hvor den tæller til enten 255 og slukker hvilket vil skabe en duty cyklus på 100\%. derfor kan der defineres en værdi hvor der slukkes mellem 0 og 255. ydermere findes der scalar (1, 8, 64, 256 eller 1024 som divideres med arduinoens clock frekvens. alt dette konfigureres ved bits i registre(TCCRnA og TCCRnB ) på microcontrolleren. et eksempel på dette kunne være: 
-
-\begin{lstlisting}
-void setup()
-{
-pinMode(3, OUTPUT);
-  pinMode(11, OUTPUT);
-  TCCR2A = _BV(COM2A1) | _BV(COM2B1) | _BV(WGM21) | _BV(WGM20);
-  TCCR2B = _BV(CS22);
-  OCR2A = 180;
-  OCR2B = 50;
-\end{lstlisting}
-
-Ved overstående kode vil der være en duty cyklus på output A da være $$\frac{180+1}{256}*100=70,7\%$$ og en PWM frekvens på     
-  $$\frac{16MHz}{64/256}=976.6Hz$$. Output B vil have en duty cyklus på $$\frac{50+1}{256}*100=19.9 \%$$ og den samme frekvens. Den sidst nævnte metode, er den metode hvor der er mest kontrol over PWM signalet. Derfor bruges denne i dette projekt.
-
-
+Pulse width modulation(PWM) er et metode som kan bruges til at styre hastigheden på en motor. Dette gør den ved at tænde og slukke for en digital udgang. Det er duty cyclen der får hastigheden til at varierer, dvs. at det er tiden hvor signalet er "højt" der bestemmer hastigheden. Da strømforsyningen er 12V og motoren kun kan tåle 6V, betyder det at PWM ikke må overstige 50%, fordi at motoren ikke kan tåle det. \fxnote{højere fagligt} sprog og niveau og nogle gode referencer}
 
 \subsubsection{Enhedstest af motor og motordriver}
- På figur \ref{fig:motordriverdiagram} kan ledningsdiagrammet til motordriver med motor og frem og tilbage lysdioder observeres. Med opsætningen kan retningen på motoren bestemmes ved, hvilken en af udgangene der sættes til lav(0V). Hvor den modsatte udgang konfigureres til PWM. Gøres det modsat kører motoren den modsatte vej. På figur \ref{fig:Motorbreadboard} ses kredsløbet monteret ved Enhedstesten på et \textit{fumlebræt}.
- 
+
  \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/motordiagram.JPG}
@@ -328,21 +252,11 @@ Ved overstående kode vil der være en duty cyklus på output A da være $$\frac
 	\label{fig:Motorbreadboard}
 \end{figure}
 
-reference til testkode mm. mangler.
+reference til testkode mm. mangler
 
 
  \subsection{Ventil}
- En magnetventil virker på den måde at den består af en spole, der danner et magnetfelt når der bliver påsat spænding og der trækkes et stempel til sig. Det får ventilen til at åbne ved hjælp af en membran. En trevejs magnetventil, som den brugte i dette projekt virker på samme måde. Men hvor skifter position, hvorved der altid er en åben. Derfor vil opløsningen løbe ud i wastebeholderen når der ikke er en langerhanske ø, men der kommer en vil den skifte position, hvor de bliver sorteret. Se figur \ref{fig:ventilpos} for en illustration af hvordan den 3 vejs magnetventil virker
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{billeder/Hardware/ventil.png}
-	\caption{Magnetventil position}
-	\label{fig:ventilpos}
-\end{figure}  
-
- På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren og ventilen.
-
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/ventildiagram.JPG}
@@ -350,26 +264,14 @@ reference til testkode mm. mangler.
 	\label{fig:ventildiagram}
 \end{figure} 
 
-På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling er sat op på et \textit{fumlebræt}.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/Ventilbreadboard.JPG}
 	\caption{Illustration af testopstilling med ventil og motordriver}
 	\label{fig:ventilbreadboard}
 \end{figure} 
- 
-Reference til testkode ved arduino 
- 
- \subsection{Kameralys}
- Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Det skal gøres for at styre lyset, der påvirker kameraet fuldstændigt. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, Skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}, hvilket giver en effekt afsætning på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176)$ hvilket giver grund for at 0.33W modstande er passende.
 
-\begin{align}
-R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
-\label{eq:modstand}
-\end{align} 
- 
-På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset
+ \subsection{Kameralys}
  
  \begin{figure}[H]
 	\centering
@@ -378,23 +280,20 @@ På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset
 	\label{fig:LEDdiagram}
 \end{figure} 
 
-På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt} for Kameralyset
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/Hardware/diagrammer/LEDbreadboard.JPG}
 	\caption{Illustration af testopstilling med kameralys og motordriver}
 	\label{fig:LEDbreadboard}
 \end{figure}
-
- test kode for kameralyset reference osv.
+ 
  
  
  
 \subsection{ikke elektroniske dele}
  
  
-\subsection{opsummering for hardware/integrationstest/PCB design} 
+\subsection{opsummering for hardware} 
 
 \begin{figure}[H]
 	\centering
@@ -402,6 +301,4 @@ På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt
 	\caption{Kredsløbsdiagram for Hardware}
 	\label{fig:HWdiagram}
 \end{figure}
-
-
  
