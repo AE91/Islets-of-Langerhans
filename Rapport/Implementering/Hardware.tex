@@ -2,7 +2,7 @@
   Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestene er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, beregninger og beskrivelser, hvilket er udarbejdet sideløbende med udviklingen af produktet. 
  	
  \subsection{Vægtcelle}
- For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for. Vægtcellen der er brugt i projektet, består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
+ For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for vægtcellen, der er brugt i projektet, består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{billedet er hentet med tilladelse fra  \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
  \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Hardware/straingages1.JPG}
@@ -31,11 +31,11 @@ En strain gages modstand stiger ved stræk og falder ved kompression, dette kan 
 \includegraphics[width=1.00\textwidth]{billeder/Hardware/straingages2.PNG} % Right picture
 \end{minipage} \\ % Captions og labels
 \begin{minipage}[t]{0.48\textwidth}
-\caption{illustration af strain gages i loadcell på virkning} % Left caption and label
+\caption{Illustration af strain gages i loadcell på virkning} % Left caption and label
 \label{fig:Loadcell1}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.48\textwidth}
-\caption{illustration af koblingen strain gages i loadcell} % Right caption and label
+\caption{Illustration af koblingen strain gages i loadcell} % Right caption and label
 \label{fig:loadcell2}
 \end{minipage}
 \end{figure}
@@ -89,7 +89,7 @@ Punkt 3, en høj undertrykkelse af støj. Støj kan skyldes rigtig mange ting, e
 
 Punkt 4, en simpel forstærkning. Med det over stående kredsløb, kan en simpel forstærkning ikke opnås. Det kan det ikke da det kræver at R2 divideret med R1 er lig med R4 divideret med R3. Hvilket vil være umuligt da modstande har en tolerancer for, hvor præcise de er.
 
-For at opfylde de ønskede egenskaber skal differensforstærkeren modificeres. For at sikres en høj indgangsmodstand kan en spændingsføger benyttes, som har til formål at forstærke en til en. Det vil sige at den i teorien har samme udgangsspænding som indgangsspændingen. se \ref{fig:bufferamp} for en illustration, denne sættes på begge outputs fra vægtcellen.
+For at opfylde de ønskede egenskaber skal differensforstærkeren modificeres. For at sikres en høj indgangsmodstand kan en spændingsfølger benyttes, som har til formål at forstærke en-til-en. Det vil sige at den i teorien har samme udgangsspænding som indgangsspændingen. se figur \ref{fig:bufferamp} for en illustration, denne sættes på begge outputs fra vægtcellen.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Hardware/bufferamp.png}
@@ -149,7 +149,7 @@ Fra databladet til INA114 ses det at den har en CMRR på 115dB, ved et gain på 
  G=(1+\frac{50K\Omega}{R_{G}})
  \label{eq:gainina1}
  \end{align} 
- I tilfældet i dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
+ I dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
  \begin{align}
  R_{G}=\frac{50K\Omega}{980-1}=51\Omega
  \label{eq:gainina2}
@@ -169,7 +169,7 @@ Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, d
 	\label{fig:loadcelldiagram}
 \end{figure}
 
-Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se \ref{fig:loadcelltest} for test opstilling
+Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se figur \ref{fig:loadcelltest} for test opstilling
   \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/Drawing1.jpg}
@@ -203,7 +203,7 @@ Den endelige opstilling af vægtcellen vil se ud som på \ref{fig:loadcell_mont}
 \end{figure}
 Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage signalet fra arduinoen, analysere det og give et tilsvarende signal fra strømforsyning til motoren.
 \subsubsection{Hastighedscontrol af pumpe}
-Da det er svært at finde en pumpe der lige opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
+Da det er svært at finde en pumpe der præcis opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
 \begin{align}
 \frac{\text{Opløsningsstørelse}}{\text{Antal øer i opløsning}} = \frac{150}{200}*30 = 22,5ml/min
 \label{eg:ohastighed}
@@ -233,7 +233,7 @@ Denne metode minder om den overstående, men i stedet for serie kobles den varia
 \fxnote{hvis tiden er til det, kan der uddybes med generel motor teori som opbygning mm. Derud over kunne der sagtens lave nogle formler også til generelle motorer, så som moment mm.}
 
 
-3. Variere spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
+3. Varierer spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
 Konceptet i denne metode er at have en konstant forsyning, som i sin simple forstand slukkes og tændes for. Dvs. at der sidder en kontakt i mellem strømforsyningen og motoren, der tændes og slukkes. Kredsløbet for dette kan stilles op som figur \ref{fig:motorkontakt} og giver et signal som på figur \ref{fig:onoffwave}
 
  \begin{figure}[htbp] \centering
@@ -309,8 +309,7 @@ pinMode(3, OUTPUT);
 Ved overstående kode vil der være en duty cyklus på output A da være $$\frac{180+1}{256}*100=70,7\%$$ og en PWM frekvens på     
   $$\frac{16MHz}{64/256}=976.6Hz$$. Output B vil have en duty cyklus på $$\frac{50+1}{256}*100=19.9 \%$$ og den samme frekvens. Den sidst nævnte metode, er den metode hvor der er mest kontrol over PWM signalet. Derfor bruges denne i dette projekt.
   
-For at lysdiodernen ikke skal brænde af, er det nødvendigt med modstande foran dem. Modstandene kan beregnes på følgende måde
-Formodstandenes værdi er beregnet ved \ref{eq:modstandLEDmotor}. 
+For at lysdioderne får deres ønskede spænding, er det nødvendigt med modstande foran dem. Modstandene kan beregnes på følgende måde. 
 \begin{align}
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{6-3.2}{20mA}=140\Omega
 \label{eq:modstandLEDmotor}
@@ -382,7 +381,7 @@ Reference til testkode ved arduino
  
  \subsection{Kameralys}
  \label{subsec:kameralys}
- Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, Skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
+ Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
 
 \begin{align}
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
