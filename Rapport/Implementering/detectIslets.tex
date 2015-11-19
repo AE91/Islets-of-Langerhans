@@ -36,7 +36,7 @@ bw = im2bw(im,0.72);
 	\label{fig:im2bw}
 \end{figure}
 
-I næste step bliver unødigt støj fra masken fjernet. Til dette anvendes funktionen \textit{bwareaopen}. Denne fjerner alle objekter i masken under 100 sammenhørende px. Effekten af denne funktion er vist i figur \ref{fig:bwarea}. Herudover kaldes funktionen bwlabel, som indeksere hvert af de sammenhørende objekter i masken. Dermed får hvert objekt i figur \ref{fig:bwarea} et unikt index fra 1 til 5. 
+I næste step bliver unødigt støj fra masken fjernet. Til dette anvendes funktionen \textit{bwareaopen}. Denne fjerner alle objekter i masken under 100 sammenhørende px. Dette fjerner de mindste støjkomponenter fra billedet. Effekten af denne funktion er vist i figur \ref{fig:bwarea}. Herudover kaldes funktionen bwlabel, som indeksere hvert af de sammenhørende objekter i masken. Dermed får hvert objekt i figur \ref{fig:bwarea} et unikt index fra 1 til 5. 
 \begin{lstlisting} 
 % Removes all objects below 100 connected pixels
 bw = bwareaopen(bw,100);

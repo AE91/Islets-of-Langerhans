@@ -6,6 +6,16 @@ Software implementeringen af \textit{The Cell Collector} beskrives det i detalje
 \input{implementering/kamerasimulering}
 
 \newpage
+\subsection{Program flow}
+Flowchartet i figur \ref{fig:softwareFlowchart} viser flowet i det implementerede Matlab program. De enkelte blokke indikerer de udviklede Matlab funktioner, mens beslutningsknuderne indikerer knaptryk, om beholderen eller om en ø er detekteret. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/software_flowchart-crop.pdf}
+	\caption{Flowchart for programmet}
+	\label{fig:softwareFlowchart}
+\end{figure}
+
+\newpage
 \subsection{Matlab funktioner}
 I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere beskrevet. Selve implementeringen tager udgangspunkt i beskrivelserne fra design dokumentet. %Herudover er der beskrevet test af de enkelte funktioner.  
 
@@ -16,69 +26,87 @@ I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere be
 %\subsubsection{detectIslets}
 \input{implementering/detectIslets} 
 \newpage
-\subsubsection{loadCell} \fxnote{Mangler endelig kalibrering}
-Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (v) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en liniær model:
+\subsubsection{loadCell}
+Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
 \end{align}
-Det analoge input ganges altså med en faktor a plus et offset b for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en liniær regression for at finde hældningen a og skæringen b.
+Det analoge input ganges altså med en faktor a plus et offset b for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen a og skæringen b.
 \begin{center}
 		\begin{longtable}{ | m{3cm} | m{3cm}| } 
 			\hline
 			\textbf{ml i beholder} &\textbf{Analog input} \\ 
 			\hline
-			 \SI{0}{\milli\litre} & \SI{0}{\volt} \\ 
+			 \SI{0}{\milli\litre} & \SI{1.9487}{\volt} \\ 
 			\hline
-			 \SI{25}{\milli\litre} & \SI{0}{\volt} \\ 
+			 \SI{25}{\milli\litre} & \SI{2.0440}{\volt} \\ 
 			\hline
-			\SI{50}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{50}{\milli\litre} & \SI{2.1320}{\volt} \\ 
 			\hline
-			\SI{75}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{75}{\milli\litre} & \SI{2.2297}{\volt} \\ 
 			\hline
-			\SI{100}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{100}{\milli\litre} & \SI{2.3109}{\volt} \\ 
 			\hline
-			\SI{125}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{125}{\milli\litre} & \SI{2.4071}{\volt} \\ 
 			\hline
-			\SI{150}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{150}{\milli\litre} & \SI{2.4961}{\volt} \\ 
 			\hline
-			\SI{175}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{175}{\milli\litre} & \SI{2.5821}{\volt} \\ 
 			\hline
-			\SI{200}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{200}{\milli\litre} & \SI{2.6760}{\volt} \\ 
 			\hline
-			\SI{225}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{225}{\milli\litre} & \SI{2.7654}{\volt} \\ 
 			\hline
-			\SI{250}{\milli\litre} & \SI{0}{\volt} \\ 
+			\SI{250}{\milli\litre} & \SI{2.8587}{\volt} \\ 
 			\hline
 			\caption{Kalibreringsdata for loadcellen}
 			 		\end{longtable}
 \end{center}
 
-Figur REF viser den liniære funktion, samt de enkelte data punkter fra tabellen. I Matlab er funktionen .. anvendt til at finde det bedste liniære fit. Regressionen er baseret på Least Square metoden. \fxnote{Henvisning}
+I Matlab er funktionen \textit{fitlm} anvendt til at finde det bedste lineære fit. Regressionen er baseret på Least Square metoden. \fxnote{Henvisning}
 Udfra beregningerne i Matlab er hældningen a og skæringen b fundet til hhv:
 \begin{align}
-a = something
-b = something
+a = 276.14
+\end{align}
+\begin{align}
+b = -539.02
 \end{align}
 Den endelige funktion er dermed givet ved:
 \begin{align}
-ml = something*input+something
+ml = 276.140*input-539.02
 \end{align}
 
-For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de sidste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj.  
+Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data punkter fra tabellen. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/calibration-crop.pdf}
+	\caption{Kalibrering af load cell}
+	\label{fig:loadcellcalib}
+\end{figure}
 
+For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj.  
 
+\newpage
 \subsubsection{valveControl}
-I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigitalPin fra Arduino Support pakken, som bruges til at sætte pin'en høj (5V) og lav (0V). Nedenstående kode viser, hvordan denne funktionalitet er implemeneteret i Matlab.  \fxnote{Afsnittet mangler beskrivelse af timere} 
+I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigitalPin fra Arduino Support pakken, som bruges til at sætte pin'en høj (5V) og lav (0V). For at time hvornår ventilen skal lukke igen anvendes en timer. En timer har den fordel, at den kan køre i baggrunden og dermed ikke blokkere eksekvering af anden kode. Timeren oprettes som et timer objekt i Matlab. Til objektet kan der knyttes forskellige callback funktioner, som specificerer hvad der skal ske ved forskellige tidspunkter. Timerens \textbf{startFcn} åbner ventilen ved, at sætte pin'en høj (5V). Herefter defineres et startDelay som specificerer, hvor langt tid der skal gå før timerens egentlige callback funktion eksekveres. Det er dette delay der afgør, hvor længe ventilen er åben. Timerens \textbf{TimerFcn} sætter altså pin'en lav(0 V) for at lukke den igen. Den sidste funktion der tilknyttes timeren er dens \textbf{stopFcn}. Her slettes timerens objekt for at fjerne den fra køen. Figur \ref{fig:timer} viser rækkefølgen for hvornår de enkelte timer funktioner eksekveres. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/timer-crop.pdf}
+	\caption{Matlab timer objekt}
+	\label{fig:timer}
+\end{figure}
+Nedenstående kode viser, hvordan denne funktionalitet er implemeneteret i Matlab.  
 \begin{lstlisting} 
-% Set the pin HIGH (5V)
-handles.a.writeDigitalPin(handles.constants.valvePin,1);
-
-% Create timer - with startDelay (defined in handles.constants
+% Create timer - with startDelay (defined in handles.constants.timerDelay)
 t = timer('StartDelay',handles.constants.timerDelay);
 
-% Assign timerfunction - to set pin LOW (0V)
-t.TimerFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,0);
+% StartFcn - open valve
+t.StartFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,1);
 
+% Assign timerfunction - to set pin LOW (0V) to close valve
+t.TimerFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,0);
+% StopFcn - deletes the timer from the queue 
+t.StopFcn = @(t) delete(t);
 % Start timer
 start(t)
 
@@ -87,11 +115,16 @@ handles.isletDetected=false;
 \end{lstlisting} 
 
 \subsubsection{pumpControl}
+Funktionen til styring af pumpen anvendes funktionen \textit{writePWMDutyCycle} fra Arduino support pakken. Som input til denne funktion angives pin'en og PWM værdien, som en værdi mellem 0 og 1. Som standard er pumpen sat til en flow hastighed på 50 ml/min, hvilket er svarer til en PWM værdi på 0.9. 
+
 To do
-\subsubsection{settings}
-To do
+%\subsubsection{settings}
+%To do
 \subsubsection{exportData}
-To do
+Denne funktion gemmer data omkring sorteringscyklussen, som en .csv fil. Opbygningen af filen er nærmere beskrevet i kravspecifikationen (\ref{subsub:software}). Til at gemme filen anvendes Matlab funktionen \textit{writetable}. Da data om sorteringen er gemt, som et struct i handles konverteres structet til en tabel med funktionen \textit{struct2table}. Som filnavn anvendes starttiden for sorteringscyklussen. Denne værdi hentes fra handles.
+
+Når filen er gemt informeres operatøren via en messageboks. 
+
 \newpage
 \subsection{GUI}
 \subsubsection{Hovedvindue}
@@ -102,7 +135,7 @@ To do
 	\label{fig:finishedGUI}
 \end{figure}
 
-Beskrivelse
+Beskrivelse - to do
 \subsubsection{Indstillingsvindue}
 \begin{figure}[H]
 	\centering
@@ -111,14 +144,14 @@ Beskrivelse
 	\label{fig:finishedSettings}
 \end{figure}
 
-Beskrivelse
+Beskrivelse - to do
 
-\newpage
-\subsection{Matlab callbacks}
-Dette afsnit beskriver callback funktionerne..
-%\subsubsection{•}
-\subsubsection{Start callback}
-
-\subsubsection{Stop callback}
-
-\subsubsection{Settings callback}
+%\newpage
+%\subsection{Matlab callbacks}
+%Dette afsnit beskriver callback funktionerne..
+%%\subsubsection{•}
+%\subsubsection{Start callback}
+%
+%\subsubsection{Stop callback}
+%
+%\subsubsection{Settings callback}
