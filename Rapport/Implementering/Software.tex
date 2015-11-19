@@ -27,6 +27,7 @@ I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere be
 \input{implementering/detectIslets} 
 \newpage
 \subsubsection{loadCell}
+\label{subsub:softwareloadcell}
 Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
@@ -113,7 +114,7 @@ start(t)
 % isletDetected boolean is set to false
 handles.isletDetected=false;
 \end{lstlisting} 
-
+\newpage
 \subsubsection{pumpControl}
 Funktionen til styring af pumpen anvendes funktionen \textit{writePWMDutyCycle} fra Arduino support pakken. Som input til denne funktion angives pin'en og PWM værdien, som en værdi mellem 0 og 1. Som standard er pumpen sat til en flow hastighed på 50 ml/min, hvilket er svarer til en PWM værdi på 0.9. 
 

@@ -94,6 +94,7 @@ rDif = abs(r1-r2);
 [~, idx2] = min([stats.Eccentricity]);
 \end{lstlisting} 
 
+\newpage
 I det sidste step i segmenteringen af den langerhanske ø kontrolleres det om radius forskellen og excentricitet ligger under nogle fast definerede grænseværdier. Værdierne er fundet ved, at analysere en række billeder og deres objekters radius og excentricitet. Radius og excentriciteten bliver gemt i logfilen, så de kan analyseres for senere at justere grænseværdierne. Hvis objektets værdier er under disse grænseværdier er en ø detekteret. Når en ø er detekteret illustreres det med en grøn ring på GUI. Til dette er funktionen \textit{viscircles} anvendt, hvor center positionen og radius for objektet anvendes. 
 
 For at løse udfordringen med, at den samme ø vil optræde på det næste billede, er der implementeret et smalt detekteringsvindue (100 pixels bredt). Når øen er detekteret inden for dette område bliver variablen isletDetected sat til true. Denne variabel anvendes til styring af ventilen. Implementingen af dette er vist i nedenstående kode.
@@ -132,6 +133,7 @@ Figur \ref{fig:segmented} viser slutresultatet af segmenteringen, hvor masken ku
 	\label{fig:segmented}
 \end{figure}
 
+\newpage
 I figur \ref{fig:finalimage} er det oprindelige billede vist, med markering af den detekterede ø.
 
 

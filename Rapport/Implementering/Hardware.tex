@@ -194,7 +194,7 @@ De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
  \label{eq:trintilvolt}
  \end{align}
-Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i \fxnote{reference til SW loadcell}
+Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i afsnit \ref{subsub:softwareloadcell}.
  
  \begin{figure}[H]
 	\centering
@@ -411,6 +411,7 @@ Yderligere skal ventilen åbne lidt før og lukke lidt efter. Derfor skal der og
 
 Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys} for beregninger for dem. 
 
+\newpage
  På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren og ventilen.
 
 \begin{figure}[H]
@@ -419,7 +420,7 @@ Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran ly
 	\caption{Kredsløbsdiagram for ventil}
 	\label{fig:ventildiagram}
 \end{figure} 
-
+\newpage
 \subsubsection{Enhedstest for ventil}
 På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling er sat op på et \textit{fumlebræt}. I test koden er der hovedsagligt brugt \textit{digitalWrite(8, LOW);} og \textit{digitalWrite(8, HIGH);}, hvorved arduinoen sætter udgangen lav(0V) og høj(5V). Motordriveren bruger signalet til det at give ventilen 12V når den er høj. Se bilag \ref{bilag:TKventil} for hele testkoden
 
@@ -430,7 +431,7 @@ På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling e
 	\label{fig:ventilbreadboard}
 \end{figure} 
  
-
+\newpage
  \subsection{Kameralys}
  \label{subsec:kameralys}
  Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detekterer de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
