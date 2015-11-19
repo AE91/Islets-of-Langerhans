@@ -254,7 +254,7 @@ Arduino er en open source platform til fremstilling af prototype print, med en A
 \subsection{Motordriver}
 Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen til systemet. Det skal den fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsynes i gennem motor shieldet. Motordriveren skal også forsyne ventilen. 
 
- \textbf{Specifikationer for Motordriver[\citet{DH4}]:} 
+ \textbf{Specifikationer for Motordriver[bilag \ref{bilag:L293D}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -270,7 +270,7 @@ Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen ti
 			\hline	
 			\textbf{Kanaler} & 4 stk  \\ 
 			\hline	
-			\textbf{Interface} & Forsynes i gennem arduino  \\ 
+			\textbf{Interface} & Strømforsyning og arduino  \\ 
 			\hline	
 		\end{longtable}
 \end{center}
@@ -313,7 +313,7 @@ Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet
 			\hline
 			\textbf{Type:} & Peristaltisk pumpe \\ 
 			\hline
-			\textbf{Forsyning:} & 6VDC, ?A  \\ 
+			\textbf{Forsyning:} & 6VDC, 0,6A  \\ 
 			\hline
 			\textbf{Hastighed} & 0.1-60 omdr./.(0-60ml./min.) \\ 
 			\hline		
@@ -350,7 +350,46 @@ Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for
 %Det vil sige hvs operatøren ikke har fyldt noget i beholderen, kan der gives en systembesked omkring dette. Det mest optimale er at der hele tiden er væske i slangerne i systemet, det er det vægtcellen skal hjælpe med.
 
 \subsection{Kameralys}
-mangler
+Kameralyset skal styre lyset til kameraet, så operatøren selv kan styre hvor meget lys der skal være i kamerakammeret. Dette gøres for at få den bedste mulighed for, at detekter de langerhanske øer.
+\textbf{Specifikationer for Lysdiode[\ref{bilag:L5-W55N-BVW}]:} 
+\begin{center}
+		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
+			\hline
+			\textbf{Specifikation} &\textbf{Værdi} \\ 
+			\hline
+			\textbf{Type:} & L5-w55N-BVW \\ 
+			\hline
+			\textbf{Anbefalet arbejdsspænding} & 3.2-3.5V \\ 
+			\hline
+			\textbf{Max strøm} & 100mA v. 10$\%$ duty cyklus \\ 
+			\hline
+			\textbf{Farve} & 6500K \\ 
+			\hline
+			\textbf{Lysstyrke} & 22000-33000 mcd \\ 
+			\hline
+			\textbf{Spredningsvinkel} & $15^{\circ}$ \\ 
+			\hline
+		\end{longtable}
+\end{center}
+
+Lysdioden har et tilladt strøm til Duty cyklus forhold, som kan ses på figur \ref{fig:LED1} yderligere har lysdioden også et lysintensitet til strøm forhold, dette kan ses på figur \ref{fig:LED2} 
+
+\begin{figure}[htbp] \centering
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/LEDDCforhold.JPG} % Left picture
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hardware/LEDlyscforhold.JPG} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Tilladte strøm og duty cyklus forhold} % Left caption and label
+\label{fig:LED1}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Lysintensitet og strøm forhold} % Right caption and label
+\label{fig:LED2}
+\end{minipage}
+\end{figure}
 
 \newpage
 \subsection{Beholdere}
