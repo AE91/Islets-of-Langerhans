@@ -1,6 +1,15 @@
-\chapter{metoder}
-Dette Kapitel indeholder beskrivelser af hvordan projektet er udført, og med hvilke metoder der er brugt. Yderligere indeholder kapitlet projektstyring, samt modeller der er fulgt igennem projektforløbet. 
-\section{projektstyring/planlægning} 
+\chapter{Metoder}
+Dette kapitel indeholder beskrivelser af hvordan projektet er udført, og med hvilke metoder der er brugt. Yderligere indeholder kapitelet projektstyring, samt hvilke modeller der er fulgt igennem projektforløbet. 
+
+\section{Samarbejdsaftale}
+
+
+\section{Samarbejdspartnere}
+
+\section{Versionsstyring}
+Gittegit
+
+\section{Projektstyring/planlægning} 
 Til projektstyring af dette projekt er der brugt en stage gate model. En stage gage model(figur \ref{fig:stage-gate}) er bestående af nogle udviklingsfaser(stages), hvor ved der er en deadline for de konkrete faser. For at komme til næste fase/stage, skal der være opfyldt nogle kriterier. Kriterierne sættes op i en tjekliste(se figur \ref{fig:stage-gate-tjekliste}), hvor de kan krydses af. Alle punkter skal være opfyldt for at komme i gennem gaten. En stage gate model er god til at få et produkt på markedet, men det har sine svagheder ved en agil udviklingsprocess. \fxnote{skriv noget omkring at i dette projekt er gatene ikke lukkede efter de er gennem gået og derved kan der gåes tilbage og rettes i projektet}
 \begin{landscape}
 \begin{figure}[H]
@@ -41,7 +50,7 @@ Til projektstyring af dette projekt er der brugt en stage gate model. En stage g
 %  \label{pic:picture}
 %\end{figure}
 \subsection{Agil udviklingsprocess}
-I en agil arbejdsprocess er der konstant fokus på at målrette og prioritere arbejdet mod det, der giver mest værdi for projektet og kunden. Det vil sige at der løbende prioriteres mellem opgaverne, hvorefter det er vigtigt at der hele tiden planlægges og revurderes delopgaverne. Det gør at projektets produkt, resultater evalueres og testes løbende, hvilket danner grundlag for prioriteringen af opgaverne der skal løses i den næste periode. Til at sikre at arbejdsressourcerne der har været tilrådighed er blevet brugt på den mest effektive måde, er der brugt elementer fra SCRUM. SCRUM er en iterativ arbejdsmetode, hvor  der er iterationer(sprints) som i dette projekt har haft en periode på en uge. Til at holde styr på arbejdsressourcerne til opgaverne, er der i projektet brugt \textit{Pivotaltracker}. 
+I en agil arbejdsprocess er der konstant fokus på at målrette og prioritere arbejdet mod det, der giver mest værdi for projektet og kunden. Det vil sige at der løbende prioriteres mellem opgaverne, hvorefter det er vigtigt at der hele tiden planlægges og revurderes delopgaverne. Det gør at projektets produkt og  resultater evalueres og testes løbende, hvilket danner grundlag for prioriteringen af opgaverne der skal løses i den næste periode. Til at sikre at arbejdsressourcerne der har været tilrådighed er blevet brugt på den mest effektive måde, er der brugt elementer fra SCRUM. SCRUM er en iterativ arbejdsmetode, hvor  der er iterationer(sprints) som i dette projekt har haft en periode på en uge. Til at holde styr på arbejdsressourcerne til opgaverne, er der i projektet brugt \textit{Pivotaltracker}. 
 I Pivotaltracker defineres projektets arbejdsopgaver, hvorefter de tildeles point alt efter hvor stor arbejdsbyrden er. De enkelte opgaver prioriteres herefter i projektets backlog, hvor Pivotaltracker automatisk tilføjer opgaver til den igangværende sprint udfra den nuværende “velocity”. En ny sprint påbegyndes automatisk når en ny uge starter.
 
 Det betyder, at der er fuldstændig styr på om projektet går for langsomt, eller om udviklingen af projektet er godt med. Dette kan holdes op i mod den tidligere nævnte stage gate model.
@@ -69,15 +78,15 @@ En opgave kan have forskellige states, som definerer dens status. Når en opgave
 \fxnote{overvej om vi skal have andre billeder med en højere vilocity}
 
 \section{De fire udviklingsfaser}
-Under udviklingen af projektet, er der gennem gået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). samtidigt med Koncept analysen, blev det parallelt med tænkt på produktionen af produktet. Grunden til dette er, at det vil være uanvendeligt at opnå løsninger, som er for besværlige at producerer. 
+Under udviklingen af projektet, er der gennem gået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). Samtidigt med koncept analysen, blev det parallelt med tænkt på produktionen af produktet. Grunden til dette er, at det vil være uanvendeligt at opnå løsninger, som er for besværlige at producere. 
 
-Den anden fase består af kravspecifikationen, hvilket er udarbejdet i tæt samarbejde med kunden. En kravspecifikation sikre at kunde og projekt udviklere er enige om projektets udformning. I kravspecifikationen er der brugt usecasediagram, samt fully dresseds til hver usecase. Der laves fully dresseds, for at klaregøre normal forløbet til hver usecase, samt undtagelser og undvigelser til dem. Derudover det også i kravspecifikationen at der er specificeret ikke funktionelle krav og kvalitetskrav. Samtidigt med kravspecifikationen er der udarbejdet en accepttest. Denne test sikres at alle krav, der er bestemt i samarbejde med kunde er opnået. I acceptesten er det beskrevet hvordan hver enkelt krav skal testes, hvilket udføres før produktet afleveres til kunden se afsnit \ref{subsec:krav} for eksempler.
+Den anden fase består af kravspecifikationen, hvilket er udarbejdet i tæt samarbejde med kunden. En kravspecifikation sikre at kunde og projekt udviklere er enige om projektets udformning. I kravspecifikationen er der brugt usecasediagram, samt fully dressed beskrivelser til hver usecase. Der laves fully dressed, for at klaregøre normal forløbet for hver usecase, samt undtagelser og udvidelser til dem. Derudover det også i kravspecifikationen at der er specificeret ikke funktionelle krav og kvalitetskrav. Samtidigt med kravspecifikationen er der udarbejdet en accepttest. Denne test er med til at verificere at alle krav, der er bestemt i samarbejde med kunde er opfyldte. I accepttesten er det beskrevet hvordan hver enkelt krav skal testes. Accepttesten udføres før produktet afleveres til kunden. Se afsnit \ref{subsec:krav} for eksempler.
 
-Den tredje fase i projektet har været Design, hvor der udfra kravspecifikationen er lavet over ordnet diagrammer. Diagrammerne bruges til at beskrive systemet over ordnet, men også i små delsystemer. Det er diagrammerne der bruges til at udvikle videre fra. Desuden er de Enkelte komponenters specifikationer beskrevet i designet. Derfor er det i denne fase der er bestilt komponenter til projektet, se afsnit \ref{subsec:design} for eksempler. 
+Den tredje fase i projektet har været designfasen, hvor der udfra kravspecifikationen er lavet overordnede diagrammer. Diagrammerne bruges til at beskrive systemet overordnet, men også i små delsystemer. Det er diagrammerne der bruges til at videre udvikling af systemet. Desuden er de enkelte komponenters specifikationer beskrevet i designdokumentet. Derfor er det i denne fase der er bestilt komponenter til projektet. Se afsnit \ref{subsec:design} for eksempler. 
 
-I den fjedre fase er der blevet produceret en prototype. Derfor er der i denne fase kodet, monteret og testet. Hvilket er sket på iterativ metoden, så der først kodes, monteres og derefter testes det. Dette er gjort ved så små delelementer som muligt, for at være sikker på at hver delelement virker inden det sættes sammen. Se afsnit \ref{subsec:Implement} for eksempler af denne fase. 
+I den fjerde fase er der blevet produceret en prototype. Derfor er der i denne fase kodet, monteret og testet. Denne fase er sket efter en iterativ proces, så der først kodes, monteres og derefter testes det. Dette er gjort ved så små delelementer som muligt, for at være sikker på at hver delelement virker inden det sættes sammen. Se afsnit \ref{subsec:Implement} for eksempler af denne fase. 
 
-De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fig:v-model}, har haft sine fordele og ulemper. Fordelene er at der sikres dokumentation af projektet fra starten, samt at der hele tiden tænkes på slutresultatet og slutbrugeren. Ulemperne er at der er meget dokumentation, der bliver ændret fra hvad det var i starten af projektet. På den måde kan man godt tro at det er spild af tid, men det sikre samtidigt at projektet bliver vel dokumenteret og gennemtænkt fra starten.
+De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fig:v-model}. Modellen har sine fordele og ulemper. Fordelene er at der sikres dokumentation af projektet fra starten, samt at der hele tiden tænkes på slutresultatet og slutbrugeren. Ulemperne er at der er meget dokumentation, der bliver ændret fra hvad det var i starten af projektet. På den måde kan man godt tro at det er spild af tid, men det sikre samtidigt at projektet bliver vel dokumenteret og gennemtænkt fra starten.
 
 \begin{figure}[H]
 	\centering
@@ -86,14 +95,14 @@ De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fi
 	\label{fig:v-model}
 \end{figure}
 
-I modsætning til v-modelle findes der også vandfaldsmodellen, hvor hver enkelt fase bliver lavet færdig før der gås videre til den næste. Dette medfører ofte nedprioritering af test og andre sene deadlines i projektet, grundet at tidligere tidsplaner er skreden.
+I modsætning til v-modellen findes der også vandfaldsmodellen, hvor hver enkelt fase bliver lavet færdig før næste fase påbegyndes. Dette medfører ofte nedprioritering af test og andre sene deadlines i projektet, grundet at tidligere tidsplaner er overskredet.
 
 \subsection{Koncept analyse}
 hmm...
  
 \subsection{Kravspecifikation og accepttest}
 \label{subsec:krav}
-For at vise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapport. %for at eftervise de fire udviklingsfaser projektet har været i gennem.
+For at vise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapporten. %for at eftervise de fire udviklingsfaser projektet har været i gennem.
 
 \subsubsection{Aktør beskrivelse}
 Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er kameraet og PC’ens filsystem. Kameraet er systemets interface til detektion af de Langerhanske øer. Filsystemet er hvor der løbende gemmes en log over sorteringsprocessen.
@@ -169,7 +178,7 @@ Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use ca
 		\end{longtable}
 	\end{center}
 
-Efter at normalforløbet og undtagelserne er defineret, blev acceptesten lavet for den givne use case. Til hvert punkt i normalforløbet er der forberedt en test, som indeholder et krav nr, handling dvs det der skal gøres for at starte testen. Derudover er der forventet resultat, som skal ske for at testen kan godkendes, testmetode beskriver hvordan testen skal udføres og hvordan den godkendes.
+Efter at normalforløbet og undtagelserne er defineret, blev acceptesten lavet for den givne use case. Til hvert punkt i normalforløbet er der forberedt en test, som indeholder et krav nr, handling dvs det der skal gøres for at starte testen. Derudover er der forventet resultat, som skal ske for at testen kan godkendes. Testmetode beskriver hvordan testen skal udføres og hvordan den godkendes.
 
 \begin{center}
 		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
@@ -264,10 +273,10 @@ Resten af acceptesten for use case 1 kan ses i projektdokumentationen \fxnote{hv
 
 \subsection{Design}
 \label{subsec:design}
-I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav til en måde at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvendsidagrammer til at beskrive funktioner og sammenhænge i projektet. 
+I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav til en måde at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvensdiagrammer til at beskrive funktioner og sammenhænge i projektet. 
 
 \subsubsection{BDD og IBD for hardware}
-Nedenstående BDD \ref{fig:bdd_Hardware} giver et over ordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, den indeholder de elementer arduinoen styrer bla motor shieldet. Motor shieldet indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motor shieldet. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som en Arduino, den indeholder de elementer der bl.a. motordriveren. Motordriveren indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motordriveren. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
 
 \begin{figure}[H]
 	\centering
@@ -286,9 +295,9 @@ Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de for
 	\label{fig:ibd_Hardware}
 \end{figure}
 
-Til ovenstående diagrammer kan der findes tabeller til at beskrive signalerne og blokbeskrivelser. \fxnote{reference til projektdokumentation}
+Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke. \fxnote{reference til projektdokumentation}
 
-Ydermere kan der ses specifikationerne for vægtcellen er stillet op og hvilke overvejelser der er gjort ved dette komponent.
+Ydermere kan der ses specifikationerne for vægtcellen er stillet op og hvilke overvejelser der er gjort ved denne komponent.
 \subsubsection{Vægtcelle}
 \label{subsec:loadcell}
 Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen.
@@ -308,8 +317,9 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcellen kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
 
+\subsubsection{Sekvensdiagrammer}
 Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel.
 \begin{figure}[H]
 	\centering
