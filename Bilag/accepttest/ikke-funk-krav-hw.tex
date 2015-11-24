@@ -1,0 +1,82 @@
+ % \section{Accepttest af ikke funktionelle krav}
+ \subsection{Hardware}
+ \begin{center}
+		\begin{longtable}{ | m{1.785cm} | m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}| m{1.785cm}|m{1.785cm}| } 
+			\hline
+			\textbf{Krav nr.} &\textbf{ Handling} & \textbf{Forventet resultat} & \textbf{Test-metode} &\textbf{Resultat} & \textbf{ \checkmark \textbackslash -} & \textbf{Initialer og dato} \\ 
+			\hline
+			
+			 
+			\ref{subsub:pump}.1 &  Pumpe flow
+   & < 50ml /min
+    & Observeres ved at måle antal mL / min
+    &  & & \\
+			\hline	
+		
+			
+						\ref{subsub:software}.1
+			& 
+Dataformat \
+   & 
+.csv format med kommaseprareret delimiter
+    &
+     En gemt fil åbnes og kontrolleres
+    &  & & \\
+			\hline
+			
+			
+			
+						\ref{subsub:software}.2
+			& 
+Filnavn \
+   & 
+Dato og starttidspunkt for sorteringscyklus
+    &
+     En sorteringscyklus startes og afsluttes, hvorefter den gemte fils filnavn kontrolleres om den matcher starttidspunktet. Starttidsdpunktet noteres inden en sorteringscyklus startes
+    &  & & \\
+				
+				
+				\hline	
+			
+						\ref{subsub:software}.3
+			& 
+Header \
+   & 
+Header i fil indeholder opsætningsindstillinger
+    &
+     En sorteringscyklus startes og afsluttes, hvorefter den gemte fils header kontrolleres om den matcher programmets indstillinger. Programmets indstillinger noteres inden sorteringscyklus startes
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:software}.4.a
+			& 
+Kolonne 1 \
+   & 
+Tidsstempel i formatet DD-MM-YYYY-hh:mm:ss 
+    &
+     En gemt fils tidsstempel kolonne kontrolleres
+    &  & & \\
+			\hline	
+			
+			\hline	
+			
+						\ref{subsub:software}.4.b
+			& 
+Kolonne 2 \
+   & 
+Ø størrelse
+    &
+     En gemt fils ø størrelse kolonne kontrolleres
+    &  & & \\
+			\hline	
+				
+			
+			
+			
+			
+\end{longtable}
+		
+	\end{center}
+	\pagebreak

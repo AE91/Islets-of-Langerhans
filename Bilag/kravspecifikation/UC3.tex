@@ -1,0 +1,42 @@
+\subsection{Use Case 3 - Stop sorteringscyklus}
+\label{uc:3}
+\begin{center}
+		\begin{longtable}{ | m{4cm} | m{8cm}| } 
+			\hline
+			Mål & Stop sorteringscyklus \\ 
+			\hline
+			Initiering &  Use casen initieres af operatøren\\
+			\hline
+			Aktør & Primær: Operatør
+			
+			 Sekundær: Kamera \\ 
+			\hline
+			Startbetingelser & [UC 2: Sortering af Langerhanske Øer] er startet\\ 
+			\hline	
+			Slutbetingelser ved succes & [UC 2: Sortering af Langerhanske Øer] er stoppet \\
+			\hline
+			Slutbetingelser ved undtagelse & N/A \\
+			\hline
+			Normalforløb & \begin{enumerate}
+				%\setlength\itemsep{0cm} % Decrease line distance
+				\item Operatør stopper sorteringscyklussen ved at trykke på [Stop]
+				\subitem [Udvidelse 1: Tom celleopløsningsbeholder]
+				\item Systemet slukker for pumpen
+				\item Systemet slukker for kameraet
+				\item Systemet slukker for kamera lyset
+				\item Systemet slukker for Arduino
+			\end{enumerate} \\ 
+			\hline
+			Undtagelser & [Udvidelse 1: Tom celleopløsningsbeholder]
+			
+			\begin{enumerate}
+			\item Systemet slukker for pumpen
+			\item Systemet slukker for kameraet
+			\item Systemet slukker for kamera lyset
+			\item Systemet slukker for Arduino
+			\end{enumerate} \\
+			\hline
+		\end{longtable}
+		
+	\end{center}
+	\pagebreak
