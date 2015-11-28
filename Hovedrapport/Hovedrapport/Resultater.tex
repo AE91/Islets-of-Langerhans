@@ -180,7 +180,7 @@ Resten af acceptesten for use case 1 kan ses i projektdokumentationen \fxnote{hv
 
 \section{Design}
 \label{subsec:design}
-I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav til en måde at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvensdiagrammer til at beskrive funktioner og sammenhænge i projektet. 
+I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav, til en måder at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvensdiagrammer til at beskrive funktioner og sammenhænge i projektet. 
 
 \subsection{BDD og IBD for hardware}
 Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som en Arduino, den indeholder de elementer der bl.a. motordriveren. Motordriveren indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motordriveren. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
@@ -224,7 +224,32 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnitter indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel er der trukket nedenstående ud fra design afsnittet se projektdokumentation afsnit... \fxnote{reference} for hele afsnittet. 
+
+I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
+\begin{align}
+ G=(1+\frac{50K\Omega}{R_{G}})
+ \label{eq:gainina1}
+ \end{align} 
+ I dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
+ \begin{align}
+ R_{G}=\frac{50K\Omega}{980-1}=51\Omega
+ \label{eq:gainina2}
+ \end{align}
+Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs at der nu er en opløsning på
+\begin{align}
+ \frac{1000g}{trin}=\frac{1000g}{1024}=0,977g/trin=>0,977*\frac{1024}{5V}=200g/V \pm30g
+ \label{eq:gainina3}
+ \end{align}
+ 
+ Kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur \ref{fig:loadcelldiagram}
+ 
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/loadcelldiagram.JPG}
+	\caption{Diagram for arduino, INA114 og vægtcelle}
+	\label{fig:loadcelldiagram}
+\end{figure}
 
 \subsection{Sekvensdiagrammer}
 Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel.
@@ -241,9 +266,99 @@ Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overbli
 I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software.
 
 \subsection{Hardware}
-afventer samuel
+Efter at diagrammet og kredsløbet blev udført i design dokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt} 
+
+Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se figur \ref{fig:loadcelltest} for test opstilling
+
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/Drawing1.jpg}
+	\caption{Test opstilling for vægtcelle}
+	\label{fig:loadcelltest}
+\end{figure}
+De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);} og \textit{Serial.println(sensorValue);}, hvor ved at inputtet på \textit{A0} er læst i \textit{serial monitor} som vist på figur \ref{fig:loadcell_test} ved langsom tømning af beholderen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{billeder/Hardware/diagrammer/loadcellunittestbits.JPG}
+	\caption{Værdier fra A0 i \textit{serial monitor}}
+	\label{fig:loadcell_test}
+\end{figure}
+
+ Se bilag \ref{bilag:TKloadcell} for at se hele koden til testen. Til enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
+ 
+ \begin{align}
+ analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
+ \label{eq:trintilvolt}
+ \end{align}
+Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation \fxnote{reference}.
+ 
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/Hardware/diagrammer/loadcell_montering.pdf}
+	\caption{Illustration af opstilling med vægtcelle og celleopløsningsbeholder}
+	\label{fig:loadcell_mont}
+\end{figure}
+
 \subsection{Software}
-afventer samuel
+Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
+\begin{align}
+mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
+\end{align}
+Det analoge input ganges altså med en faktor a plus et offset b for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen a og skæringen b.
+\begin{center}
+		\begin{longtable}{ | m{3cm} | m{3cm}| } 
+			\hline
+			\textbf{ml i beholder} &\textbf{Analog input} \\ 
+			\hline
+			 \SI{0}{\milli\litre} & \SI{1.9487}{\volt} \\ 
+			\hline
+			 \SI{25}{\milli\litre} & \SI{2.0440}{\volt} \\ 
+			\hline
+			\SI{50}{\milli\litre} & \SI{2.1320}{\volt} \\ 
+			\hline
+			\SI{75}{\milli\litre} & \SI{2.2297}{\volt} \\ 
+			\hline
+			\SI{100}{\milli\litre} & \SI{2.3109}{\volt} \\ 
+			\hline
+			\SI{125}{\milli\litre} & \SI{2.4071}{\volt} \\ 
+			\hline
+			\SI{150}{\milli\litre} & \SI{2.4961}{\volt} \\ 
+			\hline
+			\SI{175}{\milli\litre} & \SI{2.5821}{\volt} \\ 
+			\hline
+			\SI{200}{\milli\litre} & \SI{2.6760}{\volt} \\ 
+			\hline
+			\SI{225}{\milli\litre} & \SI{2.7654}{\volt} \\ 
+			\hline
+			\SI{250}{\milli\litre} & \SI{2.8587}{\volt} \\ 
+			\hline
+			\caption{Kalibreringsdata for loadcellen}
+			 		\end{longtable}
+\end{center}
+
+I Matlab er funktionen \textit{fitlm} anvendt til at finde det bedste lineære fit. Regressionen er baseret på Least Square metoden. \fxnote{Henvisning}
+Udfra beregningerne i Matlab er hældningen a og skæringen b fundet til hhv:
+\begin{align}
+a = 276.14
+\end{align}
+\begin{align}
+b = -539.02
+\end{align}
+Den endelige funktion er dermed givet ved:
+\begin{align}
+ml = 276.140*input-539.02
+\end{align}
+
+Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data punkter fra tabellen. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/calibration-crop.pdf}
+	\caption{Kalibrering af load cell}
+	\label{fig:loadcellcalib}
+\end{figure}
+
+For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj. 
 
 \subsection{Simuleringsvæske}
 Da de Langerhanske øer ikke er lettilgængelig, har det været nødsaget at finde en aktør for cellerne. Simuleringsvæsken skal bruges til at teste de mekaniske dele, samt tidsintervallet mellem kameraet og ventilen. Egenskaberne af de langerhanske øer der er brugt til at finde simuleringsvæsken er at de er runde og lyse, størrelsen, samt at de bundfælder i colleganse opløsningen. Der har været to iterationer for at finde en aktør for cellerne, den første har bestået i at finde perfekte runde og hvide objekter med en massefylde over en. Til dette blev der brugt polysterene, som er lettilgængelig, samt runde, hvide og kan fåes med en massefylde lige over en \fxnote{reference til bedre side end wiki?}. Dog blev det fundet svært at finde polysterene kugler i størrelsen 0.1-0.3mm, derfor blev der skabt kontakt til forhandlere af flamingo kugler. Dog var de tilsendte kugler for store, samt flød oven på. 

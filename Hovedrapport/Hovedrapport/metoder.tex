@@ -12,6 +12,30 @@ Simon Vammen Grønbæk og Karl Johan Schmidt har fungeret som projektets review 
 Reviewsmøderne har foregået på en lignede møde med vejledermøderne. Der er lagt en dagsorden for hver gruppe hvad der skulle reviews, hvor efter dokumenter er udvekslet mellem de to grupper. Grupperne har skrevet kommentar til dokumentet, hvorefter kommentarene og rettelserne er diskuteret på mødet. 
 
 \newpage
+\section{Udviklingsværktøjer}
+Dette afsnit består af en kort beskrivelse af udviklingsværktøjerne brugt i projektet.
+
+\textbf{MATLAB:} Selve softwaren til systemet udvikles i MATLAB. Versionen der er anvendt er R2015b. Af tilføjelsespakker bruges følgenede:
+\begin{itemize}
+\item Arduino Support Package (14.2.2)
+\item Webcam Support Package (15.2)
+\end{itemize}
+Disse pakker anvendes til, at interagere med Arduinoen og USB mikroskopet. 
+
+\textbf{Fritzing:} Fritzing er brugt til at illustrere kredsløbsdiagrammer(schematics), samt enhedstest af hardwaren ved illustrationer af \textit{fumlebræt}. Hvilket har været en stor hjælp til dokumentationen af netop til enhedstestene 
+
+\textbf{Eagle:} Eagle er brugt til at lave et samlet PCB layout for hardware elementerne.
+
+\textbf{Solid Works:} Er brugt til at lave kamerahuset med, for senere at  få det 3D printet.
+
+\textbf{Arduino IDE:} Er brugt til enhedstest til at teste hardware opstillingerne med. 
+
+\textbf{Visio:} Visio er brugt til at lave udviklingsdiagrammer, samt illustrationer 
+
+\textbf{Latex/textmaker:} Er brugt til at skrive alt dokumentationen i projektet
+
+\fxnote{hvor meget er nødvendigt?}
+
 \section{Versionsstyring}
 I projektet er der gjort brug af versionsstyrings softwaren \textit{GitHub}. Til store ændringer har dokumenterne fået et nyt versions nummer og versionshistoriks tabellen er opdateret i hvert dokument se figur \ref{fig:versionsh}. 
 
@@ -103,7 +127,7 @@ En opgave kan have forskellige states, som definerer dens status. Når en opgave
 \end{figure}
 \fxnote{overvej om vi skal have andre billeder med en højere vilocity}
 
-\section{De fire udviklingsfaser}
+\section{Udviklingsfasen}
 Under udviklingen af projektet, er der gennem gået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). Samtidigt med koncept analysen, blev det parallelt med tænkt på produktionen af produktet. Grunden til dette er, at det vil være uanvendeligt at opnå løsninger, som er for besværlige at producere. 
 
 Den anden fase består af kravspecifikationen, hvilket er udarbejdet i tæt samarbejde med kunden. En kravspecifikation sikre at kunde og projekt udviklere er enige om projektets udformning. I kravspecifikationen er der brugt usecasediagram, samt fully dressed beskrivelser til hver usecase. Der laves fully dressed, for at klaregøre normal forløbet for hver usecase, samt undtagelser og udvidelser til dem. Derudover det også i kravspecifikationen at der er specificeret ikke funktionelle krav og kvalitetskrav. Samtidigt med kravspecifikationen er der udarbejdet en accepttest. Denne test er med til at verificere at alle krav, der er bestemt i samarbejde med kunde er opfyldte. I accepttesten er det beskrevet hvordan hver enkelt krav skal testes. Accepttesten udføres før produktet afleveres til kunden. Se afsnit \ref{subsec:krav} for eksempler.
@@ -123,12 +147,3 @@ De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fi
 
 I modsætning til v-modellen findes der også vandfaldsmodellen, hvor hver enkelt fase bliver lavet færdig før næste fase påbegyndes. Dette medfører ofte nedprioritering af test og andre sene deadlines i projektet, grundet at tidligere tidsplaner er overskredet.
 
-
-
--samarbejdsaftaler
-
-handlingsplan kontra tidsplan fra forprojektet
-
-lavet efter design dokumentet er færdig bla bla bla. konrekte opgaver er lavet
-
-- indsæt eksempel med loadcelle
