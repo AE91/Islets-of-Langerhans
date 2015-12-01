@@ -20,7 +20,7 @@ I figur \ref{fig:im} er det oprindelige billede vist. Billedet danner udgangspun
 \end{figure}
 
 Første step af billedesegmenteringen består i, at konvertere det oprindelige billede (\ref{fig:im}) til en logisk maske. Til dette er Matlab funktionen \textit{im2bw} anvendt. 
-Effekten af im2bw er vist i figur \ref{fig:im2bw}. Funktionen konvertere alle pixels med en lysstyrke over det angivne threshold (0,72) med 1, og pixels under med 0. Input billedet er et 8 bit billede, dermed indikerer et threshold på 0,72, at pixel værdien skal være over 183 for at blive inkluderet i masken. I nedenstående kode er implementeringen vist.
+Effekten af im2bw er vist i figur \ref{fig:im2bw}. Funktionen konverterer alle pixels med en lysstyrke over det angivne threshold (0,72) med 1, og pixels under med 0. Input billedet er et 8 bit billede, dermed indikerer et threshold på 0,72, at pixel værdien skal være over 183 for at blive inkluderet i masken. I nedenstående kode er implementeringen vist.
 
 \begin{lstlisting} 
 % Converts the image to logical, based on threshold. 0.72 indicates pixels
@@ -79,7 +79,7 @@ rDif = 0.2039    5.8510
 	\label{fig:circleelip}
 \end{figure}
 
-Indekset for det objekt med mindst forskel i radius og indekset for det objekt med den mindste excentricitet gemmes i variabler. I nedenstående kode er det vist, hvordan dette er implemeneteret i Matlab.
+Indekset for det objekt med mindst forskel i radius og indekset for det objekt med den mindste excentricitet gemmes i variabler. I nedenstående kode er det vist, hvordan dette er implementeret i Matlab.
 
 \begin{lstlisting} 
 stats = regionprops(bw,'Area','Centroid','Perimeter','Eccentricity');

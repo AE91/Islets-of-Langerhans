@@ -16,11 +16,22 @@ Flowchartet i figur \ref{fig:softwareFlowchart} viser flowet i det implementered
 \end{figure}
 
 \newpage
+\subsection{Data struktur} \label{software_datastruktur}
+Dette afsnit beskriver data strukturen for det udviklede Matlab program. Når man arbejder med GUI i Matlab anvendes structed handles, som indeholder alle UI Controls såsom knapper, tekstfelter og axes. Figur \ref{fig:handles} viser strukturen af handles. Udover UI controls indeholder handles structs med konstanter og data omkring de detekterede øer. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/software/handles-crop.pdf}
+	\caption{Data struktur}
+	\label{fig:handles}
+\end{figure}
+
+\newpage
 \subsection{Matlab funktioner}
 I dette afsnit er implementeringen af de enkelte funktioner i Matlab nærmere beskrevet. Selve implementeringen tager udgangspunkt i beskrivelserne fra design dokumentet. %Herudover er der beskrevet test af de enkelte funktioner.  
 
 
 \input{implementering/initArduino}
+\input{implementering/constants}
 \input{implementering/cameraFeed}
 
 %\subsubsection{detectIslets}
@@ -96,7 +107,7 @@ I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funkt
 	\caption{Matlab timer objekt}
 	\label{fig:timer}
 \end{figure}
-Nedenstående kode viser, hvordan denne funktionalitet er implemeneteret i Matlab.  
+Nedenstående kode viser, hvordan denne funktionalitet er implementeret i Matlab.  
 \begin{lstlisting} 
 % Create timer - with startDelay (defined in handles.constants.timerDelay)
 t = timer('StartDelay',handles.constants.timerDelay);
