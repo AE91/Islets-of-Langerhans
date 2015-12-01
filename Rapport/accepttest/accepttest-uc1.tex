@@ -1,4 +1,4 @@
-\subsection{Use Case 1: Start sorteringscyklus}
+\subsection{Use case 1: Start sorteringscyklus}
 
 	\begin{center}
 		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
@@ -32,7 +32,7 @@
 			\hline
 			\textbf{Forventet resultat} &  Opstarts processen i gang sættes.  \\
 			\hline
-			\textbf{Testmetode}  & Knappen [Start] trykkes, observeres ved tekstboks på GUI, med teksten \textit{systemet starter op}.   \\
+			\textbf{Testmetode}  & Knappen [Start] trykkes, resultatet observeres ved tekstboks på GUI, med teksten \textit{systemet starter op}.   \\
 			\hline
 			\textbf{Resultat}  &    \\
 			\hline
@@ -113,18 +113,18 @@
 		\end{longtable}
 	\end{center}
 
-\newpage		
-		
+\newpage
+
 	\begin{center}
 		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
 			\hline
-			\textbf{Krav nr.} & Undtagelse 1.1   \\ 
+			\textbf{Krav nr.} & 1.7    \\ 
 			\hline
-			\textbf{Handling} & Waste-beholderen er fyldt  \\
+			\textbf{Handling} &  Systemet tænder kamera lyset \\
 			\hline
-			\textbf{Forventet resultat} & System-besked: Tøm waste-beholderen  \\
+			\textbf{Forventet resultat} &  Lyset tænder  \\
 			\hline
-			\textbf{Testmetode}  & Der startes 2 sorteringscyklusser. Resultatet observeres på GUI ved en messagebox.   \\
+			\textbf{Testmetode}  & Kamera lyset observeres   \\
 			\hline
 			\textbf{Resultat}  &    \\
 			\hline
@@ -136,6 +136,53 @@
 			\hline
 		\end{longtable}
 	\end{center}
+
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & 1.8    \\ 
+			\hline
+			\textbf{Handling} &  Systemet tænder pumpen \\
+			\hline
+			\textbf{Forventet resultat} &  Pumpen starter \\
+			\hline
+			\textbf{Testmetode}  & Det observeres ved at se flowet i slangerne stiger  \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+		
+	\begin{center}
+		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+			\hline
+			\textbf{Krav nr.} & Undtagelse 1.1   \\ 
+			\hline
+			\textbf{Handling} & Waste-beholderen er fyldt  \\
+			\hline
+			\textbf{Forventet resultat} & System-besked: Tøm waste-beholderen  \\
+			\hline
+			\textbf{Testmetode}  & Der gennemføres 2 sorteringscyklusser. Ved start af 3. sorteringscyklus observeres resultatet på GUI ved en messagebox.   \\
+			\hline
+			\textbf{Resultat}  &    \\
+			\hline
+			\textbf{Angiv godkendelse} &     \\
+			\hline
+			\textbf{Initialer} &     \\
+			\hline
+			\textbf{Dato} &    \\
+			\hline
+		\end{longtable}
+	\end{center}
+	
+\newpage	
 	
 	\begin{center}
 		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
@@ -166,9 +213,9 @@
 			\hline
 			\textbf{Handling} & Forbindelsen til Arduino frakobles  \\
 			\hline
-			\textbf{Forventet resultat} & System besked:  Ingen forbindelse til Arduino, kontroller forbindelser \\
+			\textbf{Forventet resultat} & System besked: Arduino kunne ikke initialiseres. Kontrollér forbindelse. Vil du prøve igen? \\
 			\hline
-			\textbf{Testmetode}  & USB kablet til Arduinoen frakobles. Resultatet observeres på GUI ved en messagebox.   \\
+			\textbf{Testmetode}  & USB kablet til Arduinoen frakobles før der trykkes [Start]. Resultatet observeres på GUI ved en dialogboks.   \\
 			\hline
 			\textbf{Resultat}  &    \\
 			\hline
@@ -183,38 +230,38 @@
 	
 \newpage	
 	
-	\begin{center}
-		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
-			\hline
-			\textbf{Krav nr.} & Undtagelse 3.1   \\ 
-			\hline
-			\textbf{Handling} & Genstart initialseringen af Kameraet  \\
-			\hline
-			\textbf{Forventet resultat} & Feedback fra kameraet om initialisering starter \\
-			\hline
-			\textbf{Testmetode}  & USB kablet til Kameraet frakobles. Resultatet observeres på GUI ved en messagebox.   \\
-			\hline
-			\textbf{Resultat}  &    \\
-			\hline
-			\textbf{Angiv godkendelse} &     \\
-			\hline
-			\textbf{Initialer} &     \\
-			\hline
-			\textbf{Dato} &    \\
-			\hline
-		\end{longtable}
-	\end{center}
+%	\begin{center}
+%		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
+%			\hline
+%			\textbf{Krav nr.} & Undtagelse 3.1   \\ 
+%			\hline
+%			\textbf{Handling} & Genstart initialseringen af Kameraet  \\
+%			\hline
+%			\textbf{Forventet resultat} & Feedback fra kameraet om initialisering starter \\
+%			\hline
+%			\textbf{Testmetode}  & USB kablet til Kameraet frakobles. Resultatet observeres på GUI ved en messagebox.   \\
+%			\hline
+%			\textbf{Resultat}  &    \\
+%			\hline
+%			\textbf{Angiv godkendelse} &     \\
+%			\hline
+%			\textbf{Initialer} &     \\
+%			\hline
+%			\textbf{Dato} &    \\
+%			\hline
+%		\end{longtable}
+%	\end{center}
 	
 	\begin{center}
 		\begin{longtable}{ | m{4cm}| m{8.5cm}|} 
 			\hline
-			\textbf{Krav nr.} & Undtagelse 3.2   \\ 
+			\textbf{Krav nr.} & Undtagelse 3   \\ 
 			\hline
 			\textbf{Handling} & Kameraet initialiseres ikke  \\
 			\hline
-			\textbf{Forventet resultat} & System-besked: Kameraet er ikke initialiseret. \\
+			\textbf{Forventet resultat} & System-besked: Kameraet kunne ikke initialiseres. Kontrollér forbindelse. Vil du prøve igen? \\
 			\hline
-			\textbf{Testmetode}  & USB kablet til Kameraet tilkobles. Resultatet observeres på GUI ved en tekstboks, med teksten \textit{Kameraet er initialiseret}.   \\
+			\textbf{Testmetode}  & USB kablet til kameraet frakobles før der trykkes [Start]. Resultatet observeres på GUI ved en dialogboks   \\
 			\hline
 			\textbf{Resultat}  &    \\
 			\hline
