@@ -40,7 +40,7 @@ Disse pakker anvendes til, at interagere med Arduinoen og USB mikroskopet.
 \textbf{Github:} Er et versionsstyrings program, i projektet er det brugt til versionsstyring af dokumenter og koden til projektet. Se afsnit \ref{subsec:github} for uddybende dokumentation omkring \textit{Github} er brugt.
 
 \fxnote{flere?}
-
+\newpage
 \section{Versionsstyring}
 I projektet er der gjort brug af versionsstyrings softwaren \textit{GitHub}. Til store ændringer har dokumenterne fået et nyt versions nummer og versionshistoriks tabellen er opdateret i hvert dokument, se tabellen nedenfor. 
 
@@ -326,7 +326,7 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 ---------------------------------------
-Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnitter indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel er der trukket nedenstående ud fra design afsnittet se projektdokumentation afsnit... \fxnote{reference} for hele afsnittet. 
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående ud fra design afsnittet se projektdokumentation afsnit XX \fxnote{reference} for hele afsnittet. 
 
 I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
@@ -335,10 +335,10 @@ I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB,
  \end{align} 
  I dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
  \begin{align}
- R_{G}=\frac{50K\Omega}{980-1}=51\Omega
+ R_{G}=\frac{50k\Omega}{980-1}=51\Omega
  \label{eq:gainina2}
  \end{align}
-Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs at der nu er en opløsning på
+Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs at der nu er en opløsning på
 \begin{align}
  \frac{1000g}{trin}=\frac{1000g}{1024}=0,977g/trin=>0,977*\frac{1024}{5V}=200g/V \pm30g
  \label{eq:gainina3}
@@ -354,7 +354,7 @@ Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, d
 \end{figure}
 
 \subsection{Sekvensdiagrammer}
-Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel. Sekvensdiagrammet har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge de skal eksekveres i. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
+Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel. Sekvensdiagrammet har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
@@ -387,13 +387,13 @@ De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);
 	\label{fig:loadcell_test}
 \end{figure}
 
- Se bilag \ref{bilag:TKloadcell} for at se hele koden til testen. Til enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
+ Se bilag \ref{bilag:TKloadcell} for at se hele koden til testen. Til enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev formlen \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
  
  \begin{align}
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
  \label{eq:trintilvolt}
  \end{align}
-Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation \fxnote{reference}.
+Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation afsnit XX \fxnote{reference}.
  
  \begin{figure}[H]
 	\centering
@@ -402,12 +402,12 @@ Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleop
 	\label{fig:loadcell_mont}
 \end{figure}
 
-\subsection{Software}
-Funktionen til load cellen er implementeret efter beskrivelsen i design dokumentet. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
+\subsection{Kalibrering af vægtcellen}
+Funktionen til vægt cellen er implementeret efter beskrivelsen i design dokumentet i projektdokumentation afsnit XX. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
 \end{align}
-Det analoge input ganges altså med en faktor a plus et offset b for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen a og skæringen b.
+Det analoge input ganges altså med en faktor \textit{a} plus et offset \textit{b} for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen \textit{a} og skæringen \textit{b}.
 \begin{center}
 		\begin{longtable}{ | m{3cm} | m{3cm}| } 
 			\hline
@@ -435,7 +435,7 @@ Det analoge input ganges altså med en faktor a plus et offset b for at konverte
 			\hline
 			\SI{250}{\milli\litre} & \SI{2.8587}{\volt} \\ 
 			\hline
-			\caption{Kalibreringsdata for loadcellen}
+			\caption{Kalibreringsdata for vægtcellen}
 			 		\end{longtable}
 \end{center}
 
@@ -461,4 +461,7 @@ Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data 
 \end{figure}
 
 For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj. 
+
+\subsection{Integrationstest}
+Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udførte. Efter samlingen af hardwaren og verificeret at kredsløbet virker, er der designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
 
