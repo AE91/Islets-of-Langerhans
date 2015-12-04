@@ -7,28 +7,43 @@ Der er i dette projekt udarbejdet en prototype, som kan være med til at unders�
 
 \subsection{Tidsinterval mellem kamera og ventil}
 Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Det er   intervallet fordi det beskriver tiden fra, at kameraet har detekteret en ø til den er ved ventilen, hvor den skal isoleres. En estimatsion er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen.
+
 \begin{align}
 \frac{\text{Opløsningsstørelse}}{\text{Antal øer i opløsning}} = \frac{150}{400}*30 = 11,25ml/min
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
+
 For at sorteringen af langerhanske øer sker, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra det beregnede volumen af slangen, i mellem kameraet og ventil \ref{eg:slangevolume}.
+
 \begin{align}
 V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*5cm=0,04ml
 \label{eg:slangevolume}
 \end{align}
- Det vil sige at med et flow på 11,25ml/min, som er beregnet ud fra formlen \ref{eg:ohastighed}. Der ud fra kan det tiden fra kamera til ventil beregnes ved formelen \ref{eq:tidsintervallet}. 
- \begin{align}
-\frac{11,25}{60}=0,1875\text{ ml pr sek}=>\frac{0,04}{0,1875}=0.213\text{ sekunder}=213ms
-\label{eq:tidsintervallet}
-\end{align} 
-Fra de overstående beregninger kan det observeres, at tidsintervallet mellem kamera og ventilen er 213 millisekunder. Ud fra dette tidsinterval skal systemets tid fra, at kameraet har detekteret en ø til at ventilen kan åbne trækkea fra. Ligeledes skal den omvendte tid med ventilens tid til at lukke også trækkes fra.
-\begin{align}
-Timerdalay=213ms-70ms-40ms=103ms
-\label{eq:tidsintervallet}
-\end{align} 
-\fxnote{tiderne skal testes i en integrationstest}
-Dette er tiden der skal gå fra kameraet har detekteret en ø til, den samme ø er ved ventilen. Der er implementeret et timer delay til dette i softwaren. For at være sikker på at øen bliver isoleret, er der implementeret endnu et timer delay der beskriver åbningstiden for ventilen. Til dette skal ventilen åbne lidt før og lukke lidt efter. Derfor er der brugt en åbningstid for ventilen på 20 ms i projekte. Åbningstiden er et kompromis, fordi det ikke er favorable at det eksokrine væv kommer over i den isoleret beholder, men samtidigt skal sandsynligheden for at ventilen er åben når øen kommer være så høj som mulig.
 
+ Det vil sige at med et flow på 11,25ml/min, som er beregnet ud fra formlen \ref{eg:ohastighed}. Der ud fra kan det tiden fra kamera til ventil beregnes ved formelen \ref{eq:tidsintervallet}. 
+ 
+\begin{align}
+\frac{11,25}{60}=0,1875\text{ ml pr sek}\to\frac{0,04}{0,1875}=0.213\text{ sekunder}=213ms
+\label{eq:tidsintervallet}
+\end{align} 
+
+i følge bilaget til ventilen har den et volume 27 ul
+
+\begin{align}
+\text{Tid for udtømning af ventilen} = \frac{ventil volume}{ml pr. sekund}=\frac{27ul}{0,1875}=144ms
+\label{eq:ventilvolume}
+\end{align}
+
+Fra de overstående beregninger kan det observeres, at tidsintervallet mellem kamera og ventilen er 213 millisekunder. Ud fra dette tidsinterval skal systemets tid fra, at kameraet har detekteret en ø til at ventilen kan åbne trækkea fra. Ligeledes skal den omvendte tid med ventilens tid til at lukke også trækkes fra. Ifølge databladet har ventilen en åbningstid op til 20ms og en lukketid på op til 30ms.
+\begin{align}
+Timerdelay=213ms-70ms-40ms=103ms
+\label{eq:timerdelay}
+\end{align} 
+
+\fxnote{tiderne skal testes i en integrationstest}
+Dette er tiden der skal gå fra kameraet har detekteret en ø til, den samme ø er ved ventilen. Der er implementeret et timer delay til dette i softwaren. For at være sikker på at øen bliver isoleret, er der implementeret endnu et timer delay der beskriver åbningstiden for ventilen. Til dette skal ventilen åbne lidt før og lukke lidt efter. Derfor bør tidsintervallet mellem kamera og ventil differentieres med 20ms og 20ms efter. i formel \ref{eq:ventilvolume} skal der bruge 144ms for at tømme ventilens volume, der er timer delayet til åbningstiden for ventilen på 184ms. 
+Åbningstiden er et kompromis, fordi det ikke er favorable at det eksokrine væv kommer over i den isoleret beholder, men samtidigt skal sandsynligheden for at ventilen er åben når øen kommer være så høj som mulig.
+\fxnote{meget af det bør flyttes ned i dokumentationen}
 
 \subsection{Hardwaren}
 Den overordnet funktion af hardwaren er, at pumpe opløsningsvæsken forbi kameraet hen til ventilen i \textit{wastebeholderen} eller beholderen til de isoleret langerhanske øer. For at fremvise projektets færdige resultater, er der skrevet en kort beskrivelse af komponenterne og deres funktioner nedenfor.
