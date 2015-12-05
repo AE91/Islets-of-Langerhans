@@ -1,17 +1,4 @@
 \chapter{Resultater}
-Lidt tanker til vores resultat afsnit:
-
-\textbf{Umiddelbart har vi indholdet på plads, men det står ret rodet synes jeg. Måske vi ku: først give en intro til systemet i form af hvad der blevet lavet, som leder til en beskrivelse af systemet iform af brugergrænseflade og hardware i form af blok diagrammer og print layout. 
-Heri lægge vægt på de kritiske paramtere i systemet (kamera + detektering af øer, og ventil).
-Disse bekrivelser kommer så i hvert deres afsnit.
-Simuleringsvæske får også sit eget afsnit som det er nu og til sidst have cost-benefit analysen} 
-
-
-
-
-
-
-
 Der er i dette projekt udarbejdet en prototype, som kan være med til at undersøge muligheden for en automatiseret metode at isolerer langerhanske øer. Der er udviklet et færdig system som har potentiale til at isolere langerhanske øer, det vil sige at produktet kan isolere plantefrø som er brugt i en simuleringsvæske. Derfor er de mekaniske og elektriske dele på plads, til videre undersøgelser af konceptet. I projektet er der også opnået en billedebehandling der understøtter konceptet, i kraft af hurtigheden af processeringen af de simuleret billeder. Der er brugt simuleret billeder, da det indkøbte kamera ikke har været af tilstrækkelig kvalitet.
 \input{Hovedrapport/userinterface}
 \subsection{Hardwaren}
@@ -24,8 +11,29 @@ Se diagrammet for printet på figur XX
 \subsubsection{Det færdig print layout}
 Nedenfor på figur XX kan layoutet ses i \textit{Eagle}. på Printet er der to integreret kredsløb, den ene(IC1) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger igennem denne til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra arduinoen og efterligner det, men i stedet leverer effekten i gennem den eksterne forsyning. Det andet(IC2) integreret kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til arduinoens Analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og arduinoens ADC har en arbejdsspænding på 0V til 5V.  
 
+\subsection{Ikke-elektroniske dele}
+De ikke-elektroniske dele, består af beholdere, slanger og adaptere. I projektet er der fokuseret på opløsningsbeholderen, hvor der er indkøbt en 250ml beholder med et specielt låg. Igennem låget går der en teflonslange, for at tætne denne tilslutning er der en forskruning der både aflaster og tætner i låget. I låget er der også et luftfilter, som forhindre støv og andre små partikler for at komme ned i opløsningen. Filteret skal være der for at undgå dannelse af undertryk i beholder, når pumpen suger opløsningsvæsken igennem systemet. Da teflonslangen ikke er eftergivende, er der brugt silikoneslanger til stykket igennem pumpen og resten af systemet. Det er der fordi teflonslangen er for hård til, at pumpen kan sammenpresse den og derved skabe flow i opløsningen. For at kunne gå fra teflonslangen til silikoneslangen er der brugt en adapter. Se styklisten mm. i projektdokumentation afsnit XX.
+\fxnote{illustration af de ikke-elektroniske dele gælder også i dokumentationen}
 
-\subsection{Tidsinterval mellem kamera og ventil}
+%\subsubsection{Styreenheden} 
+%Til at kontroller hardware komponenterne i systemet er der brugt en styreenhed i form af et arduino udviklingsboard, som er velegnet til producering af prototyper som i dette projekt. Udover at styre komponenterne sikre arduinoen også integrationen, mellem computeren og hardwaren. Derfor er det styreenheden der kontroller flow hastigheden, styrken af kameralyset samt åbning og lukning af ventilen. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af styreenheden.
+
+%\subsubsection{Motordriveren}
+%Motordriveren bruges i systemet til at forsyne pumpen, ventil og kameralyset. Motordriveren er nødvendig da Arduinoen ikke kan trække strøm nok til, at trække de nævnte komponenter. Motordriveren består af en L293D\fxnote{er det for specifikt?}, som efterligner signalerne modtaget af arduinoen og videre giver dem til komponenterne, men med forsyning igennem en strømforsyning der i modsætning til arduinoen kan levere den nødvendige strøm. Ved PWM signalet hæver motordriveren amplituden, med strømforsyningensspænding i stedet for arduinoensspænding. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af motordriveren.
+
+%\subsubsection{Ventil}
+%Ventilen skal kort sagt isolere de langerhanske øer, når kameraet har detekteret en ø. For at være sikker på at isoleringen er succesfuld er der implementeret en tidsforsinkelse på ventil når den er åben. Denne tid er en prioritering for det er uønsket, at få rest vævet med i den isoleret ø beholder. Tiden er i projektet beregnet og senere estimeret ud fra forsøg med simuleringsvæsken. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af ventilen.
+
+%\subsubsection{Pumpe}
+%Pumpens opgave er at skabe et flow i slanger og der ved drive opløsningsvæsken forbi kameraet og hen til ventilen. I projektet er der brugt en peristaltisk pumpe, der skaber et flow ved at sammenpresse slangen ved rotation. Denne pumpe type skaber et stabilt flow med mulighed for variable hastighed, ved hjælp af PWM forsyning fra arduinoen igennem motordriveren. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af pumpen.
+
+%\subsubsection{Vægtcellen}
+%Vægtcellen vejer opløsningsbeholderen og stopper systemet når der ikke er mere væske i beholderen. Vægtcellens output er i millivolt hvilket har medført at det skulle forstærkes, for at ADCens opløsning på arduionen kunne udnyttes fuldt ud. Derfor er der brugt en operationsforstærker til dette formål. Yderligere er vægtcellen kalibreret i softwaren ved hjælp af lineær regression. Der kan læses mere omkring implementeringen af vægtcellen i afsnit XX for design og implementering af komponenten, både for software og hardware.
+
+%\subsubsection{Kameralyset}
+%I prototypen er der brugt fire lysdioder til, at have fuldstændig kontrol over lyset til kameraet. Det er erfaret igennem enhedstest af kameraet, at lyset som påvirker kameraet er meget vigtig for detektionen af øerne. Se afsnit XX i projektdokumentationen for yderligere dokumentation af kameralyset.
+
+ \section{Ventil tidsinterval}
 Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Det er   intervallet fordi det beskriver tiden fra, at kameraet har detekteret en ø til den er ved ventilen, hvor den skal isoleres. En estimatsion er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen.
 
 \begin{align}
@@ -65,29 +73,6 @@ Dette er tiden der skal gå fra kameraet har detekteret en ø til, den samme ø 
 Åbningstiden er et kompromis, fordi det ikke er favorable at det eksokrine væv kommer over i den isoleret beholder, men samtidigt skal sandsynligheden for at ventilen er åben når øen kommer være så høj som mulig.
 \fxnote{meget af det bør flyttes ned i dokumentationen}
 
-\subsection{Ikke-elektroniske dele}
-De ikke-elektroniske dele, består af beholdere, slanger og adaptere. I projektet er der fokuseret på opløsningsbeholderen, hvor der er indkøbt en 250ml beholder med et specielt låg. Igennem låget går der en teflonslange, for at tætne denne tilslutning er der en forskruning der både aflaster og tætner i låget. I låget er der også et luftfilter, som forhindre støv og andre små partikler for at komme ned i opløsningen. Filteret skal være der for at undgå dannelse af undertryk i beholder, når pumpen suger opløsningsvæsken igennem systemet. Da teflonslangen ikke er eftergivende, er der brugt silikoneslanger til stykket igennem pumpen og resten af systemet. Det er der fordi teflonslangen er for hård til, at pumpen kan sammenpresse den og derved skabe flow i opløsningen. For at kunne gå fra teflonslangen til silikoneslangen er der brugt en adapter. Se styklisten mm. i projektdokumentation afsnit XX.
-\fxnote{illustration af de ikke-elektroniske dele gælder også i dokumentationen}
-
-%\subsubsection{Styreenheden} 
-%Til at kontroller hardware komponenterne i systemet er der brugt en styreenhed i form af et arduino udviklingsboard, som er velegnet til producering af prototyper som i dette projekt. Udover at styre komponenterne sikre arduinoen også integrationen, mellem computeren og hardwaren. Derfor er det styreenheden der kontroller flow hastigheden, styrken af kameralyset samt åbning og lukning af ventilen. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af styreenheden.
-
-%\subsubsection{Motordriveren}
-%Motordriveren bruges i systemet til at forsyne pumpen, ventil og kameralyset. Motordriveren er nødvendig da Arduinoen ikke kan trække strøm nok til, at trække de nævnte komponenter. Motordriveren består af en L293D\fxnote{er det for specifikt?}, som efterligner signalerne modtaget af arduinoen og videre giver dem til komponenterne, men med forsyning igennem en strømforsyning der i modsætning til arduinoen kan levere den nødvendige strøm. Ved PWM signalet hæver motordriveren amplituden, med strømforsyningensspænding i stedet for arduinoensspænding. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af motordriveren.
-
-%\subsubsection{Ventil}
-%Ventilen skal kort sagt isolere de langerhanske øer, når kameraet har detekteret en ø. For at være sikker på at isoleringen er succesfuld er der implementeret en tidsforsinkelse på ventil når den er åben. Denne tid er en prioritering for det er uønsket, at få rest vævet med i den isoleret ø beholder. Tiden er i projektet beregnet og senere estimeret ud fra forsøg med simuleringsvæsken. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af ventilen.
-
-%\subsubsection{Pumpe}
-%Pumpens opgave er at skabe et flow i slanger og der ved drive opløsningsvæsken forbi kameraet og hen til ventilen. I projektet er der brugt en peristaltisk pumpe, der skaber et flow ved at sammenpresse slangen ved rotation. Denne pumpe type skaber et stabilt flow med mulighed for variable hastighed, ved hjælp af PWM forsyning fra arduinoen igennem motordriveren. Se afsnit XX i projektdokumentationen for uddybende dokumentation for design og implementering af pumpen.
-
-%\subsubsection{Vægtcellen}
-%Vægtcellen vejer opløsningsbeholderen og stopper systemet når der ikke er mere væske i beholderen. Vægtcellens output er i millivolt hvilket har medført at det skulle forstærkes, for at ADCens opløsning på arduionen kunne udnyttes fuldt ud. Derfor er der brugt en operationsforstærker til dette formål. Yderligere er vægtcellen kalibreret i softwaren ved hjælp af lineær regression. Der kan læses mere omkring implementeringen af vægtcellen i afsnit XX for design og implementering af komponenten, både for software og hardware.
-
-%\subsubsection{Kameralyset}
-%I prototypen er der brugt fire lysdioder til, at have fuldstændig kontrol over lyset til kameraet. Det er erfaret igennem enhedstest af kameraet, at lyset som påvirker kameraet er meget vigtig for detektionen af øerne. Se afsnit XX i projektdokumentationen for yderligere dokumentation af kameralyset.
-
- 
 
 
 \input{Hovedrapport/kamera}
@@ -99,6 +84,6 @@ Da de langerhanske øer ikke er lettilgængelig, har det været nødsaget at fin
 Den anden iteration bestod i at finde et biologisk materiale, hvor ved faktorerne runde og hvide blev nedprioriteret for at finde et objekt. For at finde en celle aktør med lettilgængelighed blev plantefrø den næste mulighed. Trods begrænset data omkring plantefrø, lykkes det gruppen at finde plantefrø i størrelsen 0.1-0.3mm vha. forhandlere af plantefrø og andre eksperter \fxnote{referencer til mail}. De indkøbte frø består af timian frø og rævehale frø \fxnote{indsæt billeder}. Udover de indkøbte frø kan der ved videre bearbejdelse af projektet overvejes transparent testa (tt4 mutant) frø. De skulle i følge \textit{Carsten Meier} være hvide, forholdsvis runde, dog er de ikke lige så tilgængelige, som de allerede indkøbte frø. Dette har været grunden til, at de ikke er brugt i projektet ind til nu. Derfor består den anvendte simuleringsvæske af, demineraliseret vand og timian plantefrø som aktør for de langerhanske øer.  
  
 \section{Aceepttest af produktet} 
- beskriv ikke bestået krav og hvorfor de ikke er det. beskriv også bestået krav. reference til udført accepttest.
- \fxnote{skriv dette kort så det kan føres med ned i diskussion}
+Til sidst i udviklingsforløbet blev der udført en accepttest af systemet. Den udførte accepttest er vedlagt i bilag XX. En række af kvalitetskravene blev ikke testet grundet kameraet ikke blev implementeret i prototypen. For hvert af kravene der ikke blev godkendt er der udfyldt en fejlrapport, hvor en handlingsplan beskriver hvordan og hvornår fejlen rettes. De udfyldte fejlrapporter er ligeledes vedlagt i bilag \ref{Fejlrapport}.
+
 \input{Hovedrapport/costbenefit}
