@@ -1,0 +1,155 @@
+\subsection{Kamera}
+Det indkøbte kamera viste sig ikke at være  tilstrækkelig kvalitet i gennem en enhedstest. Der kunne ikke skelnes mellem det eksokrine væv og de langerhanske øer. Der kan læses mere om enhedstesten af kameraet i afsnit XX i projektdokumentationen. Til at erstatte kameraet blev der i stedet genereret en række billeder, som skulle simulere flowet af opløsningsvæske i gennem slangen. 
+
+\subsubsection{Kamerasimulation}
+Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet et Matlab script. Billederne der er valgt stammer fra det indkøbte kamera. Grunden til de kan anvendes som grundlag for genereringen af billeder, på trods af kameraets utilstrækkelige kvalitet, er at øerne og det ekstra væv er adskilt i de enkelte billeder. Dette muliggør en seperat segmentering af øer og væv, som  herefter kan sammensættes til billeder der ligger tæt op af det man observerer gennem et almindeligt mikroskop. 
+
+Flowsimuleringen er opbygget på den måde, at den består af henholdvis en sekvens indeholdende en langerhansk ø efterfulgt af en sekvens uden en ø. I selve programmet indlæses et nyt billede hvert 0,1 sekund. Derfor skal der generes en passende mængde billeder, som programmet kan indlæse. Simuleringen er implementeret så der minimum genereres 252 eller maksimalt 432 billeder, hvilket giver en samlet sekvenslængde på 25,2 eller 43,2 sekund. Grunden til at antallet af billeder varierer er at længden af sekvensen uden en langerhansk ø bestemmes udfra en random variabel. Dette gøres for, at simulere at det kan være variabel tid mellem en ny ø kommer i gennem slangen. I scriptet genereres der i alt 18 fulde sekvenser. Det betyder, at der passerer i mellem 25 og 43 øer i minuttet. Antallet af øer der passere pr. minut er bestemt ud fra formel \ref{formular:isletprmin}: 
+\begin{align}
+\frac{18}{\frac{n}{10}} * 60 = \text{Antal øer pr. minut}
+\text{ , hvor n er antallet af billeder i sættet}
+\label{formular:isletprmin}
+\end{align} 
+I figur \ref{fig:boxplot} er vist et boxplot som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder at der i gennemsnit vil komme over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (\ref{subsec:qa}).
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/software/boxplot.png}
+	\caption{Boxplot af distrubutionen af øer pr. minut}
+	\label{fig:boxplot}
+\end{figure}
+
+Selve flowsimuleringen sker i et for loop, hvor positionen for øen flyttes for hver iteration. I figur \ref{fig:flowsim} er flow simulationen illustreret for de i alt 18 sekvenser, med en graf for hver celle. Det ses at cellen flytter sin Y position tilfældigt, mens X positionen springer med et fast interval for hver iteration i for loopet.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/software/Simulation.png}
+	\caption{Illustration over flow simuleringen}
+	\label{fig:flowsim}
+\end{figure}
+
+
+Øens position på billedet ændres ved en normalfordelt random variabel med mean på 0 og standard afvigelse på 50 pixels. Nedenstående figur \ref{fig:histfit} viser fordelingen af pixels øen flyttes for hver iteration. På figur \ref{fig:histfit} er der vist markører for standard afvigelsen ($\sigma$) og $2*$standard afvigelsen ($2\sigma$) for hver side af mean. I mellem $-\sigma$ og $\sigma$ er der 68,26 \% sandsynlighed for, at den nye Y position ville ligge inden for dette område. For 2 sd afvigelse ($2\sigma$) er der 95,45 \% for, at den nye Y position vil ligge inden for dette område.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/software/histfit.png}
+	\caption{Histogram over fordelingen af ny Y position}
+	\label{fig:histfit}
+\end{figure}
+
+Det endelige resultat af billedegeneringen er vist i figur \ref{fig:finalresult}. Til at illustrere hvordan øen flytter sig er der tilføjet en graf, som viser hvordan dens position ændres for hver iteration. Cellen er markeret med en rød ring på billedet.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{billeder/software/final.png}
+	\caption{Endelige resultat for flowsimulering}
+	\label{fig:finalresult}
+\end{figure}
+
+\subsubsection{Billedprocessering}
+Selve segmenteringen sker via en række morfologiske operationer, hvor billedet fra kamera simulationen konverteres til en logisk maske. 
+
+Detektionen af øerne baseres på, at øerne har en mere cirkulær form end resten af vævet. Derfor hentes der egenskaber fra objekterne i masken vha. matlab funktionen \textit{regionsprops}. De egenskaber der hentes er med til, at beskrive hvor cirkulært objektet er. De egenskaber som hentes er arealet, center positionen, omkredsen og excentriciteten. Excentriciteten beskriver hvor langstrakt objektet er. Hvis excentriciteten er 0 er det en perfekt cirkel mens det vil være en langstrakt ellipse hvis værdien er 1.
+
+Udfra arealet og omkredsen af objekterne anvendes de 2 nedenstående formler til bestemmelse af 2 værdier for radiusen af objektet:
+\begin{align}
+Areal = R1^2*\pi => R1 = \sqrt{\frac{\text{Areal}}{\pi}}
+\end{align}
+\begin{align}
+Omkreds = 2*R2*\pi => R2 = \frac{\text{Omkreds}}{2*\pi}
+\end{align}
+
+Udfra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse begge med samme areal. Udfra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved, at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
+  
+\begin{lstlisting} 
+r1 =  100.0017   99.9380
+
+r2 =  99.7978  105.7890
+
+rDif = 0.2039    5.8510
+\end{lstlisting} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/circleellipse.png}
+	\caption{Cirkel sammenlignet med ellipse}
+	\label{fig:circleelip}
+\end{figure}
+
+Indekset for det objekt med mindst forskel i radius og indekset for det objekt med den mindste excentricitet gemmes i variabler. I nedenstående kode er det vist, hvordan dette er implementeret i Matlab.
+
+\begin{lstlisting} 
+stats = regionprops(bw,'Area','Centroid','Perimeter','Eccentricity');
+
+r1 = sqrt([stats.Area]/pi);
+r2 = [stats.Perimeter]/(2*pi);
+% The absolute difference between the 2 radius is calculated
+rDif = abs(r1-r2);
+% The index of the lowest difference is returned
+[~, idx] = min(rDif);
+% The index of the object with the lowest eccentricity is returned 
+[~, idx2] = min([stats.Eccentricity]);
+\end{lstlisting} 
+
+\newpage
+Til sidst i segmenteringen af den langerhanske ø kontrolleres det om radius forskellen og excentricitet ligger under nogle fast definerede grænseværdier. Værdierne er fundet ved, at analysere en række billeder og deres objekters radius og excentricitet. Radius og excentriciteten bliver gemt i logfilen, så de kan analyseres for senere at justere grænseværdierne. Hvis objektets værdier er under disse grænseværdier er en ø detekteret. Når en ø er detekteret illustreres det med en grøn ring på GUI.
+
+For at løse udfordringen med, at den samme ø vil optræde på det næste billede, er der implementeret et smalt detekteringsvindue (100 pixels bredt). Når øen er detekteret inden for dette område bliver variablen isletDetected sat til true. Denne variabel anvendes til styring af ventilen. Implementingen af dette er vist i nedenstående kode.
+
+
+\begin{lstlisting} 
+% If the difference between radius AND eccentricity is below the defined
+ % values an islet has been detected
+ if rDif(idx) < 0.45 && stats(idx2).Eccentricity <0.51
+     
+ % Show circle of cell on the 2 axes
+ viscircles(h,stats(idx2).Centroid,r1(idx2)+10,...
+ 'LineStyle','-','edgecolor','g','LineWidth',1,'DrawBackgroundCircle',...
+ false);
+ viscircles(s,stats(idx2).Centroid,r1(idx2)+10,...
+ 'LineStyle','-','edgecolor','g','LineWidth',1,'DrawBackgroundCircle',...
+ false);
+
+     
+      % Detection window  (0 to 100 pixels)
+      if stats(idx2).Centroid(1) <=100 
+      handles.flag1 = true;
+      handles.count = handles.count+1; 
+      set(handles.txtIslets,'String',num2str(handles.count));
+      handles.isletDetected = true;
+      end
+\end{lstlisting} 
+
+Figur \ref{fig:segmented} viser slutresultatet af segmenteringen, hvor masken kun indeholder den langerhanske ø fra det oprindelige billede. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/segmented.png}
+	\caption{Slutresultat af segmentering}
+	\label{fig:segmented}
+\end{figure}
+
+\newpage
+I figur \ref{fig:finalimage} er det oprindelige billede vist, med markering af den detekterede ø.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/finalimage.png}
+	\caption{Oprindelige billede med detekteret ø}
+	\label{fig:finalimage}
+\end{figure}
+
+
+\textbf{Test af billedeprocessering}
+
+En udfordring med billedeprocesseringen er, at hastigheden ikke må være for langsom i forhold til frameraten for kameraet. Som beskrevet under funktionen cameraFeed (\ref{subsub:camfeed} indlæses et nyt billede hvert 0,1 sekund. Billedeprocesseringen skal dermed være hurtigere end dette for at følge med. Til test af dette er Matlab funktionen tic/toc anvendt, som måler hvor langt tid billedprocessingen tager om at eksekvere. I figur \ref{fig:dataprocess} viser grafen hvor lang tid det har taget, at behandle de enkelte billeder. Den røde streg viser den gennemsnitlige tid for processeringen. For den nuværende implementering tager billedeprocessingen 0,0104 sekund pr. billede, hvilket er indenfor grænsen på 0,1 sekund. Tiden vil variere alt efter tilgængelig processorkraft og om der skal udføres andre opgaver, eksempelvis opdatere figurer på GUI. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/software/dataprocessing_2.png}
+	\caption{Test af tidsforbrug for billedeprocessering}
+	\label{fig:dataprocess}
+\end{figure}
