@@ -1,20 +1,19 @@
 \chapter{Metoder}
-Dette kapitel indeholder beskrivelser af hvordan projektet er udført, og med hvilke metoder der er brugt. Yderligere indeholder kapitlet projektstyring, samt hvilke modeller der er fulgt igennem projektforløbet. 
+Dette kapitel indeholder beskrivelser af hvordan projektet er udført, og hvilke metoder der er brugt. Yderligere indeholder kapitlet projektstyring, samt hvilke modeller der er fulgt igennem projektforløbet. 
 
 \section{Samarbejdsaftale}
-For at gruppens medlemmer var enige fra starten af projektet, om blandt andet arbejdsindsats, samt timer der skulle bruges på projektet blev der lavet en samarbejdsaftale. Se samarbejdsaftalen i bilag XX
+For at gruppens medlemmer var enige fra starten af projektet, om blandt andet arbejdsindsats, samt timer der skulle bruges på projektet blev der udarbejdet en samarbejdsaftale. Samarbejdsaftalen bevirker derfor, som en forventningsafstemning. Se samarbejdsaftalen i bilag \ref{bilag:samarbejdsaftale}
 
 \section{Samarbejdspartnere}
 Gruppens kunde er Søren Gregersen, overlæge på Medicinsk Endokrinologisk Afdeling, Aarhus Universitetshospital. Det er i samarbejde med Søren at projektet er blevet specificeret, samt hvilke krav der er til den endelige prototype.
-Samuel Alberg Thrysøe er gruppens projektvejleder. Der er afholdt ugentlige vejledermøder, hvor gruppen har givet status på projektet og hvor der er diskuteret forskellige problemstillinger. 
-Simon Vammen Grønbæk og Karl-Johan Schmidt har fungeret som projektets review gruppe. Der er holdt møde hver tredje uge omhandlende aftalt dagsorden. Formålet med review gruppen er at få konstruktiv feedback på evt. rettelser, opbygning af rapport og generel forståelse. Review gruppen har været gode til at sparre med omkring diskussioner, samt andre tvivl spørgsmål i gruppen. Derudover har det også gjort at deadlines har været mere faste, da review gruppen også har været afhængige af datoen.
-Til hvert vejledermøde har der været dagsorden med punkter, som formål og begrundelse for punktet på dagsorden. Dagsorden er sendt til vejleder senest en dag før vejledermødet, dette er gjort for at give vejleder en chance for at forberede sig på den givne dagsorden. Til hver vejledermøde er der udført et referat som kan ses i bilag XX. 
+Samuel Alberg Thrysøe er gruppens projektvejleder. Der er afholdt ugentlige vejledermøder, hvor gruppen har givet status på projektet og hvor der er diskuteret forskellige problemstillinger. Til hvert vejledermøde har der været dagsorden med punkter, som formål og begrundelse for punktet på dagsorden. Dagsorden er sendt til vejleder senest en dag før vejledermødet, dette er gjort for at give vejleder en chance for at forberede sig på den givne dagsorden. Til hver vejledermøde er der udført et referat som kan ses i bilag \ref{modevejleder}.
+Simon Vammen Grønbæk og Karl-Johan Schmidt har fungeret som projektets review gruppe. Der er holdt møde hver tredje uge omhandlende aftalt dagsorden. Formålet med review gruppen er at få konstruktiv feedback på evt. rettelser, opbygning af rapport og generel forståelse. Review gruppen har været gode til at sparre med omkring diskussioner, samt andre tvivl spørgsmål i gruppen. Derudover har det været med til at drive projektet igennem de forskellige udviklingsfaser, da review gruppen også har været afhængige af datoen.
 
-Reviewsmøderne har foregået på en lignede måde med vejledermøderne. Der er lagt en dagsorden for hver gruppe hvad der skulle reviews, hvor efter dokumenterne er udvekslet mellem de to grupper. Grupperne har skrevet kommentar til dokumentet, hvorefter kommentarene og rettelserne er diskuteret på møderne. 
+Reviewsmøderne har foregået på en lignede måde med vejledermøderne. Der er lagt en dagsorden for hver gruppe for hvad der skulle reviewes, hvor efter dokumenterne er udvekslet mellem de to grupper. Grupperne har skrevet kommentar til dokumentet, hvorefter kommentarene og rettelserne er diskuteret på møderne. 
 
 \newpage
 \section{Udviklingsværktøjer}
-Dette afsnit består af en kort beskrivelse omkring udviklingsværktøjerne brugt i projektet.
+Dette afsnit består af en kort beskrivelse omkring udviklingsværktøjer brugt i projektet.
 
 \textbf{MATLAB:} Softwaren til systemet er udviklet i MATLAB. Versionen der er anvendt er R2015b. Tilføjelsespakker brugt i projektet er følgende:
 \begin{itemize}
@@ -23,23 +22,23 @@ Dette afsnit består af en kort beskrivelse omkring udviklingsværktøjerne brug
 \end{itemize}
 Disse pakker anvendes til, at interagere med Arduinoen og USB mikroskopet. 
 
-\textbf{Fritzing:} Fritzing er brugt til at illustrere kredsløbsdiagrammer(schematics), samt enhedstest af hardwaren ved illustrationer af \textit{fumlebræt}. Hvilket har været en stor hjælp til dokumentationen af netop til enhedstestene. Derudover har det også været med til at huske tidligere opstillinger der er brugt på \textit{fumlebræt}, for at de nemt kan genskabes.
+\textbf{Fritzing:} Fritzing er brugt til at illustrere kredsløbsdiagrammer(schematics), samt enhedstest af hardwaren ved illustrationer af \textit{fumlebræt}. Dette har bidraget til dokumentationen af netop til enhedstestene. Derudover har det også givet mulighed for at opstillinger brugt på \textit{fumlebræt}, let kunne genskabes.
 
-\textbf{Eagle:} Eagle et program til at lave print layouts med. Det er brugt til at lave et samlet PCB layout for hardware elementerne. I \textit{Eagle} er der generet gerber filer, som er sendt til PCB fabrikanten.
+\textbf{Eagle:} Eagle er et program til at lave print layouts med. \textit{Eagle} er brugt til at lave et samlet PCB layout for hardware elementerne. I \textit{Eagle} er der generet gerber filer, som er sendt til PCB fabrikanten.
 
-\textbf{SolidWorks:} Er et program til, som kan illustrer mekaniske 3D modeller. Er brugt til at lave kamerahuset med, for senere at  få det 3D printet.
+\textbf{SolidWorks:} Er et program til at illustrere mekaniske 3D modeller med.  \textit{SolidWorks} brugt til at lave kamerahuset med, for senere at få det 3D printet.
 
-\textbf{Arduino IDE:} Er programmet som er udbudt af Arduino til at programmere arduino udviklingskortet. \textit{Arduino IDE} er i projektet brugt til enhedstest til at teste hardware opstillingerne med. 
+\textbf{Arduino IDE:} Er programmet som er udbudt af \textit{Arduino} til at programmere \textit{Arduino} udviklingskortet. \textit{Arduino IDE} er i projektet brugt til enhedstest til at teste hardware opstillingerne med. 
 
-\textbf{Microsoft Visio:} Microsoft Visio er et tegne program, som kan bruges til at illustrere forskellige modeller. Gruppen har brugt det til at lave udviklingsdiagrammer, samt illustrationer med. 
+\textbf{Microsoft Visio:} Microsoft Visio er et tegne program, som bruges til at illustrere forskellige modeller. Gruppen har brugt det til at lave udviklingsdiagrammer, samt illustrationer med. 
 
-\textbf{Latex/texmaker:} Er brugt til at skrive alt dokumentationen i projektet. \textit{Textmaker} gør det muligt at arbejde på samme dokument samtidigt, hvilket har været en stor hjælp.
+\textbf{Texmaker:} Er brugt til at skrive alt dokumentationen i projektet. \textit{Texmaker} gør det muligt at arbejde på samme dokument samtidigt, hvilket har været en stor hjælp.
 
 \textbf{Pivotaltracker:} Er et SCRUM baseret projektstyrings program, der hjælper med at styre arbejdsressourcerne til projektet. Der er i afsnittet \ref{subsec:agil} uddybet hvordan \textit{Pivotaltracker} er brugt i projektet.
 
-\textbf{Github:} Er et versionsstyrings program, i projektet er det brugt til versionsstyring af dokumenter og koden til projektet. Se afsnit \ref{subsec:github} for uddybende dokumentation omkring \textit{Github} er brugt.
+\textbf{GitHub:} Er et versionsstyrings program, som i projektet er brugt til versionsstyring af dokumenter og \textit{Matlab} koden til projektet. Se afsnit \ref{subsec:github} for uddybende dokumentation omkring \textit{Github} er brugt.
 
-\textbf{Dropbox:} Er et delings program der ligger i "skyen". I projektet er dropbox brug til gemte artikler, diagrammer, billeder og generelle noter.
+\textbf{Dropbox:} Er et cloudbaseret delingsværktøj. I projektet er \textit{Dropbox} brugt til at gemme og dele artikler, diagrammer, billeder og generelle noter.
 
 \textbf{Microsoft Onenote:} Er et program til at lave noter i. I projektet er programmet brugt til at have fælles noter og huskelister.
 
@@ -69,7 +68,7 @@ I projektet er der gjort brug af versionsstyrings softwaren \textit{GitHub}. Til
 \subsection{Github}
 \label{subsec:github}
 Til versionsstyring af projektdokumentationen og source kode anvendes GitHub, som bygger på open source versions styrings systemet Git. Her opdateres der løbende ændringer, så det nyeste dokumentation og source kode altid er tilgængeligt. 
-Som user interface til GitHub anvendes GitHub Desktop (figur: \ref{fig:git}). I GitHub Desktop vises en tidslinje, for hvornår der er lavet ændringer. Under de enkelte filer kan man se hvad der er ændret i for den gældende version. Programmet giver yderligere indblik i hvilke filer der lokalt er lavet ændringer i, som ikke er tilføjet repositoriet endnu.
+Som user interface til GitHub anvendes GitHub Desktop (figur: \ref{fig:git}). I GitHub Desktop vises en tidslinje, for hvornår der er lavet ændringer. Under de enkelte filer kan det observeres hvad der er ændret i for den gældende version. Programmet giver yderligere indblik i hvilke filer der lokalt er lavet ændringer i, som ikke er tilføjet repositoriet endnu.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/github.png}
@@ -78,8 +77,8 @@ Som user interface til GitHub anvendes GitHub Desktop (figur: \ref{fig:git}). I 
 \end{figure}
 \newpage
 
-\section{Projektstyring/planlægning} 
-Til projektstyring af dette projekt er der brugt en stage gate model. En stage gage model(figur \ref{fig:stage-gate}) er bestående af nogle udviklingsfaser(stages), hvor ved der er en deadline for de konkrete faser. For at komme til næste fase/stage, skal der være opfyldt nogle kriterier. Kriterierne sættes op i en tjekliste(se figur \ref{fig:stage-gate-tjekliste}), hvor de kan krydses af. Alle punkter skal være opfyldt for at komme i gennem gaten. En stage gate model er god til at få et produkt på markedet, men det har sine svagheder ved en agil udviklingsprocess. Derfor er der i projektet arbejdet med åbne gates, det vil sige at der har været mulighed for at gå tilbage for at justerer på dokumenter.
+\section{Projektstyring} 
+Til projektstyring af dette projekt er der brugt en stage gate model. En stage gatee model(figur \ref{fig:stage-gate}) er bestående af nogle udviklingsfaser(stages), hvor ved der er en deadline for de konkrete faser. For at komme til næste fase/stage, skal der være opfyldt nogle kriterier. Kriterierne sættes op i en tjekliste(se figur \ref{fig:stage-gate-tjekliste}), hvor de kan krydses af. Alle punkter skal være opfyldt for at komme i gennem gaten. En stage gate model er god til at få et produkt på markedet, men det har sine svagheder ved en agil udviklingsprocess. Derfor er der i projektet arbejdet med åbne gates, det vil sige at der har været mulighed for at gå tilbage for at justere på dokumenter. I projektet er stage gate modellen brugt som tidsplan og som en metode der har været med til at sikre, at fasen var færdig inden næste fase igangsættes. 
 
 %\begin{landscape}
 \begin{figure}[H]
@@ -122,13 +121,13 @@ Til projektstyring af dette projekt er der brugt en stage gate model. En stage g
 
 \subsection{Agil udviklingsprocess}
 \label{subsec:agil}
-I projektet er der brugt en agil arbejdsprocess hvor der konstant er fokus på at målrette og prioritere arbejdet mod det, der har givet mest værdi for projektet og kunden. Det vil sige at der løbende er prioriteret mellem opgaverne, hvorefter delopgaver er blevet revurderet og planlagt. Dette gør at produktet og resultater evalueres og testes løbende, hvilket har dannet grundlag for prioriteringen af opgaverne til næste periode(sprint). Til at sikre arbejdsressourcerne, der har været tilrådighed, er blevet brugt på den mest effektive måde i projektet, er der brugt elementer fra SCRUM. SCRUM er en iterativ arbejdsmetode, hvor  der er iterationer(sprints), som i dette projekt har haft en periode på en uge. SCRUM er implementeret i projektet vha. \textit{Pivotaltracker}. 
+I projektet er der brugt en agil arbejdsproces hvor der konstant er fokus på at målrette og prioritere arbejdet mod det, der giver mest værdi for projektet og kunden. Det vil sige at der løbende er prioriteret mellem opgaverne, hvorefter delopgaverne er blevet revurderet og planlagt. Dette gør at produktet og resultater evalueres og testes løbende, hvilket danner grundlag for prioriteringen af opgaverne til næste periode(sprint). Til at sikre arbejdsressourcerne, der har været tilrådighed, er bruges på den mest effektive måde i projektet, er der brugt elementer fra SCRUM. SCRUM er en iterativ arbejdsmetode, hvor  der er iterationer(sprints), som i dette projekt har haft en periode på en uge. SCRUM er implementeret i projektet vha. \textit{Pivotaltracker}. 
 
 I Pivotaltracker defineres projektets arbejdsopgaver, hvorefter de tildeles point alt efter hvor stor arbejdsbyrden er. De enkelte opgaver prioriteres herefter i projektets backlog, hvor Pivotaltracker automatisk tilføjer opgaver til den igangværende sprint udfra den nuværende “velocity”. Et nyt sprint påbegyndes automatisk når en ny uge starter.
 
 Det betyder, at der er fuldstændig styr på om projektet går for langsomt, eller om udviklingen af projektet er godt med. Dette kan holdes op i mod den tidligere nævnte stage gate model.
 
-Herudover giver Pivotaltracker mulighed for en komplet log over projektets udførte opgaver og afsluttede sprints. Her kan man se hvilke opgaver der er udført i hvilken uge. I projektet anvendes dette som logbog over udførte arbejdsopgaver.
+Herudover giver Pivotaltracker mulighed for en komplet log over projektets udførte opgaver og afsluttede sprints. Her kan man se hvilke opgaver der er udført i hvilken uge. I projektet anvendes dette som logbog over udførte arbejdsopgaver. Se logbøgerne fra \textit{Pivotaltracker} i bilag \ref{bilag:Logboger}.
 
 En opgave kan have forskellige states, som definerer dens status. Når en opgave er afsluttet kan den afleveres til review, hvor den herefter enten kan godkendes eller afvises. Dette er særligt anvendeligt i projektets udviklingsfase, hvor en feature kan testes og godkendes af et andet projektmedlem. Figur \ref{fig:pt_sprints}  viser et overblik over tidligere sprints, hvor figur \ref{fig:pt_currentsprint} viser en igangværende sprint med opgaver der er godkendt, afsluttet og ikke færdiggjorte endnu.
 
@@ -151,15 +150,15 @@ En opgave kan have forskellige states, som definerer dens status. Når en opgave
 \fxnote{overvej om vi skal have andre billeder med en højere vilocity}
 
 \section{Udviklingsfaserne}
-Under udviklingen af projektet, er der gennem gået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). Samtidigt med koncept analysen, blev der parallelt med, tænkt på produktionen af produktet. Det er gjort for at undgå løsninger, som ikke kan produceres eller er besværlige at fremstille. 
+Under udviklingen af projektet, er der gennemgået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). Ydermere er det også i konceptanalysen, at der er identificeret problemstillinger og afgrænsninger af projektet. Samtidigt med koncept analysen, blev der parallelt med, tænkt på produktionen af produktet. Det er gjort for at undgå løsninger, som ikke kan produceres eller er besværlige at fremstille. 
 
-Den anden fase består af kravspecifikationen, hvilket er udarbejdet i tæt samarbejde med kunden. En kravspecifikation sikre at kunde og projekt udviklere er enige om projektets udformning. I kravspecifikationen er der brugt usecasediagram, samt fully dressed beskrivelser til hver usecase. Der laves fully dressed, for at klaregøre normal forløbet for hver usecase, samt undtagelser og udvidelser til dem. Derudover er det også i kravspecifikationen. at der er specificeret ikke funktionelle krav og kvalitetskrav. Samtidigt med kravspecifikationen er der udarbejdet en accepttest. Denne test er med til at verificere at alle krav, der er bestemt i samarbejde med kunden er opfyldte. I accepttesten er det beskrevet hvordan hver enkelt krav skal testes. Accepttesten udføres før produktet afleveres til kunden. Se afsnit \ref{subsec:krav} for eksempler.
+Den anden fase består af kravspecifikationen, hvilket er udarbejdet i tæt samarbejde med kunden. En kravspecifikation har sikret at kunde og projekt udviklere er enige om projektets udformning. I kravspecifikationen er der brugt usecasediagram, samt fully dressed beskrivelser af hver usecase. Der laves fully dressed, for at klaregøre normal forløbet for hver usecase, samt undtagelser og udvidelser til dem. Derudover er det også i kravspecifikationen. at der er specificeret ikke funktionelle krav og kvalitetskrav. Samtidigt med kravspecifikationen er der udarbejdet en accepttest. Denne test er med til at verificere at alle krav, der er bestemt i samarbejde med kunden er opfyldte. I accepttesten er det beskrevet hvordan hver enkelt krav skal testes. Accepttesten udføres før produktet afleveres til kunden. Se afsnit \ref{subsec:krav} for eksempler.
 
-Den tredje fase i projektet har været designfasen, hvor der udfra kravspecifikationen er lavet overordnede diagrammer. Diagrammerne er brugt til at beskrive systemet overordnet, men også i små delsystemer. Det er diagrammerne der er brugt til at videre udvikle systemet. Desuden er de enkelte komponenters specifikationer beskrevet i designdokumentet. Derfor er det i denne fase der er bestilt komponenter til projektet. Se afsnit \ref{subsec:design} for eksempler. Efter denne fase blev det klart for gruppen, at der skulle bruges mere tid for at opnå målet defineret fra starten. Derfor blev der iværksat en handlingsplan for projektet, som kan ses i BILAG XX. De primære dele af handlingsplanen består i øge arbejdsressourcerne til 50 timer i ugen. hvilket også kan ses i \textit{pivotaltracker}, hvor målet \textit{Velocity} har været 100point. 
+Den tredje fase i projektet er designfasen, hvor der udfra kravspecifikationen er lavet overordnede diagrammer. Diagrammerne er brugt til at beskrive systemet overordnet, men også i små delsystemer. Det er diagrammerne der er brugt til at videreudvikle systemet. Desuden er de enkelte komponenters specifikationer beskrevet i designdokumentet. Derfor er det i denne fase der er bestilt komponenter til projektet. Se afsnit \ref{subsec:design} for eksempler. Efter denne fase var der et overblik over hvilke opgaver der skulle implementeres. Derfor blev der udarbejdet en handlingsplan med en revurderet tidsplan for projektet, som kan ses i bilag \ref{bilag:Handlingsplan}. De primære dele af handlingsplanen består i øge arbejdsressourcerne til 50 timer i ugen. hvilket også kan ses i \textit{pivotaltracker}, hvor målet \textit{Velocity} har været 100point. 
 
-I den fjerde fase er der blevet produceret en prototype. Derfor er der i denne fase kodet, monteret og testet. Denne fase er sket efter en iterativ proces, så der først kodes, monteres og derefter testes det. Dette er gjort ved så små delelementer som muligt, for at være sikker på at hver delelement virker inden det sættes sammen. Se afsnit \ref{subsec:Implement} for eksempler af denne fase. 
+I den fjerde fase er der blevet produceret en prototype. Derfor er der i denne fase kodet, monteret og testet. Denne fase er sket efter en iterativ proces, så der først kodes, monteres og derefter testes det. Dette er gjort ved så små delelementer som muligt, for at sikre at hver delelement virker inden det sættes sammen. Se afsnit \ref{subsec:Implement} for eksempler af denne fase. 
 
-De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fig:v-model}. Modellen har sine fordele og ulemper. Fordelene er at der sikres dokumentation af projektet fra starten, samt at der hele tiden tænkes på slutresultatet og slutbrugeren. Ulemperne er at der er meget dokumentation, der bliver ændret fra hvad det var i starten af projektet. På den måde kan man godt tro at det er spild af tid, men det sikre samtidigt at projektet bliver vel dokumenteret og gennemtænkt fra starten.
+De fire udviklings faser i projektet kan illustreres som på figur \ref{fig:v-model}. Modellen har sine fordele og ulemper. Fordelene er at der sikres dokumentation af projektet fra starten, samt at der hele tiden tænkes på slutresultatet og slutbrugeren. Ulemperne er at der er meget dokumentation, der bliver ændret fra hvad det var i starten af projektet. På den måde kan man godt tro at det er spild af tid, men det sikre samtidigt at projektet bliver vel dokumenteret og gennemtænkt fra starten.
 
 \begin{figure}[H]
 	\centering
@@ -168,11 +167,12 @@ De fire udviklings faser brugt i projektet kan illustreres som på figur \ref{fi
 	\label{fig:v-model}
 \end{figure}
 
-I modsætning til v-modellen findes der også vandfaldsmodellen, hvor hver enkelt fase bliver lavet færdig før næste fase påbegyndes. Dette medfører ofte nedprioritering af test og andre sene deadlines i projektet, grundet at tidligere tidsplaner er overskredet.
+I modsætning til v-modellen findes der også vandfaldsmodellen, hvor hver enkelt fase bliver lavet færdig før næste fase påbegyndes. Dette medfører ofte nedprioritering af test og andre sene deadlines i projektet, grundet at tidligere tidsplaner er overskredet. Det er derfor denne type model ikke er brugt i projektet
 \newpage
 
 \section{Første udviklingsfase: koncept analyse}
-For at eftervise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapporten. I afsnittet er der eksempler fra hver udviklingsfase,  %for at eftervise de fire udviklingsfaser projektet har været i gennem.
+For at eftervise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapporten. I afsnittet er der eksempler fra hver udviklingsfase.  %for at eftervise de fire udviklingsfaser projektet har været i gennem. 
+\textbf{foranalyse skal skrives ind her}
  
 \section{Anden udviklingsfase: Kravspecifikation og accepttest}
 \label{subsec:krav}
@@ -182,8 +182,8 @@ For at vise et eksempel for den anden udviklingsfase i projektet, er der valgt a
 \subsection{Aktør beskrivelse}
 Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er kameraet og PC’ens filsystem. Kameraet er systemets interface til detektion af de Langerhanske øer. Filsystemet er hvor der løbende gemmes en log over sorteringsprocessen.
 
-\subsection{Use Case Diagram}
-I Use Case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases systemet \textit{The Cell Collector} består af. Yderligere er det vist, hvilke aktører der initiere de enkelte use cases. På venstre side er systemets primære aktør \textit{operatøren} vist, mens systemets sekundære aktører \textit{kamera} og \textit{database} er placeret i højre side. 
+\subsection{Use case Diagram}
+I Use case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases systemet \textit{The Cell Collector} består af. Yderligere er det vist, hvilke aktører der initiere de enkelte use cases. På venstre side er systemets primære aktør \textit{operatøren} vist, mens systemets sekundære aktører \textit{kamera} og \textit{database} er placeret i højre side. 
 
 \begin{figure}[H]
 	\centering
@@ -192,10 +192,10 @@ I Use Case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases s
 	\label{fig:usecase}
 \end{figure}
 
-Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use cases som kan ses på nedenstående tabel. Tabellen beskriver normalforløbet og undtagelser for \textit{Sortere langerhanske øer}. 
+Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use cases som kan ses på nedenstående tabel. Tabellen beskriver normalforløbet og undtagelser for \textit{Start af sorteringscyklus}. 
 
 \newpage 
-\subsection{Fully dressed use case for use case1}
+\subsection{Fully dressed use case for use case 1}
 \begin{center}
 		\begin{longtable}{ | m{4cm} | m{8cm}| } 
 			\hline
@@ -280,16 +280,16 @@ Efter at normalforløbet og undtagelserne er defineret, blev accepttesten lavet 
 		\end{longtable}
 	\end{center}
 	
-Resten af accepttesten for use case 1 kan ses i projektdokumentationen \fxnote{hvordan skal der refereres her til ?} 
+Resten af accepttesten for case 1 kan ses i projektdokumentationen \fxnote{hvordan skal der refereres her til ?} 
 
-\section{Design}
+\section{Tredje udviklingsfase: Design}
 \label{subsec:design}
 I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav, til måder at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvensdiagrammer til at beskrive funktioner og sammenhænge i projektet. 
 
 \subsection{BDD og IBD for hardware}
-Block definition diagram og interal block diagram over hardwaren, er i projketet brugt, til at sikre hver hardware element kan kommunikere med hinanden. Yderligere er det med til at definere specifikationerne, for at  indskærpe af for eksempel antallet af strømforsyninger.
+Block definition diagram og interal block diagram over hardwaren, er i projektet brugt, til at sikre hver hardware element kan kommunikere med hinanden. Yderligere er det med til at definere specifikationerne, for at eksempelvis at indskærpe antallet af strømforsyninger.
 
-Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som Arduino, den indeholder bla. underelementet motordriver. Motordriveren indeholder yderligere to dele, som den styrer, det vil sige at pumpen og ventilen bliver styret i gennem motordriveren. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som Arduino den indeholder bla. underelementet motordriver. Motordriveren indeholder yderligere tre dele, som den styrer, det vil sige at pumpen, ventilen og kameralyset bliver styret i gennem motordriveren. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
 
 \begin{figure}[H]
 	\centering
@@ -310,7 +310,7 @@ Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan 
 
 Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke. \fxnote{reference til projektdokumentation}
 
-Derudover kan der ses specifikationerne for vægtcellen, og hvilke overvejelser der er gjort ved dette komponent.
+I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. Nedenstående viser, hvordan vægtcellen er specificeret
 \subsection{Vægtcelle}
 \label{subsec:loadcell}
 Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen. Derfor når der ikke er mere væske i celleopløsningsbeholderen, stopper systemet sin sorteringscyklus.
@@ -329,7 +329,7 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 			\hline
 		\end{longtable}
 \end{center}
----------------------------------------
+
 Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående ud fra design afsnittet se projektdokumentation afsnit XX \fxnote{reference} for hele afsnittet. 
 
 I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
@@ -358,7 +358,7 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
 \end{figure}
 
 \subsection{Sekvensdiagrammer}
-Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel. Sekvensdiagrammet har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
+Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel. Sekvensdiagrammerne har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
@@ -367,9 +367,9 @@ Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overbli
 \end{figure}
 
 
-\section{Implementering og enhedstest}
+\section{Fjerde udviklingsfase: Implementering og enhedstest}
 \label{subsec:Implement}
-I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software. Til sidst i denne fase er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til arduinoen, \fxnote{skriv kameraet failede, men da det er en iterativ process har andre dele i projekt forsættes}
+I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software. Til sidst i denne fase er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}, \fxnote{skriv kameraet failede, men da det er en iterativ process har andre dele i projektet forsættes}
 
 \subsection{Hardware}
 Efter at diagrammet og kredsløbet blev udført i design dokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt} 
@@ -465,7 +465,8 @@ Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data 
 \end{figure}
 
 For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj. 
+\fxnote{skriv hvordan enhedstestene er lavet i softwaren}
 
 \subsection{Integrationstest}
-Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udførte. Efter samlingen af hardwaren og verificeret at kredsløbet virker, er der designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
+Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udførte. Efter samlingen af hardwaren er det verificeret at kredsløbet virker, hvor efter der er designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
 
