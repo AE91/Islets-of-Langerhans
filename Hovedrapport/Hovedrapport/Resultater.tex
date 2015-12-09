@@ -39,7 +39,14 @@ De ikke-elektroniske dele, består af beholdere, slanger og adaptere. I projekte
 %I prototypen er der brugt fire lysdioder til, at have fuldstændig kontrol over lyset til kameraet. Det er erfaret igennem enhedstest af kameraet, at lyset som påvirker kameraet er meget vigtig for detektionen af øerne. Se afsnit XX i projektdokumentationen for yderligere dokumentation af kameralyset.
 
  \section{Ventil tidsinterval}
-Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Fordi intervallet beskriver tiden fra, at kameraet har detekteret en ø til den er kommet hen til ventilen, hvor den skal isoleres. En estimation er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen.
+Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Fordi intervallet beskriver tiden fra, at kameraet har detekteret en ø til den er kommet hen til ventilen, hvor den skal isoleres. En estimation er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen. På figur \ref{fig:tidsintervalventil} kan der ses en illustration af problemstillingen,
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hovedrapport/tidsinterval.pdf}
+	\caption{Illustration af ventil timerdelayet}
+	\label{fig:tidsintervalventil}
+\end{figure}
 
 \begin{align}
 \frac{\text{Opløsningsstørrelse}}{\text{Antal øer i opløsning}} = \frac{\SI{150}{\milli\liter}}{400\text{ øer}}*30 = \SI{11,25}{\milli\liter/minut} 
@@ -53,7 +60,7 @@ V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*\SI{5}{\centi\metre}=\SI{0,04}{\
 \label{eg:slangevolume}
 \end{align}
 
- Det vil sige at med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregnet ud fra formlen \ref{eg:ohastighed}. Der ud fra kan tiden fra kamera til ventil beregnes ved formelen \ref{eq:tidsintervallet}. 
+ Det vil sige at med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregnet ud fra formlen \ref{eg:ohastighed} kan tiden fra kamera til ventil beregnes ved formelen \ref{eq:tidsintervallet}. 
  
 \begin{align}
 \frac{\SI{11,25}{\milli\liter/minut}}{\SI{60}{\second}}=\SI{0,1875}{\milli\liter/s}\to\frac{\SI{0,04}{\milli\liter}}{\SI{0,1875}{\milli\liter/s}}=\SI{0.213}{\second}
