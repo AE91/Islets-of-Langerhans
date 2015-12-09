@@ -1,7 +1,7 @@
 \chapter{Diskussion}
 
 \section{Billedprocessering}
-Fordi den udviklede prototype segmenterer øer ud fra billeder der er genereret kan det ikke konkluderes, at detektionsalgoritmen vil være lige så effektiv ved rigtige øer. Algoritmen vil givetvis skulle indeholde flere trin i segmenteringen for at give en præcis detektering af øerne. Dette vil gå ud over den tid det tager, at processere de enkelte billeder, som vil give en lavere framerate. En lavere framerate kan have betydning for, hvorvidt en ø detekeres eller ej, i det man mister noget information. Dette vil have betydning for om en ø bliver isoleret af ventilen.
+Fordi den udviklede prototype segmenterer øer ud fra billeder, der er genereret kan det ikke konkluderes, at detektionsalgoritmen vil være lige så effektiv ved rigtige øer. Algoritmen vil givetvis skulle indeholde flere trin i segmenteringen for at give en præcis detektering af øerne. Dette vil gå ud over den tid det tager, at processere de enkelte billeder, som vil give en lavere framerate. En lavere framerate kan have betydning for, hvorvidt en ø detekeres eller ej, i det man mister noget information. Dette vil have betydning for om en ø bliver isoleret af ventilen. Flow hastigheden i væsken kan godt sænkes, men i så fald opfyldes kravet om 30 øer i minuttet ikke.
 
 Herudover vil en anden mængde eksokrint væv fra opløsningsvæsken end den fra de genererede billeder kunne bidrage med yderligere støj. Dette vil potentielt kunne påvirke præcissionen af detektionsalgoritmen og derved detektere flere øer end der reelt er. 
 
@@ -9,6 +9,7 @@ Ideelt set skulle billedprocesseringen være baseret på billeder af øerne genn
 
 \section{Simuleringsvæske}
 Prototypen har vist, at det er muligt at frasortere objekter fra simuleringsvæsken vha. ventilen. Da frøene i simuleringsvæsken har andre væskeegenskaber end øerne, vil der i en endelig prototype skulle optimeres i forhold til den tid der går fra en ø er detekteret til ventilen åbner og lukker igen. Yderligere indeholder simuleringsvæsken ikke uønsket væv, som den egentlige opløsningsvæske gør. Dette er en faktor der skal tages højde for i en endelig prototype, så man minimere mængden af det eksokrine væv som også bliver isoleret.
+\fxnote{vi skal vise dette på en måde}
 
 
 \section{Cost-benefit analyse}
