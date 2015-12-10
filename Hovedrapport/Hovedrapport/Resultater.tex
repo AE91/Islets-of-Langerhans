@@ -13,8 +13,32 @@ Den overordnet funktion af hardwaren er, at pumpe opløsningsvæsken forbi kamer
 Kredsløbet for det samlede print er indsat her nedenfor, kredsløbet beskriver hvordan delene er forbundet. \fxnote{beskriv nærmere nær printet er lavet}
 Se diagrammet for printet på figur XX
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/Hovedrapport/Diagram.png}
+	\caption{Diagram for printkortet}
+	\label{fig:PCBdiagram}
+\end{figure}
+
 \subsubsection{Det færdig print layout}
 Nedenfor på figur XX kan layoutet ses i \textit{Eagle}. På printet er der to integrerede kredsløb, den ene(IC1) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger igennem denne til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra arduinoen og efterligner det, men i stedet leverer effekten i gennem den eksterne forsyning. Det andet(IC2) integrerede kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til arduinoens analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og arduinoens ADC har en arbejdsspænding på 0V til 5V.  
+
+ \begin{figure}[htbp] \centering
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hovedrapport/Toplayout.png} % Left picture
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Hovedrapport/Bundlayout.png} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Toplayout} % Left caption and label
+\label{fig:Toplayout}
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Bundlayout} % Right caption and label
+\label{fig:Bundlayout}
+\end{minipage}
+\end{figure}
 
 \subsection{Ikke-elektroniske dele}
 De ikke-elektroniske dele, består af beholdere, slanger og adaptere. I projektet er der fokuseret på opløsningsbeholderen, hvor der er indkøbt en 250ml beholder med et specielt låg. Igennem låget går en teflonslange, for at tætne denne tilslutning er der en forskruning som både aflaster og tætner i låget. I låget er der også et luftfilter, som forhindre støv og andre små partikler for at komme ned i opløsningen. Filteret skal være der for at undgå dannelse af undertryk i beholder, når pumpen suger opløsningsvæsken igennem systemet. Da teflonslangen ikke er eftergivende, er der brugt silikoneslanger til stykket igennem pumpen og resten af systemet. Fordi teflonslangen er for hård til, at pumpen kan sammenpresse den og derved skabe flow i opløsningen. For at kunne gå fra teflonslangen til silikoneslangen er der brugt en adapter. Figur \ref{fig:nonelectronic} indeholder en illustration af ikke-elektroniske dele. Se styklisten mm. i projektdokumentation afsnit 4.2.5 \fxnote{Tjek ref}.
