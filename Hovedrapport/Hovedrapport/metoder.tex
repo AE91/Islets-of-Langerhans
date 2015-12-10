@@ -42,7 +42,7 @@ Disse pakker anvendes til, at interagere med Arduinoen og USB mikroskopet.
 
 \textbf{Microsoft Onenote:} Er et program til at lave noter i. I projektet er programmet brugt til at have fælles noter og huskelister.
 
-\fxnote{flere?}
+
 \newpage
 \section{Versionsstyring}
 I projektet er der gjort brug af versionsstyrings softwaren \textit{GitHub}. Til store ændringer har dokumenterne fået et nyt versions nummer og versionshistoriks tabellen er opdateret i hvert dokument, se tabellen nedenfor. 
@@ -88,7 +88,6 @@ Til projektstyring af dette projekt er der brugt en stage gate model. En stage g
 	\label{fig:stage-gate}
 \end{figure}
 %\end{landscape}
-\fxnote{stage gate modellayout}
 
 \begin{figure}[H]
 	\centering
@@ -147,7 +146,6 @@ En opgave kan have forskellige states, som definerer dens status. Når en opgave
 \label{fig:pt_currentsprint}
 \end{minipage}
 \end{figure}
-\fxnote{overvej om vi skal have andre billeder med en højere vilocity}
 
 \section{Udviklingsfaserne}
 Under udviklingen af projektet, er der gennemgået fire faser. Den første fase i projektet har været koncept analyse. Koncept analysen bestod af litteratursøgning omkring langerhanske øer, dette blev gjort for at opnå tilstrækkelig viden omkring størrelserne, deres egenskaber mm. Der blev også søgt allerede eksisterende sorteringsmetoder, som blev anvendt på det daværende tidspunkt. Dette var primært for at opnå erfaring inden for området på kort tid. Efter litteratursøgningen blev et overordnet koncept etableret i samarbejde med kunden(\textit{Søren Gregersen}). Ydermere er det også i konceptanalysen, at der er identificeret problemstillinger og afgrænsninger af projektet. Samtidigt med koncept analysen, blev der parallelt med, tænkt på produktionen af produktet. Det er gjort for at undgå løsninger, som ikke kan produceres eller er besværlige at fremstille. 
@@ -287,7 +285,7 @@ Efter at normalforløbet og undtagelserne er defineret, blev accepttesten lavet 
 		\end{longtable}
 	\end{center}
 	
-Resten af accepttesten for case 1 kan ses i projektdokumentationen \fxnote{hvordan skal der refereres her til ?} 
+Resten af accepttesten for use casene kan ses i projektdokumentationen afsnit 2.2.
 
 \section{Tredje udviklingsfase: Design}
 \label{subsec:design}
@@ -315,7 +313,7 @@ Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan 
 	\label{fig:ibd_Hardware}
 \end{figure}
 
-Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke. \fxnote{reference til projektdokumentation}
+Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke (Se projektdokumentationen afsnit 3.3.4). fxnote{Tjek ref}
 
 I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. Nedenstående viser, hvordan vægtcellen er specificeret
 \subsection{Vægtcelle}
@@ -337,7 +335,7 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående ud fra design afsnittet se projektdokumentation afsnit XX \fxnote{reference} for hele afsnittet. 
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående ud fra design afsnittet (se projektdokumentation afsnit 4.2.1 \fxnote{Tjek ref} for hele afsnittet. 
 
 I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
@@ -365,7 +363,7 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
 \end{figure}
 
 \subsection{Sekvensdiagrammer}
-Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case se figur \ref{fig:sekvendisgr} for et eksempel. Sekvensdiagrammerne har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
+Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case (se figur \ref{fig:sekvendisgr} for et eksempel). Sekvensdiagrammerne har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
@@ -376,7 +374,7 @@ Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overbli
 
 \section{Fjerde udviklingsfase: Implementering og enhedstest}
 \label{subsec:Implement}
-I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software. Til sidst i denne fase er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}, \fxnote{skriv kameraet failede, men da det er en iterativ process har andre dele i projektet forsættes}
+I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software. Til sidst i denne fase er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har der været mulighed for, at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig.  
 
 \subsection{Hardware}
 Efter at diagrammet og kredsløbet blev udført i design dokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt} 
@@ -404,7 +402,7 @@ De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
  \label{eq:trintilvolt}
  \end{align}
-Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation afsnit XX \fxnote{reference}.
+Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}.
  
  \begin{figure}[H]
 	\centering
@@ -414,7 +412,7 @@ Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med c
 \end{figure}
 
 \subsection{Kalibrering af vægtcellen}
-Funktionen til vægt cellen er implementeret efter beskrivelsen i design dokumentet i projektdokumentation afsnit XX. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
+Funktionen til vægt cellen er implementeret efter beskrivelsen i design dokumentet i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
 \end{align}
@@ -450,7 +448,7 @@ Det analoge input ganges altså med en faktor \textit{a} plus et offset \textit{
 			 		\end{longtable}
 \end{center}
 
-I Matlab er funktionen \textit{fitlm} anvendt til at finde det bedste lineære fit. Regressionen er baseret på Least Square metoden. \fxnote{Henvisning}
+I Matlab er funktionen \textit{fitlm} anvendt til at finde det bedste lineære fit. Regressionen er baseret på Least Square metoden \citep{least}.
 Udfra beregningerne i Matlab er hældningen a og skæringen b fundet til hhv:
 \begin{align}
 a = 276.14
@@ -472,7 +470,7 @@ Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data 
 \end{figure}
 
 For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj. 
-\fxnote{skriv hvordan enhedstestene er lavet i softwaren}
+
 
 \subsection{Integrationstest}
 Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udførte. Efter samlingen af hardwaren er det verificeret at kredsløbet virker, hvor efter der er designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
