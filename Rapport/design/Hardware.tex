@@ -10,7 +10,7 @@ Da dette afsnit er en udspecificering af hvilke specifikationer hardware kompone
 % Dette afsnit indeholder den nødvendige viden hardware delene i systemet Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
 \subsection{Leverandør af produkter}
 Når der skal vælges leverandør til et produkt er det vigtigt, at de er pålidelige. Da delene skal kunne leveres i hele produktets levetid. Specielt hvis produktet kræver en stor dokumentation og godkendelse, som for eksempel medicinsk udstyr. Når produktet skal sættes i produktion bør der være flere leverandører, som kan leverer det samme produkt. Det er vigtigt for, at dokumentationen ikke skal ændres, fordi at en lille del af produktet er udgået af underleverandørens portefølje.
-Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(\ref{subsec:Kamera}) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved Mikrolab \fxnote{reference mangler} (reference), som slanger og beholdere. 
+Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(\ref{subsec:Kamera}) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved \citep{Mikrolab}, herunder slanger og beholdere. 
 
      
 %gamle afsnit:
@@ -24,7 +24,7 @@ Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvi
  
  \newpage
 \subsection{Block Definition Diagram}  \label{sub:bdd_hardware}
-Nedenstående BDD \ref{fig:bdd_Hardware} giver et over ordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, den indeholder de elementer arduinoen styrer bla motor shieldet. Motor shieldet indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motor shieldet. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, den indeholder de elementer arduinoen styrer bla motor shieldet. Motor shieldet indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motor shieldet. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
 
 \begin{figure}[H]
 	\centering
@@ -49,9 +49,9 @@ Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de for
 Tabellen nedenfor er brugt til at skabe en oversigt, over hvilke signaler og funktioner den enkle blok indeholder.
 
 \begin{center}
-		\begin{longtable}{ | m{1.750cm} | m{4.750cm}| m{3.5cm}| m{4.5cm}| } 
+		\begin{longtable}{ | m{2cm} | m{4.9cm}| m{3.45cm}| m{4.15cm}| } 
 			\hline
-			\textbf{Blok navn} &\textbf{Funktionsbeskrivelse} &\textbf{Signaler} &\textbf{kommentar}\\ 
+			\textbf{Blok navn} &\textbf{Funktionsbeskrivelse} &\textbf{Signaler} &\textbf{Kommentar}\\ 
 			\hline
 			\multirow{2}{*}{Pump} & \multirow{2}{*}{Skabe flow i opløsningen} & 0V & Reference \\ 
 & & 12VDC PWM & Strømforsyning \\	
@@ -59,7 +59,7 @@ Tabellen nedenfor er brugt til at skabe en oversigt, over hvilke signaler og fun
 			\multirow{2}{*}{Valve} & \multirow{2}{*}{Åbne og lukke for førringsveje} & 0V & Reference \\ 
 & & 12VDC & Strømforsyning \\	
 			\hline	
-		\multirow{8}{*}{Motor shield} & \multirow{6}{*}{Forsyne ventil og pumpe} & 0V & Reference \\ 
+		\multirow{8}{*}{Motor shield} & \multirow{8}{*}{Forsyne ventil og pumpe} & 0V & Reference \\ 
 & & 12V & Strømforsyning \\	
 & & 0V or 5V PWM & Motor retning \\	
 & & 0V or 5V PWM & Hastighedsregulering \\
@@ -83,24 +83,24 @@ Tabellen nedenfor er brugt til at skabe en oversigt, over hvilke signaler og fun
 			\hline
 		\end{longtable}
 	\end{center}
-\fxnote{layout tabel}	
+
 	
 \newpage
 Tabellen nedenfor beskriver signalerne der findes i systemet, denne tabel anvendes når grænsefladerne skal designes og testes.
 
 \begin{center}
-		\begin{longtable}{ | m{2cm} | m{4.750cm}| m{2cm}| m{1.125cm}| m{1.125cm}| m{3.5cm}| } 
+		\begin{longtable}{ | m{2cm} | m{5.5cm}| m{2cm}| m{1.250cm}| m{1.250cm}| m{2.5cm}| } 
 			\hline
-			\textbf{Signal navn} &\textbf{Funktionsbeskrivelse} &\textbf{Område} & \textbf{Output} & \textbf{Input} &\textbf{kommentar}\\ 
+			\textbf{Signal navn} &\textbf{Funktionsbeskrivelse} &\textbf{Område} & \textbf{Output} & \textbf{Input} &\textbf{Kommentar}\\ 
 			\hline
-			\multirow{2}{*}{0V} & \multirow{4}{*}{Reference til analoge spændinger} & n/a & GND & V-2  & Stel \\ 
+			\multirow{2}{*}{0V} &  \multirow{2}{*}{Reference til analoge  spændinger} & N/A & GND & V-2  & Stel \\ 
 & & & GND & C-2 &   \\
 & & & GND & I-4, I-5 &   \\
 & & & GND & M-4, M-5, M-12, M-13 &   \\
 			\hline	
-			USB &  seriel kommunikation & & USB & A-USB &  \\ 
+			USB &  Seriel kommunikation & & USB & A-USB &  \\ 
 			\hline	
-			5V & \multirow{2}{*}{forsyningsspænding} & 4.9-5.1V & A-5V & I-7 & 5V fra USB  \\ 
+			5V & \multirow{2}{*}{Forsyningsspænding} & 4.9-5.1V & A-5V & I-7 & 5V fra USB  \\ 
 & & & A-5V & L-1 & \\
 			\hline
 			12V & \multirow{2}{*}{Strømforsyningsspænding} & 11.9-12.1V & 12V PS & A-Vin & \\
@@ -124,7 +124,7 @@ Tabellen nedenfor beskriver signalerne der findes i systemet, denne tabel anvend
 			\hline
 			5V PWM & Styring af lysdioder & 4.9-5.1V & A-D11 & M-15 &  \\
 			\hline
-			0V or 5V PWM & \multirow{2}{*}{Styring af pumpe} & 0 eller 12V & A-D9 & M-2 & hastighed og retning\\
+			0V or 5V PWM & \multirow{2}{*}{Styring af pumpe} & 0 eller 12V & A-D9 & M-2 & Hastighed og retning\\
 			& & & A-D10 & M-6 & \\
 			\hline
 		\end{longtable}
