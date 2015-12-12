@@ -315,8 +315,21 @@ Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan 
 
 Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke (Se projektdokumentationen afsnit 3.3.4). fxnote{Tjek ref}
 
-I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. Nedenstående viser, hvordan vægtcellen er specificeret
+I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. 
+\newpage
+\subsection{Sekvensdiagrammer}
+I design dokumentet er der yderligere lavet sekvensdiagrammer for, at få et overblik over de sekventielle dele af systemet til hver use case (se figur \ref{fig:sekvendisgr} for et eksempel). Sekvensdiagrammerne har været brugt til, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
+	\caption{Sekvensdiagram for usecase 1}
+	\label{fig:sekvendisgr}
+\end{figure}
+
+
 \subsection{Vægtcelle}
+Det følgende afsnit er et eksempel på hvordan de enkelte hardware komponenter er blevet specificeret i design dokumentet, herunder de overvejelser der er gjort. Afsnittet viser, hvordan vægtcellen er specificeret.
+
 \label{subsec:loadcell}
 Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen. Derfor når der ikke er mere væske i celleopløsningsbeholderen, stopper systemet sin sorteringscyklus.
 
@@ -353,7 +366,7 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
  \label{eq:gainina3}
  \end{align}
  
- Kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur \ref{fig:loadcelldiagram}
+ Kredsløbet for INA114 og vægtcellen til arduinoen kan ses på figur \ref{fig:loadcelldiagram}.
  
   \begin{figure}[H]
 	\centering
@@ -362,19 +375,12 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
 	\label{fig:loadcelldiagram}
 \end{figure}
 
-\subsection{Sekvensdiagrammer}
-Til sidst i design dokumentet er der lavet sekvensdiagrammer for, at få overblik over de sekventielle dele af systemet til hver use case (se figur \ref{fig:sekvendisgr} for et eksempel). Sekvensdiagrammerne har været en god måde for gruppen, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
-	\caption{Sekvensdiagram for usecase 1}
-	\label{fig:sekvendisgr}
-\end{figure}
 
 
+\newpage
 \section{Fjerde udviklingsfase: Implementering og enhedstest}
 \label{subsec:Implement}
-I dette afsnit er der vist et eksempel på hvordan delene er implementeret ved at vise vægtcellen for både hardware og software. Til sidst i denne fase er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har der været mulighed for, at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig.  
+I dette afsnit er der vist et eksempel på hvordan vægtcellen er implementeret, både hardware og software mæssigt. Til sidst i implementerings fasen er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har der været mulighed for, at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig.  
 
 \subsection{Hardware}
 Efter at diagrammet og kredsløbet blev udført i design dokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt} 
