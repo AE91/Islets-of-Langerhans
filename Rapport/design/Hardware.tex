@@ -280,7 +280,7 @@ Motordriveren kan levere 600mA pr. kanal hvilket er nok til at forsyne pumpe og 
 \subsection{Ventil}
 Ventilens funktion er at sortere de langerhanske øer, fra resten af opløsningen. Det gør den ved at Arduinoen giver den besked om, at åbne og lukke for ventilen.
 
-\textbf{Specifikationer for Ventil[\citet{DH5}]:} 
+\textbf{Specifikationer for Ventil[bilag \ref{bilag:161T031}]:} 
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -301,7 +301,7 @@ Ventilens funktion er at sortere de langerhanske øer, fra resten af opløsninge
 			\textbf{Interface} & open/closed  \\ 
 			\hline	
 		\end{longtable}
-\end{center} \fxnote{ændres til den nye magnet ventil fra mikrolab}
+\end{center}
 Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
 Kravene til ventilen er, at den skal være 3 vejs med 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50 ms.
 For at kunne bruge ventilen er det vigtigt at forstå ventilens opbygning. 
@@ -313,21 +313,46 @@ For at kunne bruge ventilen er det vigtigt at forstå ventilens opbygning.
 	\caption{Magnetventil position}
 	\label{fig:ventilpos}
 \end{figure}  
-For at sorteringen af langerhanske øer sker, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra at beregne volumenet af slangen, i mellem kameraet og ventil ref(volume).
+
+For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen.En estimation er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen. På figur \ref{fig:tidsintervalventil} kan der ses en illustration af problemstillingen 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/tidsinterval.pdf}
+	\caption{Illustration af ventil timerdelayet}
+	\label{fig:tidsintervalventil}
+\end{figure}
+
 \begin{align}
-V=\pi*r^2*h=\pi*\frac{\SI{51}{\micro\metre}}{2}*5cm=0,04ml
-\end{align}
- Det vil sige at med et flow på 11,25ml/min, som er beregnet ud fra formlen \ref{eg:ohastighed}. Her ud fra kan det beregnes tiden fra kamera til ventil. 
- \begin{align}
-\frac{11,25}{60}=0,1875\text{ ml pr sek}=>\frac{0,04}{0,1875}=0.213\text{ sekunder}=213ms
+\frac{\text{Opløsningsstørrelse}}{\text{Antal øer i opløsning}} = \frac{\SI{150}{\milli\liter}}{400\text{ øer}}*30\text{ øer/minut} = \SI{11,25}{\milli\liter/minut} 
+\label{eg:ohastighed}
+\end{align}(\textit{jf. Søren Gregersen})
+
+Tiden i mellem kameraet og ventilen kan estimeres ud fra det volumenet af slangen, i i mellem de to komponenter \ref{eg:slangevolume}.
+
+\begin{align}
+V=\pi*r^2*h=\pi*(\frac{\SI{0,51}{\milli\metre}}{2})^2*\SI{50}{\milli\metre}=\SI{0,010214}{\milli\liter}
+\label{eg:slangevolume}
 \end{align}
 
-Yderligere skal ventilen åbne lidt før og lukke lidt efter. Derfor skal der også være en tid for, hvor lang tid ventilen skal være åben, dette bør testes i en enhedstest af ventilen.
+Det vil sige at med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregnet ud fra formlen \ref{eg:ohastighed} kan tiden fra kamera til ventil beregnes ved formel \ref{eq:tidsintervallet}. 
+ 
+\begin{align}
+\frac{\SI{0,010214}{\milli\liter}}{\frac{\SI{11,25}{\milli\liter/minut}}{\SI{60}{\second}}}\to\frac{\SI{0,010214}{\milli\liter}}{\SI{0,1875}{\milli\liter/s}}=\SI{0.054475}{\second}
+\label{eq:tidsintervallet}
+\end{align} 
 
-Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys} for beregninger for dem. 
+I følge bilag \ref{bilag:ventil} har ventilen et volumen på $\SI{27}{\micro\liter}$. Til at beregne tiden det tager, at tømme ventilen bruges formel \ref{eq:ventilvolume}. %\label{eq:ventilvolume}.
+
+\begin{align}
+\text{Tid for udtømning af ventilen} = \frac{\text{ventil volume}}{\text{ml pr. sekund}}=\frac{\SI{27}{\micro\liter}}{\SI{0,1875}{\milli\liter/s}}=\SI{144}{\milli\second}
+\label{eq:ventilvolume}
+\end{align}
+
+Beregninger til ventilen skal bruges i softwaren til at implementere timere til styring af ventilen. Åbnings- og lukningstid skal beregnes med i tiden til disse, se afsnit \ref{software_ventil} for implementeringen af timerne og yderligere udregninger.
 
 \newpage
- På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren, ventilen og en diode som indikator for at ventilen er åben.
+ På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren, ventilen og en diode som indikator for at ventilen er åben. Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys} for beregninger for dem.
 
 \begin{figure}[H]
 	\centering
@@ -335,7 +360,6 @@ Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran ly
 	\caption{Kredsløbsdiagram for ventil}
 	\label{fig:ventildiagram}
 \end{figure} 
-
 
 \newpage
 \subsection{Pumpe}
@@ -573,7 +597,7 @@ I \ref{eq:volt-step} viser det sig at den mindste værdi ADC kan måle er 4,9mV,
 \item Hæve udgangsspændingen fra vægtcellen 
 \end{enumerate}
 I dette tilfælde vælges punkt 2, at hæve udgangsspændingen fra vægtcellen. 
-\subsubsection*{Forstærkning af signal}
+\subsubsection{Forstærkning af signal}
 Til dette formål bruges en operationsforstærker, mere specifikt en differens operationsforstærker. En operationsforstærker består i sin mest simple funktion at forstærke et signal, men da udgangsspændingen fra vægtcellen er lav ønskes der følgende egenskaber:
 \begin{enumerate}
 \item En høj indgangsimpedans 
