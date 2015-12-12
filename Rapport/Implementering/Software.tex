@@ -99,46 +99,92 @@ Figur \ref{fig:loadcellcalib} viser den lineære funktion, samt de enkelte data 
 For at reducere støj og mindske følsomheden overfor hurtigere ændringer i indgangsspændingen er der implementeret en midling af de seneste 10 målinger. Dette er med til, at gøre konverteringen mere robust overfor støj.  
 
 \newpage
-\subsubsection{valveControl}
-I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigitalPin fra Arduino Support pakken, som bruges til at sætte pin'en høj (5V) og lav (0V). For at time hvornår ventilen skal lukke igen anvendes en timer. En timer har den fordel, at den kan køre i baggrunden og dermed ikke blokkere eksekvering af anden kode. Timeren oprettes som et timer objekt i Matlab. Til objektet kan der knyttes forskellige callback funktioner, som specificerer hvad der skal ske ved forskellige tidspunkter. Timerens \textbf{startFcn} åbner ventilen ved, at sætte pin'en høj (5V). Herefter defineres et startDelay som specificerer, hvor langt tid der skal gå før timerens egentlige callback funktion eksekveres. Det er dette delay der afgør, hvor længe ventilen er åben. Timerens \textbf{TimerFcn} sætter altså pin'en lav(0 V) for at lukke den igen. Den sidste funktion der tilknyttes timeren er dens \textbf{stopFcn}. Her slettes timerens objekt for at fjerne den fra køen. Figur \ref{fig:timer} viser rækkefølgen for hvornår de enkelte timer funktioner eksekveres. 
+\subsubsection{valveControl} \label{software_ventil}
+I denne funktion styres åbning og lukning af ventilen. Til dette anvendes funktionen writeDigitalPin fra Arduino Support pakken, som bruges til at sætte pin'en høj (5V) og lav (0V). For at time hvornår ventilen skal lukke igen anvendes 2 timer objekter. En timer har den fordel, at den kan køre i baggrunden og dermed ikke blokkerer eksekvering af anden kode i programmet. Til et timer objekt kan der knyttes 3 callback funktioner, hhv.: \textbf{startFcn}, \textbf{TimerFcn} og \textbf{stopFcn}. Callback funktionerne specificerer hvad der skal ske ved forskellige tidspunkter. Timerens \textbf{startFcn} anvendes ikke ved de 2 timer objekter. I stedet defineres et \textbf{startDelay} som specificerer, hvor langt tid der skal gå før timerens egentlige callback funktion eksekveres. Det er dette delay der afgør, hvornår ventilen skal åbne eller lukke igen. Timerens \textbf{TimerFcn} sætter altså pin'en høj(5 V) for åbning og lav(0 V) for at lukke den igen.
+Figur \ref{fig:timer} viser rækkefølgen for hvornår de enkelte timer funktioner eksekveres. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{billeder/software/timer-crop.pdf}
-	\caption{Matlab timer objekt}
+	\caption{Timer synkronisering}
 	\label{fig:timer}
 \end{figure}
-Nedenstående kode viser, hvordan denne funktionalitet er implementeret i Matlab.  
+
+Den første timers opgave er at åbne for ventilen. I denne timers \textbf{stopFcn}, startes den anden timer, som lukker ventilen igen. I ventilens design dokument, afsnit \ref{design_ventil}, blev det beregnet hvor langt tid der skulle gå fra en ø var detekteret til ventilen skulle åbne (54,475 ms). Ligeledes blev det beregnet, hvor længe ventilen skulle stå åben før dens volumen er tømt igen (144 ms). Til at beregning af timernes \textbf{startDelay} er nedenstående formler anvendt: 
+
+\begin{align}
+\text{Timer 1 delay}=54,475ms-20ms-26ms=8,475ms
+\label{eq:timerdelay1}
+\end{align} 
+\begin{align}
+\text{Timer 2 delay}=144ms-30ms-26ms= 88ms
+\label{eq:timerdelay2}
+\end{align} 
+
+Fra ventilens datablad (bilag \ref{bilag:161T031}) ses det, at åbningstiden for ventilen er op til 20ms og en lukketid på op til 30ms. Disse tider trækkes fra i begge tidsforsinkelser. Herudover trækkes forsinkelsen over seriel forbindelsen mellem Matlab og Arduinoen. Denne tid er fundet via en unittest af ventilen, som vist i figur \ref{fig:serielconn}.   
+
+I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. Som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer fint overens med Timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. 
+
+ \begin{figure}[H] \centering
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/timerdelay.png} % Left picture
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/serialconn.png} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Tid hvor ventilen er åben. Timer 1 sætter pin'en høj (5V), for herefter at starte Timer 2. Når Timer 2's tid delay er gået sættes pin'en lav (0V). Den endelige tid ventilen er åben er 112 ms.} % Left caption and label
+\label{fig:timerdelay}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Tidsforsinkelse over seriel forbindelsen mellem Matlab og Arduino. På figuren sendes skiftevis en kommando til at sætte pin'en høj (5V) og en kommando til at sætte pin'en lav (0V) til Arduinoen. Periodetiden er på 52 ms.} % Right caption and label
+\label{fig:serielconn}
+\end{minipage}
+\end{figure}
+
+
+Nedenstående kode viser, hvordan timerne er implementeret i Matlab.  
 \begin{lstlisting} 
-% Create timer - with startDelay (defined in handles.constants.timerDelay)
-t = timer('StartDelay',handles.constants.timerDelay);
+% Create timers - with startDelay (defined in handles.constants)
+tHigh = timer('StartDelay',handles.constants.tHighDelay);
+tLow = timer('StartDelay',handles.constants.tLowDelay);
 
-% StartFcn - open valve
-t.StartFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,1);
+% Assign timerfunction - to set pin HIGH (5V) to open valve and LOW (0V)
+% to close valve
+tHigh.TimerFcn = @(x,y) a.writeDigitalPin(handles.constants.valvePin,1);
+tLow.TimerFcn = @(x,y) a.writeDigitalPin(handles.constants.valvePin,0);
 
-% Assign timerfunction - to set pin LOW (0V) to close valve
-t.TimerFcn = @(x,y) handles.a.writeDigitalPin(handles.constants.valvePin,0);
-% StopFcn - deletes the timer from the queue 
-t.StopFcn = @(t) delete(t);
-% Start timer
-start(t)
+% StopFcn - starts tLow when tHigh is done executing
+tHigh.StopFcn = @(x,y)start(tLow);
+
+% Start first timer
+start(tHigh)
 
 % isletDetected boolean is set to false
 handles.isletDetected=false;
 \end{lstlisting} 
+
+Implementeringen er vedlagt i bilag \ref{bilag:matlab}.
+
 \newpage
 \subsubsection{pumpControl}
 Funktionen til styring af pumpen anvendes funktionen \textit{writePWMDutyCycle} fra Arduino support pakken. Som input til denne funktion angives pin'en og PWM værdien, som en værdi mellem 0 og 1. Som standard er pumpen sat til en flow hastighed på 50 ml/min, hvilket er svarer til en PWM værdi på 0.9. 
 
-To do
-%\subsubsection{settings}
-%To do
+
 \subsubsection{exportData}
 Denne funktion gemmer data omkring sorteringscyklussen, som en .csv fil. Opbygningen af filen er nærmere beskrevet i kravspecifikationen (\ref{subsub:software}). Til at gemme filen anvendes Matlab funktionen \textit{writetable}. Da data om sorteringen er gemt, som et struct i handles konverteres structet til en tabel med funktionen \textit{struct2table}. Som filnavn anvendes starttiden for sorteringscyklussen. Denne værdi hentes fra handles.
 
 Når filen er gemt informeres operatøren via en messageboks. 
 
+\subsubsection{areaConverter}
+Denne funktion bruges til at konvertere minimum og maksimum størrelserne defineret i systemets indstillingerne til et minimum og maksimum areal i pixels.  Indstillingsværdierne der er angivet i \SI{}{\micro\meter} skal konverteres til antal pixels. Da billederne er genereret er det ikke målt, hvor mange \SI{}{\micro\meter} der er pr. pixel, derfor er det implementeret, at 10 \SI{}{\micro\meter} svarer til 1 pixels på billedet. Nedenstående formel viser, hvordan konverteringen fra \SI{}{\micro\meter} til pixels er bestemt: 
+\begin{align}
+\text{Areal i pixels} = (\frac{\text{Diameter i \SI{}{\micro\meter}}}{\frac{2}{10}})^2*\pi
+\end{align}
+En konvertering med en diameter på 100 \SI{}{\micro\meter} giver dermed et areal på 78 pixels. Ud fra data om øerne i billederne har den mindste ø et areal på 100 pixels.  
+
 \newpage
 \subsection{GUI}
+Dette afsnit indeholder en oversigt over hvordan de forskellige GUI vinduer er implementeret.
 \subsubsection{Hovedvindue}
 \begin{figure}[H]
 	\centering
@@ -147,7 +193,6 @@ Når filen er gemt informeres operatøren via en messageboks.
 	\label{fig:finishedGUI}
 \end{figure}
 
-Beskrivelse - to do
 \subsubsection{Indstillingsvindue}
 \begin{figure}[H]
 	\centering
@@ -156,8 +201,14 @@ Beskrivelse - to do
 	\label{fig:finishedSettings}
 \end{figure}
 
-Beskrivelse - to do
 
+\newpage
+\subsection{Software enhedstest og integrationstest}
+Dette afsnit beskriver hvordan softwaren er testet i implementeringsfasen. I gennem udviklingen af de enkelte funktioner er der løbende testet om funktionerne giver de forventede outputs, som beskrevet i designdokumentet. Til dette er der anvendt breakpoints. Matlabs \textit{tic/toc} funktion er også anvendt til at sikre eksekveringen af tidskritiske funktioner ikke tager for langt tid. 
+
+Til at teste softwarens interface med Arduinoen er LED'er brugt til at koble på de pinne hvor ventil, pumpe og kameralys skal monteres. Dette gav mulighed for visuelt at se om pinnene på Arduinoen blev sat høj (5V) og lav(0V) som forventet. Herudover blev et potentiometer brugt som erstatning til vægtcellen. Dermed kunne indgangsspændingen manuelt justeres og det kunne dermed visuelt observeres at beholderens indhold blev ændret.
+
+Til sidst i integrationstesten blev de egentlige hardware komponenter koblet på Arduinoens pinne og det blev testet om softwaren fortsat kørte efter hensigten.
 %\newpage
 %\subsection{Matlab callbacks}
 %Dette afsnit beskriver callback funktionerne..

@@ -33,7 +33,7 @@ Arduino blokken er yderligere opdelt i 3 underkategorier, som vist i figur \ref{
 	\label{fig:ibd_software_arduino}
 \end{figure}
 \subsubsection{LoadCell}
-Denne funktion anvendes til, at få feedback fra loadcellen. Den læser det analoge input fra Arduinoen og sammenligner den med grænseværdien for hvornår celleopløsningsbeholderen er tom. Funktionens output er en boolean, som enten er true eller false alt efter om celleopløsningsbeholderen er tom.
+Denne funktion anvendes til, at få feedback fra loadcellen. Den læser det analoge input fra Arduinoen og sammenligner den med grænseværdien for hvornår celleopløsningsbeholderen er tom. Funktionens output er en boolean, som enten er true eller false alt efter om celleopløsningsbeholderen er tom. Herudover konverteres det analoge input til indholdet af beholderen, udtrykt i mL.
 \subsubsection{Pump Control}
 I denne funktion implementeres alt funktionalitet til styring af pumpen. Funktionen har en integer værdi som input, der specificerer flow hastigheden. Output af funktionen er et PWM moduleret signal til, at justere hastigheden på pumpen. Til dette anvendes funktionen writePWMVoltage fra Arduino Support pakken.
 \subsubsection{Valve Control}
@@ -65,7 +65,7 @@ I nedenstående liste er systemets funktioner opsummeret.
 \item cameraFeed 
 \item detectIslets 
 \end{itemize}
-Herudover skal systemets indstillinger kunne ændres, samt data om sorteringscyklussen skal logges. Til dette implementeres funktionerne settings og exportData 
+Herudover skal systemets indstillinger kunne ændres, samt data om sorteringscyklussen skal logges. Til dette implementeres funktionerne settings og exportData.
 \begin{itemize}
 \item settings 
 \item exportData 
