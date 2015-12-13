@@ -111,7 +111,7 @@ På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling e
 \newpage
  \subsection{Kameralys}
  \label{subsec:kameralys}
-Kameralyset skal hjælpe operatøren med at optimere lysforholdet til kameraet for, at maksimerer forholdene og muligheden for at detektere de langerhanske øer.  
+Kameralyset skal hjælpe operatøren med at optimere lysforholdet til kameraet for, at maksimerer forholdene og muligheden for at detektere de langerhanske øer. Testen burde være lavet med lysdioderne inde i kamerahuset, for at optimere feedbacket fra kameraet ved at ændre lysstyrken. Grundet kameraets manglende kvalitet er denne test nedprioriteret.
 
 \subsubsection{Enhedstest for Kameralyset}
 På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt} for Kameralyset er der brugt samme test kode som til pumpen se afsnit \ref{subsubsec:enhedstestmotor}. 
@@ -126,7 +126,7 @@ På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt
  
 \newpage 
 \subsection{Ikke-elektroniske dele}
-På figur \ref{fig:nonelectronic} vises en illustration af de ikke-elektroniske dele for hele systemet. De ikke-elektroniske dele består af en opløsningsningsbeholder, som navnet fortæller indeholder opløsningen med de langerhanske øer. Fra opløsningsbeholder går der en teflonslange, den er hård hvilket en fordel når den skal suge væsken op. For at en peristaltisk pumpe kan benytte skal det være en silikoneslange, fordi den er eftergivelig. For at komme fra teflonslange til silikoneslange er der brugt en adapter. Derefter føres silikone slangen til pumpen til ventilen, hvor fra der går en silikoneslange fra hver af ventilens studser. Fra ventilens studser går en silikone slange til wastebeholderen og beholderen til de isoleret øer.
+På figur \ref{fig:nonelectronic} vises en illustration af de ikke-elektroniske dele for hele systemet. De ikke-elektroniske dele består af en opløsningsningsbeholder, som navnet fortæller, indeholder opløsningen med de langerhanske øer. Fra opløsningsbeholder går en teflonslange, den er hård hvilket er en fordel når den skal suge væsken op. For at en peristaltisk pumpe kan benyttes skal det være en silikoneslange, da den er eftergivelig. Overgangen fra teflonslangen til slikoneslangen er oprettet vha. en slangeadapter. Derefter føres silikone slangen til pumpen, til ventilen, hvor fra der går en silikoneslange fra hver af ventilens studser. Silikoneslangerne fra ventilen føres videre til wastebeholderen og beholderen til de isoleret øer.
 
 \begin{figure}[H]
 	\centering
@@ -135,7 +135,7 @@ På figur \ref{fig:nonelectronic} vises en illustration af de ikke-elektroniske 
 	\label{fig:nonelectronic}
 \end{figure}
 
-Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demineraliseret vand brugt. Timianfrøene der er brugt har en størrelse på 0.4mm hvilket burde komme igennem, men frøene stopper ved ventilen. På grund af at frøene stopper ved ventilen ses det som en fejlet test, hvilket bør undersøges. I ventilens datablad \ref{bilag:161T031} står der, at ventilen har tilgange på 1mm. 
+Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demineraliseret vand brugt. Timianfrøene der er brugt har en størrelse på 0.4mm hvilket burde kunne komme igennem, men frøene stopper ved ventilen. Derfor opfattes testen af ventilen som en fejlet test. Det bør undersøges hvorfor at frøene stopper ved ventilen, i datablad \ref{bilag:161T031} står der, at ventilens indgange er på 1mm. 
 
 \newpage
 \subsubsection{Stykliste} 
@@ -169,11 +169,11 @@ Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demi
 
  
 \subsection{PCB design} 
-For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til arduino platformen. På printet er motordriveren der driver pumpen, ventilen og kameralyset. Motordriveren forsynes igennem en ekstern strømforsyning, som derved forsyner dele motordriveren styrer. I kredsløbet er der en operationsforstærker, som har til opgave at forstærke signalet fra vægtcellen og leverer det til ADCén på arduinoen. Pinheaderne er med lange ben for, at de passer ned i arduinoens pinheadere. Til at forbinde pumpen og ventilen, er der brugt stiktypen molex 5566-4 som kan trække en høj strøm. Til de to komponenter skal der kun bruges to ledninger, men for at sikre at stikkene ikke sættes forkert er der valgt et 4pin stik, hvor forbindelses benene er forskellige. Det betyder at hvis stikkene ved en fejl bliver ombyttet, vil hverken pumpen eller ventilen virke. Til kameralyset benyttes til 5 polet stik af typen molex 5268-05, stikket tåler en mindre strøm end de andre stik, men nok til kameralyset. Til vægtcellen er der valgt et stik af samme type, men i en 4 polet udgave. På printet er der lysindikatorer til hjælp med fejlfinding og service systemet. Lysindikatorer består af 3 lysdioder; LED1 viser at ventilen er åben, LED2 viser at motoren kører fremad og LED3 viser at motoren kører baglæns. Ydermere er der placeret kondensatorer parallelt med forsyningerne til at afkoble støj fra miljøet omkring systemet.
+For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til arduino platformen. På printet er motordriveren der driver pumpen, ventilen og kameralyset. Motordriveren forsynes igennem en ekstern strømforsyning, som derved forsyner delene motordriveren styrer. I kredsløbet er der en operationsforstærker, som har til opgave at forstærke signalet fra vægtcellen og leverer det til ADCén på arduinoen. Pinheaderne på printet er med lange ben for, at de passer ned i arduinoens pinheadere. Til at forbinde pumpen og ventilen, er der brugt stiktypen molex 5566-4 som kan trække en stor strøm. Til de to komponenter skal der kun bruges to ledninger, men for at sikre at stikkene ikke sættes forkert er der valgt et 4pin stik, hvor forbindelses benene er forskellige. Det betyder at hvis stikkene ved en fejl bliver ombyttet, vil hverken pumpen eller ventilen virke. Til kameralyset benyttes et 5 polet stik af typen molex 5268-05, stikket tåler en mindre strøm end de andre stik, men nok til kameralyset. Til vægtcellen er der valgt et stik af samme type, men i en 4 polet udgave. På printet er der lysindikatorer til at hjælpe med fejlfinding og service på systemet. Lysindikatorer består af 3 lysdioder; LED1 lyser når at ventilen er åben, LED2 lyser når motoren kører fremad og LED3 lyser hvis motoren kører baglæns. Ydermere er der placeret kondensatorer parallelt med forsyningerne til at afkoble støj fra miljøet omkring systemet.
 
 \newpage
 \subsubsection{PCB kredsløbsdiagram}
-På figur \ref{fig:PCBdiagram} er kredsløbet for printkortet i \textit{Eagle}. I diagrammet er der valgt at bruge GND symbolet i stedet for at forbinde signalerne til hinande, dette er gjort for at simplificere diagrammet. JP er pinheaderne der forbinder signalet til arduinoen, stik er betegnet med X, C til kondensatorer og R til modstande.
+På figur \ref{fig:PCBdiagram} er vist kredsløbet for printkortet i \textit{Eagle}. I diagrammet er der valgt at bruge GND symbolet i stedet for at forbinde signalerne til hinanden, dette er gjort for at simplificere diagrammet. JP er pinheaderne der forbinder signalet til arduinoen, stik er betegnet med X, C er kondensatorer og R er modstande.
 
 \begin{figure}[H]
 

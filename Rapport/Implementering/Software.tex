@@ -203,12 +203,17 @@ Dette afsnit indeholder en oversigt over hvordan de forskellige GUI vinduer er i
 
 
 \newpage
-\subsection{Software enhedstest og integrationstest}
+\section{Integrationstest}
+Til sidst i implementeringsfasen udføres en integrationstest, som er udført i literrationer hver gang en del har været testet. Derfor er systemet langsomt blevet samlet både hardware og software mæssig.
+
+\subsection{Software}
 Dette afsnit beskriver hvordan softwaren er testet i implementeringsfasen. I gennem udviklingen af de enkelte funktioner er der løbende testet om funktionerne giver de forventede outputs, som beskrevet i designdokumentet. Til dette er der anvendt breakpoints. Matlabs \textit{tic/toc} funktion er også anvendt til at sikre eksekveringen af tidskritiske funktioner ikke tager for langt tid. 
 
 Til at teste softwarens interface med Arduinoen er LED'er brugt til at koble på de pinne hvor ventil, pumpe og kameralys skal monteres. Dette gav mulighed for visuelt at se om pinnene på Arduinoen blev sat høj (5V) og lav(0V) som forventet. Herudover blev et potentiometer brugt som erstatning til vægtcellen. Dermed kunne indgangsspændingen manuelt justeres og det kunne dermed visuelt observeres at beholderens indhold blev ændret.
 
 Til sidst i integrationstesten blev de egentlige hardware komponenter koblet på Arduinoens pinne og det blev testet om softwaren fortsat kørte efter hensigten.
+\subsection{Hardware}
+I implementeringsfasen er hardwaren testet vha af generelle metoder ved brug af multimeter og oscilloskop. Derudover er der udarbejdet simpelt testkode til at sikre at hardwaren virker, inden det er implementeret til resten af systemet. Til sidst i hardwaren er dele integreret i et færdigt print. 
 %\newpage
 %\subsection{Matlab callbacks}
 %Dette afsnit beskriver callback funktionerne..
