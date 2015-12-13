@@ -169,7 +169,7 @@ I modsætning til v-modellen findes der også vandfaldsmodellen, hvor hver enkel
 \newpage
 
 \section{Første udviklingsfase: Koncept analyse}
-For at eftervise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapporten. I afsnittet er der eksempler fra hver af de fire udviklingsfaser. Den første fase er koncept analysen, som har primært har bestået af udarbejdning af forprojektet. I forprojektet er der kort defineret krav, bdd samt en projektplan for projektet. Projektplanen i koncept analysen kan ses på figur \ref{fig:forprojekt}
+For at eftervise at der er brugt de beskrevne metoder ovenfor, er der valgt at tage eksempler med i rapporten. I afsnittet er der eksempler fra hver af de fire udviklingsfaser. Den første fase er koncept analysen, som primært har bestået af udarbejdning af forprojektet. I forprojektet er der kort defineret krav, bdd samt en projektplan for projektet. Projektplanen i koncept analysen kan ses på figur \ref{fig:forprojekt}
 
 \begin{figure}[H]
 	\centering
@@ -177,18 +177,18 @@ For at eftervise at der er brugt de beskrevne metoder ovenfor, er der valgt at t
 	\caption{Projektplan i forprojektet}
 	\label{fig:forprojekt}
 \end{figure}
-Det er blandt andet projektet planen på figur \ref{fig:forprojekt}, som har henledt til stage gate modellen. Til sidst har koncept analysen været med til at give et overblik over hvilke komponenter der kunne være anvendelige og burde undersøges til prototypen.
+Det er blandt andet projektplanen på figur \ref{fig:forprojekt}, som har henledt til stage gate modellen. Til sidst har koncept analysen været med til at give et overblik over hvilke komponenter der kunne være anvendelige og burde undersøges til prototypen.
  
 \section{Anden udviklingsfase: Kravspecifikation og accepttest}
 \label{subsec:krav}
-For at vise et eksempel for den anden udviklingsfase i projektet, er der valgt at tage \textit{Aktør beskrivelse}, det over ordnet \textit{use case diagram}, samt et \textit{fully dressed use case} og et udpluk fra accepttesten
+For at vise et eksempel for den anden udviklingsfase i projektet, er der valgt at tage \textit{Aktør beskrivelse}, \textit{use case diagram}, samt et \textit{fully dressed use case} og et udpluk fra accepttesten
 
 
 \subsection{Aktør beskrivelse}
-Systemets primære aktør er operatøren, som står for påfyldning af celler, start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er kameraet og PC’ens filsystem. Kameraet er systemets interface til detektion af de Langerhanske øer. Filsystemet er hvor der løbende gemmes en log over sorteringsprocessen.
+Systemets primære aktør er operatøren, som står for påfyldning af celler, samt start og stop af sorteringsprocessen. Operatøren har mulighed for at interagere med systemet via en grafisk brugergrænseflade. Systemets sekundære aktør er kameraet og PC’ens filsystem. Kameraet er systemets interface til detektion af de Langerhanske øer. Filsystemet er hvor der løbende gemmes en log over sorteringsprocessen.
 \newpage
 \subsection{Use case Diagram}
-I Use case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases systemet \textit{The Cell Collector} består af. Yderligere er det vist, hvilke aktører der initiere de enkelte use cases. På venstre side er systemets primære aktør \textit{operatøren} vist, mens systemets sekundære aktører \textit{kamera} og \textit{database} er placeret i højre side. 
+I Use case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases systemet \textit{The Cell Collector} består af. Yderligere er det vist, hvilke aktører der initierer de enkelte use cases. På venstre side er systemets primære aktør \textit{operatøren} vist, mens systemets sekundære aktører \textit{kamera} og \textit{database} er placeret i højre side. 
 
 \begin{figure}[H]
 	\centering
@@ -197,7 +197,7 @@ I Use case diagrammet (figur: \ref{fig:usecase}) er der vist, hvilke use cases s
 	\label{fig:usecase}
 \end{figure}
 
-Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use cases som kan ses på nedenstående tabel. Tabellen beskriver normalforløbet og undtagelser for \textit{Start af sorteringscyklus}. 
+Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use cases, som kan ses på nedenstående tabel. Tabellen beskriver normalforløbet og undtagelser for \textit{Start af sorteringscyklus}. 
 
 \newpage 
 \subsection{Fully dressed use case for use case 1}
@@ -260,7 +260,7 @@ Efter use case diagrammet var færdigt, blev der udarbejdet fully dressed use ca
 		
 	\end{center}
 
-Efter at normalforløbet og undtagelserne er defineret, blev accepttesten lavet for den givne use case. Til hvert punkt i normalforløbet er der forberedt en test, som indeholder et krav nr, handling dvs det der skal gøres for at starte testen. Derudover er der \textit{forventet resultat}, som skal ske for at testen kan godkendes. Testmetode beskriver hvordan testen skal udføres og hvordan den godkendes. Denne test er et udsnit af accepttesten , som er udarbejdet i samarbejde kunden.
+Efter at normalforløbet og undtagelserne er defineret, blev accepttesten lavet for den givne use case. Til hvert punkt i normalforløbet er der forberedt en test, som indeholder et \textit{krav nr}, \textit{handling} som beskriver hvad der skal gøres for at starte testen. Derudover er der \textit{forventet resultat}, som skal ske for at testen kan godkendes. \textit{Testmetode} beskriver hvordan testen skal udføres og hvordan den godkendes. Denne test er et udsnit af accepttesten, som er udarbejdet i samarbejde med kunden.
 
 \subsection{Accepttest for krav 1.3}
 	\begin{center}
@@ -292,9 +292,9 @@ Resten af accepttesten for use casene kan ses i projektdokumentationen afsnit 2.
 I dette afsnit er der givet et eksempel på hvordan projektet er gået fra krav, til måder at løse projektet på. Der er blandt andet brugt BDD, IBD, flowchart samt sekvensdiagrammer til at beskrive funktioner og sammenhænge i projektet. 
 
 \subsection{BDD og IBD for hardware}
-Block definition diagram og interal block diagram over hardwaren, er i projektet brugt, til at sikre hver hardware element kan kommunikere med hinanden. Yderligere er det med til at definere specifikationerne, for at eksempelvis at indskærpe antallet af strømforsyninger.
+Block definition diagram og interal block diagram over hardwaren, er i projektet brugt, til at sikre hver hardware element kan kommunikere med hinanden. Yderligere er det med til at definere specifikationerne, for eksempelvis at indskærpe antallet af strømforsyninger.
 
-Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som Arduino den indeholder bla. underelementet motordriver. Motordriveren indeholder yderligere tre dele, som den styrer, det vil sige at pumpen, ventilen og kameralyset bliver styret i gennem motordriveren. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. Styreenheden der er defineret som Arduino indeholder bla. underelementet motordriver. Motordriveren indeholder yderligere tre dele,  det vil sige at pumpen, ventilen og kameralyset bliver styret her igennem. Udover styreenheden er der ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Den tredje underblok til \textit{The cell collector} er kameraet.
 
 \begin{figure}[H]
 	\centering
@@ -303,7 +303,7 @@ Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \t
 	\label{fig:bdd_Hardware}
 \end{figure}
 
-Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden på. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
+Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
 
 
 \begin{figure}[H]
@@ -318,7 +318,7 @@ Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne 
 I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. 
 \newpage
 \subsection{Sekvensdiagrammer}
-I design dokumentet er der yderligere lavet sekvensdiagrammer for, at få et overblik over de sekventielle dele af systemet til hver use case (se figur \ref{fig:sekvendisgr} for et eksempel). Sekvensdiagrammerne har været brugt til, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne her i skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt    dele opgaverne op i mindre opgaver.
+I design dokumentet er der yderligere lavet sekvensdiagrammer, hvilet giver overblik over de sekventielle dele af systemet til hver use case (se figur \ref{fig:sekvendisgr} for et eksempel). Sekvensdiagrammerne har været brugt til, at klargøre hvordan softwaren skal implementeres og i hvilken rækkefølge funktionerne skal eksekveres. Derudover har det været med til at danne et overblik over delene der skal implementeres i projektet, samt dele arbejdsopgaverne op i mindre opgaver.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{pdf/UC1_cropped.pdf}
@@ -331,7 +331,7 @@ I design dokumentet er der yderligere lavet sekvensdiagrammer for, at få et ove
 Det følgende afsnit er et eksempel på hvordan de enkelte hardware komponenter er blevet specificeret i design dokumentet, herunder de overvejelser der er gjort. Afsnittet viser, hvordan vægtcellen er specificeret.
 
 \label{subsec:loadcell}
-Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen. Derfor når der ikke er mere væske i celleopløsningsbeholderen, stopper systemet sin sorteringscyklus.
+Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen. Systemet stopper sin sorteringscyklus når der ikke længere er væske i celleopløsningsbeholderen.
 
 \textbf{Specifikationer for Vægtcelle[\citet{DH7}]:} 
 \begin{center}
@@ -348,14 +348,14 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I design fasen er der også beskrevet et teori afsnit for at dokumenter den opnået viden gruppe har fået, design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det kan ses i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført til at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående ud fra design afsnittet (se projektdokumentation afsnit 4.2.1 \fxnote{Tjek ref} for hele afsnittet. 
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I designfasen er der udarbejdet et teori afsnit for at dokumentere den opnået viden gruppen har fået. Design afsnittet indeholder desuden også beregninger og kredsløbsdiagrammer. Det er illustreret i den overstående tabel, at vægtcellens output er i millivolt hvilket har medført at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker, for at vise et eksempel, er der trukket nedenstående afsnit ud fra design dokumentet (se projektdokumentation afsnit 4.2.1 \fxnote{Tjek ref} for hele afsnittet. 
 
-I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
+I databladet \ref{bilag:INA114} til INA114 vises det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
  G=(1+\frac{50K\Omega}{R_{G}})
  \label{eq:gainina1}
  \end{align} 
- I dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
+ I dette projekt skal der bruges et gain på $\frac{4,9V}{5mV}=980$, 4,9V for ikke at komme i mætning på arduinoens ADC og 5mV, da det er den maksimale spænding vægtcellen kan give, ved 5V forsyning.
  \begin{align}
  R_{G}=\frac{50k\Omega}{980-1}=51\Omega
  \label{eq:gainina2}
@@ -380,12 +380,10 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
 \newpage
 \section{Fjerde udviklingsfase: Implementering og enhedstest}
 \label{subsec:Implement}
-I dette afsnit er der vist et eksempel på hvordan vægtcellen er implementeret, både hardware og software mæssigt. Til sidst i implementerings fasen er der lavet en integrationstest. Integrationstesten for hardwaren er bestået ved at lave et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har der været mulighed for, at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig.  
+I dette afsnit er der vist et eksempel på hvordan vægtcellen er implementeret, både hardware og software mæssigt. Til sidst i implementerings fasen er der lavet en integrationstest. Integrationstesten for hardwaren er bestået af udarbejdelse i et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har det været mulighed at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig. Enhedstesten er vist i afsnit 4.3.1 i projektdokumentation.  \fxnote{tjek ref}
 
 \subsection{Hardware}
-Efter at diagrammet og kredsløbet blev udført i design dokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt} 
-
-Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se figur \ref{fig:loadcelltest} for test opstilling
+Efter at diagrammet og kredsløbet er fastlagt i designdokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt}. Se figur \ref{fig:loadcelltest} for testopstilling.
 
   \begin{figure}[H]
 	\centering
@@ -418,11 +416,11 @@ Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med c
 \end{figure}
 
 \subsection{Kalibrering af vægtcellen}
-Funktionen til vægt cellen er implementeret efter beskrivelsen i design dokumentet i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeres ved en lineær model:
+Funktionen til vægtcellen er implementeret efter beskrivelsen i designdokumentet i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}. Dens funktion er, at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeret ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
 \end{align}
-Det analoge input ganges altså med en faktor \textit{a} plus et offset \textit{b} for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen \textit{a} og skæringen \textit{b}.
+Det analoge input ganges med en faktor \textit{a} plus et offset \textit{b} for at konvertere spænding til antal ml. Nedenstående tabel viser indgangsspændingen for forskellige mængder i beholderen. Udfra disse data er der lavet en lineær regression for at finde hældningen \textit{a} og skæringen \textit{b}.
 \begin{center}
 		\begin{longtable}{ | m{3cm} | m{3cm}| } 
 			\hline
@@ -462,7 +460,7 @@ a = 276.14
 \begin{align}
 b = -539.02
 \end{align}
-Den endelige funktion er dermed givet ved:
+Den endelige funktion er givet ved:
 \begin{align}
 ml = 276.140*input-539.02
 \end{align}
@@ -479,5 +477,5 @@ For at reducere støj og mindske følsomheden overfor hurtigere ændringer i ind
 
 
 \subsection{Integrationstest}
-Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udførte. Efter samlingen af hardwaren er det verificeret at kredsløbet virker, hvor efter der er designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
+Til sidst i denne fase er der udført en integrationstest, hvor hardwaren er samlet, efter alle enkle enhedstest er udført. Efter samlingen af hardwaren er det verificeret at kredsløbet virker, hvor efter der er designet et PCB til samlingen af hardwaren. Derefter er integrationen med softwaren sket og igen er det verificeret, at det fungerer til en færdig prototype. 
 
