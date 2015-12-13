@@ -168,22 +168,24 @@ Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demi
 \end{center}
 
  
- 
- 
- 
 \subsection{PCB design} 
-For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til arduino platformen. På figur \fxnote{beregninger osv.}
+For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til arduino platformen. På printet er motordriveren der driver pumpen, ventilen og kameralyset. Motordriveren forsynes igennem en ekstern strømforsyning, som derved forsyner dele motordriveren styrer. I kredsløbet er der en operationsforstærker, som har til opgave at forstærke signalet fra vægtcellen og leverer det til ADCén på arduinoen. Pinheaderne er med lange ben for, at de passer ned i arduinoens pinheadere. Til at forbinde pumpen og ventilen, er der brugt stiktypen molex 5566-4 som kan trække en høj strøm. Til de to komponenter skal der kun bruges to ledninger, men for at sikre at stikkene ikke sættes forkert er der valgt et 4pin stik, hvor forbindelses benene er forskellige. Det betyder at hvis stikkene ved en fejl bliver ombyttet, vil hverken pumpen eller ventilen virke. Til kameralyset benyttes til 5 polet stik af typen molex 5268-05, stikket tåler en mindre strøm end de andre stik, men nok til kameralyset. Til vægtcellen er der valgt et stik af samme type, men i en 4 polet udgave. På printet er der lysindikatorer til hjælp med fejlfinding og service systemet. Lysindikatorer består af 3 lysdioder; LED1 viser at ventilen er åben, LED2 viser at motoren kører fremad og LED3 viser at motoren kører baglæns. Ydermere er der placeret kondensatorer parallelt med forsyningerne til at afkoble støj fra miljøet omkring systemet.
 
+\newpage
 \subsubsection{PCB kredsløbsdiagram}
+På figur \ref{fig:PCBdiagram} er kredsløbet for printkortet i \textit{Eagle}. I diagrammet er der valgt at bruge GND symbolet i stedet for at forbinde signalerne til hinande, dette er gjort for at simplificere diagrammet. JP er pinheaderne der forbinder signalet til arduinoen, stik er betegnet med X, C til kondensatorer og R til modstande.
 
 \begin{figure}[H]
+
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/hardware/Diagram.png}
 	\caption{Diagram for printkortet}
 	\label{fig:PCBdiagram}
 \end{figure}
 
+\newpage
 \subsubsection{PCB toplayout}
+På topplanet vist på \ref{fig:PCBtoplayout} er komponenterne til printet placeret. Der er forsøgt at lave de fleste forbindelser i dette plan for, at undgå brud i groundplanet. Sliketrykket er ikke lavet, som vist på figur \ref{fig:PCBtoplayout} fordi det ikke laves på Ingeniørhøjskolens print produktion. Det er bla. derfor at alt den beskrivende tekst er lavet i top kobber laget. 
 
 \begin{figure}[H]
 	\centering
@@ -192,7 +194,9 @@ For at samle hardwaren i projektet er der lavet et printkort formet, som et shie
 	\label{fig:PCBtoplayout}
 \end{figure}
 
+\newpage
 \subsubsection{PCB bundlayout}
+I bundlaget er der valgt at bruge et groundplan af følgende grunde; for at mindske indstrålingen af EMC, bruge den som køleplade til L293D og mindske fremførelsen af ground banerne. 
 
 \begin{figure}[H]
 	\centering
@@ -201,6 +205,7 @@ For at samle hardwaren i projektet er der lavet et printkort formet, som et shie
 	\label{fig:PCBbundlayout}
 \end{figure}
 
+\newpage
 \subsubsection{Stykliste til PCB: 30-77-1}
 Til samling af printet skal der bruges komponenterne i nedenstående tabel. 
 \begin{center}
@@ -241,7 +246,7 @@ Til samling af printet skal der bruges komponenterne i nedenstående tabel.
 		\end{longtable}
 \end{center}
 
-\subsubsection{Stykliste stik til print}
+\subsubsection{Stykliste for stik til print}
 For at sætte pumpe, ventil, vægtcelle og kameralyset til printkortet er komponenterne i nedenstående tabel nødvendige. 
 \begin{center}
 		\begin{longtable}{ | m{6cm} | m{4cm}| m{2cm}| } 
@@ -261,6 +266,4 @@ For at sætte pumpe, ventil, vægtcelle og kameralyset til printkortet er kompon
 		\end{longtable}
 \end{center}
 
-beregninger her til
- \fxnote{mangler}
  
