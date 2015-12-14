@@ -4,13 +4,13 @@ Dette afsnit skal være med til at dokumentere hardwaren i systemet \textit{the 
 
 \subsection{Læsevejledning til hardware}
 %læsevejledning
-Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, afsnittet ligger sig tæt op af kravspecifikationen. Da det er kravene i kravspecifikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse af hvad det indeholder. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent, samt begrundelser og argumentationer for valgende, i den skrevne rækkefølge. Til sidst er der et teori afsnit til hver komponent, hvilket kan springes over hvis viden her om allerede er etableret. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
+Da dette afsnit er en udspecificering af hvilke specifikationer hardware komponenterne består af, ligger afsnittet sig tæt op af kravspecifikationen. Da det er kravene i kravspecifikationen, der ligger til grunde for de valgte hardware dele. I afsnittet findes der forskellige diagrammer der er med til at beskrive opbygningen, og kommunikationen af delene. Til hvert diagram vil der være en kort beskrivelse til indholdet. Hvert afsnit indeholder funktionalitet, specifikationer omkring det enkle komponent, samt begrundelser og argumentationer for valgende, i den skrevne rækkefølge. Til sidst er der et teori afsnit til hver komponent, hvilket kan springes over hvis viden her om allerede er etableret. Afsnittene kan godt læses i dele, men for en komplet forståelse bør afsnittene læses i rækkefølge. 
 
 %Det gamle afsnit, måske skal det være i et leverandør afsnit 
 % Dette afsnit indeholder den nødvendige viden hardware delene i systemet Denne blok beskriver forbindelserne mellem diverse hardware med et internal block definition diagram. Dette diagram er med til at sikre at delene kan kommunikere sammen, uden unødvendige adaptere og omformere. Yderligere er der beskrevet hvordan information søgning, og viden er fundet omkring komponenterne. Primær kan det siges at hardware delene er fundet på Ebay.com(kilder til de konkrete sider?(måske under hvert produkt?)), for at hold budgettet i bund. Den manglende datablade og lidt tvivlsomme kvalitet er accepteret, da dette projekt først og fremmest er  ”\textit{proof of concept}” projekt.
 \subsection{Leverandør af produkter}
 Når der skal vælges leverandør til et produkt er det vigtigt, at de er pålidelige. Da delene skal kunne leveres i hele produktets levetid. Specielt hvis produktet kræver en stor dokumentation og godkendelse, som for eksempel medicinsk udstyr. Når produktet skal sættes i produktion bør der være flere leverandører, som kan leverer det samme produkt. Det er vigtigt for, at dokumentationen ikke skal ændres, fordi at en lille del af produktet er udgået af underleverandørens portefølje.
-Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(\ref{subsec:Kamera}) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved \citep{Mikrolab}, herunder slanger og beholdere. 
+Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvilke leverandører der er valgt. Primært er de fleste dele fundet på Ebay, for netop at holde budgettet og dermed priserne i bund. Dette medfører selvfølgelig at kvaliteten er nedprioriteret, som et kompromis er kameraet(\ref{subsec:Kamera}) i projektet købt ved Farnell. Farnell er en mere pålidelig forhandler end Ebay. At produkterne er købt på Ebay, vil medfører at der vil komme ændringer af dokumentation for  at hæve kvaliteten på produktet i fremtiden. Ydermere er generelle ikke elektroniske komponenter købt ved Mikrolab, herunder slanger og beholdere. 
 
      
 %gamle afsnit:
@@ -23,8 +23,9 @@ Til systemet \textit{The cell collector}, har budgettet gjort stort præg af hvi
  
  
  \newpage
-\subsection{Block Definition Diagram}  \label{sub:bdd_hardware}
-Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, den indeholder de elementer arduinoen styrer bla motor shieldet. Motor shieldet indeholder yderligere to dele, som den styrer. Det vil sige at pumpen og ventilen bliver styret i gennem motor shieldet. Udover styreenheden er der også ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
+\subsection{Block Definition Diagram}  
+\label{sub:bdd_hardware}
+Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \textit{The cell collector} indeholder af hardware elementer. Hierarkiet starter øverst med \textit{The cell collector}, som indeholder tre mindre hardware dele. styreenheden der er defineret som en arduino, der indeholder de elementerne styret af arduinoen bla. motordriveren . Motordriveren indeholder yderligere tre dele, som den styrer. Det vil sige at pumpen, ventilen og kameralyset bliver styret i gennem motordriveren. Udover styreenheden er der ikke elektriske dele, som beholdere og førringsveje til opløsningen med langerhanske øer. Til sidst er kameraet også en af de 3 under dele til \textit{The cell collector}.
 
 \begin{figure}[H]
 	\centering
@@ -35,7 +36,7 @@ Nedenstående BDD \ref{fig:bdd_Hardware} giver et overordnet overblik i, hvad \t
 	
 \newpage
 \subsection{Internal block Diagram} 
-Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden på. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
+Nedenstående IBD \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan de forskellige komponenter interagerer med hinanden. Diagrammet er brugt til, at der tidligt i udviklingsforløbet bliver defineret hvilke spændinger og signaltyper systemet skal indeholde. Systemet skal indeholde bestemte typer for, at kunne kommunikere med de interne dele.
 
 
 \begin{figure}[H]
@@ -113,7 +114,7 @@ Tabellen nedenfor beskriver signalerne der findes i systemet, denne tabel anvend
 			\hline
 			A-Signal(V) & Registrering af fysiske værdier & 0-5mV & I-6 & A-A0 & Analog fra amplifier\\ 
 			\hline
-			D-Signal() & Styring af ventil & 4.9-5.1V & A-D8 &M-10 & \\ 
+			D-Signal(V) & Styring af ventil & 4.9-5.1V & A-D8 &M-10 & \\ 
 			\hline
 			0V or 12V PWM & \multirow{2}{*}{Forsyning til pumpe} & 0 eller 12V & M-3 & P-2 & \\
 			& & & M-7 & P-1 & \\
@@ -161,7 +162,7 @@ Kameraet[\citet{DH2}] skal detektere de langerhanske øer i systemet, hvilket g�
 	\end{center}
 Da Langerhanske øer har en størrelse på \SI{100}{\micro\metre} til \SI{300}{\micro\metre}, skal kameraet have en opløsning så øerne kan detekteres. Opløsningen på kameraet er valg ud fra:
 \begin{align}
-\text{Opløsning} = \frac{\text{Afstand}}{\text{Objektstørrelse}} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} 
+\text{Opløsning} = \frac{\text{Afstand}}{\text{Objektstørrelse}} = \frac{\SI{10}{\centi\metre}}{\SI{100}{\micro\metre}} =1Mp
 \end{align} \citep[s.5]{DH1}
 afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut maksimale afstand fra øerne. Dertil skal der kunne ses flere detaljer end ned til \SI{100}{\micro\metre}, for at kunne detektere de langerhanske øer. Derfor er der valgt et kamera med en opløsning på 2M pixels. Da de Langerhanske øer er lysere og har et andet fluorescens niveau end resten af vævet vil et kamera uden farver også være anvendeligt. Da systemet skal kunne sortere 30 langerhanske øer i minuttet, er det vurderet at en standard frame rate vil være passende. Til projektet er der taget et valg mellem 3 kamera, det valgte er listet oven over og de 2 fra valgte er i tabellen her under.
 
@@ -213,7 +214,7 @@ afstanden fra objektet er vurderet ud fra, hvor langt kameraet er i den absolut 
 		\end{longtable}
 	\end{center}
 	
-Prisen for det indkøbte Kamera var 264,15kr., hvilket har været på et middel prisniveau ud fra de tre kamera. Grunden til valget af det Indkøbte præger af prioritering af et ordenligt datablad og et stramt budget.
+Prisen for det indkøbte Kamera var 264,15kr., hvilket har været på et middel prisniveau ud fra de tre kamera. Valget af kameraet gør præg af prioritering for et ordenligt datablad og et stramt budget.
 
 %Kameraet skal detektere de langerhanske øer, når de kommer forbi i slangen.  Da de langerhanske øer skiller sig ud ved at være mere lyse end resten af vævet, vil det være underordnet om kameraet er et farve kamera. Da systemet ikke skal operere under en stor hastighed er en standard frame rate valgt på 30 f/s. Kameraet opløsningen er valgt ud fra, at det skal kunne se de langerhanske øer med en størrelse på 100-300um. Til bestemmelse til dette er der brugt følgende formel:
  %\fixme{Mangler formel}
@@ -252,7 +253,7 @@ Microcontrolleren skal være styrerenheden i systemet, det betyder at den skal s
 Arduino er en open source platform til fremstilling af prototype print, med en ATmega328P microcontroller. Arduino platformen er valgt da Matlab understøtter interaktion via en Support package. Boardet er brugt i et stort omfang omkring i verden. Derfor er det en platform der er nemt tilgængelig og forholdsvis prisvenlig, samt at der findes en stor mængde dokumentation omkring emnet. Da det er en open source platform, kan der købes forskellige versioner som ikke er originaler. Arduino UNO er passende til dette system, da det er en forholdsvis simpel opgave microcontrolleren skal håndtere. Da systemet bruger computerens hukommelse og det meste er koden her på. Antallet af digitale og analoge porte er passende med den nuværende mængde af komponenter der skal styres. 
 
 \subsection{Motordriver}
-Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen til systemet. Det skal den fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsynes i gennem motor shieldet. Motordriveren skal også forsyne ventilen. 
+Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen til systemet. Det skal den fordi Arduinoen ikke kan trække pumpen alene, derfor skal der en ekstern forsyningskilde på, som forsynes i gennem motordriveren. Motordriveren skal også forsyne ventilen og kameralyset. 
 
  \textbf{Specifikationer for Motordriver[bilag \ref{bilag:L293D}]:} 
 \begin{center}
@@ -274,7 +275,7 @@ Motordriveren skal hjælpe microcontrolleren med, at styre pumpen og ventilen ti
 			\hline	
 		\end{longtable}
 \end{center}
-Motordriveren kan levere 600mA pr. kanal hvilket er nok til at forsyne pumpe og ventil. Derudover køres der PWM til den som gives videre til pumpe og ventil. Motordriveren har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm. Ydermere giver den også mulighed for at overvåge strømforbruget på dens kanaler. Det kan være med til at beskytte pumpens motor.
+Motordriveren kan levere 600mA pr. kanal, hvilket er nok til at forsyne pumpe, ventil og kameralyset. Derudover gives der et PWM-signal til motordriveren, som gives videre til pumpe, ventil pg kameralyset. Motordriveren har desuden også den fordel, at den er galvanisk adskilt fra Arduinoen. og derved ikke kan nedlægge Arduinoen mm.
 
 
 \subsection{Ventil} \label{design_ventil}
@@ -302,10 +303,10 @@ Ventilens funktion er at sortere de langerhanske øer, fra resten af opløsninge
 			\hline	
 		\end{longtable}
 \end{center}
-Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig, forsvinder hvis kammeret pludseligt bliver stort. Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
+Ventilen er en vigtig del af systemets hardware, da det er dens ansvar at sortere de detekterede øer fra resten af væsken. Det er svært at finde ventiler med \SI{500}{\micro\metre} studser. Det kan godt lade sig gøre at få adaptere så større ventiler kan bruges, men sporbarheden omkring hvor den enkelte ø befinder sig forsvinder hvis kammerets volumen bliver for stort. Der er utrolig stor variation i kvalitet og pris på magnetventiler. Ventilen er et hardware, hvor der kan bruges meget tid og mange penge i projektet.
 Kravene til ventilen er, at den skal være 3 vejs med 1 tilgang og 2 udgange, yderligere skal studserne kunne tilpasses slange størrelsen, være til væske og have en lukke/åbne tid under 50 ms.
 For at kunne bruge ventilen er det vigtigt at forstå ventilens opbygning. 
- En magnetventil virker på den måde at den består af en spole, der danner et magnetfelt når der bliver påsat spænding og derved trækker et stempel til sig. Det får ventilen til at åbne ved hjælp af en membran. En trevejs magnetventil, som den brugte i dette projekt virker på samme måde. Men hvor skifter position er designet så der altid er en åben. Derfor vil opløsningen løbe ud i wastebeholderen når der ikke er en langerhanske ø, men kommer der en vil den skifte position, hvorved de bliver frasorteret. Se figur \ref{fig:ventilpos} for en illustration af en 3 vejs magnetventil.
+ En magnetventil virker på den måde, at der er en spole der danner et magnetfelt når der bliver påsat spænding og derved trækker et stempel til sig. Det får ventilen til at åbne ved hjælp af en membran. En trevejs magnetventil, som den brugte i dette projekt virker på samme måde. Forskellen ved en 3-vejs er at en skifter position er designet så der altid er en åben. Dette gør at opløsningen vil løbe ud i wastebeholderen når der ikke er en langerhanske ø, men kommer der en vil den skifte position, hvorved de bliver frasorteret. Se figur \ref{fig:ventilpos} for en illustration af en 3 vejs magnetventil.
 
 \begin{figure}[H]
 	\centering
@@ -314,7 +315,7 @@ For at kunne bruge ventilen er det vigtigt at forstå ventilens opbygning.
 	\label{fig:ventilpos}
 \end{figure}  
 
-For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen.En estimation er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen. På figur \ref{fig:tidsintervalventil} kan der ses en illustration af problemstillingen 
+For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af hastigheden det tager for en langerhansk ø, at komme fra kameraet til ventilen. En estimation er beregnet igennem nedenstående formler. Kravet fra kunden hedder 30 øer i minuttet, derfor skal systemet som minimum have en flow hastighed på 11,25 ml/min. Se formel \ref{eg:ohastighed} for udregningen. På figur \ref{fig:tidsintervalventil} kan der ses en illustration af problemstillingen 
 
 \begin{figure}[H]
 	\centering
@@ -328,7 +329,7 @@ For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning 
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
 
-Tiden i mellem kameraet og ventilen kan estimeres ud fra det volumenet af slangen, i i mellem de to komponenter \ref{eg:slangevolume}.
+Tiden imellem kameraet og ventilen kan estimeres ud fra slangens volumen, imellem de to komponenter \ref{eg:slangevolume}.
 
 \begin{align}
 V=\pi*r^2*h=\pi*(\frac{\SI{0,51}{\milli\metre}}{2})^2*\SI{50}{\milli\metre}=\SI{0,010214}{\milli\liter}
@@ -342,7 +343,7 @@ Det vil sige at med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregne
 \label{eq:tidsintervallet}
 \end{align} 
 
-I følge bilag \ref{bilag:ventil} har ventilen et volumen på $\SI{27}{\micro\liter}$. Til at beregne tiden det tager, at tømme ventilen bruges formel \ref{eq:ventilvolume}. %\label{eq:ventilvolume}.
+Ifølge bilag \ref{bilag:ventil} har ventilen et volumen på $\SI{27}{\micro\liter}$. For at beregne tiden det tager, at tømme ventilen bruges formel \ref{eq:ventilvolume}. %\label{eq:ventilvolume}.
 
 \begin{align}
 \text{Tid for udtømning af ventilen} = \frac{\text{ventil volume}}{\text{ml pr. sekund}}=\frac{\SI{27}{\micro\liter}}{\SI{0,1875}{\milli\liter/s}}=\SI{144}{\milli\second}
@@ -352,7 +353,7 @@ I følge bilag \ref{bilag:ventil} har ventilen et volumen på $\SI{27}{\micro\li
 Beregninger til ventilen skal bruges i softwaren til at implementere timere til styring af ventilen. Åbnings- og lukningstid skal beregnes med i tiden til disse, se afsnit \ref{software_ventil} for implementeringen af timerne og yderligere udregninger.
 
 \newpage
- På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren, ventilen og en diode som indikator for at ventilen er åben. Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys} for beregninger for dem.
+ På figur \ref{fig:ventildiagram} kan der ses et diagram over arduinoen, motordriveren, ventilen og en diode som indikator for at ventilen er åben. Ligesom ved motoren er det også her nødvendigt, at sætte en modstand foran lysdioden. Modstanden er af samme type som til kameralyset se \ref{subsec:kameralys1} for beregninger af dem.
 
 \begin{figure}[H]
 	\centering
@@ -363,7 +364,7 @@ Beregninger til ventilen skal bruges i softwaren til at implementere timere til 
 
 \newpage
 \subsection{Pumpe}
-Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til at kameraet kan nå at detekterer en ø.
+Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet. Flowet skal være lavt nok til, at kameraet kan nå at detekterer en ø.
 
 \textbf{Specifikationer for Pumpe[\citet{DH8}]:} 
 \begin{center}
@@ -382,7 +383,7 @@ Pumpen skal skabe det nødvendige flow i væsken fra det ene punkt til det andet
 		\end{longtable}
 \end{center}
 
-Det er et krav at pumpens flow hastighed er variabel, så flowet kan justeres. Der findes mange forskellige pumpetyper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe som virker ved at klemme på slangen og derved skabe et flow, det skal dog undersøges hvordan de langerhanske øer vil opfører sig ved sådan en pumpe. Undersøgelserne bør bestå af om de langerhanske øer tager skade ved, at pumpen klemmer på slangen.
+Det er et krav at pumpens flow hastighed er variabel, derfor kan flowet justeres. Der findes mange forskellige pumpetyper til formålet, herunder stempel pumper, peristaltiske pumper og vakuum pumper. Der er bestilt en peristaltisk pumpe, som virker ved at klemme på slangen og derved skabe et flow, det skal dog undersøges hvordan de langerhanske øer vil opfører sig ved denne pumpe. Undersøgelserne bør bestå af om de langerhanske øer tager skade ved, at pumpen klemmer på slangen.
 
 \subsubsection{Motordriver}
 Til at drive pumpen er det nødvendigt med en motordriver, fordi arduinoen langt fra kan leverer den nødvendige strøm til pumpen. Kravet til motordriveren er, at den kan trække pumpen, samt stadig have mulighed for regulering af pumpens hastighed.
@@ -399,13 +400,13 @@ Motordriverens opgaver er forsyne motoren, i sin simple form skal L293D tage sig
 \subsubsection{Hastighedscontrol af pumpe}
 Da det er svært at finde en pumpe der præcis opfylder kravet til hastigheden i dette system, grundet de 30 øer i minuttet(\ref{subsec:Kvalitetskrav}.1)
 \begin{align}
-\frac{\text{Opløsningsstørrelse}}{\text{Antal øer i opløsning}} = \frac{150}{400}*30 = 11,25ml/min
+\frac{\text{Opløsningsstørrelse}}{\text{Antal øer i opløsning}} = \frac{150}{400}*30 = 11,25mL/min
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
 Der er 3 primært metoder til, at styre hastigheden på en DC-motor \citep{ELengbog}s.810.
 
-1. Indsætte modstand i kredsløbet før motoren er koblet til.
-Denne metode kan bruge på alle typer af motorer. En simpel måde er at gøre det på er, at sætte en variabel modstand i serie med motoren for, at styre hastigheden. Ulemperne ved dette kredsløb er at ,forbruget vil være ens ved den højeste hastighed og den laveste. Det vil det fordi modstanden vil blot omsætte energien til varme, hvilket vil være spild af energi. Se figur \ref{fig:motormodstand}, princippet er baseret på KVL.
+1. Indsætte modstand i kredsløbet før motoren er kobles til.
+Denne metode kan bruges på alle typer af motorer. En simpel måde at gøre det på er, at sætte en variabel modstand i serie med motoren for at styre hastigheden. Ulemperne ved dette kredsløb er, at forbruget vil være ens ved den højeste hastighed og den laveste. Fordi modstanden vil blot omsætte energien til varme, hvilket vil være spild af energi. Se figur \ref{fig:motormodstand}, princippet er baseret på KVL.
 
 \begin{figure}[H]
 	\centering
@@ -415,7 +416,7 @@ Denne metode kan bruge på alle typer af motorer. En simpel måde er at gøre de
 \end{figure}
 
 2. Variere strømmen der tilføres motoren, hvor spændingen holdes konstant.
-Denne metode minder om den overstående, men i stedet for serie kobles den variable modstand parallelt, som det kan ses på figur \ref{fig:motorcurrent}. Ulempen ved dette kredsløbt er at når motoren skal køre ved lav hastighed, er modstanden lille og derved tæt på en kortslutning derfor er det vigtigt, at kredsløbet er designet rigtigt. Princippet er baseret på KCL.
+Denne metode minder om den overstående, men i stedet for serie kobles den variable modstand parallelt, som det kan ses på figur \ref{fig:motorcurrent}. Ulempen ved dette kredsløb er, at når motoren skal køre ved lav hastighed, er modstanden lille og derved tæt på en kortslutning derfor er det vigtigt, at kredsløbet er designet rigtigt. Princippet er baseret på KCL.
 
 \begin{figure}[H]
 	\centering
@@ -423,9 +424,6 @@ Denne metode minder om den overstående, men i stedet for serie kobles den varia
 	\caption{Kredsløbsdiagram for Motor med variable strøm}
 	\label{fig:motorcurrent}
 \end{figure}
-
-\fxnote{hvis tiden er til det, kan der uddybes med generel motor teori som opbygning mm. Derud over kunne der sagtens lave nogle formler også til generelle motorer, så som moment mm.}
-
 
 3. Variere spændingen der tilføres motoren periodevis, hvor strømmen holdes konstant.
 Konceptet i denne metode er at have en konstant forsyning, som slukkes og tændes for, sagt på en simpel måde. Dvs. at der sidder en kontakt i mellem strømforsyningen og motoren, der tændes og slukkes. Kredsløbet for dette kan stilles op som figur \ref{fig:motorkontakt} og giver et signal som på figur \ref{fig:onoffwave}
@@ -452,13 +450,13 @@ Konceptet i denne metode er at have en konstant forsyning, som slukkes og tænde
 V_T=V_S \frac{T_{on}}{T_{period}}
 \label{eq:VT}
 \end{align}
-Ud fra overstående formel (\ref{eq:VT}) ses det, at gennemsnit spændingen og derved også hastigheden på motoren styres ved $T_{on}$ altså hvor langtid kontakten er tændt. Denne form for styring af en motor, kaldes også pulse width modulation.
+Ud fra overstående formel (\ref{eq:VT}) ses det, at gennemsnit spændingen og derved styres hastigheden af motoren ved $T_{on}$, hvor langtid kontakten er tændt. Denne form for styring af en motor, kaldes pulse width modulation.
 
 
 
 \paragraph{Pulse width modulation} \phantom{mmmmmmmmmmmmmmmmmkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkmmmmmmmmmmmmmmmmmmmmmm}
 
-Pulse width modulation(PWM) er en meget brugt metode som kan bruges til, at styre hastigheden på en DC motor. Dette gøres ved at tænde og slukke for en digital udgang. Det er duty cyklussen der får hastigheden til at varierer, dvs. at det er tiden hvor det firkantede signal er "højt" der bestemmer hastigheden. Da strømforsyningen er 12V og motoren kun kan tåle 6V, betyder det at duty cyklussen ikke må overstige 50\%, da det vil give en højere gennemsnits spænding end 6V, hvilket er motorens maksimale spænding. Se figur \ref{fig:pwmsignal} for illustration af PWM duty cyklusser og gennemsnit spændinger. PWM styring kan bruges til blandt andet dæmning af dioder, generering af lydsignaler og styring af motorer \fxnote{højere fagligt sprog og niveau og nogle gode referencer}. 
+Pulse width modulation(PWM) er en meget brugt metode, som kan bruges til at styre hastigheden på en DC motor. Dette gøres ved at tænde og slukke for en digital udgang. Det er duty cyklussen der får hastigheden til at varierer, dvs. at det er tiden, hvor det firkantede signal er "højt" der bestemmer hastigheden. Se figur \ref{fig:pwmsignal} for illustration af PWM duty cyklusser og gennemsnit spændinger. PWM styring kan bruges til blandt andet dæmning af dioder, generering af lydsignaler og styring af motorer. 
 
  \begin{figure}[H]
 	\centering
@@ -467,7 +465,7 @@ Pulse width modulation(PWM) er en meget brugt metode som kan bruges til, at styr
 	\label{fig:pwmsignal}
 \end{figure}
 
-Der er flere metoder, hvor dette kan implementeres vha. arduinoen. Den mest simple metode er $analogWrite(pin, dutyCycle);$ hvor dutycycle er en værdi mellem 0 og 255 og pin er en af de digital udgange med PWM. Dette er simpelt, men der er ingen control over frekvens mm. 
+Der er flere metoder, hvor dette kan implementeres vha. arduinoen. Den mest simple metode er $analogWrite(pin, dutyCycle);$ hvor \textit{dutycycle} er en værdi mellem 0 og 255 og \textit{pin} er en af de digital udgange med PWM. Dette er simpelt, men der er ingen control over frekvens mm. 
 
 Manuel PWM implementering er en anden metode, der kan implementeres således:
 
@@ -486,8 +484,8 @@ void loop()
 }
 \end{lstlisting}
 
-Her sættes pin 13 til \textit{høj}, hvor efter der ventes 100 mikro sekunder. Derefter sættes pin 13 \textit{lav} og der ventes 900 mikro sekunder. Ved denne metode kan alle digitale udgange bruges og ikke kun dem med PWM. Dog er processeren brugt hele tiden da den også bruges når der ventes. Det vil sige at den ikke kan bruges til andet samtidigt, hvilket ikke kan bruges i projektet.
-Microcontrolleren der sidder på arduinoen indeholder 3 timere, som kan bruges til PWM generering.  Måden dette virker på er at timeren går fra 0 til 255, hvis $Timer=0$ sættes outputtet højt, hvor den tæller til enten 255 og slukker hvilket vil skabe en duty cyklus på 100\%. Derfor kan der defineres en værdi hvor der slukkes mellem 0 og 255. Ydermere findes der scalar (1, 8, 64, 256 eller 1024 som divideres med arduinoens clock frekvens. Alt dette konfigureres ved bits i registre (TCCRnA og TCCRnB) på microcontrolleren. Et eksempel på dette kunne være: 
+Her sættes pin 13 til \textit{høj}(5V ved arduino), hvor efter der ventes 100 mikro sekunder. Derefter sættes pin 13 \textit{lav}(0V) og der ventes 900 mikro sekunder. Ved denne metode kan alle digitale udgange bruges og ikke kun dem med PWM. Dog er processoren brugt hele tiden da den også bruges når der ventes. Det vil sige at den ikke kan bruges til andet samtidigt, hvilket ikke kan bruges i projektet.
+Microcontrolleren der sidder på arduinoen indeholder 3 timere, som kan bruges til PWM generering.  Måden dette virker på er, at timeren går fra 0 til 255 hvis $Timer=0$ sættes outputtet højt, hvor den tæller til enten 255 og slukker hvilket vil skabe en duty cyklus på 100\%. Derfor kan der defineres en værdi hvor der slukkes mellem 0 og 255. Ydermere findes der scalar (1, 8, 64, 256 eller 1024 som divideres med arduinoens clock frekvens. Alt dette konfigureres ved bits i registre (TCCRnA og TCCRnB) på microcontrolleren. Et eksempel på dette kunne være: 
 
 \begin{lstlisting}
 void setup()
@@ -511,7 +509,7 @@ R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{6-3.2}{20mA}=140\Omega
 Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=2,8*20mA=0,056W)$ hvilket giver grund for at 0.33W modstande er passende.
 
 % Der er også købt en vakuum pumpe, som muligvis kan sidde efter ventilen. Der skal dog stadig skabes et flow til de sorterede øers beholder, måske en kombination vil være det optimale. En modultest af de enkelte pumper skal afgøre hvilken løsning der er den mest optimale. 
-På figur \ref{fig:motordriverdiagram} kan ledningsdiagrammet til motordriver med motor og frem og tilbage lysdioder observeres. Med opsætningen kan retningen på motoren bestemmes ved, hvilken en af udgangene der sættes til lav(0V). Hvor den modsatte udgang konfigureres til PWM. Gøres det modsat kører motoren den modsatte vej.
+På figur \ref{fig:motordriverdiagram} kan ledningsdiagrammet til motordriver med motor og frem og tilbage lysdioder observeres. Med opsætningen kan retningen på motoren bestemmes ved, hvilken en af udgangene der sættes til lav(0V). Hvis den modsatte udgang konfigureres til PWM. Gøres det modsat kører motoren den modsatte vej.
  
  \begin{figure}[H]
 	\centering
@@ -523,7 +521,7 @@ På figur \ref{fig:motordriverdiagram} kan ledningsdiagrammet til motordriver me
 
 \subsection{Vægtcelle}
 \label{subsec:loadcell}
-Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen.
+Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsbeholderen. Når celleopløsningsbeholderen løber tør skal systemet stoppe.
 
 \textbf{Specifikationer for Vægtcelle[\citet{DH7}]:} 
 \begin{center}
@@ -540,9 +538,9 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcellen kan veje op til 1 kg, hvilket fint dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
+Den indkøbte vægtcellen kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt.
 
- For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler hvor meget vægt den udsættes for vægtcellen, der er brugt i projektet, består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved at består af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{kilde: \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
+ For at kunne udnytte funktionen af en vægtcelle, skal opbygningen af denne forstås. En vægtcelle måler, hvor meget vægt den udsættes for, vægtcellen der er brugt i projektet består af strain gages koblet i en wheatstone bro. En strain gage bruges til at måle fysisk stræk eller kompression. Den er simpel i sin opbygning ved, at bestå af en meget tynd elektrisk ledende tråd, som er ført frem og tilbage på et elastisk folie, hvilket er illustreret på \ref{fig:Strain gages}\footnote{kilde: \url{https://en.wikipedia.org/wiki/Strain_gauge}}. 
  
  \begin{figure}[H]
 	\centering
@@ -558,7 +556,7 @@ En strain gages modstand stiger ved stræk og falder ved kompression, dette kan 
  \label{eq:modstandsformel}
  \end{align}
  
- Hvor R=modstand, $\rho$=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen en dette, bla. materiales egenskaber og temperatur. På vægtcellen er der fire strain gages, som er placeret på vægtcellen på denne måde som vist på figur \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
+ Hvor R=modstand, $\rho$=modstand per meter, L=længden og A=tværsnitsarealet. Der er mere til formlen end dette, bla. materiales egenskaber og temperatur. På vægtcellen er der fire strain gages, som er placeret på vægtcellen dette er vist på figur \ref{fig:Loadcell1}. Strain gages R1 og R4 bliver strukket, hvor R2 og R3 på undersiden bliver skubbet sammen.
  
  Måden de er forbundet er vist på figur \ref{fig:loadcell2}, denne metode at koble modstande på kaldes en wheatstone bro\citep{ELengbog}{s.122}. mere specifikt for denne er også kendt som et full-bridge kredsløb\citep{AETbog}{s.76}. Forholdet mellem input spændingen og output spændingen kan beskrives, som vist ved formlen\ref{eq:fullbformel}
 \begin{align}
@@ -584,14 +582,14 @@ En strain gages modstand stiger ved stræk og falder ved kompression, dette kan 
 \end{minipage}
 \end{figure}
 
-Ud fra databladet \ref{subsec:loadcell} ses det, at output spændingen er 1.0mV pr volt på indgangsspændingen. Dette er pga. det meget lille strain der tilføres til emnet, hvilket også er med til at strain gagesene ikke går i stykker. Da Arduinoens analog til digital konverter er 10bit, hvilket vil sige $2^{10}=1024$ det betyder at konverteren har 1024 trin fra 0 til 1023. Konverterens arbejdsspænding går fra 0 V til 5 V. 
+Ud fra databladet \ref{subsec:loadcell} ses det, at output spændingen er 1.0mV pr volt på indgangsspændingen. Dette er pga. det meget lille strain der tilføres til emnet, hvilket også er med til at strain gagesene ikke går i stykker. Da Arduinoens analog til digital konverter er 10bit, hvilket vil sige $2^{10}=1024$  betyder det at konverteren har 1024 trin fra 0 til 1023. Konverterens arbejdsspænding går fra 0 V til 5 V. 
 
 \begin{align}
  \text{Spænding per trin}=\frac{\text{Maksimale spænding}}{\text{Antal trin}}=\frac{5 V}{1024\text{ trin}}=0,0049V=4,9mV
  \label{eq:volt-step}
  \end{align}
  
-I \ref{eq:volt-step} viser det sig at den mindste værdi ADC kan måle er 4,9mV, dette medfører at arduinoen maksimalt vil måle et step ved 1kg på vægtcellen, da $1mV*5V=5mV$. Dette giver to valgmuligheder
+I \ref{eq:volt-step} viser det sig, at den mindste værdi ADC kan måle er 4,9mV, dette medfører at arduinoen maksimalt vil måle et step ved 1kg på vægtcellen, da $1mV*5V=5mV$. Dette giver to valgmuligheder
 \begin{enumerate}
 \item Anskaffe en bedre ADC, bestående af flere bits
 \item Hæve udgangsspændingen fra vægtcellen 
@@ -605,7 +603,7 @@ Til dette formål bruges en operationsforstærker, mere specifikt en differens o
 \item En høj undertrykkelse af støj
 \item En simple forstærkning
 \end{enumerate}
-Punkt 1, en høj indgangsimpedans (R$_{in}$ > 10-100M$\Omega$ ) sikrer at forstærkeren ikke belaster måle objektet. Det ønskes ikke at signalet undertrykkes, ved at forstærkeren forbruger strømmen fra signalet for. Derfor ønskes der adgang til hele signalet.
+Punkt 1, en høj indgangsimpedans (R$_{in}$ > 10-100M$\Omega$ ) sikrer at forstærkeren ikke belaster måle objektet. Det ønskes ikke at signalet undertrykkes ved, at forstærkeren forbruger strømmen fra signalet for. Derfor ønskes der adgang til hele signalet.
 
 Punkt 2, Differentielt input med et single ended output. Det er et ønske som kan begrundes ved, at vægtcellen leverer et differentielt output og at ADCen kun kan modtage et single ended indput. Derfor er det lettere at arbejde med et single ended output. Indgangsmodstanden er bestemt ved modstanden mellem de to indgangsterminaler, som kan illustreres ved figur \ref{eq:differensmodstand} og beregnes ved formlen \ref{fig:differensmodstand}
 \begin{figure}[H]
@@ -692,7 +690,7 @@ Kredsløbet på figur \ref{fig:bufferampmedgaindifferens} kaldes en instrumentat
 \end{minipage}
 \end{figure}
 
-I databladet \ref{bilag:INA114} til INA114 ses det at den har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
+I databladet \ref{bilag:INA114} til INA114 ses det, at den har en CMRR på 115dB ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
  G=(1+\frac{50K\Omega}{R_{G}})
  \label{eq:gainina1}
@@ -720,7 +718,7 @@ Med et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, d
 %Det vil sige hvs operatøren ikke har fyldt noget i beholderen, kan der gives en systembesked omkring dette. Det mest optimale er at der hele tiden er væske i slangerne i systemet, det er det vægtcellen skal hjælpe med.
 
 \subsection{Kameralys}
-\label{subsec:kameralys}
+\label{subsec:kameralys1}
 Kameralyset skal styre lyset til kameraet, så operatøren selv kan styre hvor meget lys der skal være i kamerakammeret. Dette gøres for at få den bedste mulighed for, at detekter de langerhanske øer.
 \textbf{Specifikationer for Lysdiode[\ref{bilag:L5-W55N-BVW}]:} 
 \begin{center}
@@ -743,7 +741,7 @@ Kameralyset skal styre lyset til kameraet, så operatøren selv kan styre hvor m
 		\end{longtable}
 \end{center}
 
-Lysdioden har et tilladt strøm til Duty cyklus forhold, som kan ses på figur \ref{fig:LED1} yderligere har lysdioden også et lysintensitet til strøm forhold, dette kan ses på figur \ref{fig:LED2} 
+Lysdioden har et tilladt strøm til Duty cyklus forhold, som kan ses på figur \ref{fig:LED1} yderligere har lysdioden også et lysintensitet til strøm forhold, dette kan ses på figur \ref{fig:LED2}. Da sandsynligheden for, at kameralyset er tændt i længere periode bruges 20mA. Lysdioden kan tåle 30mA, men pga. den lille kasse lyset skal sidde i, er det vurderet bedre at ligge lidt under.
 
 \begin{figure}[htbp] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -762,13 +760,13 @@ Lysdioden har et tilladt strøm til Duty cyklus forhold, som kan ses på figur \
 \end{minipage}
 \end{figure}
 
- Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detektere de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
+ Kameralyset skal kunne variere, da operatøren skal kunne indstille lyset for den bedst mulige opsætning. Det gøres for at kameraet har de bedste muligheder for at detekterer de langerhanske øer. Der skal sættes 4 lysdioder i en kasse, hvor kun kameralyset lyser kassen op. Kameraet skal detektere de langerhanske øer der løber i slangen inde i kassen. Lyset implementeres for at styre lysniveauet på billederne. Da der ikke kan trækkes strøm nok ud af arduinoen, kræves det en anden forsyning til lysdioderne. Dertil udnyttes den sidste udgang i motordriveren, men da denne forsynings med 12V og lysdioder kun tåler 3.2V skal spændingen nedjusteres. Den lettest måde at gøre dette på er, at sætte lysdioderne i serie. Hvis en lysdiode bliver defekt, skabes der ingen lys til kameraet. Derfor er der valgt en løsning med modstande siddende parallelt foran hver lysdiode. Formodstandenes værdi er beregnet ved \ref{eq:modstand}. 
 
 \begin{align}
 R=\frac{V_{source}-V_{lysdiode}}{I_{lysdiode}}=\frac{12-3.2}{20mA}=440\Omega
 \label{eq:modstand}
 \end{align} 
-Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176W)$ hvilket giver grund for at 0.33W modstande er passende.
+Dette giver en effekt afsætning i modstandene på $(V_{source}-V_{lysdiode}*I_{lysdiode}=8,8*20mA=0,176W)$ hvilket giver grund for, at 0.33W modstande er passende.
 
 På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset sammen med motordriveren.
  
@@ -782,7 +780,7 @@ På figur \ref{fig:LEDdiagram} vises diagrammet for Kameralyset sammen med motor
 
 \newpage
 \subsection{Beholdere}
-Systemet består af tre beholdere der hver i især har sin egen funktion. Den første kaldes \textit{celleopløsningbeholderen}, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes \textit{isolerede beholderen}, som er den beholder hvor de isolerede langerhanske øer samles i. Den tredje beholder er \textit{waste beholderen}, den skal have resten af opløsningen som ikke består af langerhanske øer.
+Systemet består af tre beholdere der hver især har sin egen funktion. Den første kaldes \textit{celleopløsningbeholderen}, som skal indeholde den usorteret opløsning med de langerhanske øer. Beholder nummer to kaldes \textit{beholderen med de langerhanske øer}, som er den beholder hvor de isolerede langerhanske øer samles i. Den tredje beholder er \textit{waste beholderen}, den skal have resten af opløsningen som ikke består af langerhanske øer.
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -794,12 +792,12 @@ Systemet består af tre beholdere der hver i især har sin egen funktion. Den f�
 			\hline
 		\end{longtable}
 \end{center}
-Størrelses kravene til beholderne er at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt(\textit{jf. Søren Gregersen}). Wastebeholderen skal således være dobbelt så stor, så der kan gennemløbes to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt, uden at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt. ML 33184 fås med et skruelåg med forskruninger, der kan tilpasses de indkøbte slanger. Yderligere fås den et luftfilter, så der ikke dannes vakuum i beholderen.
+Størrelses kravene til beholderne er, at opløsningsbeholderen skal mindst være 250ml, da det er den største mængde opløsning der vil blive brugt(\textit{jf. Søren Gregersen}). Wastebeholderen skal således være dobbelt så stor, så der kan gennemløbes to sorterings cyklusser uden at skulle tømme beholderen i mellem. Den isolerede beholder, skal kunne rumme mængden af de isolerede øer. Da projektet som tidligere nævnt er et ”proof of concept” er den eneste beholder der er hentet informationer om opløsningsbeholderen. Den bør være støvtæt uden, at være lufttæt da der ellers vil dannes et vakuum i beholderen. Derudover vil det være en fordel hvis den er forholdsvis robust, så den kan køles ned osv. på et senere tidspunkt. ML 33184 fås med et skruelåg med forskruninger, der kan tilpasses de indkøbte slanger. Yderligere fås den med et luftfilter, så der ikke dannes vakuum i beholderen.
 
 \subsection{Slanger}
 Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem systemet bl.a. forbi kameraet.
 
-\textbf{Specifikationer for slangerne:(flere)} \fxnote{Tjek lige op på det her}
+\textbf{Specifikationer for slangerne:(flere)}
 \begin{center}
 		\begin{longtable}{ | m{6.5cm} | m{6.5cm}| } 
 			\hline
@@ -807,17 +805,17 @@ Slangerne anvendes til at føre opløsningen med de langerhanske øer, i gennem 
 			\hline
 			\textbf{Materiale:} & Teflon, silikone og PVC \\ 
 			\hline
-			\textbf{Ydre diameter:} & ?mm  \\ 
+			\textbf{Ydre diameter:} & 1-1,5mm  \\ 
 			\hline
 			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
 			\hline			
 		\end{longtable}
 \end{center}
 
-Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro\metre} i diameter, derfor er det valgt at slangerne skal have en indre diameter på \SI{500}{\micro\metre}. Da det er optimalt at kameraet kan se direkte igennem slangen, er der valgt et gennemsigtigt materiale. Yderdiameteren er valgt for at, pumpen ikke skal ødelægge celler og slange, hvilket også har været med til at bestemme materialet af slangerne. 
+Da de største langerhanske øer, som systemet skal håndtere er \SI{300}{\micro\metre} i diameter er det valgt, at slangerne skal have en indre diameter på \SI{500}{\micro\metre}. Da det er optimalt at kameraet kan se direkte igennem slangen, er der valgt et gennemsigtigt materiale. Yderdiameteren er valgt for at, pumpen ikke skal ødelægge celler og slange, hvilket også har været med til at bestemme materialet af slangerne. 
 
 \subsection{Glasrør}
-For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valgt et glasrør.
+For at sikre, at kameraet er i stand til at se de langerhanske øer er der valgt et glasrør.
 
 \textbf{Specifikationer for Glasrøret:} 
 
@@ -828,14 +826,14 @@ For at sikre, at kameraet er i stand til at se de langerhanske øer, er der valg
 			\hline
 			\textbf{Materiale:} & glas \\ 
 			\hline
-			\textbf{Ydre diameter:} & ?mm \fxnote{Tjek lige op på det her}  \\ 
+			\textbf{Ydre diameter:} & 1.3mm  \\ 
 			\hline
-			\textbf{Indre diameter:} & \SI{500}{\micro\metre}-\SI{700}{\micro\metre}  \\ 
+			\textbf{Indre diameter:} & 1mm  \\ 
 			\hline			
 		\end{longtable}
 \end{center}
 
-Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret der er valgt er rundt. Krumningen i røret kan muligvis ændre billedet fra kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i er for stor. Derfor er et rundt glasrør valgt.
+Glasrøret er tiltænkt kun til at sidde, hvor kameraet skal detektere de langerhanske øer. For at være sikker på at kameraet kan se dem. Glasrøret der er valgt er rundt. Krumningen i røret kan muligvis ændre billedet fra kameraet. Et rektangel glasrør har været overvejet, men risikoen for at de langerhanske øer kan overhale hinanden inden i glasrøret er tilstede. Derfor er et rundt glasrør valgt.
 
 
 
