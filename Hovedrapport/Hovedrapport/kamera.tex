@@ -1,9 +1,9 @@
 \newpage
 \section{Kamera}
-Det indkøbte kamera viste ikke at have tilstrækkelig kvalitet igennem en enhedstest. Der kunne ikke skelnes mellem det eksokrine væv og de langerhanske øer. Yderligere blev det erfaret at lyset er utrolig vigtigt, derfor er ideen med kamerahuset en nødvendighed for at kontroller lyset til kameraet. Der kan læses mere om enhedstesten af kameraet i afsnit 4.3.1 \fxnote{Tjek ref} i projektdokumentationen. Til at erstatte kameraet blev der i stedet genereret en række billeder, som skulle simulere flowet af opløsningsvæske i gennem slangen.
+Det indkøbte kamera viste ikke at have tilstrækkelig kvalitet igennem en enhedstest. Der kunne ikke skelnes mellem det eksokrine væv og de langerhanske øer. Yderligere blev det erfaret, at lyset er utrolig vigtigt, derfor er ideen med kamerahuset en nødvendighed for at kontrollere lyset til kameraet. Der kan læses mere om enhedstesten af kameraet i afsnit 4.3.1 \fxnote{Tjek ref} i projektdokumentationen. Til at erstatte kameraet blev der i stedet genereret en række billeder, som skulle simulere flowet af opløsningsvæske i gennem slangen.
 
 \subsection{Kamerasimulation}
-Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet et Matlab script. Billederne, der er valgt, stammer fra det indkøbte kamera. Grunden til de kan anvendes som grundlag for genereringen af billeder, på trods af kameraets utilstrækkelige kvalitet, er at øerne og det ekstra væv er adskilt i de enkelte billeder. Dette muliggør en separat segmentering af øer og væv, som herefter kan sammensættes til billeder der ligger tæt op af det der observeres gennem et almindeligt mikroskop. De 3 billeder der danner grundlag for billedgenereringen er vist nedenfor. 
+Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet et Matlab script. Billederne, der er valgt, stammer fra det indkøbte kamera. Grunden til de kan anvendes som grundlag for genereringen af billeder, på trods af kameraets utilstrækkelige kvalitet, er, at øerne og det ekstra væv er adskilt i de enkelte billeder. Dette muliggør en separat segmentering af øer og væv, som herefter kan sammensættes til billeder, der ligger tæt op af det der observeres gennem et almindeligt mikroskop. De 3 billeder, der danner grundlag for billedgenereringen, er vist nedenfor. 
 \begin{figure}[H] \centering
 \begin{minipage}[b]{0.3\textwidth} \centering
 \includegraphics[width=1.00\textwidth]{billeder/software/1.jpg} % Left picture
@@ -16,11 +16,11 @@ Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet 
 \includegraphics[width=1.00\textwidth]{billeder/software/3.jpg} % Right picture
 \end{minipage} \\  % Captions og labels
 \begin{minipage}[t]{0.3\textwidth}
-\caption{Billede indeholdende langerhanske øer} % Left caption and label
+\caption{Billede indehold-ende langerhanske øer} % Left caption and label
 \label{fig:img1}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.3\textwidth}
-\caption{Billede indeholdende ekstra væv} % Right caption and label
+\caption{Billede inde-holdende ekstra væv} % Right caption and label
 \label{fig:img2}
 \end{minipage}
 \hfill
@@ -29,13 +29,13 @@ Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet 
 \label{fig:img3}
 \end{minipage}
 \end{figure}
-Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en sekvens indeholdende en langerhansk ø efterfulgt af en sekvens uden en ø. I selve programmet indlæses et nyt billede hvert 0,1 sekund. Derfor skal der generes en passende mængde billeder, som programmet kan indlæse. Simuleringen er implementeret så der minimum genereres 252 eller maksimalt 432 billeder, hvilket giver en samlet sekvenslængde på 25,2 sekunder eller 43,2 sekunder. Grunden til at antallet af billeder varierer er at længden af sekvensen uden en langerhansk ø bestemmes udfra en random variabel. Dette gøres for, at simulere at der kan være variabel tid mellem en ny ø kommer i gennem slangen. I scriptet genereres der i alt 18 fulde sekvenser. Det betyder, at der passerer i mellem 25 og 43 øer i minuttet. Antallet af øer der passere pr. minut er bestemt ud fra formel \ref{formular:isletprmin}: 
+Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en sekvens indeholdende en langerhansk ø efterfulgt af en sekvens uden en ø. I selve programmet indlæses et nyt billede hvert 0,1 sekund. Derfor skal der generes en passende mængde billeder, som programmet kan indlæse. Simuleringen er implementeret, så der minimum genereres 252 eller maksimalt 432 billeder, hvilket giver en samlet sekvenslængde på 25,2 sekunder eller 43,2 sekunder. Grunden til, at antallet af billeder varierer, er, at længden af sekvensen uden en langerhansk ø bestemmes udfra en random variabel. Dette gøres for at simulere, at der kan være variabel tid mellem en ny ø kommer i gennem slangen. I scriptet genereres der i alt 18 fulde sekvenser. Det betyder, at der passerer i mellem 25 og 43 øer i minuttet. Antallet af øer, der passere pr. minut, er bestemt ud fra formel \ref{formular:isletprmin}: 
 \begin{align}
 \frac{18\text{ sekvenser}}{\frac{n}{10}} * 60s = \text{Antal øer pr. minut}
 \text{ , hvor n er antallet af billeder i sættet}
 \label{formular:isletprmin}
 \end{align} 
-I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen i projektdokumentationen)
+I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder, at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen i projektdokumentationen)
 
  \begin{figure}[H]
 	\centering
@@ -74,7 +74,7 @@ Det endelige resultat af billedegeneringen er vist i figur \ref{fig:finalresult}
 
 \newpage
 \subsection{Billedprocessering}
-Segmenteringen sker via en række morfologiske operationer, hvor billedet fra kamera simulationen konverteres til en logisk maske. Detektionenen baseres på, at øerne har en mere cirkulær form end resten af vævet. Derfor hentes der egenskaber fra objekterne i masken vha. \textit{Matlab} funktionen \textit{regionsprops}. De egenskaber, der hentes, er med til, at beskrive hvor cirkulært objektet er. Egenskaberne er; arealet, center positionen, omkredsen og excentriciteten. Excentriciteten beskriver hvor langstrakt objektet er. Hvis excentriciteten er 0 er det en perfekt cirkel mens det vil være en langstrakt ellipse hvis værdien er 1.
+Segmenteringen sker via en række morfologiske operationer, hvor billedet fra kamera simulationen konverteres til en logisk maske. Detektionenen baseres på, at øerne har en mere cirkulær form end resten af vævet. Derfor hentes der egenskaber fra objekterne i masken vha. \textit{Matlab} funktionen \textit{regionsprops}. De egenskaber, der hentes, er med til at beskrive hvor cirkulært objektet er. Egenskaberne er; arealet, centerpositionen, omkredsen og excentriciteten. Excentriciteten beskriver hvor langstrakt objektet er. Hvis excentriciteten er 0 er det en perfekt cirkel mens det vil være en langstrakt ellipse hvis værdien er 1.
 
 Ud fra arealet og omkredsen af objekterne anvendes de 2 nedenstående formler til bestemmelse af 2 værdier for radiusen af objektet:
 \begin{align}
@@ -84,7 +84,7 @@ Areal = R1^2*\pi => R1 = \sqrt{\frac{\text{Areal}}{\pi}}
 Omkreds = 2*R2*\pi => R2 = \frac{\text{Omkreds}}{2*\pi}
 \end{align}
 
-Ud fra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse, som begge med samme areal. Ud fra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved, at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
+Ud fra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse, begge med samme areal. Ud fra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses, er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
   
 \begin{lstlisting} 
 r1 =  100.0017   99.9380
