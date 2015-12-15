@@ -35,7 +35,7 @@ Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en se
 \text{ , hvor n er antallet af billeder i sættet}
 \label{formular:isletprmin}
 \end{align} 
-I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder, at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen i projektdokumentationen)
+I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder, at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen afsnit 1.4.1.1 i projektdokumentationen) \fxnote{tjek ref}
 
  \begin{figure}[H]
 	\centering
@@ -54,7 +54,7 @@ Selve flowsimuleringen sker i et for loop, hvor positionen for øen flyttes for 
 \end{figure}
 
 
-Øens position på billedet ændres ved en normalfordelt random variabel med mean på 0 og standard afvigelse(sd) på 50 pixels. Nedenstående figur \ref{fig:histfit} viser fordelingen af pixels øen flyttes for hver iteration. På figur \ref{fig:histfit} er der vist markører for standard afvigelsen ($\sigma$) og $2*$standard afvigelsen ($2\sigma$) for hver side af mean. Imellem $-\sigma$ og $\sigma$ er der 68,26 \% sandsynlighed for, at den nye Y position ville ligge inden for dette område. For 2 sd afvigelse ($2\sigma$) er der 95,45 \% for, at den nye Y position vil ligge indenfor dette område.
+Øens position på billedet ændres ved en normalfordelt random variabel med en middelværdi på 0 og standard afvigelse(sd) på 50 pixels. Nedenstående figur \ref{fig:histfit} viser fordelingen af pixels øen flyttes for hver iteration. På figur \ref{fig:histfit} er der vist markører for standard afvigelsen ($\sigma$) og $2*$standard afvigelsen ($2\sigma$) for hver side af mean. Imellem $-\sigma$ og $\sigma$ er der 68,26 \% sandsynlighed for, at den nye Y position ville ligge inden for dette område. For 2 sd afvigelse ($2\sigma$) er der 95,45 \% for, at den nye Y position vil ligge indenfor dette område.
 
 \begin{figure}[H]
 	\centering
@@ -63,7 +63,7 @@ Selve flowsimuleringen sker i et for loop, hvor positionen for øen flyttes for 
 	\label{fig:histfit}
 \end{figure}
 
-Det endelige resultat af billedegeneringen er vist i figur \ref{fig:finalresult}. Til at illustrere hvordan øen flytter sig er der tilføjet en graf, som viser hvordan dens position ændres for hver iteration. Øen er markeret med en rød ring på billedet.
+Det endelige resultat af billedgeneringen er vist i figur \ref{fig:finalresult}. Til at illustrere hvordan øen flytter sig er der tilføjet en graf, som viser hvordan dens position ændres for hver iteration. Øen er markeret med en rød ring på billedet.
 
 \begin{figure}[H]
 	\centering
@@ -129,7 +129,7 @@ I figur \ref{fig:finalimage} er det oprindelige billede vist, med markering af d
 \newpage
 \textbf{Test af billedprocessering}
 
-Udfordringen med billedprocesseringen er, at hastigheden ikke må være for langsom i forhold til frameraten for kameraet. Da et nyt billede indlæses hvert 0,1 sekund skal billedprocesseringen dermed være hurtigere end dette for at følge med. Til test af dette er Matlab funktionen tic/toc anvendt, som kan måle hvor langt tid billedprocessingen tager om at eksekvere. I figur \ref{fig:dataprocess} viser grafen hvor lang tid det har taget, at behandle de enkelte billeder. Den røde streg viser den gennemsnitlige tid for processeringen. For den nuværende implementering tager billedeprocessingen 0,0104 sekund pr. billede, hvilket er indenfor grænsen på 0,1 sekund. Tiden vil variere alt efter tilgængelig processorkraft og om der skal udføres andre opgaver, eksempelvis opdatere figurer på GUI. 
+Udfordringen med billedprocesseringen er, at hastigheden ikke må være for langsom i forhold til frame raten for kameraet. Da et nyt billede indlæses hvert 0,1 sekund skal billedprocesseringen dermed være hurtigere end dette for at følge med. Til test af dette er Matlab funktionen tic/toc anvendt, som kan måle hvor langt tid billedprocessingen tager om at eksekvere. I figur \ref{fig:dataprocess} viser grafen hvor lang tid det har taget, at behandle de enkelte billeder. Den røde streg viser den gennemsnitlige tid for processeringen. For den nuværende implementering tager billedeprocessingen 0,0104 sekund pr. billede, hvilket er indenfor grænsen på 0,1 sekund. Tiden vil variere alt efter tilgængelig processorkraft og om der skal udføres andre opgaver, eksempelvis opdatere figurer på GUI. 
 
 \begin{figure}[H]
 	\centering

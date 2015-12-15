@@ -1,12 +1,12 @@
 \chapter{Resultater}
 
-Der er i dette projekt udarbejdet en prototype, som kan undersøge muligheden for en automatiseret metode at isolere langerhanske øer. Der er udviklet et færdig system, som har potentiale til at isolere langerhanske øer. De mekaniske og elektriske dele er på plads, til videre undersøgelser af konceptet. Ydermere er der i projektet opnået en billedbehandling der understøtter konceptet, i kraft af hastigheden af processeringen af de simulerede billeder. Der er brugt simulerede billeder, fordi det indkøbte kamera ikke har været af tilstrækkelig kvalitet.
+Der er i dette projekt udarbejdet en prototype, som kan undersøge muligheden for en automatiseret metode til at isolere langerhanske øer. Der er udviklet et færdig system, som har potentiale til at isolere langerhanske øer. De mekaniske og elektriske dele er på plads, til videre undersøgelser af konceptet. Ydermere er der i projektet opnået en billedbehandling der understøtter konceptet, i form af processering af de simulerede billeder. Der er brugt simulerede billeder, fordi det indkøbte kamera ikke har været af tilstrækkelig kvalitet.
 
 \input{Hovedrapport/userinterface}
 
 \subsection{Hardwaren}
 
-Den overordnet funktion af hardwaren er, at pumpe opløsningsvæsken forbi kameraet hen forbi ventilen til \textit{wastebeholderen} eller beholderen til de isoleret langerhanske øer. For at fremvise projektets færdige resultater, er kredsløbet og layoutet til det udarbejdede printkort til produktet indsat her under i figur \ref{fig:PCBdiagram}. Til et overordnet overblik over hardwaren i projektet henvises der til figur \ref{fig:bdd_Hardware}. Printkortet er lavet som et shield til \textit{Arduino} udviklingskortet. Shieldet kan sættes direkte oven på Arduinoen, på printkortet er der stik til at forsyne og videregive signaler til hardware komponenterne. Komponenterne er pumpen, der skaber flowet i slangen, ventilen som isolerer øerne, kameralyset lyser øerne op så kameraet bedre kan detektere dem. Derudover er vægtcellen også forsynet igennem printet. Printkortets layout er udarbejdet i \textit{Eagle}, hvor lagene er eksporteret til \textit{Gerber} filer. Filerne er sendt til printfremstilling ved Ingeniørhøjskolens værksted.
+Den overordnede funktion af hardwaren er at pumpe opløsningsvæsken, forbi kameraet hen forbi ventilen til \textit{wastebeholderen} eller beholderen til de isoleret langerhanske øer. For at fremvise projektets færdige resultater, er kredsløbet og layoutet til det udarbejdede printkort til produktet indsat herunder i figur \ref{fig:PCBdiagram}. Til et overordnet overblik over hardwaren i projektet henvises der til figur \ref{fig:bdd_Hardware}. Printkortet er lavet som et shield til \textit{Arduino} udviklingskortet. Shieldet kan sættes direkte oven på Arduinoen. På printkortet er der stik til at forsyne og videregive signaler til hardwarekomponenterne. Komponenterne er pumpen, der skaber flowet i slangen, ventilen som isolerer øerne, kameralyset der lyser øerne op for, at kameraet bedre kan detektere dem. Derudover er vægtcellen også forsynet igennem printet. Printkortets layout er udarbejdet i \textit{Eagle}, hvor lagene er eksporteret til \textit{Gerber} filer. Filerne er sendt til printfremstilling ved Ingeniørhøjskolens værksted.
 
 \newpage
 \subsubsection{Det samlede kredsløb}
@@ -23,7 +23,7 @@ Kredsløbet for det samlede print er indsat nedenfor i figur \ref{fig:PCBdiagram
 \newpage
 
 \subsubsection{Det færdig print layout}
-Til projektet er der udarbejdet et færdigt printkort, til hardwaren med forbindelserne imellem komponenterne. På printet er der to integrerede kredsløb, den ene(IC2) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger denne strømforsyning til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra Arduinoen og efterligner det, men i stedet leverer effekten igennem den eksterne forsyning. Det andet(IC1) integrerede kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til Arduinoens analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og Arduinoens ADC har en arbejdsspænding på 0V til 5V. Nedenfor ses der to figurer, på figur \ref{fig:PCB toplayout} er det øverste lag af printet illustreret. På det øverste lag kan der desuden ses diode indikatorer bla. for hvilken vej motoren kører. Herudover er der udarbejdet versionsnummer mm. der kan være med til at hjælpe ved service og generelt sporbarhed. På figur \ref{fig:PCB bundlayout med groundplane} er bundplanet vist. På bundplanet er der et groundplane der forebygger EMC, men også virker som køleplade for motordriveren. Der er i bilag \ref{bilag:L293D} anbefalet en køleplade til motordriveren, som implementeret i bundplanet. Yderligere dokumentation af styklister og beregninger til printet kan læses i projektdokumentation afsnit 4.2.6. \fxnote{tjek ref}
+Til projektet er der udarbejdet et færdigt printkort, til hardwaren med forbindelserne imellem komponenterne. På printet er der to integrerede kredsløb, den ene(IC2) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger denne strømforsyning til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra Arduinoen og efterligner det, men i stedet leverer effekten igennem den eksterne forsyning. Det andet(IC1) integrerede kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til Arduinoens analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og Arduinoens ADC har en arbejdsspænding på 0V til 5V. Nedenfor ses der to figurer, på figur \ref{fig:PCB toplayout} er det øverste lag af printet illustreret. På det øverste lag kan der desuden ses  lysindikatorer bla. for hvilken vej motoren kører. Herudover er der udarbejdet versionsnummer mm. der kan være med til at hjælpe ved service og generelt sporbarhed. På figur \ref{fig:PCB bundlayout med groundplane} er bundplanet vist. På bundplanet er der et groundplane der forebygger EMC, men også virker som køleplade for motordriveren. Der er i bilag \ref{bilag:L293D} anbefalet en køleplade til motordriveren, som implementeret i bundplanet. Yderligere dokumentation af styklister og beregninger til printet kan læses i projektdokumentation afsnit 4.2.6. \fxnote{tjek ref}
 
  \begin{figure}[H] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -44,7 +44,7 @@ Til projektet er der udarbejdet et færdigt printkort, til hardwaren med forbind
 
 \newpage
 \subsection{Ikke-elektroniske dele}
-De ikke-elektroniske dele består af beholdere, slanger og adaptere. I projektet er der fokuseret på opløsningsbeholderen, hvor der er indkøbt en 250ml beholder med et specielt låg. Igennem låget går en teflonslange, for at tætne denne tilslutning er der en forskruning som både aflaster og tætner. I låget er der også et luftfilter, som forhindre støv og andre små partikler i at komme ned i opløsningen. Filteret skal være der for at undgå dannelse af undertryk i beholder, når pumpen suger opløsningsvæsken igennem systemet. Da teflonslangen ikke er eftergivende, er der brugt silikoneslanger til stykket igennem pumpen og resten af systemet. Teflonslangen er for hård til, at pumpen kan sammenpresse den og derved skabe flow i opløsningen. For at kunne gå fra teflonslangen til silikoneslangen er der brugt en adapter. Figur \ref{fig:nonelectronic} indeholder en illustration af ikke-elektroniske dele. Se styklisten mm. i projektdokumentation afsnit 4.2.5 \fxnote{Tjek ref}.
+De ikke-elektroniske dele består af beholdere, slanger og adaptere. I projektet er der fokuseret på celleopløsningsbeholderen, hvor der er indkøbt en 250ml beholder med et specielt låg. Igennem låget går en teflonslange, for at tætne denne tilslutning er der en forskruning som både aflaster og tætner. I låget er der også et luftfilter, som forhindre støv og andre små partikler i at komme ned i opløsningen. Filteret skal være der for at undgå dannelse af undertryk i beholder, når pumpen suger opløsningsvæsken igennem systemet. Da teflonslangen ikke er eftergivende, er der brugt silikoneslanger til stykket igennem pumpen og resten af systemet. Teflonslangen er for hård til, at pumpen kan sammenpresse den og derved skabe flow i opløsningen. For at kunne konvertere fra teflonslangen til silikoneslangen er der brugt en adapter. Figur \ref{fig:nonelectronic} indeholder en illustration af ikke-elektroniske dele. Se styklisten mm. i projektdokumentation afsnit 4.2.5 \fxnote{Tjek ref}.
 
 \begin{figure}[H]
 	\centering
@@ -87,14 +87,14 @@ Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Inte
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
 
-For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af den tid det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra slange volumenet, imellem kameraet og ventil \ref{eg:slangevolume}.
+For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af den tid det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra slange volumenet, imellem kameraet og ventilen \ref{eg:slangevolume}.
 
 \begin{align}
 V=\pi*r^2*h=\pi*(\frac{\SI{0,51}{\milli\metre}}{2})^2*\SI{50}{\milli\metre}=\SI{0,010214}{\milli\liter}
 \label{eg:slangevolume}
 \end{align}
 
-Derfor kan det med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregnet ud fra formlen \ref{eg:ohastighed} kan tiden fra kamera til ventil bestemmes ved formel \ref{eq:tidsintervallet}. 
+Derfor kan det med et flow på $\SI{11,25}{\milli\liter/minut}$, som er beregnet ud fra formlen \ref{eg:ohastighed}, bestemmes hvor lang der går fra kamera til ventil ved formlen \ref{eq:tidsintervallet}. 
  
 \begin{align}
 \frac{\SI{0,010214}{\milli\liter}}{\frac{\SI{11,25}{\milli\liter/minut}}{\SI{60}{\second}}}\to\frac{\SI{0,010214}{\milli\liter}}{\SI{0,1875}{\milli\liter/s}}=\SI{0.054475}{\second}
@@ -118,7 +118,7 @@ Fra de overstående beregninger kan det observeres, at tidsintervallet mellem ka
 \label{eq:timerdelay2}
 \end{align} 
 
-I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. Som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer godt overens med timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. Figur \ref{fig:serielconn} viser, hvordan tidsforsinkelsen imellem Matlab og Arduinoen er bestemt. Det ses at en periodetid er på 52 ms, hvilket betyder at en kommando har en tid på 26ms, da en periode består af to kommandoer.
+I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer godt overens med timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. Figur \ref{fig:serielconn} viser, hvordan tidsforsinkelsen imellem Matlab og Arduinoen er bestemt. Det ses at en periodetid er på 52 ms, hvilket betyder at en kommando har en tid på 26ms, da en periode består af to kommandoer.
 
  \begin{figure}[H] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -139,14 +139,14 @@ I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne i
 
 %Dette er tiden der skal gå fra kameraet har detekteret en ø, til den samme ø er ved ventilen. Der er implementeret et timer delay til dette i softwaren. For at være sikker på at øen bliver isoleret, er der implementeret endnu et timer delay der beskriver åbningstiden for ventilen. Til dette skal ventilen åbne lidt før og lukke lidt efter. Derfor bør tidsintervallet mellem kamera og ventil differentieres med 20ms og 20ms efter. I formel \ref{eq:ventilvolume} skal der bruges 144ms for at tømme ventilens volume, derfor er timerdelayet til åbningstiden for ventilen på 184ms.
  
-Åbnings- og lukketiden er et kompromis, der skal optimeres, da det ønskes at minimere mængden af eksokrint væv, der kommer over i beholderen med isolerede øer, men samtidigt skal sandsynligheden for at ventilen er åben når øen kommer være så høj som mulig.
+Åbnings- og lukketiden er et kompromis, der skal optimeres, da det ønskes at minimere mængden af eksokrint væv, der kommer over i beholderen med isolerede øer, men samtidigt skal sandsynligheden for, at ventilen er åben når øen kommer være så høj som mulig.
 
 \input{Hovedrapport/kamera}
 
 \section{Simuleringsvæske}
 \label{sec:simuleringsv}
-Da de langerhanske øer ikke er lettilgængelige, har det været nødsaget at finde et objekt til at agere aktør for cellerne. Simuleringsvæsken skal bruges til at teste de mekaniske dele, samt tidsintervallet mellem kameraet og ventilen. Egenskaberne af de langerhanske øer der er brugt til at finde simuleringsvæsken er at de er runde og lyse, størrelsen, samt at de bundfælder i collagenase opløsningen. Der har været to iterationer for at finde en aktør for cellerne, den første har bestod i at finde perfekte runde og hvide objekter med en $massefylde<1$. Til dette blev der brugt polysterene, som er lettilgængelige, samt runde, hvide og kan fåes med en massefylde lige over 1 \citep{polybog}. Dog blev det fundet svært at finde polysterene kugler i størrelsen 0.1-0.3mm, derfor blev der skabt kontakt til forhandlere af flamingo kugler. Dog var de tilsendte kugler for store, samt at de flød ovenpå grundet massefylden og overfladespændingen. 
-
+Da de langerhanske øer ikke er lettilgængelige, har det været nødsaget at finde et objekt til at agere aktør for cellerne. Simuleringsvæsken skal bruges til at teste de mekaniske dele, samt tidsintervallet mellem kameraet og ventilen. Egenskaberne af de langerhanske øer der er brugt til at finde simuleringsvæsken med er at de er runde og lyse, størrelsen, samt at de bundfælder i collagenase opløsningen. Der har været to iterationer for at finde en aktør for cellerne, den første bestod i at finde perfekte runde og hvide objekter med en $massefylde>1$. Til dette blev der brugt polysterene, som er lettilgængelige, samt runde, hvide og kan fåes med en massefylde lige over 1 \citep{polybog}. Dog blev det fundet svært at finde polysterene kugler i størrelsen 0.1-0.3mm, derfor blev der skabt kontakt til forhandlere af flamingo kugler. Dog var de tilsendte kugler for store, samt at de flød ovenpå grundet massefylden og overfladespændingen. 
+\newpage
 Den anden iteration bestod i at finde et biologisk materiale, hvor faktorerne runde og hvide blev nedprioriteret for at finde et objekt. For at finde en celleaktør med lettilgængelighed blev plantefrø den næste mulighed. Trods begrænset data omkring plantefrø, lykkes det gruppen at finde plantefrø i størrelsen 0.1-0.3mm vha. forhandlere af plantefrø og andre eksperter \ref{mailleverandor}. De indkøbte frø består af timian frø og rævehale frø, frøene kan ses på figur \ref{fig:timian} og \ref{fig:foxtail}.
 
  \begin{figure}[htbp] \centering
@@ -168,7 +168,7 @@ Den anden iteration bestod i at finde et biologisk materiale, hvor faktorerne ru
 
 Udover de indkøbte frø kan der ved videre bearbejdelse af projektet overvejes transparent testa (tt4 mutant) frø. De skulle i følge \textit{Carsten Meier} (se bilag \ref{mailleverandor}) være hvide, forholdsvis runde, men ikke lige så tilgængelige, som de allerede indkøbte frø. Dette har været grunden til, at de ikke er brugt i projektet indtil nu. Dermed består den anvendte simuleringsvæske af demineraliseret vand og timian plantefrø som aktør for de langerhanske øer.  
 
-En enhedstest af simuleringvæsken viste, at frøene ikke kun komme igennem systemet. Frøene der blev anvendt i simuleringsvæksen havde en størrelse på 0,4 mm. Testen viste, at ventilen blokerede for frøene på trods af en specificeret diameter på 1 mm (Se bilag: \ref{bilag:ventil}). 
+En test af systemet med simuleringsvæsken viste, at frøene ikke kun komme igennem systemet. Frøene der blev anvendt i simuleringsvæsken havde en størrelse på 0,4 mm. Testen viste, at ventilen blokerede for frøene på trods af en specificeret diameter på 1 mm (Se bilag: \ref{bilag:ventil}). 
  
 \section{Accepttest af produktet} 
 Til sidst i udviklingsforløbet blev der udført en accepttest af systemet. Den udførte accepttest er vedlagt i bilag \ref{bilag:Accepttest}. En række af kvalitetskravene blev ikke testet grundet kameraet ikke blev implementeret i prototypen. For hvert af kravene der ikke blev godkendt er der udfyldt en fejlrapport, hvor en handlingsplan beskriver hvordan og hvornår fejlen rettes. De udfyldte fejlrapporter er ligeledes vedlagt i bilag \ref{bilag:Fejlrapport}.

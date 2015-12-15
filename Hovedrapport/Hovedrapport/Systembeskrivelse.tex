@@ -1,7 +1,7 @@
 \chapter{Systembeskrivelse}
 Dette kapitel indeholder en introducerende beskrivelse af den udviklede prototype. Herudover indeholder kapitlet en beskrivelse af opløsningen med de langerhanske øer.
 
-Figur \ref{fig:system} viser den overordnede opbygning af \textit{The Cell Collector}, benævnes herefter som systemet. Grundlæggende består systemet af en beholder, hvor i opløsningen med langerhanske øer er. Opløsningen pumpes herefter ved hjælp af en pumpe igennem en slange, hvor et kamera detekterer om en ø passerer eller ej. Hvis en ø detekteres åbner systemet en ventil for at frasortere øen fra resten af opløsningen. Systemet består af et software program udviklet i \textit{Matlab}, hvor operatøren har mulighed for at interagere med systemet. Her er selve logikken og signalbehandlingen i form af billedprocessering implementeret. Programmet giver signal til en microcontroller (Arduino platform), som håndterer den videre styring af hardwarekomponenterne.
+Figur \ref{fig:system} viser den overordnede opbygning af \textit{The Cell Collector}, benævnes herefter som systemet. Grundlæggende består systemet af en beholder, hvor i opløsningen med langerhanske øer er. Opløsningen pumpes herefter igennem en slange, hvor et kamera detekterer om en ø passerer eller ej. Hvis en ø detekteres åbner systemet en ventil                som frasortere øen fra resten af opløsningen. Systemet består af et software program udviklet i \textit{Matlab}, hvor operatøren har mulighed for at interagere med systemet. Her er selve logikken og signalbehandlingen i form af billedprocessering implementeret. Programmet giver signal til en microcontroller (Arduino platform), som håndterer den videre styring af hardwarekomponenterne.
 
 \begin{figure}[H]
 	\centering
@@ -49,7 +49,7 @@ Figur \ref{fig:islet} viser hvordan opløsningen ser ud, når den er hældt i en
 	\label{fig:islet}
 \end{figure}
 
-Et batch af langerhanske øer, som opnåes ved en typisk sorteringsproces på Medicinsk Endokrinologisk Afdeling består af mellem 300 og 400 øer. For at få et udbytte på 300 til 400 øer anvendes typisk mellem 5 og 6 mus. Den samlede mængde opløsningsvæske for sådan et batch er omkring 150 ml.
+Et batch af langerhanske øer, som opnåes ved en typisk sorteringsproces på Medicinsk Endokrinologisk Afdeling består af mellem 300 og 400 øer. For at få et udbytte på 300 til 400 øer anvendes typisk mellem 5 og 6 mus. Den samlede mængde opløsningsvæske for sådan et batch er omkring 150 mL.
 
 De generelle fysiske egenskaber for de langerhanske øer er en størrelse mellem 100 og 300 um, samt at de er forholdsvis runde. Herudover har de en højere lysintensitet end det eksokrine væv. Det vil bl.a. være disse parametre kameraet skal detektere øerne på.
 
