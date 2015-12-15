@@ -29,7 +29,7 @@ Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet 
 \label{fig:img3}
 \end{minipage}
 \end{figure}
-Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en sekvens indeholdende en langerhansk ø efterfulgt af en sekvens uden en ø. I selve programmet indlæses et nyt billede hvert 0,1 sekund. Derfor skal der generes en passende mængde billeder, som programmet kan indlæse. Simuleringen er implementeret, så der minimum genereres 252 eller maksimalt 432 billeder, hvilket giver en samlet sekvenslængde på 25,2 sekunder eller 43,2 sekunder. Grunden til, at antallet af billeder varierer, er, at længden af sekvensen uden en langerhansk ø bestemmes udfra en random variabel. Dette gøres for at simulere, at der kan være variabel tid mellem en ny ø kommer igennem slangen. I scriptet genereres der i alt 18 fulde sekvenser. Det betyder, at der passerer i mellem 25 og 43 øer i minuttet. Antallet af øer, der passere pr. minut, er bestemt ud fra formel \ref{formular:isletprmin}: 
+Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en sekvens indeholdende en langerhansk ø efterfulgt af en sekvens uden en ø. I selve programmet indlæses et nyt billede hvert 0,1 sekund. Derfor skal der generes en passende mængde billeder, som programmet kan indlæse. Simuleringen er implementeret, så der minimum genereres 252 eller maksimalt 432 billeder, hvilket giver en samlet sekvenslængde på 25,2 sekunder eller 43,2 sekunder. Grunden til, at antallet af billeder varierer, er, at længden af sekvensen uden en langerhansk ø bestemmes udfra en random variabel. Dette gøres for at simulere, at der kan være variabel tid mellem en ny ø kommer igennem slangen. I scriptet genereres der i alt 18 fulde sekvenser. Det betyder, at der passerer imellem 25 og 43 øer i minuttet. Antallet af øer, der passere pr. minut, er bestemt ud fra formel \ref{formular:isletprmin}: 
 \begin{align}
 \frac{18\text{ sekvenser}}{\frac{n}{10}} * 60s = \text{Antal øer pr. minut}
 \text{ , hvor n er antallet af billeder i sættet}
@@ -54,7 +54,7 @@ Selve flowsimuleringen sker i et for loop, hvor positionen for øen flyttes for 
 \end{figure}
 
 
-Øens position på billedet ændres ved en normalfordelt random variabel med mean på 0 og standard afvigelse(sd) på 50 pixels. Nedenstående figur \ref{fig:histfit} viser fordelingen af pixels øen flyttes for hver iteration. På figur \ref{fig:histfit} er der vist markører for standard afvigelsen ($\sigma$) og $2*$standard afvigelsen ($2\sigma$) for hver side af mean. I mellem $-\sigma$ og $\sigma$ er der 68,26 \% sandsynlighed for, at den nye Y position ville ligge inden for dette område. For 2 sd afvigelse ($2\sigma$) er der 95,45 \% for, at den nye Y position vil ligge indenfor dette område.
+Øens position på billedet ændres ved en normalfordelt random variabel med mean på 0 og standard afvigelse(sd) på 50 pixels. Nedenstående figur \ref{fig:histfit} viser fordelingen af pixels øen flyttes for hver iteration. På figur \ref{fig:histfit} er der vist markører for standard afvigelsen ($\sigma$) og $2*$standard afvigelsen ($2\sigma$) for hver side af mean. Imellem $-\sigma$ og $\sigma$ er der 68,26 \% sandsynlighed for, at den nye Y position ville ligge inden for dette område. For 2 sd afvigelse ($2\sigma$) er der 95,45 \% for, at den nye Y position vil ligge indenfor dette område.
 
 \begin{figure}[H]
 	\centering
@@ -84,7 +84,7 @@ Areal = R1^2*\pi => R1 = \sqrt{\frac{\text{Areal}}{\pi}}
 Omkreds = 2*R2*\pi => R2 = \frac{\text{Omkreds}}{2*\pi}
 \end{align}
 
-Ud fra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel i mellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse, begge med samme areal. Ud fra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses, er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
+Ud fra disse 2 radius værdier, vil det objekt, hvor der er mindst forskel imellem de 2, være det objekt der er mest cirkulært. Til at illustrere dette er der i figur \ref{fig:circleelip} vist en cirkel og en ellipse, begge med samme areal. Ud fra \textit{regionsprops} og de 2 formler for radius kan der bestemmes 2 radiuser for henholdsvis cirklen og ellipsen. Forskellen bestemmes ved at trække de 2 beregnede værdier fra hinanden. I udregningerne nedenfor er den første kolonne værdier for cirklen, mens den anden er for ellipsen. Som det ses, er forskellen mindst ved cirklen, hvilket indikerer, at den er mest cirkulær.
   
 \begin{lstlisting} 
 r1 =  100.0017   99.9380

@@ -6,12 +6,12 @@ Der er i dette projekt udarbejdet en prototype, som kan undersøge muligheden fo
 
 \subsection{Hardwaren}
 
-Den overordnet funktion af hardwaren er, at pumpe opløsningsvæsken forbi kameraet hen forbi ventilen til \textit{wastebeholderen} eller beholderen til de isoleret langerhanske øer. For at fremvise projektets færdige resultater, er kredsløbet og layoutet til det udarbejdede printkort til produktet indsat her under i figur \ref{fig:PCBdiagram}. Til et overordnet overblik over hardwaren i projektet henvises der til figur \ref{fig:bdd_Hardware}. Printkortet er lavet som et shield til \textit{Arduino} udviklingskortet. Shieldet kan sættes direkte oven på arduinoen, på printkortet er der stik til at forsyne og videregive signaler til hardware komponenterne. Komponenterne er pumpen, der skaber flowet i slangen, ventilen som isolerer øerne, kameralyset lyser øerne op så kameraet bedre kan detektere dem. Derudover er vægtcellen også forsynet igennem printet. Printkortets layout er udarbejdet i \textit{Eagle}, hvor lagene er eksporteret til \textit{Gerber} filer. Filerne er sendt til printfremstilling ved Ingeniørhøjskolens værksted.
+Den overordnet funktion af hardwaren er, at pumpe opløsningsvæsken forbi kameraet hen forbi ventilen til \textit{wastebeholderen} eller beholderen til de isoleret langerhanske øer. For at fremvise projektets færdige resultater, er kredsløbet og layoutet til det udarbejdede printkort til produktet indsat her under i figur \ref{fig:PCBdiagram}. Til et overordnet overblik over hardwaren i projektet henvises der til figur \ref{fig:bdd_Hardware}. Printkortet er lavet som et shield til \textit{Arduino} udviklingskortet. Shieldet kan sættes direkte oven på Arduinoen, på printkortet er der stik til at forsyne og videregive signaler til hardware komponenterne. Komponenterne er pumpen, der skaber flowet i slangen, ventilen som isolerer øerne, kameralyset lyser øerne op så kameraet bedre kan detektere dem. Derudover er vægtcellen også forsynet igennem printet. Printkortets layout er udarbejdet i \textit{Eagle}, hvor lagene er eksporteret til \textit{Gerber} filer. Filerne er sendt til printfremstilling ved Ingeniørhøjskolens værksted.
 
 \newpage
 \subsubsection{Det samlede kredsløb}
 
-Kredsløbet for det samlede print er indsat nedenfor i figur \ref{fig:PCBdiagram} og beskriver hvordan delene er forbundet. Der er 4 pinheaders der forbindes til arduinoen, derudover er der fire stik til pumpen, ventilen, vægtcellen og kameralyset 
+Kredsløbet for det samlede print er indsat nedenfor i figur \ref{fig:PCBdiagram} og beskriver hvordan delene er forbundet. Der er 4 pinheaders der forbindes til Arduinoen, derudover er der fire stik til pumpen, ventilen, vægtcellen og kameralyset 
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +23,7 @@ Kredsløbet for det samlede print er indsat nedenfor i figur \ref{fig:PCBdiagram
 \newpage
 
 \subsubsection{Det færdig print layout}
-Til projektet er der udarbejdet et færdigt printkort, til hardwaren med forbindelserne i mellem komponenterne. På printet er der to integrerede kredsløb, den ene(IC2) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger denne strømforsyning til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra Arduinoen og efterligner det, men i stedet leverer effekten igennem den eksterne forsyning. Det andet(IC1) integrerede kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til Arduinoens analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og Arduinoens ADC har en arbejdsspænding på 0V til 5V. Nedenfor ses der to figurer, på figur \ref{fig:PCB toplayout} er det øverste lag af printet illustreret. På det øverste lag kan der desuden ses diode indikatorer bla. for hvilken vej motoren kører. Herudover er der udarbejdet versionsnummer mm. der kan være med til at hjælpe ved service og generelt sporbarhed. På figur \ref{fig:PCB bundlayout med groundplane} er bundplanet vist. På bundplanet er der et groundplane der forebygger EMC, men også virker som køleplade for motordriveren. Der er i bilag \ref{bilag:L293D} anbefalet en køleplade til motordriveren, som implementeret i bundplanet. Yderligere dokumentation af styklister og beregninger til printet kan læses i projektdokumentation afsnit 4.2.6. \fxnote{tjek ref}
+Til projektet er der udarbejdet et færdigt printkort, til hardwaren med forbindelserne imellem komponenterne. På printet er der to integrerede kredsløb, den ene(IC2) er en L293D som bla. bliver brugt som motordriver i projektet. Motordriveren forsynes eksternt og bruger denne strømforsyning til at forsyne motor, kameralys og ventil. Kort fortalt tager motordriveren signalet fra Arduinoen og efterligner det, men i stedet leverer effekten igennem den eksterne forsyning. Det andet(IC1) integrerede kredsløb består af en operationsforstærker, som primært har til opgave at forstærke outputtet fra vægtcellen til Arduinoens analog-digital konverter(ADC). Det gøres fordi outputtet fra vægtcellen er i mV og Arduinoens ADC har en arbejdsspænding på 0V til 5V. Nedenfor ses der to figurer, på figur \ref{fig:PCB toplayout} er det øverste lag af printet illustreret. På det øverste lag kan der desuden ses diode indikatorer bla. for hvilken vej motoren kører. Herudover er der udarbejdet versionsnummer mm. der kan være med til at hjælpe ved service og generelt sporbarhed. På figur \ref{fig:PCB bundlayout med groundplane} er bundplanet vist. På bundplanet er der et groundplane der forebygger EMC, men også virker som køleplade for motordriveren. Der er i bilag \ref{bilag:L293D} anbefalet en køleplade til motordriveren, som implementeret i bundplanet. Yderligere dokumentation af styklister og beregninger til printet kan læses i projektdokumentation afsnit 4.2.6. \fxnote{tjek ref}
 
  \begin{figure}[H] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
@@ -87,7 +87,7 @@ Tidsintervallet mellem kameraet og ventilen er en vigtig faktor i systemet. Inte
 \label{eg:ohastighed}
 \end{align}(\textit{jf. Søren Gregersen})
 
-For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af den tid det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra det slange volumenet, i mellem kameraet og ventil \ref{eg:slangevolume}.
+For at sorteringen af langerhanske øer er succesfuld, kræver det en beregning af den tid det tager for en langerhansk ø, at komme fra kameraet til ventilen. Det kan estimeres ud fra slange volumenet, imellem kameraet og ventil \ref{eg:slangevolume}.
 
 \begin{align}
 V=\pi*r^2*h=\pi*(\frac{\SI{0,51}{\milli\metre}}{2})^2*\SI{50}{\milli\metre}=\SI{0,010214}{\milli\liter}
@@ -118,7 +118,7 @@ Fra de overstående beregninger kan det observeres, at tidsintervallet mellem ka
 \label{eq:timerdelay2}
 \end{align} 
 
-I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. Som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer godt overens med timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. Figur \ref{fig:serielconn} viser, hvordan tidsforsinkelsen i mellem Matlab og Arduinoen er bestemt. Det ses at en periodetid er på 52 ms, hvilket betyder at en kommando har en tid på 26ms, da en periode består af to kommandoer.
+I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. Som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer godt overens med timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. Figur \ref{fig:serielconn} viser, hvordan tidsforsinkelsen imellem Matlab og Arduinoen er bestemt. Det ses at en periodetid er på 52 ms, hvilket betyder at en kommando har en tid på 26ms, da en periode består af to kommandoer.
 
  \begin{figure}[H] \centering
 \begin{minipage}[b]{0.48\textwidth} \centering
