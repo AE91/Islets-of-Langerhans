@@ -2,11 +2,11 @@
 Efter den indledende identifikation og specifikation i design og kravspecifikationen kan implementeringsfasen nu udføres. Hardware implementering af \textit{The Cell Collector} består af enhedstest af hver komponent, med følgende dokumentation. Enhedstestene er lavet i den skrevne rækkefølge og integreret i samme. I dette afsnit vil der være kredsløbsdiagrammer, teori, beregninger og beskrivelser, hvilket er udarbejdet sideløbende med udviklingen af produktet. 
  	
  \subsection{Vægtcelle}
-Vægtcellen skal kontroller om opløsningsbeholderen er tom. Dette afsnit er skrevet i tæt efterfølge af design dokumentet.
+Vægtcellen skal kontrollere om opløsningsbeholderen er tom. Dette afsnit er i tæt knyttet til designdokumentet.
 
 \subsubsection{Enhedstest af vægtcelle }
 
-Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebræt} se figur \ref{fig:loadcelltest} for test opstilling
+Efter at diagrammet er fastlagt testes forbindelserne på et \textit{fumlebræt}. Se figur \ref{fig:loadcelltest} for test opstilling.
 
   \begin{figure}[H]
 	\centering
@@ -14,7 +14,7 @@ Efter at diagrammet er fastlagt, testes forbindelserne nu på et \textit{fumlebr
 	\caption{Test opstilling for vægtcelle}
 	\label{fig:loadcelltest}
 \end{figure}
-De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);} og \textit{Serial.println(sensorValue);}, hvor ved at inputtet på \textit{A0} er læst i \textit{serial monitor} som vist på figur \ref{fig:loadcell_test} ved langsom tømning af beholderen.
+De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);} og \textit{Serial.println(sensorValue);}, hvor inputtet på \textit{A0} er læst i \textit{serial monitor} som vist på figur \ref{fig:loadcell_test} ved langsom tømning af beholderen.
 
 \begin{figure}[H]
 	\centering
@@ -23,13 +23,13 @@ De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);
 	\label{fig:loadcell_test}
 \end{figure}
 
- Se bilag \ref{bilag:TKloadcell} for at se hele koden til testen. Til enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bits værdi om til spænding.
+ Se bilag \ref{bilag:TKloadcell} for at se hele koden til testen. Til enhedstesten er der brugt et voltmeter til, at måle udgangsspændingen på INA114 for, at se om Arduinoens ADC læste rigtigt. Til at sammenligne med voltmeteret, blev \ref{eq:trintilvolt} brugt til at konvertere ADC'ens bit værdi om til spænding.
  
  \begin{align}
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
  \label{eq:trintilvolt}
  \end{align}
-Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i afsnit \ref{subsub:softwareloadcell}.
+Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis. Dette er implementeret i afsnit \ref{subsub:softwareloadcell}.
  
  \begin{figure}[H]
 	\centering
@@ -39,12 +39,12 @@ Testopstilling af vægtcellen ser ud som på \ref{fig:loadcell_mont} med celleop
 \end{figure}
 
 \subsection{Pumpe}
- Pumpen består af en DC motor og ud fra databladet kan det ses at den skal bruge 12VDC og 0.3A for at køre. Da arduinoen langt fra kan leverer den nødvendige strøm til at drive motoren, skal der bruges en motordriver med en ekstern strømforsyning.
+ Pumpen består af en DC motor. Ud fra databladet kan det ses, at den skal bruge 12VDC og 0.3A for at køre. Da Arduinoen langt fra kan levere den nødvendige strøm til at drive motoren, skal der bruges en motordriver med en ekstern strømforsyning.
  
 
 \subsubsection{Enhedstest af motor og motordriver}
 \label{subsubsec:enhedstestmotor}
-På figur \ref{fig:Motorbreadboard} kan motordriveren og arduinoens opstilling ses på et \textit{fumlebræt}. I opstilling er der to lysindikatorer, som viser om motoren kører den ene eller den anden vej. Retningen kan styres ved at bytte om på hvilken udgang der sættes lav(0V) og hvilke der PWM konfigureres.
+På figur \ref{fig:Motorbreadboard} kan motordriveren og Arduinoens opstilling ses på et \textit{fumlebræt}. I opstillingen er der to lysindikatorer, som viser om motoren kører den ene eller den anden vej. Retningen kan styres ved at bytte om på, hvilken udgang der sættes lav(0V), og hvilke der PWM konfigureres.
  
 
  \begin{figure}[H]
@@ -54,7 +54,7 @@ På figur \ref{fig:Motorbreadboard} kan motordriveren og arduinoens opstilling s
 	\label{fig:Motorbreadboard}
 \end{figure}
 
-For at teste motordriverens evne til at lave PWM med 12 volt, er PWM signalet fra arduinoen og motordriveren sammenlignet med hinanden vha. et oscilloskop. Billeder fra denne test er vist på  billederne \ref{fig:25PWM}, \ref{fig:50PWM}, \ref{fig:75PWM} og \ref{fig:100PWM} den høje gule graf er fra motordriveren og den grønne lave graf er fra arduinoen.
+For at teste motordriverens evne til at lave PWM med 12 volt, er PWM signalet fra Arduinoen og motordriveren sammenlignet med hinanden vha. et oscilloskop. Billeder fra denne test er vist på  billederne \ref{fig:25PWM}, \ref{fig:50PWM}, \ref{fig:75PWM} og \ref{fig:100PWM}. Den høje gule graf er fra motordriveren og den grønne lave graf er fra Arduinoen.
 
 \newpage
 
@@ -92,14 +92,14 @@ For at teste motordriverens evne til at lave PWM med 12 volt, er PWM signalet fr
 \end{minipage}
 \end{figure}
 
-De elementære funktioner, som er brugt til test koden er \textit{digitalWrite(9, LOW);} og \textit{analogWrite(10, 127);}. se hele testkoden i bilag \ref{bilag:TKpumpe}
+De elementære funktioner, som er brugt til test koden er \textit{digitalWrite(9, LOW);} og \textit{analogWrite(10, 127);}. Se hele testkoden i bilag \ref{bilag:TKpumpe}
 
 \newpage
 
  \subsection{Ventil}
 Ventilen skal sortere de langerhanske øer fra det eksokrine væv, derfor er ventilen en vigtig del af hardwaren. I integrationstesten bør tidsintervallet med hvornår ventilen skal åbnes og lukkes udføres, for en sikring af at øerne bliver isoleret.
 \subsubsection{Enhedstest for ventil}
-På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling er sat op på et \textit{fumlebræt}. I test koden er der hovedsagligt brugt \textit{digitalWrite(8, LOW);} og \textit{digitalWrite(8, HIGH);}, hvorved arduinoen sætter udgangen lav(0V) og høj(5V). Motordriveren bruger signalet til det at give ventilen 12V når den er høj. Se bilag \ref{bilag:TKventil} for hele testkoden
+På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling er sat op på et \textit{fumlebræt}. I test koden er der hovedsagligt brugt \textit{digitalWrite(8, LOW);} og \textit{digitalWrite(8, HIGH);}, hvorved Arduinoen sætter udgangen lav(0V) og høj(5V). Motordriveren bruger signalet til det at give ventilen 12V når den er høj. Se bilag \ref{bilag:TKventil} for hele testkoden.
 
 \begin{figure}[H]
 	\centering
@@ -111,10 +111,10 @@ På figur \ref{fig:ventilbreadboard} er det illustreret hvordan testopstilling e
 \newpage
  \subsection{Kameralys}
  \label{subsec:kameralys}
-Kameralyset skal hjælpe operatøren med at optimere lysforholdet til kameraet for, at maksimerer forholdene og muligheden for at detektere de langerhanske øer. Testen burde være lavet med lysdioderne inde i kamerahuset, for at optimere feedbacket fra kameraet ved at ændre lysstyrken. Grundet kameraets manglende kvalitet er denne test nedprioriteret.
+Kameralyset skal hjælpe operatøren med at optimere lysforholdet til kameraet for at maksimere forholdene og muligheden for at detektere de langerhanske øer. Testen burde være lavet med lysdioderne inde i kamerahuset, for at optimere feedbacket fra kameraet ved at ændre lysstyrken. Grundet kameraets manglende kvalitet er denne test nedprioriteret.
 
 \subsubsection{Enhedstest for Kameralyset}
-På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt} for Kameralyset er der brugt samme test kode som til pumpen se afsnit \ref{subsubsec:enhedstestmotor}. 
+På figur \ref{fig:LEDbreadboard} vises testopstilling på et \textit{fumlebræt} for kameralyset er der brugt samme test kode som til pumpen se afsnit \ref{subsubsec:enhedstestmotor}. 
 
 \begin{figure}[H]
 	\centering
@@ -135,7 +135,7 @@ På figur \ref{fig:nonelectronic} vises en illustration af de ikke-elektroniske 
 	\label{fig:nonelectronic}
 \end{figure}
 
-Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demineraliseret vand brugt. Timianfrøene der er brugt har en størrelse på 0.4mm hvilket burde kunne komme igennem, men frøene stopper ved ventilen. Derfor opfattes testen af ventilen som en fejlet test. Det bør undersøges hvorfor at frøene stopper ved ventilen, i datablad \ref{bilag:161T031} står der, at ventilens indgange er på 1mm. 
+Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demineraliseret vand brugt. Timianfrøene der er brugt har en størrelse på 0.4mm hvilket burde kunne komme igennem, men frøene stopper ved ventilen. Derfor opfattes testen af ventilen som en fejlet test. Det bør undersøges hvorfor at frøene stopper ved ventilen, i datablad \ref{bilag:ventil} står der, at ventilens indgange er på 1mm. 
 
 \newpage
 \subsubsection{Stykliste} 
@@ -169,7 +169,7 @@ Til test af ikke-elektroniske dele, er simuleringsvæsken med timianfrø og demi
 
  
 \subsection{PCB design} 
-For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til arduino platformen. På printet er motordriveren der driver pumpen, ventilen og kameralyset. Motordriveren forsynes igennem en ekstern strømforsyning, som derved forsyner delene motordriveren styrer. I kredsløbet er der en operationsforstærker, som har til opgave at forstærke signalet fra vægtcellen og leverer det til ADCén på arduinoen. Pinheaderne på printet er med lange ben for, at de passer ned i arduinoens pinheadere. Til at forbinde pumpen og ventilen, er der brugt stiktypen molex 5566-4 som kan trække en stor strøm. Til de to komponenter skal der kun bruges to ledninger, men for at sikre at stikkene ikke sættes forkert er der valgt et 4pin stik, hvor forbindelses benene er forskellige. Det betyder at hvis stikkene ved en fejl bliver ombyttet, vil hverken pumpen eller ventilen virke. Til kameralyset benyttes et 5 polet stik af typen molex 5268-05, stikket tåler en mindre strøm end de andre stik, men nok til kameralyset. Til vægtcellen er der valgt et stik af samme type, men i en 4 polet udgave. På printet er der lysindikatorer til at hjælpe med fejlfinding og service på systemet. Lysindikatorer består af 3 lysdioder; LED1 lyser når at ventilen er åben, LED2 lyser når motoren kører fremad og LED3 lyser hvis motoren kører baglæns. Ydermere er der placeret kondensatorer parallelt med forsyningerne til at afkoble støj fra miljøet omkring systemet.
+For at samle hardwaren i projektet er der lavet et printkort formet, som et shield til Arduino platformen. På printet er motordriveren der driver pumpen, ventilen og kameralyset. Motordriveren forsynes igennem en ekstern strømforsyning, som derved forsyner delene motordriveren styrer. I kredsløbet er der en operationsforstærker, som har til opgave at forstærke signalet fra vægtcellen og leverer det til ADC'en på Arduinoen. Pinheaderne på printet er med lange ben for, at de passer ned i Arduinoens pinheadere. Til at forbinde pumpen og ventilen, er der brugt stiktypen molex 5566-4 som kan trække en stor strøm. Til de to komponenter skal der kun bruges to ledninger, men for at sikre at stikkene ikke sættes forkert er der valgt et 4pin stik, hvor forbindelses benene er forskellige. Det betyder at hvis stikkene ved en fejl bliver ombyttet, vil hverken pumpen eller ventilen virke. Til kameralyset benyttes et 5 polet stik af typen molex 5268-05, stikket tåler en mindre strøm end de andre stik, men nok til kameralyset. Til vægtcellen er der valgt et stik af samme type, men i en 4 polet udgave. På printet er der lysindikatorer til at hjælpe med fejlfinding og service på systemet. Lysindikatorer består af 3 lysdioder; LED1 lyser når at ventilen er åben, LED2 lyser når motoren kører fremad og LED3 lyser, hvis motoren kører baglæns. Ydermere er der placeret kondensatorer parallelt med forsyningerne til at afkoble støj fra miljøet omkring systemet.
 
 \newpage
 \subsubsection{PCB kredsløbsdiagram}
@@ -185,7 +185,7 @@ På figur \ref{fig:PCBdiagram} er vist kredsløbet for printkortet i \textit{Eag
 
 \newpage
 \subsubsection{PCB toplayout}
-På topplanet vist på \ref{fig:PCBtoplayout} er komponenterne til printet placeret. Der er forsøgt at lave de fleste forbindelser i dette plan for, at undgå brud i groundplanet. Sliketrykket er ikke lavet, som vist på figur \ref{fig:PCBtoplayout} fordi det ikke laves på Ingeniørhøjskolens print produktion. Det er bla. derfor at alt den beskrivende tekst er lavet i top kobber laget. 
+På topplanet vist på \ref{fig:PCBtoplayout} er komponenterne til printet placeret. Der er forsøgt at lave de fleste forbindelser i dette plan for, at undgå brud i groundplanet. Silketrykket er ikke lavet, som vist på figur \ref{fig:PCBtoplayout} fordi det ikke laves på Ingeniørhøjskolens print produktion. Det er bl.a. derfor at alt den beskrivende tekst er lavet i top kobber laget. 
 
 \begin{figure}[H]
 	\centering

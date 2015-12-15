@@ -120,7 +120,7 @@ Den første timers opgave er at åbne for ventilen. I denne timers \textbf{stopF
 \label{eq:timerdelay2}
 \end{align} 
 
-Fra ventilens datablad (bilag \ref{bilag:161T031}) ses det, at åbningstiden for ventilen er op til 20ms og en lukketid på op til 30ms. Disse tider trækkes fra i begge tidsforsinkelser. Herudover trækkes forsinkelsen over seriel forbindelsen mellem Matlab og Arduinoen. Denne tid er fundet via en unittest af ventilen, som vist i figur \ref{fig:serielconn}.   
+Fra ventilens datablad (bilag \ref{bilag:ventil}) ses det, at åbningstiden for ventilen er op til 20ms og en lukketid på op til 30ms. Disse tider trækkes fra i begge tidsforsinkelser. Herudover trækkes forsinkelsen over seriel forbindelsen mellem Matlab og Arduinoen. Denne tid er fundet via en unittest af ventilen, som vist i figur \ref{fig:serielconn}.   
 
 I figur \ref{fig:timerdelay} er enhedstesten for ventilen vist. Her er timerne implementeret med ovenstående delays. Som det ses er tiden, hvor ventilen er åben målt til 112 ms. Dette resultat stemmer fint overens med Timer 2 delay på 88 ms (formel \ref{eq:timerdelay2}) plus forsinkelsen på 26 ms som det tager at sende en kommando fra Matlab til Arduinoen. Dette giver en total tid på 114 ms, som ligger tæt på de målte 112 ms. 
 
