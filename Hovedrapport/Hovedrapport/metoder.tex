@@ -313,7 +313,7 @@ Nedenstående IBD figur \ref{fig:ibd_Hardware} beskriver mere præcist, hvordan 
 	\label{fig:ibd_Hardware}
 \end{figure}
 
-Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke (Se projektdokumentationen afsnit 3.3.4). \fxnote{Tjek ref}
+Til ovenstående diagrammer er der udarbejdet tabeller som beskriver signalerne og de enkelte blokke (Se projektdokumentationen afsnit 3.3.4). 
 
 I designfasen er der udarbejdet specifikationer for de enkelte hardware dele, samt overvejelser omkring komponenten. 
 \newpage
@@ -348,7 +348,7 @@ Vægtcellen skal bruges til at kontrollere om, der er væske i celleopløsningsb
 		\end{longtable}
 \end{center}
 
-Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I designfasen er der udarbejdet et teoriafsnit for at dokumentere den opnåede viden gruppen har fået. Designafsnittet indeholder desuden beregninger og kredsløbsdiagrammer. Det er illustreret i den overstående tabel, at vægtcellens output er i millivolt, hvilket har medført, at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker. For at vise et eksempel, er der trukket nedenstående afsnit ud fra designdokumentet (se projektdokumentation afsnit 4.2.1 \fxnote{Tjek ref} for hele afsnittet). I databladet \ref{bilag:INA114} til INA114 vises det at operationsforstærkeren har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
+Den indkøbte vægtcelle kan veje op til 1 kg, hvilket dækker vægten for celleopløsningsbeholderen på 250ml + beholderens vægt. I designfasen er der udarbejdet et teoriafsnit for at dokumentere den opnåede viden gruppen har fået. Designafsnittet indeholder desuden beregninger og kredsløbsdiagrammer. Det er illustreret i den overstående tabel, at vægtcellens output er i millivolt, hvilket har medført, at signalet skulle forstærkes. Dette er gjort vha. en operationsforstærker. For at vise et eksempel, er der trukket nedenstående afsnit ud fra designdokumentet (se projektdokumentation afsnit 3.3.8  for hele afsnittet). I databladet \ref{bilag:INA114} til INA114 vises det at operationsforstærkeren har en CMRR på 115dB, ved et gain på 1000 og en indgangsmodstand på 10G$\Omega$. Forstærkningen kan regnes ud fra formlen i databladet \ref{eq:gainina1}
 \begin{align}
  G=(1+\frac{50K\Omega}{R_{G}})
  \label{eq:gainina1}
@@ -378,7 +378,7 @@ Et gain på 980 giver en $NY_{Maksimalespænding}=980*5mV=4,9V \pm0,147V$, dvs a
 \newpage
 \section{Fjerde udviklingsfase: Implementering og enhedstest}
 \label{subsec:Implement}
-I dette afsnit er der vist et eksempel på hvordan vægtcellen er implementeret, både hardware- og softwaremæssigt. Til sidst i implementeringsfasen er der lavet en integrationstest. Integrationstesten for hardwaren er bestået i udarbejdelse af et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har det været mulighed at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig. Enhedstesten for kameraet er vist i afsnit 4.3.1 i projektdokumentation.  \fxnote{tjek ref}
+I dette afsnit er der vist et eksempel på hvordan vægtcellen er implementeret, både hardware- og softwaremæssigt. Til sidst i implementeringsfasen er der lavet en integrationstest. Integrationstesten for hardwaren er bestået i udarbejdelse af et shield til \textit{Arduinoen}. Da de enkelte faser er foregået ved en iterativ proces har det været mulighed at justere designdokumentet, hvis en komponent eller funktion blev implementeret anderledes end det var specificeret. På samme måde er designdokumentet ændret, hvis en enhedstest fejlede. Et eksempel på dette er kameraet, hvor det i enhedstesten viste sig at kvaliteten ikke var tilstrækkelig. Enhedstesten for kameraet er vist i afsnit 4.3.1 i projektdokumentation. 
 
 \subsection{Hardware}
 Efter at diagrammet og kredsløbet er fastlagt i designdokumentet kunne vægtcellens kredsløb nu testes på et \textit{fumlebræt}. Se figur \ref{fig:loadcelltest} for testopstilling.
@@ -404,7 +404,7 @@ De primære dele af test koden har været  \textit{sensorValue = analogRead(A0);
  analogRead(A_0)*\frac{5}{1024}=\text{spænding i volt}
  \label{eq:trintilvolt}
  \end{align}
-Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}.
+Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med celleopløsningsbeholderen. I softwaren kræves det en kalibrering for at vægtcellen er præcis, dette er implementeret i projektdokumentation afsnit 4.3.4.5.
  
  \begin{figure}[H]
 	\centering
@@ -414,7 +414,7 @@ Testopstilling af vægtcellen ser ud som på figur \ref{fig:loadcell_mont} med c
 \end{figure}
 
 \subsection{Kalibrering af vægtcellen}
-Funktionen til vægtcellen er implementeret efter beskrivelsen i designdokumentet i projektdokumentation afsnit 4.3.5.3 \fxnote{Tjek ref}. Dens funktion er at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeret ved en lineær model:
+Funktionen til vægtcellen er implementeret efter beskrivelsen i designdokumentet i projektdokumentation afsnit 3.4.1.1. Dens funktion er at konvertere det analoge input (V) til indholdet (ml) i celleopløsningsbeholderen. Dette er implementeret ved en lineær model:
 \begin{align}
 mL = a*input+b \text{, hvor a er hældningen og b er skæringen med y aksen}
 \end{align}

@@ -1,6 +1,6 @@
 \newpage
 \section{Kamera}
-Det indkøbte kamera viste ikke at have tilstrækkelig kvalitet igennem en enhedstest. Der kunne ikke skelnes mellem det eksokrine væv og de langerhanske øer. Yderligere blev det erfaret, at lyset er utrolig vigtigt, derfor er ideen med kamerahuset en nødvendighed for at kontrollere lyset til kameraet. Der kan læses mere om enhedstesten af kameraet i afsnit 4.3.1 \fxnote{Tjek ref} i projektdokumentationen. Til at erstatte kameraet blev der i stedet genereret en række billeder, som skulle simulere flowet af opløsningsvæske igennem slangen.
+Det indkøbte kamera viste ikke at have tilstrækkelig kvalitet igennem en enhedstest. Der kunne ikke skelnes mellem det eksokrine væv og de langerhanske øer. Yderligere blev det erfaret, at lyset er utrolig vigtigt, derfor er ideen med kamerahuset en nødvendighed for at kontrollere lyset til kameraet. Der kan læses mere om enhedstesten af kameraet i afsnit 4.3.1 i projektdokumentationen. Til at erstatte kameraet blev der i stedet genereret en række billeder, som skulle simulere flowet af opløsningsvæske igennem slangen.
 
 \subsection{Kamerasimulation}
 Til at generere et billedsæt, der simulerer langerhanske øer, er der udviklet et Matlab script. Billederne, der er valgt, stammer fra det indkøbte kamera. Grunden til de kan anvendes som grundlag for genereringen af billeder, på trods af kameraets utilstrækkelige kvalitet, er, at øerne og det ekstra væv er adskilt i de enkelte billeder. Dette muliggør en separat segmentering af øer og væv, som herefter kan sammensættes til billeder, der ligger tæt op af det der observeres gennem et almindeligt mikroskop. De 3 billeder, der danner grundlag for billedgenereringen, er vist nedenfor. 
@@ -35,7 +35,7 @@ Flowsimuleringen er opbygget på en måde, hvor den består af henholdsvis en se
 \text{ , hvor n er antallet af billeder i sættet}
 \label{formular:isletprmin}
 \end{align} 
-I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder, at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen afsnit 1.4.1.1 i projektdokumentationen) \fxnote{tjek ref}
+I figur \ref{fig:boxplot} er vist et boxplot, som viser distributionen af hvor mange øer der passerer i minuttet. Det ses at medianen ligger over 30 øer pr. minut, hvilket betyder, at der i gennemsnit vil blive sorteret over 30 øer pr minut. De 30 øer pr. minut stammer fra hastighedskravet fra systemets kvalitetskrav (Se kravspecifikationen afsnit 1.4.1.1 i projektdokumentationen).
 
  \begin{figure}[H]
 	\centering
